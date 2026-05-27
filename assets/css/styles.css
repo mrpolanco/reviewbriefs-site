@@ -1662,14 +1662,37 @@ blockquote.guest-quote cite {
   margin-left: 0.25rem;
 }
 
-/* ---- Action cards (print-only checklist alternative) ---- */
+/* ---- Action cards (replaces cramped table on screen and in print) ---- */
+
+/* Hide the data tables everywhere — action cards are the canonical layout */
+.data-table-wrap {
+  display: none;
+}
+
+/* Show action cards everywhere (they were previously print-only) */
+.print-action-cards {
+  display: block !important;
+}
+
+.print-only.print-action-cards {
+  display: block !important;
+}
+
+.action-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 0.875rem;
+}
+
 .action-card {
+  background: var(--rb-paper);
   border: 1px solid var(--rb-line);
-  border-radius: 10px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 0.75rem;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
   break-inside: avoid;
   page-break-inside: avoid;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
 }
 
 .action-card__priority {
@@ -1680,30 +1703,41 @@ blockquote.guest-quote cite {
   margin-bottom: 0.4rem;
 }
 
-.action-card__priority--high { color: var(--rb-clay); }
-.action-card__priority--medium { color: #9a7a3a; }
-.action-card__priority--low { color: var(--rb-muted); }
+.action-card__priority--high {
+  color: var(--rb-clay);
+}
+.action-card__priority--medium {
+  color: #9a7a3a;
+}
+.action-card__priority--low {
+  color: var(--rb-muted);
+}
 
 .action-card__title {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--rb-ink);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
 }
 
 .action-card__detail {
   font-size: 0.825rem;
   color: var(--rb-ink-soft);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
   max-width: none;
+  line-height: 1.5;
 }
 
 .action-card__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1rem;
-  font-size: 0.78rem;
-  color: var(--rb-ink-soft);
+  gap: 0.3rem 1.25rem;
+  font-size: 0.775rem;
+  color: var(--rb-muted);
+  border-top: 1px solid var(--rb-line);
+  padding-top: 0.65rem;
+  margin-top: auto;
 }
 
 /* ============================
