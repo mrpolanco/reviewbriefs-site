@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Guest Review Intelligence Brief — {{PROPERTY_NAME}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/styles.css">
+  <style>
+    /* ── Brief-specific design layer ── */
+    :root {
+      --brief-positive-bg: #EFF4EE;
+      --brief-positive: #304734;
+      --brief-opportunity-bg: #FEF9EC;
+      --brief-opportunity: #7A5C1E;
+      --brief-priority-bg: #FBF0EB;
+      --brief-priority: #7A3A1E;
+    }
+
+    body {
+      background: var(--rb-cream);
+    }
+
+    /* ════════════════════════════
+       Password gate
+    ════════════════════════════ */
+    #brief-gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #brief-body {
+      display: none;
+    }
+
+    .gate-card {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 3rem 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .gate-card__logo {
+      margin: 0 auto 1.5rem;
+    }
+
+    .gate-card__title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--rb-ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .gate-card__subtitle {
+      font-size: 0.875rem;
+      color: var(--rb-muted);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .gate-card__input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--rb-stone);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--rb-ink);
+      background: #fff;
+      margin-bottom: 0.85rem;
+      transition: border-color var(--transition);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    .gate-card__input:focus {
+      outline: none;
+      border-color: var(--rb-moss);
+    }
+
+    .gate-card__input.error {
+      border-color: #C0392B;
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    .gate-card__btn {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: var(--rb-moss);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-btn);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .gate-card__btn:hover {
+      background: var(--rb-moss-dark);
+    }
+
+    .gate-card__error {
+      font-size: 0.8rem;
+      color: #C0392B;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .gate-card__branding {
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      color: var(--rb-muted);
+    }
+
+    /* ════════════════════════════
+       Brief header
+    ════════════════════════════ */
+    .brief-header {
+      background: var(--rb-moss-dark);
+      color: #fff;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .brief-header__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rb-sage);
+      margin-bottom: 0.6rem;
+    }
+
+    .brief-header__title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .brief-header__location {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+    }
+
+    .brief-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .brief-header__meta-item {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .brief-header__meta-item strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    .brief-header__actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    .btn-ghost-white {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-btn);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: all var(--transition);
+    }
+
+    .btn-ghost-white:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* ════════════════════════════
+       Layout
+    ════════════════════════════ */
+    .brief-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+
+    .brief-nav {
+      background: var(--rb-paper);
+      border-right: 1px solid var(--rb-line);
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .brief-nav__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      padding: 0 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .brief-nav__link {
+      display: block;
+      padding: 0.45rem 1.25rem;
+      font-size: 0.82rem;
+      color: var(--rb-ink-soft);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all var(--transition);
+    }
+
+    .brief-nav__link:hover {
+      color: var(--rb-ink);
+      background: var(--rb-cream);
+      border-left-color: var(--rb-sage);
+    }
+
+    .brief-nav__link.active {
+      color: var(--rb-moss);
+      border-left-color: var(--rb-moss);
+      font-weight: 600;
+    }
+
+    /* ════════════════════════════
+       Content
+    ════════════════════════════ */
+    .brief-content {
+      padding: 3rem 3rem 5rem;
+      max-width: 820px;
+    }
+
+    .brief-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .brief-section__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--rb-ink);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 2px solid var(--rb-line);
+    }
+
+    .brief-section__subtitle {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--rb-ink-soft);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    /* ── Badges ── */
+    .brief-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+      line-height: 1;
+    }
+
+    .brief-badge--positive    { background: var(--brief-positive-bg);    color: var(--brief-positive); }
+    .brief-badge--opportunity { background: var(--brief-opportunity-bg); color: var(--brief-opportunity); }
+    .brief-badge--priority    { background: var(--brief-priority-bg);    color: var(--brief-priority); }
+
+    .brief-badge--area {
+      background: var(--rb-stone);
+      color: var(--rb-ink-soft);
+    }
+
+    /* ── Insight callouts ── */
+    .brief-insight {
+      background: var(--brief-positive-bg);
+      border-left: 3px solid var(--rb-moss);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      margin: 0.85rem 0;
+      font-size: 0.875rem;
+      color: var(--brief-positive);
+      line-height: 1.55;
+    }
+
+    .brief-insight--opportunity {
+      background: var(--brief-opportunity-bg);
+      border-left-color: var(--rb-gold);
+      color: var(--brief-opportunity);
+    }
+
+    /* ── Evidence quotes ── */
+    .brief-evidence {
+      border-left: 3px solid var(--rb-sage);
+      background: var(--rb-cream);
+      margin: 0.6rem 0;
+      padding: 0.65rem 1rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--rb-ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ── Theme blocks ── */
+    .brief-theme {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .brief-theme__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .brief-theme__name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--rb-ink);
+    }
+
+    /* ── Gap / alignment blocks ── */
+    .brief-gap {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .brief-gap__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .brief-gap__text {
+      font-size: 0.88rem;
+      color: var(--rb-ink);
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+
+    .brief-gap__recommendation {
+      font-size: 0.82rem;
+      color: var(--rb-moss-dark);
+      background: var(--brief-positive-bg);
+      border-radius: 6px;
+      padding: 0.45rem 0.7rem;
+      line-height: 1.45;
+    }
+
+    /* ── Win list ── */
+    .brief-wins {
+      list-style: none;
+      padding: 0;
+    }
+
+    .brief-wins li {
+      display: flex;
+      gap: 0.85rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--rb-line);
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--rb-ink-soft);
+      line-height: 1.45;
+    }
+
+    .brief-wins li:last-child {
+      border-bottom: none;
+    }
+
+    .brief-wins__icon {
+      flex-shrink: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--brief-positive-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--rb-moss);
+      font-weight: 700;
+      margin-top: 0.05rem;
+    }
+
+    /* ── Language bank ── */
+    .brief-language-bank {
+      background: var(--rb-cream);
+      border: 1px solid var(--rb-stone);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .brief-language-bank__title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Divider ── */
+    .brief-divider {
+      border: none;
+      border-top: 1px solid var(--rb-line);
+      margin: 2rem 0;
+    }
+
+    /* ── Footer ── */
+    .brief-footer {
+      background: var(--rb-ink);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.72rem;
+      line-height: 1.7;
+    }
+
+    .brief-footer a {
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── Print ── */
+    @media print {
+      #brief-gate { display: none !important; }
+      #brief-body { display: block !important; }
+      .brief-nav,
+      .brief-header__actions { display: none; }
+      .brief-layout { display: block; }
+      .brief-content { padding: 0; max-width: 100%; }
+      body { background: #fff; }
+      .brief-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .brief-layout { grid-template-columns: 1fr; }
+      .brief-nav {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--rb-line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+      }
+      .brief-nav__label { display: none; }
+      .brief-nav__link {
+        border-left: none;
+        border-radius: 6px;
+        background: var(--rb-stone);
+        padding: 0.3rem 0.65rem;
+      }
+      .brief-content { padding: 1.5rem 1rem 3rem; }
+      .brief-header { padding: 2rem 0 1.75rem; }
+      .brief-header__title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     PASSWORD GATE
+     HOW TO SET PASSWORD:
+     1. Choose a password for this brief
+     2. Run in browser console:
+        crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
+          .then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
+     3. Replace BRIEF_PASSWORD_HASH below with the output
+     ════════════════════════════════════════════ -->
+
+<div id="brief-gate">
+  <div class="gate-card">
+    <div class="gate-card__logo">
+      <img src="../../../assets/images/logo.svg" alt="ReviewBriefs" width="140" height="32">
+    </div>
+    <h1 class="gate-card__title">Guest Review Intelligence Brief</h1>
+    <p class="gate-card__subtitle">
+      {{PROPERTY_NAME}}<br>
+      Enter the access password to view this brief.
+    </p>
+    <input
+      type="password"
+      id="gate-input"
+      class="gate-card__input"
+      placeholder="Enter password"
+      autocomplete="current-password"
+      aria-label="Brief password"
+    >
+    <div class="gate-card__error" id="gate-error">Incorrect password. Please try again.</div>
+    <button class="gate-card__btn" id="gate-btn" onclick="checkPassword()">View Brief</button>
+    <p class="gate-card__branding">Prepared by <strong style="color:var(--rb-ink-soft)">ReviewBriefs</strong> · <a href="https://reviewbriefs.com" style="color:var(--rb-muted)">reviewbriefs.com</a></p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     BRIEF BODY (hidden until password correct)
+     ════════════════════════════════════════════ -->
+
+<div id="brief-body">
+
+  <!-- Brief header -->
+  <header class="brief-header">
+    <div class="container">
+      <div class="brief-header__eyebrow">Guest Review Intelligence Brief · ReviewBriefs</div>
+      <h1 class="brief-header__title">{{PROPERTY_NAME}}</h1>
+      <p class="brief-header__location">{{CITY_COUNTRY}} · {{PROPERTY_TYPE}}</p>
+      <div class="brief-header__meta">
+        <div class="brief-header__meta-item"><strong>Analysis period:</strong> {{ANALYSIS_WINDOW}}</div>
+        <div class="brief-header__meta-item"><strong>Sources reviewed:</strong> {{SOURCES}}</div>
+        <div class="brief-header__meta-item"><strong>Prepared:</strong> {{GENERATED_DATE}}</div>
+      </div>
+      <div class="brief-header__actions">
+        <button class="btn-ghost-white" onclick="window.print()">Export PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="brief-layout">
+
+    <!-- Sidebar nav -->
+    <nav class="brief-nav" aria-label="Brief sections">
+      <div class="brief-nav__label">Contents</div>
+      <a href="#executive-summary"          class="brief-nav__link">Executive Summary</a>
+      <a href="#what-guests-love"           class="brief-nav__link">What Guests Love</a>
+      <a href="#friction-points"            class="brief-nav__link">Friction Points</a>
+      <a href="#website-alignment"          class="brief-nav__link">Website Alignment</a>
+      <a href="#experience-opportunities"   class="brief-nav__link">Opportunities</a>
+      <a href="#quick-wins"                 class="brief-nav__link">Quick Wins</a>
+      <a href="#strategic-recommendations"  class="brief-nav__link">Strategy</a>
+      <a href="#next-audit-areas"           class="brief-nav__link">Next Audit Areas</a>
+    </nav>
+
+    <!-- Main content -->
+    <main class="brief-content">
+
+      <!--
+        ════════════════════════════════════════════════════════════
+        PASTE AI-GENERATED SECTIONS BELOW
+        Run: prompts/client-brief.md with the analysis.json
+        Replace each section block with the corresponding output
+        ════════════════════════════════════════════════════════════
+      -->
+
+      <!-- section: executive-summary -->
+      <section class="brief-section" id="executive-summary">
+        <h2 class="brief-section__title">Executive Summary</h2>
+        <!-- INSERT: Executive Summary output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Executive Summary here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: what-guests-love -->
+      <section class="brief-section" id="what-guests-love">
+        <h2 class="brief-section__title">What Guests Love Most</h2>
+        <!-- INSERT: Positive Themes output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Positive Themes here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: friction-points -->
+      <section class="brief-section" id="friction-points">
+        <h2 class="brief-section__title">Guest Friction Points</h2>
+        <!-- INSERT: Friction Points output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Friction Points here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: website-alignment -->
+      <section class="brief-section" id="website-alignment">
+        <h2 class="brief-section__title">Website Messaging Alignment</h2>
+        <!-- INSERT: Website Alignment output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Website Alignment here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: experience-opportunities -->
+      <section class="brief-section" id="experience-opportunities">
+        <h2 class="brief-section__title">Service &amp; Experience Opportunities</h2>
+        <!-- INSERT: Experience Opportunities output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Opportunities here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: quick-wins -->
+      <section class="brief-section" id="quick-wins">
+        <h2 class="brief-section__title">Quick Wins</h2>
+        <!-- INSERT: Quick Wins output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Quick Wins here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: strategic-recommendations -->
+      <section class="brief-section" id="strategic-recommendations">
+        <h2 class="brief-section__title">Strategic Recommendations</h2>
+        <!-- INSERT: Strategic Recommendations output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Strategy here ]</p>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- section: next-audit-areas -->
+      <section class="brief-section" id="next-audit-areas">
+        <h2 class="brief-section__title">Suggested Next Audit Areas</h2>
+        <!-- INSERT: Next Audit Areas output here -->
+        <p style="color:var(--rb-muted); font-style:italic; font-size:0.85rem;">[ Paste AI-generated Next Audit Areas here ]</p>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="brief-footer">
+    <div>Guest Review Intelligence Brief · {{PROPERTY_NAME}}</div>
+    <div>Prepared by <strong style="color:rgba(255,255,255,0.65)">ReviewBriefs</strong> · <a href="https://reviewbriefs.com">reviewbriefs.com</a> · {{GENERATED_DATE}}</div>
+    <div style="margin-top:0.5rem; font-size:0.68rem;">This brief is confidential and prepared solely for the recipient named above.</div>
+  </footer>
+
+</div><!-- /#brief-body -->
+
+<!-- Password gate script -->
+<script>
+  // ── CONFIGURATION ──────────────────────────────────────────
+  // SHA-256 hash of the brief password.
+  // To generate: open browser console and run:
+  //   crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
+  //     .then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
+  const BRIEF_PASSWORD_HASH = '{{PASSWORD_HASH}}';
+  // ────────────────────────────────────────────────────────────
+
+  const SESSION_KEY = 'rb_brief_{{JOB_ID}}';
+
+  // If previously unlocked this session, skip gate
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    unlockBrief();
+  }
+
+  document.getElementById('gate-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  async function checkPassword() {
+    const input = document.getElementById('gate-input').value;
+    const errorEl = document.getElementById('gate-error');
+
+    if (!input) return;
+
+    const hash = await sha256(input);
+    if (hash === BRIEF_PASSWORD_HASH) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      unlockBrief();
+    } else {
+      document.getElementById('gate-input').classList.add('error');
+      errorEl.style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('gate-input').classList.remove('error');
+      }, 400);
+    }
+  }
+
+  function unlockBrief() {
+    document.getElementById('brief-gate').style.display = 'none';
+    document.getElementById('brief-body').style.display = 'block';
+    document.body.style.background = 'var(--rb-cream)';
+  }
+
+  async function sha256(message) {
+    const data = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    return [...new Uint8Array(hashBuffer)]
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('.brief-section[id]');
+  const navLinks = document.querySelectorAll('.brief-nav__link');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.brief-nav__link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
