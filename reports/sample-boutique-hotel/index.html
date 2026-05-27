@@ -85,6 +85,23 @@
     </div>
   </div>
 
+  <!-- View mode indicator (static demo — shows concept) -->
+  <div style="background:var(--rb-paper); border-bottom:1px solid var(--rb-line);">
+    <div class="container" style="padding-top:0.875rem; padding-bottom:0.875rem;">
+      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:1rem; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:0.78rem; color:var(--rb-muted); font-weight:500;">Report view:</span>
+          <div style="display:flex; background:var(--rb-cream); border:1px solid var(--rb-line); border-radius:8px; overflow:hidden;">
+            <span style="padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:700; background:var(--rb-ink); color:var(--rb-cream); cursor:default;">Full Report</span>
+            <span style="padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:500; color:var(--rb-muted); cursor:default;">Client View</span>
+            <span style="padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:500; color:var(--rb-muted); cursor:default;">Internal Only</span>
+          </div>
+        </div>
+        <p style="font-size:0.78rem; color:var(--rb-muted); margin:0; max-width:none; font-style:italic;">Agency accounts can split this report into a client-facing brief and an internal strategy view. <a href="../../pricing.html" style="color:var(--rb-moss);">See agency plans →</a></p>
+      </div>
+    </div>
+  </div>
+
   <div class="section bg-paper">
     <div class="container">
       <div class="report-doc">
@@ -185,6 +202,13 @@
               <li>
                 <a href="#s9">30-Day Action Checklist</a>
                 <span class="report-index__sub">Hotel Operations · Marketing / Agency</span>
+              </li>
+              <li style="border-bottom:none;">
+                <a href="#s10" style="color:var(--rb-ink-soft);">Internal Agency Notes</a>
+                <span class="report-index__sub" style="display:flex; align-items:center; gap:0.3rem;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                  Agency only
+                </span>
               </li>
             </ol>
           </div>
@@ -882,6 +906,85 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Section 10: Internal Agency Notes (example of internal-only view) -->
+          <div class="report-section force-page" id="s10" style="background:rgba(24,32,28,0.025); border:1.5px dashed rgba(24,32,28,0.18); border-radius:16px; padding:2rem 2.25rem;">
+            <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+              <div style="display:flex; align-items:center; gap:0.5rem; background:var(--rb-ink); color:var(--rb-cream); padding:0.35rem 0.875rem; border-radius:6px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                <span style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">Internal Agency View</span>
+              </div>
+              <span style="font-size:0.825rem; color:var(--rb-muted); font-style:italic;">This section is not included in the client-facing brief. Agency accounts only.</span>
+            </div>
+
+            <div class="report-section__title" style="border-bottom:1px solid rgba(24,32,28,0.12); padding-bottom:1rem; margin-bottom:1.5rem;">
+              <span class="report-section__num" style="background:var(--rb-ink);">10</span>
+              <h2>Internal Agency Notes</h2>
+            </div>
+
+            <!-- Upsell opportunities -->
+            <h3 style="font-size:1rem; font-weight:700; margin-bottom:1rem; color:var(--rb-ink);">Potential upsell opportunities</h3>
+
+            <div style="display:flex; flex-direction:column; gap:0.875rem; margin-bottom:2rem;">
+
+              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1.1rem 1.25rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                  <span style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--rb-moss); background:rgba(79,111,82,0.1); padding:0.2rem 0.6rem; border-radius:4px;">Revenue opportunity</span>
+                  <span style="font-size:0.78rem; color:var(--rb-muted);">Medium effort, high impact</span>
+                </div>
+                <h4 style="font-size:0.925rem; margin-bottom:0.35rem;">OTA listing refresh</h4>
+                <p style="font-size:0.85rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Guest reviews identify the courtyard as the strongest conversion asset, yet it is not leading in current OTA gallery ordering. A paid OTA photo-order and description audit would directly address what guests already respond to. Recommend positioning as a quick-win listing optimisation project.</p>
+              </div>
+
+              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1.1rem 1.25rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                  <span style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--rb-gold); background:rgba(198,161,91,0.1); padding:0.2rem 0.6rem; border-radius:4px;">Quick win</span>
+                  <span style="font-size:0.78rem; color:var(--rb-muted);">Low effort, medium impact</span>
+                </div>
+                <h4 style="font-size:0.925rem; margin-bottom:0.35rem;">Guest communication refresh</h4>
+                <p style="font-size:0.85rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Parking confusion and arrival friction are repeat signals that a simple pre-arrival email would resolve. This is a low-cost deliverable — one email rewrite — with measurable review score impact within 30 days. Easy upsell as part of ongoing retainer or standalone project.</p>
+              </div>
+
+              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1.1rem 1.25rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                  <span style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--rb-clay); background:rgba(184,107,75,0.1); padding:0.2rem 0.6rem; border-radius:4px;">Larger project</span>
+                  <span style="font-size:0.78rem; color:var(--rb-muted);">Medium effort, high impact</span>
+                </div>
+                <h4 style="font-size:0.925rem; margin-bottom:0.35rem;">Website and booking flow messaging review</h4>
+                <p style="font-size:0.85rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Guest language consistently points to "quiet courtyard in central Antigua" as the property's core conversion asset. If current homepage or booking flow leads with room specs or location generics, this is a messaging gap worth surfacing as a paid project. Recommend a positioning review before any copy changes are made.</p>
+              </div>
+
+            </div>
+
+            <!-- Client call framing -->
+            <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.875rem; color:var(--rb-ink);">Suggested client conversation framing</h3>
+            <div style="background:var(--rb-paper); border-left:3px solid var(--rb-ink); padding:1rem 1.25rem; border-radius:0 8px 8px 0; margin-bottom:2rem;">
+              <p style="font-size:0.875rem; max-width:none; margin-bottom:0.75rem; color:var(--rb-ink-soft);">Lead with the <strong>Wi-Fi and parking fixes</strong> as guest experience wins — they're low cost, demonstrable, and the hotel can act on them this week. Frame them as what the data found, not what you found.</p>
+              <p style="font-size:0.875rem; max-width:none; margin-bottom:0.75rem; color:var(--rb-ink-soft);">Then introduce the <strong>courtyard-first marketing opportunity</strong> as a revenue improvement rather than a design critique. "Your strongest asset isn't leading in your listings" is an easier conversation than "your current copy isn't working."</p>
+              <p style="font-size:0.875rem; max-width:none; margin:0; color:var(--rb-ink-soft);">Hold the <strong>website and booking flow conversation</strong> for a follow-up call once trust is established. Lead with the quick wins first.</p>
+            </div>
+
+            <!-- Priority revenue opportunities -->
+            <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.875rem; color:var(--rb-ink);">Priority revenue opportunities for agency</h3>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.875rem;">
+              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1rem; text-align:center;">
+                <div style="font-size:1.25rem; font-weight:900; color:var(--rb-moss); margin-bottom:0.25rem;">$800–1,500</div>
+                <div style="font-size:0.78rem; color:var(--rb-ink-soft); font-weight:600;">OTA listing refresh</div>
+                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.2rem;">One-time project</div>
+              </div>
+              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1rem; text-align:center;">
+                <div style="font-size:1.25rem; font-weight:900; color:var(--rb-gold); margin-bottom:0.25rem;">$300–500</div>
+                <div style="font-size:0.78rem; color:var(--rb-ink-soft); font-weight:600;">Guest comms refresh</div>
+                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.2rem;">One-time project</div>
+              </div>
+              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1rem; text-align:center;">
+                <div style="font-size:1.25rem; font-weight:900; color:var(--rb-clay); margin-bottom:0.25rem;">$2,000–4,000</div>
+                <div style="font-size:0.78rem; color:var(--rb-ink-soft); font-weight:600;">Website messaging</div>
+                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.2rem;">Project or retainer add-on</div>
+              </div>
+            </div>
+
           </div>
 
           <!-- Report Footer -->
