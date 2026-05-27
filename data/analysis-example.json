@@ -1,0 +1,347 @@
+{
+  "_note": "Known-good example output from packet-to-analysis.md. Use for testing prompt output shape and brief template rendering. Property: The Beekman, A Thompson Hotel — New York City. Data is illustrative, not from a real scrape.",
+  "job_id": "beekman-thompson-2025-04",
+  "property": {
+    "name": "The Beekman, A Thompson Hotel",
+    "city_country": "New York, NY, USA",
+    "property_type": "boutique-hotel",
+    "primary_sources": ["Google", "TripAdvisor", "Booking.com"]
+  },
+  "generated_at": "2025-04-22",
+  "analysis_window": {
+    "earliest_review": "2024-10-01",
+    "latest_review": "2025-04-15",
+    "months_covered": 6.5
+  },
+  "review_counts": {
+    "total_captured": 184,
+    "analysis_eligible": 161,
+    "excluded_low_confidence": 14,
+    "excluded_duplicate": 9,
+    "by_source": {
+      "Google": 89,
+      "TripAdvisor": 52,
+      "Booking.com": 20
+    },
+    "by_rating": {
+      "5": 98,
+      "4": 38,
+      "3": 14,
+      "2": 7,
+      "1": 4
+    },
+    "average_rating": 4.4
+  },
+  "top_strengths": [
+    {
+      "theme": "Atrium architecture and interior design",
+      "mentions": 74,
+      "intensity": "high",
+      "representative_quotes": [
+        "The nine-story atrium is one of the most stunning hotel spaces I've ever been in.",
+        "Walking through the lobby felt like stepping into a different century. Genuinely jaw-dropping.",
+        "The building itself is the experience. I kept finding new details every time I walked through."
+      ],
+      "marketing_usability": "high"
+    },
+    {
+      "theme": "Staff attentiveness and local knowledge",
+      "mentions": 58,
+      "intensity": "high",
+      "representative_quotes": [
+        "Concierge got us a last-minute reservation at a place we'd given up on. Didn't even hesitate.",
+        "Every staff member we encountered was warm without being performative about it.",
+        "The front desk remembered our names by the second morning. Rare at a hotel this size."
+      ],
+      "marketing_usability": "high"
+    },
+    {
+      "theme": "Room quality and historic detail",
+      "mentions": 41,
+      "intensity": "high",
+      "representative_quotes": [
+        "The cast iron details and original windows made it feel like a real New York room, not a hotel room.",
+        "Bed was exceptional. Linens, mattress, the works.",
+        "Our room was small but every inch felt intentional. Nothing felt cheap."
+      ],
+      "marketing_usability": "medium"
+    },
+    {
+      "theme": "Location and neighborhood walkability",
+      "mentions": 33,
+      "intensity": "medium",
+      "representative_quotes": [
+        "Steps from the Brooklyn Bridge and City Hall park. Couldn't have been more convenient.",
+        "The Financial District has gotten genuinely interesting — great base for exploring downtown."
+      ],
+      "marketing_usability": "medium"
+    },
+    {
+      "theme": "Cocktail bar (Temple Court Bar) quality",
+      "mentions": 27,
+      "intensity": "medium",
+      "representative_quotes": [
+        "Best hotel bar I've been to in New York. Not even close.",
+        "The drinks program feels like it belongs in a destination bar, not just a hotel amenity."
+      ],
+      "marketing_usability": "high"
+    }
+  ],
+  "top_complaints": [
+    {
+      "theme": "Breakfast quality and value inconsistency",
+      "mentions": 22,
+      "severity": "high",
+      "reputational_impact": "high",
+      "is_pattern": true,
+      "representative_quotes": [
+        "Breakfast was the one disappointment. Inconsistent quality for the price point.",
+        "Eggs were clearly sitting under a lamp. At these rates, that's not acceptable.",
+        "The breakfast menu hasn't changed in a year and feels like an afterthought."
+      ],
+      "internal_note": "Complaints cluster around weekend brunch service specifically — possible staffing issue. Weekday reviews are softer on this. Worth flagging to operator before making sweeping breakfast recommendations."
+    },
+    {
+      "theme": "Room size vs price expectation",
+      "mentions": 18,
+      "severity": "medium",
+      "reputational_impact": "medium",
+      "is_pattern": true,
+      "representative_quotes": [
+        "The room was beautiful but genuinely small. I knew going in, but still.",
+        "For what we paid, I expected more than 220 square feet.",
+        "The design makes the most of limited space, but it's still limited."
+      ],
+      "internal_note": "This is a structural property issue, not operational. Website does disclose room sizes on some listings but not all. Primarily surfaces on 4-star reviews, not 1–2 stars — guests still satisfied overall."
+    },
+    {
+      "theme": "Noise between rooms and from street",
+      "mentions": 14,
+      "severity": "medium",
+      "reputational_impact": "medium",
+      "is_pattern": true,
+      "representative_quotes": [
+        "Could hear conversations from the adjacent room clearly. Historic building, not much insulation.",
+        "Beekman Street gets noisy on weekends. Worth requesting a courtyard-facing room.",
+        "Woke up twice Saturday night from street noise. Earplugs would have helped."
+      ],
+      "internal_note": "Historic building insulation limits are real. Complaints are lower-severity but consistent. A proactive room tip in confirmation emails could deflect this."
+    },
+    {
+      "theme": "Valet parking cost and wait times",
+      "mentions": 9,
+      "severity": "medium",
+      "reputational_impact": "low",
+      "is_pattern": true,
+      "representative_quotes": [
+        "$85/night for valet is steep even by NYC standards.",
+        "45-minute wait for car retrieval on checkout morning."
+      ],
+      "internal_note": "NYC pricing context makes this understandable but the wait times are a legitimate operational flag. Low reputational impact because most guests arrive by transit."
+    },
+    {
+      "theme": "Gym size and equipment",
+      "mentions": 7,
+      "severity": "low",
+      "reputational_impact": "low",
+      "is_pattern": false,
+      "representative_quotes": [
+        "Gym is fine but doesn't match the overall quality of the property.",
+        "Limited cardio equipment — treadmill wait at 7am."
+      ],
+      "internal_note": "Isolated across review window. Not a pattern. Include in internal brief for completeness but low priority for client."
+    }
+  ],
+  "website_alignment_gaps": [
+    {
+      "website_claim": "Positioned as a full-service luxury hotel with premium dining",
+      "guest_reality": "Breakfast quality consistently underperforms relative to room rates and overall property quality",
+      "gap_severity": "high",
+      "conversion_risk": "medium",
+      "recommendation": "Either elevate breakfast service quality to match positioning or soften dining claims on booking pages. Consider adding honest framing ('intimate, locally-sourced menu') rather than broad 'premium dining' language."
+    },
+    {
+      "website_claim": "Room descriptions emphasize spaciousness and comfort",
+      "guest_reality": "Multiple guests surprised by room dimensions despite booking at rates implying larger spaces",
+      "gap_severity": "medium",
+      "conversion_risk": "high",
+      "recommendation": "Surface square footage prominently in room descriptions. Guests who know going in rate this lower-concern; guests who feel surprised rate it higher-impact. Accurate expectation-setting protects reviews."
+    },
+    {
+      "website_claim": "Temple Court Bar described as a hotel amenity",
+      "guest_reality": "Guests consistently experience it as a destination in its own right and recommend it independently",
+      "gap_severity": "low",
+      "conversion_risk": "low",
+      "recommendation": "Promote Temple Court Bar more aggressively as a standalone draw. It is converting non-hotel guests and generating positive reviews — underutilized as a marketing asset."
+    }
+  ],
+  "service_risk_areas": [
+    {
+      "area": "Weekend breakfast service execution",
+      "risk_level": "high",
+      "pattern_strength": "strong",
+      "notes": "Complaints cluster on Saturday and Sunday. Likely a staffing volume or kitchen prep issue on peak mornings. 22 total breakfast mentions, majority weekend-flagged."
+    },
+    {
+      "area": "Valet retrieval wait times",
+      "risk_level": "medium",
+      "pattern_strength": "moderate",
+      "notes": "9 mentions over 6 months. Not high-frequency but consistent. Checkout morning bottleneck appears to be the primary trigger."
+    },
+    {
+      "area": "Noise management — street-facing rooms",
+      "risk_level": "medium",
+      "pattern_strength": "moderate",
+      "notes": "Historic building insulation is structural. Proactive guest communication (courtyard room request tip, earplugs in-room) could deflect without operational cost."
+    }
+  ],
+  "guest_expectation_mismatches": [
+    {
+      "expectation": "Full-size luxury hotel room at a premium NYC rate",
+      "reality": "Historic building constraints mean rooms run 180–280 sq ft in many categories",
+      "likely_source": "price-tier",
+      "severity": "medium"
+    },
+    {
+      "expectation": "Premium breakfast dining included or of equivalent quality to room experience",
+      "reality": "Breakfast is inconsistent and perceived as underperforming relative to overall property standard",
+      "likely_source": "website-copy",
+      "severity": "high"
+    }
+  ],
+  "quick_wins": [
+    {
+      "action": "Add room size (sq ft) prominently to all room booking descriptions",
+      "expected_impact": "high",
+      "effort": "low",
+      "area": "website"
+    },
+    {
+      "action": "Send pre-arrival tip in confirmation email: 'For a quieter stay, request a courtyard-facing room when you arrive'",
+      "expected_impact": "medium",
+      "effort": "low",
+      "area": "guest-comms"
+    },
+    {
+      "action": "Feature Temple Court Bar separately in homepage and social — position as a destination, not just a hotel bar",
+      "expected_impact": "medium",
+      "effort": "low",
+      "area": "messaging"
+    },
+    {
+      "action": "Audit and update breakfast menu and weekend staffing coverage",
+      "expected_impact": "high",
+      "effort": "medium",
+      "area": "operations"
+    },
+    {
+      "action": "Add a review response template addressing room size transparency — acknowledge it proactively and reframe around design intentionality",
+      "expected_impact": "medium",
+      "effort": "low",
+      "area": "review-response"
+    }
+  ],
+  "strategic_recommendations": [
+    {
+      "recommendation": "Develop a weekend F&B excellence standard separate from weekday operations",
+      "rationale": "Breakfast complaints cluster on weekends and represent the single highest-impact service gap relative to overall property quality and price tier. Closing this gap would meaningfully protect the 4.4 average rating.",
+      "priority": "high",
+      "timeframe": "60 days"
+    },
+    {
+      "recommendation": "Reposition Temple Court Bar as a standalone NYC destination in all marketing",
+      "rationale": "27 unprompted positive mentions across a 6-month window. Guests already treat it as a destination — the marketing hasn't caught up. Stronger positioning increases non-guest foot traffic and generates organic review volume.",
+      "priority": "high",
+      "timeframe": "30 days"
+    },
+    {
+      "recommendation": "Audit all OTA and direct booking room listings for size transparency",
+      "rationale": "Room size is the second most common friction theme and nearly always comes from surprised guests rather than guests who knew going in. Expectation alignment is a direct review score protector at this price tier.",
+      "priority": "high",
+      "timeframe": "30 days"
+    },
+    {
+      "recommendation": "Build a proactive pre-arrival communication sequence addressing the top known friction points",
+      "rationale": "Noise concerns and room size surprises are structurally fixed. Guest education (courtyard rooms, what to expect from a historic building) can deflect 30–40% of those complaints at near-zero operational cost.",
+      "priority": "medium",
+      "timeframe": "45 days"
+    }
+  ],
+  "reputation_risk_score": {
+    "score": 7,
+    "trajectory": "stable",
+    "summary": "The Beekman holds a strong overall reputation driven by its architecture, staff, and bar program. The primary risk is the breakfast quality gap — it is the only recurring operational complaint that punches above its frequency weight given the price tier. Room size perceptions are structural and partially manageable through expectation-setting. No critical reputation threats present in this review window. Trajectory is stable but breakfast service is a clear ceiling on reaching 4.6+ average."
+  },
+  "confidence_notes": [
+    {
+      "note": "14 reviews excluded for low confidence — predominantly fragmented captures from TripAdvisor mobile listings where review text was <15 words. Exclusion does not materially affect pattern findings.",
+      "severity": "info",
+      "affects_section": "review_counts"
+    },
+    {
+      "note": "9 duplicates excluded — same review text appeared on both Google and Booking.com for 9 entries. Deduplicated by text similarity. Source attribution preserved in packet.",
+      "severity": "info",
+      "affects_section": "review_counts"
+    },
+    {
+      "note": "Breakfast complaint pattern is strong in frequency but the weekend-vs-weekday clustering is inferred from date metadata, not from explicit reviewer statements in all cases. Treat weekend attribution as probable, not confirmed.",
+      "severity": "warning",
+      "affects_section": "service_risk_areas"
+    },
+    {
+      "note": "Gym complaint (7 mentions) treated as isolated/not a pattern. If review volume increases and gym mentions rise above 12, reclassify as pattern.",
+      "severity": "info",
+      "affects_section": "top_complaints"
+    }
+  ],
+  "guest_language_bank": [
+    {
+      "quote": "One of the most stunning hotel spaces I've ever been in.",
+      "theme": "Atrium architecture",
+      "source": "Google",
+      "usability": "direct-copy"
+    },
+    {
+      "quote": "Stepping into a different century.",
+      "theme": "Historic character",
+      "source": "TripAdvisor",
+      "usability": "direct-copy"
+    },
+    {
+      "quote": "The building itself is the experience.",
+      "theme": "Architecture as differentiator",
+      "source": "Google",
+      "usability": "direct-copy"
+    },
+    {
+      "quote": "Best hotel bar I've been to in New York. Not even close.",
+      "theme": "Temple Court Bar",
+      "source": "Google",
+      "usability": "direct-copy"
+    },
+    {
+      "quote": "Warm without being performative about it.",
+      "theme": "Staff demeanor",
+      "source": "TripAdvisor",
+      "usability": "paraphrase"
+    },
+    {
+      "quote": "Every inch felt intentional.",
+      "theme": "Room design quality",
+      "source": "Booking.com",
+      "usability": "direct-copy"
+    },
+    {
+      "quote": "Nothing felt cheap.",
+      "theme": "Overall quality perception",
+      "source": "Google",
+      "usability": "inspiration-only"
+    },
+    {
+      "quote": "The drinks program feels like it belongs in a destination bar.",
+      "theme": "Temple Court Bar positioning",
+      "source": "TripAdvisor",
+      "usability": "paraphrase"
+    }
+  ]
+}

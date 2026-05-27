@@ -45,6 +45,9 @@ The internal brief is not password-protected. Share via direct URL or internal l
 
 ### Step 3 — Analysis JSON → Client Brief
 
+> **Access gate caveat:** The client brief template includes a lightweight JS password gate for casual privacy. Brief content ships inside the HTML and is visible to anyone who views source. **Do not use for confidential data.** For real protection, use server-side auth or signed links at the hosting layer.
+
+
 1. Open `prompts/client-brief.md`
 2. Paste the prompt, then paste `analysis.json` below it
 3. Copy the HTML output sections
@@ -59,6 +62,17 @@ The internal brief is not password-protected. Share via direct URL or internal l
    - Replace `{{PASSWORD_HASH}}` in the client `index.html` with it
 6. Fill in the `{{PLACEHOLDER}}` header values
 7. Paste each AI-generated section into the corresponding `<!-- INSERT -->` comment
+
+---
+
+### Step 4 — QA Pass
+
+Run `prompts/qa-brief.md` with:
+1. The `analysis.json`
+2. The internal brief HTML sections
+3. The client brief HTML sections
+
+The QA prompt checks 15 rules across evidence integrity, internal/client separation, recommendation traceability, and tone. Look for PUBLISH READY before pushing either brief.
 
 ---
 
@@ -93,8 +107,10 @@ Use the same job ID across the analysis JSON, internal brief folder, and client 
 | File | Role |
 |---|---|
 | `data/brief-schema.json` | Canonical Layer 2 analysis object shape |
+| `data/analysis-example.json` | Known-good filled example (The Beekman) — use for testing prompt output and template rendering |
 | `prompts/packet-to-analysis.md` | Prompt: evidence packet → analysis JSON |
 | `prompts/internal-brief.md` | Prompt: analysis JSON → internal HTML sections |
 | `prompts/client-brief.md` | Prompt: analysis JSON → client HTML sections |
+| `prompts/qa-brief.md` | Prompt: final QA pass — checks both briefs against analysis JSON before publishing |
 | `briefs/internal/_template/index.html` | Internal brief template |
-| `briefs/client/_template/index.html` | Client brief template + JS password gate |
+| `briefs/client/_template/index.html` | Client brief template + lightweight JS access gate |

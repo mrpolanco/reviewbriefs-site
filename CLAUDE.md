@@ -261,6 +261,7 @@ evidence packet (markdown) → Layer 2 JSON → internal brief HTML + client bri
 | `prompts/packet-to-analysis.md` | Evidence packet → `analysis.json` |
 | `prompts/internal-brief.md` | `analysis.json` → internal HTML sections |
 | `prompts/client-brief.md` | `analysis.json` → client HTML sections |
+| `prompts/qa-brief.md` | Final QA pass — 15 checks before publishing either brief |
 
 ### Output structure
 
@@ -272,9 +273,13 @@ briefs/
 
 Job ID convention: `{property-slug}-{YYYY-MM}` (e.g., `casa-mariposa-2025-05`).
 
-### Client brief password
+### Client brief access gate
 
-Password is hashed client-side with SHA-256 via Web Crypto API. No plaintext password in the HTML. To generate a hash:
+The client template includes a lightweight JS access gate (SHA-256 password hash via Web Crypto API). **This is casual privacy only — brief content is inside the HTML file and visible to anyone who views source.** Do not use for confidential data.
+
+For real protection later: server-side auth, signed expiring links, or basic auth at the hosting layer.
+
+To generate a hash for the gate:
 ```js
 crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
   .then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
