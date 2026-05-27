@@ -1,33 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 56" width="256" height="56" role="img" aria-label="ReviewBriefs">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="ReviewBriefs">
   <title>ReviewBriefs</title>
-  <rect x="0" y="0" width="56" height="56" rx="13" fill="#FFFDF8" opacity="0.12"/>
-  <rect x="0" y="0" width="56" height="56" rx="13" fill="none" stroke="#FFFDF8" stroke-width="1.5" opacity="0.3"/>
-  <text
-    x="14"
-    y="38"
-    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    font-size="26"
-    font-weight="800"
-    letter-spacing="-1"
-    fill="#FFFDF8"
-  >RB</text>
-  <text
-    x="72"
-    y="37"
-    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    font-size="22"
-    font-weight="400"
-    fill="#FFFDF8"
-    letter-spacing="-0.3"
-    opacity="0.9"
-  >Review</text>
-  <text
-    x="155"
-    y="37"
-    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    font-size="22"
-    font-weight="700"
-    fill="#FFFDF8"
-    letter-spacing="-0.3"
-  >Briefs</text>
+  
+  <rect x="0" y="0" width="48" height="48" rx="11" fill="rgba(255,253,248,0.15)"/>
+  <rect x="0" y="0" width="48" height="48" rx="11" fill="none" stroke="rgba(255,253,248,0.35)" stroke-width="1"/>
+  <path d="M13 8 L29 8 L37 16 L37 42 L13 42 Z" fill="none" stroke="#FFFDF8" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M29 8 L29 16 L37 16" fill="none" stroke="#FFFDF8" stroke-width="1.8" stroke-linejoin="round"/>
+  <line x1="17" y1="22" x2="33" y2="22" stroke="#FFFDF8" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="17" y1="27" x2="33" y2="27" stroke="#FFFDF8" stroke-width="1.6" stroke-linecap="round"/>
+  <polyline points="17,36 22,31 26,33 33,25" fill="none" stroke="#FFFDF8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="29,24 33,25 32,29" fill="none" stroke="#FFFDF8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="60" y="33" font-family="'Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="400" fill="#FFFDF8" letter-spacing="-0.3" opacity="0.88">Review</text>
+  <text x="133" y="33" font-family="'Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif" font-size="20" font-weight="700" fill="#FFFDF8" letter-spacing="-0.3">Briefs</text>
 </svg>

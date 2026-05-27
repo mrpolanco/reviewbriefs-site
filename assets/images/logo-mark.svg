@@ -1,14 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56" role="img" aria-label="ReviewBriefs">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="ReviewBriefs">
   <title>ReviewBriefs</title>
-  <rect x="0" y="0" width="56" height="56" rx="13" fill="#4F6F52"/>
-  <rect x="0" y="0" width="56" height="4" rx="2" fill="#6B9970" opacity="0.5"/>
-  <text
-    x="14"
-    y="38"
-    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-    font-size="26"
-    font-weight="800"
-    letter-spacing="-1"
-    fill="#FFFDF8"
-  >RB</text>
+  
+  <!-- Mark container -->
+  <rect x="0" y="0" width="48" height="48" rx="11" fill="#F7F3EA"/>
+
+  <!-- Document body (clip fold at top-right) -->
+  <path d="M13 8 L29 8 L37 16 L37 42 L13 42 Z" fill="none" stroke="#4F6F52" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Fold crease -->
+  <path d="M29 8 L29 16 L37 16" fill="none" stroke="#4F6F52" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Content lines -->
+  <line x1="17" y1="22" x2="33" y2="22" stroke="#4F6F52" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="17" y1="27" x2="33" y2="27" stroke="#4F6F52" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Trend arrow (upward-right) -->
+  <polyline points="17,36 22,31 26,33 33,25" fill="none" stroke="#4F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="29,24 33,25 32,29" fill="none" stroke="#4F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
 </svg>
