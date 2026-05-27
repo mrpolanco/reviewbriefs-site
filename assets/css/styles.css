@@ -760,6 +760,79 @@ p.wide { max-width: none; }
   background: rgba(198,161,91,0.06);
 }
 
+/* ---- Trend blocks (What Changed This Month) ---- */
+.trend-block {
+  border-radius: 12px;
+  border: 1px solid var(--rb-line);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.trend-block__label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+
+.trend-block h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--rb-ink);
+}
+
+.trend-block p {
+  font-size: 0.875rem;
+  color: var(--rb-ink-soft);
+  margin: 0;
+  max-width: none;
+}
+
+.trend-block--up {
+  background: rgba(79,111,82,0.04);
+  border-color: rgba(79,111,82,0.2);
+}
+.trend-block--up .trend-block__label {
+  color: var(--rb-moss);
+}
+
+.trend-block--down {
+  background: rgba(184,107,75,0.04);
+  border-color: rgba(184,107,75,0.2);
+}
+.trend-block--down .trend-block__label {
+  color: var(--rb-clay);
+}
+
+.trend-block--new {
+  background: rgba(198,161,91,0.05);
+  border-color: rgba(198,161,91,0.25);
+}
+.trend-block--new .trend-block__label {
+  color: #9a7a3a;
+}
+
+.trend-block--seasonal {
+  background: rgba(168,184,160,0.1);
+  border-color: rgba(168,184,160,0.35);
+}
+.trend-block--seasonal .trend-block__label {
+  color: #5a7a5d;
+}
+
+.trend-block--resolved {
+  background: rgba(79,111,82,0.04);
+  border-color: rgba(79,111,82,0.2);
+}
+.trend-block--resolved .trend-block__label {
+  color: var(--rb-moss);
+}
+
 blockquote.guest-quote {
   font-family: var(--font-display);
   font-size: 1.05rem;

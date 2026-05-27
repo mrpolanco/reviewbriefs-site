@@ -76,8 +76,8 @@
               Print / Save PDF
             </button>
             <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-sm">
-              Request yours — $99
-            </a>
+              Request yours
+            </button>
           </div>
         </div>
       </div>
@@ -158,10 +158,93 @@
             </div>
           </div>
 
-          <!-- Section 2: Top Praise Themes -->
+          <!-- Section 2: What Changed This Month -->
           <div class="report-section">
             <div class="report-section__title">
               <span class="report-section__num">2</span>
+              <h2>What Changed This Month</h2>
+            </div>
+
+            <!-- Trend summary bar -->
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2rem;">
+              <div style="text-align:center; padding:1.1rem 0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:12px;">
+                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-moss); letter-spacing:-0.04em; line-height:1;">68</div>
+                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Reviews this month</div>
+                <div style="font-size:0.72rem; color:var(--rb-moss); margin-top:0.15rem;">↑ from 42 last month</div>
+              </div>
+              <div style="text-align:center; padding:1.1rem 0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:12px;">
+                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-moss); letter-spacing:-0.04em; line-height:1;">87%</div>
+                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Positive sentiment</div>
+                <div style="font-size:0.72rem; color:var(--rb-moss); margin-top:0.15rem;">↑ from 82% last month</div>
+              </div>
+              <div style="text-align:center; padding:1.1rem 0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:12px;">
+                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-gold); letter-spacing:-0.04em; line-height:1;">4.7</div>
+                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Avg. rating</div>
+                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.15rem;">— unchanged</div>
+              </div>
+              <div style="text-align:center; padding:1.1rem 0.75rem; background:rgba(184,107,75,0.06); border:1px solid rgba(184,107,75,0.18); border-radius:12px;">
+                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-clay); letter-spacing:-0.04em; line-height:1;">14</div>
+                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Wi-Fi complaints</div>
+                <div style="font-size:0.72rem; color:var(--rb-clay); margin-top:0.15rem;">↑ from 11 last month</div>
+              </div>
+            </div>
+
+            <!-- Positive movement -->
+            <div class="trend-block trend-block--up">
+              <div class="trend-block__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                Positive movement
+              </div>
+              <h4>Breakfast mentions rose from 38% → 54%</h4>
+              <p>Breakfast is becoming a more central part of the guest memory — the most significant theme shift this period. This is now the third most mentioned theme overall and is trending toward second. It should be used more intentionally in booking page copy and pre-arrival communication. See Section 9 for the suggested social content series.</p>
+            </div>
+
+            <!-- Watch closely -->
+            <div class="trend-block trend-block--down">
+              <div class="trend-block__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                Watch closely
+              </div>
+              <h4>Wi-Fi complaints increased from 11 → 14 mentions</h4>
+              <p>This is now the most persistent operational friction point in the dataset. It appeared in 11 reviews last period and has continued rising. This is no longer a random complaint — it is becoming a pattern. Treat it as a high-priority fix, not a one-off. See Section 4 for context on review score impact.</p>
+            </div>
+
+            <!-- New issue -->
+            <div class="trend-block trend-block--new">
+              <div class="trend-block__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                New issue
+              </div>
+              <h4>Checkout experience appeared in 5 reviews after not appearing last month</h4>
+              <p>This is a new signal, not previously in the dataset. Five reviews describe the checkout process as rushed or impersonal. This may indicate a staffing or scheduling pattern rather than a property-wide issue. Worth investigating before it becomes a recurring theme. See Section 4 for a suggested process fix.</p>
+            </div>
+
+            <!-- Seasonal signal -->
+            <div class="trend-block trend-block--seasonal">
+              <div class="trend-block__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                Seasonal signal
+              </div>
+              <h4>Courtyard praise increased as dry season arrived</h4>
+              <p>Courtyard and garden mentions rose from 61% to 72% this period. This correlates with Antigua's dry season, when outdoor seating is consistently usable. This pattern is likely to reverse during rainy season (May–October). If the courtyard experience is prominent in current booking page messaging, consider how it will read to guests arriving during wetter months — or whether covered seating options should be more visible in off-season communication.</p>
+            </div>
+
+            <!-- Action progress -->
+            <div class="trend-block trend-block--resolved" style="margin-bottom:0;">
+              <div class="trend-block__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Action progress
+              </div>
+              <h4>Parking confusion mentions dropped from 4 → 1</h4>
+              <p>Last month's brief recommended adding parking instructions to the pre-arrival confirmation email. Parking confusion has fallen from 4 mentions to 1 this period. Likely improved — continue monitoring. This is a small signal but a clear one: one email paragraph resolved a recurring review complaint in 30 days.</p>
+            </div>
+
+          </div>
+
+          <!-- Section 3: Guest Sentiment Snapshot -->
+          <div class="report-section">
+            <div class="report-section__title">
+              <span class="report-section__num">3</span>
               <h2>Top Praise Themes</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Ranked by frequency of unprompted mention across all 68 reviews. Percentages indicate the share of all reviews that reference the theme.</p>
@@ -224,10 +307,10 @@
             </div>
           </div>
 
-          <!-- Section 3: Reputation Risks -->
+          <!-- Section 4: Reputation Risks -->
           <div class="report-section">
             <div class="report-section__title">
-              <span class="report-section__num">3</span>
+              <span class="report-section__num">4</span>
               <h2>Reputation Risks</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Recurring friction points identified across negative and mixed reviews. These are the patterns guests share publicly but rarely raise at checkout.</p>
@@ -267,10 +350,10 @@
             </div>
           </div>
 
-          <!-- Section 4: Guest Language Worth Reusing -->
+          <!-- Section 5: Guest Language Worth Reusing -->
           <div class="report-section">
             <div class="report-section__title">
-              <span class="report-section__num">4</span>
+              <span class="report-section__num">5</span>
               <h2>Guest Language Worth Reusing</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">These are phrases guests chose on their own — the most authentic marketing copy available. Using their language, not corporate language, builds credibility and resonates with prospective guests who read reviews before booking.</p>
@@ -298,10 +381,10 @@
             </div>
           </div>
 
-          <!-- Section 5: Marketing Opportunities -->
+          <!-- Section 6: Marketing Opportunities -->
           <div class="report-section">
             <div class="report-section__title">
-              <span class="report-section__num">5</span>
+              <span class="report-section__num">6</span>
               <h2>Marketing Opportunities</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Review patterns reveal untapped positioning and channel opportunities. These are grounded in what guests are already saying — not aspirational brand claims.</p>
@@ -347,10 +430,10 @@
             </div>
           </div>
 
-          <!-- Section 6: Guest-Informed Messaging Angles -->
+          <!-- Section 7: Guest-Informed Messaging Angles -->
           <div class="report-section">
             <div class="report-section__title">
-              <span class="report-section__num">6</span>
+              <span class="report-section__num">7</span>
               <h2>Guest-Informed Messaging Angles</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:0.75rem; font-size:0.9rem;">Draft language inspired by recurring guest review patterns. These are not final website recommendations — they are copy directions to test and adapt. Final website copy should be validated against the property's current homepage, brand voice, and booking flow.</p>
@@ -389,10 +472,10 @@
             </div>
           </div>
 
-          <!-- Section 7: Suggested Review Responses -->
+          <!-- Section 8: Suggested Review Responses -->
           <div class="report-section">
             <div class="report-section__title">
-              <span class="report-section__num">7</span>
+              <span class="report-section__num">8</span>
               <h2>Suggested Review Responses</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Drafted responses to representative positive and critical reviews. Responses are written in the voice of a property manager — warm, specific, not defensive. Adapt names and details before publishing.</p>
@@ -431,10 +514,10 @@
             </div>
           </div>
 
-          <!-- Section 8: 30-Day Action Checklist -->
+          <!-- Section 9: 30-Day Action Checklist -->
           <div class="report-section">
             <div class="report-section__title">
-              <span class="report-section__num">8</span>
+              <span class="report-section__num">9</span>
               <h2>30-Day Action Checklist</h2>
             </div>
             <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Actions split by audience: hotel operations team and marketing/agency team. Each action includes the source signal it came from, effort level, and expected impact. The killer future feature: check these off and next month's brief tracks what changed.</p>
@@ -560,7 +643,7 @@
                       <td><span class="priority-high">High</span></td>
                       <td>
                         <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Test courtyard-first positioning in OTA and booking page description</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">If current description leads with room specs or location, test opening with courtyard and sense-of-place language. See Section 6 for draft angles.</span>
+                        <span style="font-size:0.8rem; color:var(--rb-muted);">If current description leads with room specs or location, test opening with courtyard and sense-of-place language. See Section 7 for draft angles.</span>
                       </td>
                       <td style="font-size:0.825rem;">Agency / Owner</td>
                       <td style="font-size:0.825rem;">Low</td>
@@ -584,7 +667,7 @@
                       <td><span class="priority-medium">Medium</span></td>
                       <td>
                         <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Develop "Return to the Courtyard" re-engagement email</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Segment past guests (12+ months). One email, one offer, one clear call to action using guest-informed language from Section 4.</span>
+                        <span style="font-size:0.8rem; color:var(--rb-muted);">Segment past guests (12+ months). One email, one offer, one clear call to action using guest-informed language from Section 5.</span>
                       </td>
                       <td style="font-size:0.825rem;">Marketing / Agency</td>
                       <td style="font-size:0.825rem;">Low</td>
