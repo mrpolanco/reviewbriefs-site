@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 56" width="256" height="56" role="img" aria-label="ReviewBriefs">
+  <title>ReviewBriefs</title>
+  <rect x="0" y="0" width="56" height="56" rx="13" fill="#FFFDF8" opacity="0.12"/>
+  <rect x="0" y="0" width="56" height="56" rx="13" fill="none" stroke="#FFFDF8" stroke-width="1.5" opacity="0.3"/>
+  <text
+    x="14"
+    y="38"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    font-size="26"
+    font-weight="800"
+    letter-spacing="-1"
+    fill="#FFFDF8"
+  >RB</text>
+  <text
+    x="72"
+    y="37"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    font-size="22"
+    font-weight="400"
+    fill="#FFFDF8"
+    letter-spacing="-0.3"
+    opacity="0.9"
+  >Review</text>
+  <text
+    x="155"
+    y="37"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+    font-size="22"
+    font-weight="700"
+    fill="#FFFDF8"
+    letter-spacing="-0.3"
+  >Briefs</text>
+</svg>
