@@ -60,18 +60,8 @@
       <div class="text-center">
         <div class="label mb-2">Private beta pricing</div>
         <h1 style="margin-bottom:0.75rem;">Monthly review intelligence.<br>Per property. Every month.</h1>
-        <p class="text-lg" style="color:var(--rb-ink-soft); max-width:56ch; margin:0 auto 1.75rem;">ReviewBriefs is currently offered as a concierge reporting service while we shape the product with early hospitality teams and agencies. Every plan uses the same value metric: monthly review intelligence per property.</p>
-
-        <!-- Billing toggle -->
-        <div style="display:inline-flex; align-items:center; gap:0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:99px; padding:0.4rem 1rem; font-size:0.875rem;">
-          <span id="toggle-monthly" style="font-weight:600; color:var(--rb-ink);">Monthly</span>
-          <button id="billing-toggle" role="switch" aria-checked="false" aria-label="Toggle annual billing"
-            style="width:44px; height:24px; border-radius:99px; background:var(--rb-stone); border:none; cursor:pointer; position:relative; transition:background 0.2s;"
-            onclick="toggleBilling()">
-            <span id="toggle-thumb" style="position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; transition:left 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.2);"></span>
-          </button>
-          <span id="toggle-annual" style="color:var(--rb-muted);">Annual <span style="background:var(--rb-moss); color:#fff; font-size:0.75rem; padding:0.1rem 0.45rem; border-radius:4px; margin-left:0.25rem;">Save ~17%</span></span>
-        </div>
+        <p class="text-lg" style="color:var(--rb-ink-soft); max-width:56ch; margin:0 auto 0.75rem;">Private beta pricing is intentionally simple: start with a sample brief, then continue monthly if the report becomes part of your client or property workflow.</p>
+        <p style="font-size:0.875rem; color:var(--rb-muted); margin:0 auto 1.75rem; max-width:48ch;">Early beta pricing may change as ReviewBriefs moves from concierge reporting to software.</p>
       </div>
     </div>
   </section>
@@ -106,11 +96,11 @@
           <div class="pricing-card__body">
             <div class="label" style="margin-bottom:0.5rem;">Single Property</div>
             <div class="pricing-card__price">
-              <sup>$</sup><span class="price-amount" data-monthly="79" data-annual="66">79</span><span style="font-size:1rem; font-weight:500;">/mo</span>
+              <sup>$</sup>49<span style="font-size:1rem; font-weight:500;">/mo</span>
             </div>
             <div class="pricing-card__period">For independent hotels and properties</div>
-            <p class="price-annual-note" style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5; display:none;">$790/year &mdash; save $158</p>
-            <p class="price-monthly-note" style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5;">Or $790/year &mdash; save $158</p>
+            <p style="font-size:0.825rem; color:var(--rb-moss); font-weight:600; margin:0.75rem 0 0.25rem; line-height:1.5;">Beta price — normally $79/mo</p>
+            <p style="font-size:0.8rem; color:var(--rb-muted); margin:0 0 1rem; line-height:1.5;">Lock in beta pricing while it lasts.</p>
             <ul class="pricing-card__features">
               <li>1 property</li>
               <li>1 monthly ReviewBrief</li>
@@ -125,17 +115,17 @@
           </div>
         </div>
 
-        <!-- Agency — Most Popular -->
+        <!-- Agency Pilot — Most Popular -->
         <div class="pricing-card pricing-card--featured">
           <div class="pricing-card__tag">Most Popular</div>
           <div class="pricing-card__body">
-            <div class="label" style="margin-bottom:0.5rem;">Agency</div>
+            <div class="label" style="margin-bottom:0.5rem;">Agency Pilot</div>
             <div class="pricing-card__price">
-              <sup>$</sup><span class="price-amount" data-monthly="299" data-annual="249">299</span><span style="font-size:1rem; font-weight:500;">/mo</span>
+              <sup>$</sup>199<span style="font-size:1rem; font-weight:500;">/mo</span>
             </div>
             <div class="pricing-card__period">For agencies managing hospitality clients</div>
-            <p class="price-annual-note" style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5; display:none;">$2,990/year &mdash; save $598</p>
-            <p class="price-monthly-note" style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5;">Or $2,990/year &mdash; save $598</p>
+            <p style="font-size:0.825rem; color:var(--rb-sage); font-weight:600; margin:0.75rem 0 0.25rem; line-height:1.5;">Beta price — normally $299/mo</p>
+            <p style="font-size:0.8rem; color:rgba(255,253,248,0.6); margin:0 0 1rem; line-height:1.5;">~$40/property/month. Cancel anytime.</p>
             <ul class="pricing-card__features">
               <li>Up to 5 properties</li>
               <li>Monthly ReviewBrief for each</li>
@@ -154,21 +144,18 @@
         <div class="pricing-card">
           <div class="pricing-card__body">
             <div class="label" style="margin-bottom:0.5rem;">Agency+</div>
-            <div class="pricing-card__price">
-              <sup>$</sup><span class="price-amount" data-monthly="499" data-annual="416">499</span><span style="font-size:1rem; font-weight:500;">/mo</span>
-            </div>
-            <div class="pricing-card__period">For growing agencies and hospitality groups</div>
-            <p class="price-annual-note" style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5; display:none;">$4,990/year &mdash; save $998</p>
-            <p class="price-monthly-note" style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5;">Or $4,990/year &mdash; save $998</p>
+            <div class="pricing-card__price" style="font-size:2rem; letter-spacing:-0.02em;">Custom</div>
+            <div class="pricing-card__period">For 10+ properties, white-label, or custom reporting</div>
+            <p style="font-size:0.825rem; color:var(--rb-muted); margin:0.75rem 0 1rem; line-height:1.5;">Let's talk about what makes sense for your agency or group.</p>
             <ul class="pricing-card__features">
-              <li>Up to 10 properties</li>
+              <li>10+ properties</li>
               <li>Monthly ReviewBrief for each</li>
               <li>White-label report option</li>
               <li>Multi-property pattern summary</li>
               <li>Priority turnaround</li>
               <li>Light customization</li>
             </ul>
-            <a href="mailto:hello@reviewbriefs.com?subject=Agency+ inquiry" class="btn btn-secondary w-full" style="justify-content:center;">Discuss Agency+</a>
+            <a href="mailto:hello@reviewbriefs.com?subject=Agency+ inquiry" class="btn btn-secondary w-full" style="justify-content:center;">Talk to us</a>
           </div>
         </div>
 
@@ -176,7 +163,7 @@
 
       <!-- Value metric callout -->
       <p style="text-align:center; font-size:0.875rem; color:var(--rb-muted); margin-top:2rem;">
-        Every plan uses the same value metric: <strong style="color:var(--rb-ink-soft);">monthly review intelligence per property.</strong> As you add properties, you move up.
+        Every plan uses the same value metric: <strong style="color:var(--rb-ink-soft);">monthly review intelligence per property.</strong> Beta pricing may change as the product grows.
       </p>
     </div>
   </section>
