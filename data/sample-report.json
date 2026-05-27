@@ -1,0 +1,236 @@
+{
+  "report": {
+    "id": "sample-boutique-hotel",
+    "slug": "sample-boutique-hotel",
+    "is_sample": true,
+    "status": "published",
+    "created_at": "2025-05-27",
+    "delivered_at": "2025-05-27"
+  },
+  "property": {
+    "name": "Casa Mariposa Boutique Hotel",
+    "city": "Antigua",
+    "country": "Guatemala",
+    "city_country": "Antigua Guatemala, Guatemala",
+    "property_type": "boutique_hotel",
+    "room_count": 18,
+    "website": "https://example-casamariposa.com"
+  },
+  "review_batch": {
+    "total_reviews": 68,
+    "date_range_start": "2025-01-01",
+    "date_range_end": "2025-05-01",
+    "sources": ["google", "booking_com", "tripadvisor"],
+    "avg_rating": 4.7
+  },
+  "executive_summary": {
+    "overall_sentiment": {
+      "positive_pct": 87,
+      "neutral_pct": 9,
+      "negative_pct": 4
+    },
+    "reputation_health": "strong",
+    "top_strengths": [
+      "Courtyard and garden atmosphere",
+      "Staff warmth and personalization",
+      "Breakfast experience"
+    ],
+    "top_fix": "Wi-Fi dead zones in east wing (rooms 7–11) — appears in 21% of reviews and drags down average score among affected guests."
+  },
+  "praise_themes": [
+    {
+      "rank": 1,
+      "title": "Courtyard & Garden Atmosphere",
+      "frequency_pct": 72,
+      "review_count": 49,
+      "description": "Guests consistently single out the central courtyard — specifically the fountain, the flowering vines, and the arrangement of seating — as the defining experience of the stay.",
+      "sample_quotes": [
+        "The courtyard alone is worth the stay. I had my morning coffee there every day and genuinely didn't want to leave.",
+        "Something about that fountain running all day. I slept better than I have in years."
+      ]
+    },
+    {
+      "rank": 2,
+      "title": "Staff Warmth & Personalization",
+      "frequency_pct": 63,
+      "review_count": 43,
+      "description": "Staff are named individually in 21 reviews — unusual for an 18-room property and a strong signal of exceptional service culture.",
+      "sample_quotes": [
+        "Marco at the front desk remembered that I mentioned wanting to see the jade market and had already printed me a map the next morning."
+      ]
+    },
+    {
+      "rank": 3,
+      "title": "Breakfast Experience",
+      "frequency_pct": 54,
+      "review_count": 37,
+      "description": "The included breakfast receives specific praise for using local ingredients, preparation quality, and the setting.",
+      "sample_quotes": [
+        "The tamales at breakfast were the best I had in a week in Guatemala. And that's saying something."
+      ]
+    },
+    {
+      "rank": 4,
+      "title": "Location within Antigua",
+      "frequency_pct": 44,
+      "review_count": 30,
+      "description": "Walkability to the main square, market, and key restaurants noted as a practical advantage.",
+      "sample_quotes": []
+    },
+    {
+      "rank": 5,
+      "title": "Room Comfort & Colonial Aesthetic",
+      "frequency_pct": 38,
+      "review_count": 26,
+      "description": "Guests praise locally crafted textiles, thick walls keeping rooms cool, and attention to decorative detail.",
+      "sample_quotes": []
+    }
+  ],
+  "reputation_risks": [
+    {
+      "priority": "high",
+      "title": "Wi-Fi Dead Zones in Courtyard-Adjacent Rooms",
+      "affected_rooms": [7, 8, 9, 10, 11],
+      "mention_count": 14,
+      "mention_pct": 21,
+      "avg_rating_with_issue": 3.2,
+      "avg_rating_without_issue": 4.9,
+      "description": "Disproportionate drag on overall score. Low-cost mesh network fix estimated."
+    },
+    {
+      "priority": "high",
+      "title": "Inconsistent Hot Water in Three Rooms",
+      "affected_rooms": [3, 4, 6],
+      "mention_count": 8,
+      "mention_pct": 12,
+      "description": "Recurring source of 1–2 star reviews. Infrastructure fix needed."
+    },
+    {
+      "priority": "medium",
+      "title": "Noise Bleed from Street-Facing Rooms on Weekend Evenings",
+      "mention_count": 7,
+      "mention_pct": 10,
+      "description": "Partially uncontrollable. Proactive check-in communication and room reassignment option recommended."
+    },
+    {
+      "priority": "medium",
+      "title": "Checkout Process Feels Rushed",
+      "mention_count": 5,
+      "mention_pct": 7,
+      "description": "Single-staff morning shifts create impersonal checkout. Process adjustment recommended."
+    },
+    {
+      "priority": "low",
+      "title": "No Parking Guidance in Pre-Arrival Communication",
+      "mention_count": 4,
+      "mention_pct": 6,
+      "description": "One paragraph added to confirmation email would eliminate this category."
+    }
+  ],
+  "guest_language": [
+    "stepping back in time",
+    "best breakfast in Antigua",
+    "felt like a private home",
+    "the courtyard is magical",
+    "staff remembered everything",
+    "authentically Guatemalan",
+    "a different century",
+    "hidden gem",
+    "woke up to birdsong",
+    "quiet and completely private",
+    "thick stone walls keep it cool",
+    "the kind of hotel you tell everyone about",
+    "two minutes from everything",
+    "the fountain was still running when I fell asleep"
+  ],
+  "marketing_opportunities": [
+    {
+      "channel": "OTA Listings",
+      "title": "Lead with the Courtyard, Not the Rooms",
+      "description": "Reorder photo sequence — courtyard first, interior second. Rewrite opening description."
+    },
+    {
+      "channel": "Direct Booking",
+      "title": "Book Direct for Courtyard Room Preference",
+      "description": "Offer courtyard room preference as direct-booking benefit. Costs nothing, bypasses OTA fees."
+    },
+    {
+      "channel": "Social Media",
+      "title": "Breakfast-as-Content Series",
+      "description": "Weekly morning table post. Breakfast praised in 54% of reviews but appears in <10% of Instagram posts."
+    },
+    {
+      "channel": "Email / CRM",
+      "title": "Return to the Courtyard — Past Guest Reactivation",
+      "description": "Segment guests 12+ months since stay. One email, one offer."
+    },
+    {
+      "channel": "TripAdvisor / Google",
+      "title": "Actively Solicit Reviews Post-Breakfast",
+      "description": "Handwritten card at breakfast table with QR code. Morning emotional peak outperforms checkout-time asks."
+    },
+    {
+      "channel": "PR / Earned Media",
+      "title": "Colonial Architecture + Local Food Angle",
+      "description": "Clear editorial appeal for Central America authenticity travel publications."
+    }
+  ],
+  "priority_actions": [
+    {
+      "priority": "high",
+      "action": "Resolve Wi-Fi dead zones in east wing (rooms 7–11)",
+      "owner": "Property Manager",
+      "expected_impact": "+0.3–0.5 aggregate review score; eliminates 21% of negative mentions",
+      "estimated_cost": "$200–400"
+    },
+    {
+      "priority": "high",
+      "action": "Address hot water inconsistency in rooms 3, 4, and 6",
+      "owner": "Property Manager",
+      "expected_impact": "Eliminates recurring 1–2 star reviews from those rooms",
+      "estimated_cost": "Variable — plumber assessment needed"
+    },
+    {
+      "priority": "high",
+      "action": "Reorder OTA photo sequence — courtyard images to positions 1–3",
+      "owner": "Marketing / Front Desk",
+      "expected_impact": "Aligns first impression with top conversion driver",
+      "estimated_cost": "$0"
+    },
+    {
+      "priority": "medium",
+      "action": "Add parking guidance paragraph to pre-arrival email",
+      "owner": "Front Desk",
+      "expected_impact": "Eliminates recurring complaint category",
+      "estimated_cost": "$0"
+    },
+    {
+      "priority": "medium",
+      "action": "Introduce breakfast-time review request cards",
+      "owner": "F&B / Front Desk",
+      "expected_impact": "Increased review volume and specificity",
+      "estimated_cost": "$20–50 printing"
+    },
+    {
+      "priority": "medium",
+      "action": "Redesign checkout process for warmth",
+      "owner": "Front Desk Manager",
+      "expected_impact": "Last impression improvement",
+      "estimated_cost": "$0"
+    },
+    {
+      "priority": "low",
+      "action": "Develop 'Return to the Courtyard' email campaign for past guests",
+      "owner": "Marketing",
+      "expected_impact": "Direct booking revenue from highest-intent audience",
+      "estimated_cost": "$0 (existing email list)"
+    },
+    {
+      "priority": "low",
+      "action": "Update website hero and property description with guest-informed copy",
+      "owner": "Marketing / Owner",
+      "expected_impact": "Conversion improvement from copy-review alignment",
+      "estimated_cost": "$0"
+    }
+  ]
+}
