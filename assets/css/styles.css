@@ -1515,48 +1515,345 @@ blockquote.guest-quote cite {
 
 .hidden { display: none; }
 
-/* ---- Print styles ---- */
+/* ---- Print tip ---- */
+.print-tip {
+  font-size: 0.75rem;
+  color: var(--rb-muted);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+  max-width: 52ch;
+}
+
+/* ---- Print-only elements (hidden on screen) ---- */
+.print-only {
+  display: none;
+}
+
+/* ---- Report Index ---- */
+.report-index {
+  background: var(--rb-paper);
+  border: 1px solid var(--rb-line);
+  border-radius: 18px;
+  padding: 2rem 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.report-index__dashboard {
+  border-bottom: 1px solid var(--rb-line);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.report-index__stat {
+  text-align: center;
+  padding: 1rem 0.75rem;
+  background: var(--rb-cream);
+  border-radius: 10px;
+  border: 1px solid var(--rb-line);
+}
+
+.report-index__stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--rb-ink);
+  line-height: 1;
+}
+
+.report-index__stat-label {
+  font-size: 0.72rem;
+  color: var(--rb-ink-soft);
+  margin-top: 0.3rem;
+}
+
+.report-index__signal {
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--rb-line);
+}
+
+.report-index__signal-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.report-index__signal-value {
+  font-size: 0.825rem;
+  color: var(--rb-ink-soft);
+  line-height: 1.4;
+}
+
+.report-index__signal--up {
+  background: rgba(79,111,82,0.04);
+  border-color: rgba(79,111,82,0.2);
+}
+.report-index__signal--up .report-index__signal-label { color: var(--rb-moss); }
+
+.report-index__signal--down {
+  background: rgba(184,107,75,0.04);
+  border-color: rgba(184,107,75,0.2);
+}
+.report-index__signal--down .report-index__signal-label { color: var(--rb-clay); }
+
+.report-index__signal--opp {
+  background: rgba(198,161,91,0.05);
+  border-color: rgba(198,161,91,0.2);
+}
+.report-index__signal--opp .report-index__signal-label { color: #9a7a3a; }
+
+.report-index__signal--action {
+  background: rgba(79,111,82,0.04);
+  border-color: rgba(79,111,82,0.2);
+}
+.report-index__signal--action .report-index__signal-label { color: var(--rb-moss); }
+
+.report-index__toc { }
+
+.report-index__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.25rem 1.5rem;
+  counter-reset: toc-counter;
+}
+
+.report-index__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--rb-line);
+  font-size: 0.875rem;
+  counter-increment: toc-counter;
+}
+
+.report-index__list li::before {
+  content: counter(toc-counter);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--rb-muted);
+  min-width: 1.2em;
+  flex-shrink: 0;
+}
+
+.report-index__list a {
+  color: var(--rb-ink);
+  text-decoration: none;
+  font-weight: 500;
+}
+.report-index__list a:hover { color: var(--rb-moss); text-decoration: underline; }
+
+.report-index__sub {
+  font-size: 0.75rem;
+  color: var(--rb-muted);
+  margin-left: 0.25rem;
+}
+
+/* ---- Action cards (print-only checklist alternative) ---- */
+.action-card {
+  border: 1px solid var(--rb-line);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.action-card__priority {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.action-card__priority--high { color: var(--rb-clay); }
+.action-card__priority--medium { color: #9a7a3a; }
+.action-card__priority--low { color: var(--rb-muted); }
+
+.action-card__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--rb-ink);
+  margin-bottom: 0.3rem;
+}
+
+.action-card__detail {
+  font-size: 0.825rem;
+  color: var(--rb-ink-soft);
+  margin-bottom: 0.6rem;
+  max-width: none;
+}
+
+.action-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  font-size: 0.78rem;
+  color: var(--rb-ink-soft);
+}
+
+/* ============================
+   PRINT / PDF STYLES
+   ============================ */
+
 @media print {
+  @page {
+    size: Letter;
+    margin: 0.65in 0.75in;
+  }
+
+  /* Hide web chrome */
+  .no-print,
   .site-header,
   .site-footer,
   .report-actions,
   .cta-section,
-  .no-print {
+  .print-tip {
     display: none !important;
   }
 
-  body {
-    background: #fff;
-    color: #000;
-    font-size: 11pt;
+  /* Show print-only elements */
+  .print-only {
+    display: block !important;
   }
 
-  .report-doc__cover {
-    background: #18201C !important;
+  /* Hide web-only tables in action checklist */
+  .data-table,
+  .data-table + .print-only { } /* specificity helper */
+
+  /* Base */
+  body {
+    background: #fff !important;
+    color: #18201C !important;
+    font-size: 10pt;
+    line-height: 1.45;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    border-radius: 0;
   }
 
+  /* Remove outer page chrome */
+  .bg-paper, .bg-cream, .section {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Report doc wrapper */
+  .report-doc {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Cover: dark background prints dark */
+  .report-doc__cover {
+    border-radius: 0 !important;
+    padding: 1.5rem !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  /* Report index on its own page */
+  .report-index {
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .report-index__list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Report body */
   .report-doc__body {
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
+    padding: 0 !important;
   }
 
+  /* Section spacing and breaks */
   .report-section {
+    margin-bottom: 0.4in !important;
+    padding-bottom: 0 !important;
+  }
+
+  .report-section.force-page {
+    break-before: page;
+    page-break-before: always;
+    padding-top: 0 !important;
+  }
+
+  /* Keep content together */
+  .theme-item,
+  .risk-item,
+  .opp-item,
+  .response-block,
+  .copy-block,
+  .action-card,
+  .callout,
+  .trend-block,
+  .guest-quote {
     break-inside: avoid;
-    padding: 1.5rem 2rem;
+    page-break-inside: avoid;
   }
 
-  .card {
-    box-shadow: none;
-    border: 1px solid #ccc;
+  /* Section headers stay with content */
+  .report-section__title {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
-  a { color: inherit; text-decoration: none; }
-
-  @page {
-    margin: 1.5cm;
+  /* Reduce shadows and backgrounds in print */
+  .card,
+  .report-index__stat,
+  .report-index__signal,
+  .trend-block,
+  .callout,
+  .copy-block,
+  .response-block {
+    box-shadow: none !important;
   }
+
+  /* Keep stat grid readable */
+  .report-index__stat {
+    border: 1px solid #ccc !important;
+    background: #f9f9f9 !important;
+  }
+
+  /* Hide the data tables; show action cards */
+  .data-table {
+    display: none !important;
+  }
+
+  /* Section numbers */
+  .report-section__num {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Typography scale down slightly */
+  h2 { font-size: 1.15rem !important; }
+  h3 { font-size: 1rem !important; }
+  h4 { font-size: 0.9rem !important; }
+
+  /* Prevent orphan lines */
+  p { orphans: 3; widows: 3; }
+
+  /* Links: no underline in print */
+  a { text-decoration: none !important; color: inherit !important; }
 }
