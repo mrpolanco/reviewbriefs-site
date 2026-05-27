@@ -49,12 +49,14 @@
 
   // ---- Pricing billing toggle ----
   window.toggleBilling = function () {
-    const isAnnual = document.getElementById('billing-toggle').getAttribute('aria-checked') === 'true';
+    const toggle = document.getElementById('billing-toggle');
+    if (!toggle) return;
+    const isAnnual = toggle.getAttribute('aria-checked') === 'true';
     const nowAnnual = !isAnnual;
 
-    document.getElementById('billing-toggle').setAttribute('aria-checked', String(nowAnnual));
+    toggle.setAttribute('aria-checked', String(nowAnnual));
     document.getElementById('toggle-thumb').style.left = nowAnnual ? '23px' : '3px';
-    document.getElementById('billing-toggle').style.background = nowAnnual ? 'var(--rb-moss)' : 'var(--rb-stone)';
+    toggle.style.background = nowAnnual ? 'var(--rb-moss)' : 'var(--rb-stone)';
     document.getElementById('toggle-monthly').style.fontWeight = nowAnnual ? '400' : '600';
     document.getElementById('toggle-monthly').style.color = nowAnnual ? 'var(--rb-muted)' : 'var(--rb-ink)';
     document.getElementById('toggle-annual').style.color = nowAnnual ? 'var(--rb-ink)' : 'var(--rb-muted)';
@@ -63,8 +65,11 @@
     document.querySelectorAll('.price-amount').forEach(function (el) {
       el.textContent = nowAnnual ? el.dataset.annual : el.dataset.monthly;
     });
-    document.querySelectorAll('.price-period').forEach(function (el) {
-      el.textContent = nowAnnual ? 'Billed annually — cancel anytime' : 'Billed monthly — cancel anytime';
+    document.querySelectorAll('.price-annual-note').forEach(function (el) {
+      el.style.display = nowAnnual ? 'block' : 'none';
+    });
+    document.querySelectorAll('.price-monthly-note').forEach(function (el) {
+      el.style.display = nowAnnual ? 'none' : 'block';
     });
   };
 
