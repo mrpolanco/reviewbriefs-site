@@ -58,14 +58,74 @@
   <!-- component: hero-section -->
   <section class="hero">
     <div class="container">
-      <div class="hero__kicker">Review Intelligence</div>
-      <h1 class="hero__heading">Guest reviews, turned into<br>client-ready briefs.</h1>
-      <p class="hero__body">ReviewBriefs reads the signals buried in your guests' own words — what they praise, what frustrates them, and the language that books rooms — and packages it all into a polished report your team can act on this week.</p>
-      <div class="hero__actions">
-        <a href="reports/sample-boutique-hotel/" class="btn btn-primary btn-lg">See a sample report</a>
-        <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-secondary btn-lg">Request a brief for your property</button>
+      <div class="hero__layout">
+
+        <!-- Left: copy -->
+        <div class="hero__copy">
+          <div class="hero__kicker">Review Intelligence</div>
+          <h1 class="hero__heading">Guest reviews, turned into client-ready briefs.</h1>
+          <p class="hero__body">ReviewBriefs reads the signals buried in your guests' own words — what they praise, what frustrates them, and the language that books rooms — and delivers a polished monthly report your team can act on.</p>
+          <div class="hero__actions">
+            <a href="reports/sample-boutique-hotel/" class="btn btn-primary btn-lg">View sample report</a>
+            <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-secondary btn-lg">Request a sample brief</button>
+          </div>
+          <p class="hero__note">Selected properties only during private beta. No card required.</p>
+        </div>
+
+        <!-- Right: report preview card -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card__header">
+              <div class="hero-card__label">Monthly ReviewBrief</div>
+              <div class="hero-card__property">Casa Mariposa Boutique Hotel</div>
+              <div class="hero-card__meta">Antigua, Guatemala &nbsp;·&nbsp; 84 reviews &nbsp;·&nbsp; May 2025</div>
+            </div>
+            <div class="hero-card__body">
+
+              <div class="hero-card__section">
+                <div class="hero-card__section-label">Top Signal</div>
+                <p class="hero-card__signal">Guests consistently praise staff warmth and walkable location. Personal service is mentioned in <strong>31%</strong> of positive reviews — a clear marketing differentiator.</p>
+              </div>
+
+              <div class="hero-card__section">
+                <div class="hero-card__section-label">Priority Actions</div>
+                <ol class="hero-card__actions-list">
+                  <li>
+                    <span class="hero-card__action-dot hero-card__action-dot--high"></span>
+                    Add parking instructions to pre-arrival email
+                    <span class="hero-card__badge hero-card__badge--high">High</span>
+                  </li>
+                  <li>
+                    <span class="hero-card__action-dot hero-card__action-dot--high"></span>
+                    Use "walkable location" in direct booking copy
+                    <span class="hero-card__badge hero-card__badge--high">High</span>
+                  </li>
+                  <li>
+                    <span class="hero-card__action-dot hero-card__action-dot--med"></span>
+                    Create noise-complaint review response template
+                    <span class="hero-card__badge hero-card__badge--med">Med</span>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="hero-card__section">
+                <div class="hero-card__section-label">Guest Language</div>
+                <div class="hero-card__chips">
+                  <span class="hero-card__chip">"felt like coming home"</span>
+                  <span class="hero-card__chip">"steps from everything"</span>
+                  <span class="hero-card__chip">"staff remembered us"</span>
+                  <span class="hero-card__chip">"quiet courtyard"</span>
+                </div>
+              </div>
+
+            </div>
+            <div class="hero-card__footer">
+              <a href="reports/sample-boutique-hotel/" style="font-size:0.8rem; color:var(--rb-moss); font-weight:600; text-decoration:none;">View full sample report →</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <p class="hero__note">No account needed. First report delivered within 3 business days.</p>
     </div>
   </section>
   <!-- end component: hero-section -->
