@@ -47,6 +47,27 @@
     });
   });
 
+  // ---- Pricing billing toggle ----
+  window.toggleBilling = function () {
+    const isAnnual = document.getElementById('billing-toggle').getAttribute('aria-checked') === 'true';
+    const nowAnnual = !isAnnual;
+
+    document.getElementById('billing-toggle').setAttribute('aria-checked', String(nowAnnual));
+    document.getElementById('toggle-thumb').style.left = nowAnnual ? '23px' : '3px';
+    document.getElementById('billing-toggle').style.background = nowAnnual ? 'var(--rb-moss)' : 'var(--rb-stone)';
+    document.getElementById('toggle-monthly').style.fontWeight = nowAnnual ? '400' : '600';
+    document.getElementById('toggle-monthly').style.color = nowAnnual ? 'var(--rb-muted)' : 'var(--rb-ink)';
+    document.getElementById('toggle-annual').style.color = nowAnnual ? 'var(--rb-ink)' : 'var(--rb-muted)';
+    document.getElementById('toggle-annual').style.fontWeight = nowAnnual ? '600' : '400';
+
+    document.querySelectorAll('.price-amount').forEach(function (el) {
+      el.textContent = nowAnnual ? el.dataset.annual : el.dataset.monthly;
+    });
+    document.querySelectorAll('.price-period').forEach(function (el) {
+      el.textContent = nowAnnual ? 'Billed annually — cancel anytime' : 'Billed monthly — cancel anytime';
+    });
+  };
+
   // ---- Active nav link ----
   const currentPath = window.location.pathname;
   document.querySelectorAll('.site-nav__link').forEach(function (link) {

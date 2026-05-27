@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing — ReviewBriefs</title>
-  <meta name="description" content="ReviewBriefs pricing: free sample report, $99 one-time brief per property, or $499/mo for agencies managing multiple hotels.">
+  <meta name="description" content="ReviewBriefs pricing: free sample report, $79/mo per property, or $299/mo for agencies managing up to 5 hotels.">
   <meta property="og:title" content="Pricing — ReviewBriefs">
-  <meta property="og:description" content="Free sample, $99 one-time brief, or $499/mo for agencies. Guest review intelligence for boutique hotels.">
+  <meta property="og:description" content="Free sample, then $79/mo per property or $299/mo for agencies. Guest review intelligence for boutique hotels."
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://reviewbriefs.com/assets/images/og-image.png">
   <meta property="og:url" content="https://reviewbriefs.com/pricing">
@@ -58,8 +58,19 @@
     <div class="container">
       <div class="text-center">
         <div class="label mb-2">Pricing</div>
-        <h1 style="margin-bottom:0.75rem;">Start with the sample. Upgrade when you're ready.</h1>
-        <p class="text-lg" style="color:var(--rb-ink-soft); max-width:52ch; margin:0 auto;">No subscription required to start. Read the full sample report for free — then decide if a brief for your property is worth $99.</p>
+        <h1 style="margin-bottom:0.75rem;">Start free. Stay only if it works.</h1>
+        <p class="text-lg" style="color:var(--rb-ink-soft); max-width:52ch; margin:0 auto;">Read the full sample report at no cost. Your first brief is free — then $79/month if you want to keep the intelligence coming.</p>
+
+        <!-- Annual toggle -->
+        <div style="display:inline-flex; align-items:center; gap:0.75rem; margin-top:1.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:99px; padding:0.4rem 1rem; font-size:0.875rem;">
+          <span id="toggle-monthly" style="font-weight:600; color:var(--rb-ink);">Monthly</span>
+          <button id="billing-toggle" role="switch" aria-checked="false" aria-label="Toggle annual billing"
+            style="width:44px; height:24px; border-radius:99px; background:var(--rb-stone); border:none; cursor:pointer; position:relative; transition:background 0.2s;"
+            onclick="toggleBilling()">
+            <span id="toggle-thumb" style="position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; transition:left 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.2);"></span>
+          </button>
+          <span id="toggle-annual" style="color:var(--rb-muted);">Annual <span style="background:var(--rb-moss); color:#fff; font-size:0.75rem; padding:0.1rem 0.4rem; border-radius:4px; margin-left:0.25rem;">Save 20%</span></span>
+        </div>
       </div>
     </div>
   </section>
@@ -71,53 +82,57 @@
         <!-- Free -->
         <div class="pricing-card">
           <div class="pricing-card__body">
-            <div class="label" style="margin-bottom:0.5rem;">Free Sample Brief</div>
+            <div class="label" style="margin-bottom:0.5rem;">Sample</div>
             <div class="pricing-card__price">$0</div>
             <div class="pricing-card__period">No signup required</div>
             <ul class="pricing-card__features">
               <li>Full sample report — all 8 sections</li>
               <li>See exactly the format and depth</li>
               <li>Printable and shareable</li>
-              <li>Casa Mariposa example property</li>
+              <li>Your first brief is also free</li>
             </ul>
             <a href="reports/sample-boutique-hotel/" class="btn btn-secondary w-full" style="justify-content:center;">Read the sample report</a>
           </div>
         </div>
 
-        <!-- One-Time -->
+        <!-- Single Property -->
         <div class="pricing-card pricing-card--featured">
           <div class="pricing-card__tag">Most popular</div>
           <div class="pricing-card__body">
-            <div class="label" style="margin-bottom:0.5rem;">One-Time Brief</div>
-            <div class="pricing-card__price"><sup>$</sup>99</div>
-            <div class="pricing-card__period">Per property, one-time payment</div>
+            <div class="label" style="margin-bottom:0.5rem;">Single Property</div>
+            <div class="pricing-card__price">
+              <sup>$</sup><span class="price-amount" data-monthly="79" data-annual="63">79</span><span style="font-size:1rem; font-weight:500;">/mo</span>
+            </div>
+            <div class="pricing-card__period price-period">Billed monthly — cancel anytime</div>
             <ul class="pricing-card__features">
-              <li>Full 8-section guest intelligence brief</li>
+              <li>Monthly guest intelligence brief</li>
               <li>Up to 100 reviews analyzed</li>
-              <li>Private web report link to share with clients</li>
+              <li>All 8 report sections</li>
+              <li>Private web link to share with clients</li>
               <li>PDF-ready for presentations</li>
               <li>Delivered within 3 business days</li>
-              <li>Google, Booking.com, TripAdvisor, Expedia</li>
             </ul>
-            <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary w-full" style="justify-content:center;">Request a brief →</button>
+            <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary w-full" style="justify-content:center;">Get started →</button>
           </div>
         </div>
 
         <!-- Agency -->
         <div class="pricing-card">
           <div class="pricing-card__body">
-            <div class="label" style="margin-bottom:0.5rem;">Agency Pilot</div>
-            <div class="pricing-card__price"><sup>$</sup>499<span style="font-size:1rem; font-weight:500;">/mo</span></div>
-            <div class="pricing-card__period">Up to 8 property briefs per month</div>
+            <div class="label" style="margin-bottom:0.5rem;">Agency</div>
+            <div class="pricing-card__price">
+              <sup>$</sup><span class="price-amount" data-monthly="299" data-annual="239">299</span><span style="font-size:1rem; font-weight:500;">/mo</span>
+            </div>
+            <div class="pricing-card__period price-period">Billed monthly — cancel anytime</div>
             <ul class="pricing-card__features">
-              <li>Monthly briefs for up to 8 properties</li>
-              <li>White-label report format (your agency name)</li>
+              <li>Monthly briefs for up to 5 properties</li>
+              <li>White-label report format</li>
               <li>Priority 48-hour turnaround</li>
               <li>Dedicated point of contact</li>
-              <li>Bundled PDF templates</li>
-              <li>Cancel anytime — no contract</li>
+              <li>Client-ready PDF templates</li>
+              <li>Report history and archive</li>
             </ul>
-            <a href="mailto:hello@reviewbriefs.com?subject=Agency Pilot inquiry" class="btn btn-secondary w-full" style="justify-content:center;">Get in touch</a>
+            <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-secondary w-full" style="justify-content:center;">Talk to us →</button>
           </div>
         </div>
 
@@ -159,7 +174,17 @@
 
         <div style="background:var(--rb-paper); padding:1.5rem 1.75rem;">
           <h3 style="font-size:1rem; margin-bottom:0.5rem;">Is this a subscription?</h3>
-          <p style="font-size:0.9rem; color:var(--rb-ink-soft); max-width:none; margin:0;">The one-time brief is a single purchase — no subscription. The Agency Pilot is a monthly plan that cancels anytime.</p>
+          <p style="font-size:0.9rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Yes — both paid plans are monthly subscriptions that cancel anytime. Your first brief is free. After that, you're billed monthly (or annually at a 20% discount) for ongoing monthly reports.</p>
+        </div>
+
+        <div style="background:var(--rb-paper); padding:1.5rem 1.75rem;">
+          <h3 style="font-size:1rem; margin-bottom:0.5rem;">What does "first brief is free" mean?</h3>
+          <p style="font-size:0.9rem; color:var(--rb-ink-soft); max-width:none; margin:0;">When you request your first brief, we'll produce and deliver it at no charge. If you find it useful, you can subscribe to continue receiving monthly reports. No card required upfront.</p>
+        </div>
+
+        <div style="background:var(--rb-paper); padding:1.5rem 1.75rem;">
+          <h3 style="font-size:1rem; margin-bottom:0.5rem;">Do you offer annual billing?</h3>
+          <p style="font-size:0.9rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Yes — pay annually and save 20%. That works out to $63/mo for Single Property (vs $79/mo) and $239/mo for Agency (vs $299/mo). Use the toggle above to see annual prices.</p>
         </div>
 
       </div>
@@ -169,11 +194,11 @@
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
-      <h2>Read the sample first. Then decide.</h2>
-      <p>No sign-up required to see the full sample report. If it looks like something your clients would value, request a brief for your property.</p>
+      <h2>Your first brief is free.</h2>
+      <p>See the sample report, request a brief for your property, and decide if monthly intelligence is worth $79. No card required to start.</p>
       <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
         <a href="reports/sample-boutique-hotel/" class="btn btn-ghost-light btn-lg">See the sample report</a>
-        <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-lg">Request a Brief — $99</button>
+        <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-lg">Request your free brief</button>
       </div>
     </div>
   </section>

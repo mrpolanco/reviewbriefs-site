@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "pricing-strategist": {
+      "source": "daffy0208/ai-dev-standards",
+      "sourceType": "github",
+      "skillPath": "skills/pricing-strategist/SKILL.md",
+      "computedHash": "bd88d1da8c7d4fca7f0758fa9e0991b27d45831d2786de042bb1a2b214def925"
+    }
+  }
+}
