@@ -72,7 +72,7 @@
     /* ── Layout ── */
     .brief-layout {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 220px 1fr;
       align-items: start;
     }
 
@@ -81,8 +81,8 @@
       border-right: 1px solid var(--rb-line);
       padding: 2rem 0;
       position: sticky;
-      top: 2.75rem;
-      height: calc(100vh - 2.75rem);
+      top: 32px;
+      height: calc(100vh - 32px);
       overflow-y: auto;
     }
     .brief-nav__label {
@@ -95,13 +95,16 @@
       margin-bottom: 0.5rem;
     }
     .brief-nav__link {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.45rem 1.25rem;
       font-size: 0.82rem;
       color: var(--rb-ink-soft);
       text-decoration: none;
       border-left: 2px solid transparent;
       transition: all var(--transition);
+      line-height: 1.3;
     }
     .brief-nav__link:hover {
       color: var(--rb-ink);
@@ -112,6 +115,13 @@
       color: var(--rb-moss);
       border-left-color: var(--rb-moss);
       font-weight: 600;
+    }
+
+    .brief-nav__num {
+      font-size: 0.65rem;
+      color: var(--rb-muted);
+      font-weight: 400;
+      min-width: 1.1em;
     }
 
     /* ── Content ── */
@@ -710,17 +720,17 @@
 
     <!-- Sidebar navigation -->
     <nav class="brief-nav" aria-label="Brief sections">
-      <div class="brief-nav__label">Contents</div>
-      <a href="#executive-summary"         class="brief-nav__link active">Executive Summary</a>
-      <a href="#what-guests-love"          class="brief-nav__link">What Guests Love</a>
-      <a href="#fnb-signals"               class="brief-nav__link">Dining &amp; Bar</a>
-      <a href="#friction-points"           class="brief-nav__link">Friction Points</a>
-      <a href="#website-alignment"         class="brief-nav__link">Website Alignment</a>
-      <a href="#listing-website-alignment" class="brief-nav__link">Listing Alignment</a>
-      <a href="#experience-opportunities"  class="brief-nav__link">Opportunities</a>
-      <a href="#quick-wins"                class="brief-nav__link">Quick Wins</a>
-      <a href="#strategic-recommendations" class="brief-nav__link">Strategy</a>
-      <a href="#next-audit-areas"          class="brief-nav__link">Next Audit Areas</a>
+      <div class="brief-nav__label">Sections</div>
+      <a href="#executive-summary"         class="brief-nav__link active"><span class="brief-nav__num">01</span> Executive Summary</a>
+      <a href="#what-guests-love"          class="brief-nav__link"><span class="brief-nav__num">02</span> What Guests Love</a>
+      <a href="#fnb-signals"               class="brief-nav__link"><span class="brief-nav__num">03</span> Dining &amp; Bar</a>
+      <a href="#friction-points"           class="brief-nav__link"><span class="brief-nav__num">04</span> Friction Points</a>
+      <a href="#website-alignment"         class="brief-nav__link"><span class="brief-nav__num">05</span> Website Alignment</a>
+      <a href="#listing-website-alignment" class="brief-nav__link"><span class="brief-nav__num">06</span> Listing Alignment</a>
+      <a href="#experience-opportunities"  class="brief-nav__link"><span class="brief-nav__num">07</span> Opportunities</a>
+      <a href="#quick-wins"                class="brief-nav__link"><span class="brief-nav__num">08</span> Quick Wins</a>
+      <a href="#strategic-recommendations" class="brief-nav__link"><span class="brief-nav__num">09</span> Strategy</a>
+      <a href="#next-audit-areas"          class="brief-nav__link"><span class="brief-nav__num">10</span> Next Audit Areas</a>
     </nav>
 
     <!-- Main content -->
