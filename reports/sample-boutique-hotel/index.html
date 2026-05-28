@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ReviewBriefs Sample Report — Casa Mariposa Boutique Hotel, Antigua Guatemala</title>
-  <meta name="description" content="A full ReviewBriefs sample report for Casa Mariposa Boutique Hotel. See exactly what a guest review intelligence brief looks like before you order one for your property.">
+  <meta name="description" content="A full ReviewBriefs sample client brief for Casa Mariposa Boutique Hotel. See exactly what a guest review intelligence brief looks like before you order one for your property.">
   <meta property="og:title" content="Sample ReviewBrief — Casa Mariposa Boutique Hotel">
-  <meta property="og:description" content="A complete 8-section guest review intelligence report. See exactly what you get before ordering.">
+  <meta property="og:description" content="A complete guest review intelligence brief. See exactly what you get before ordering.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://reviewbriefs.com/assets/images/og-image.png">
   <meta property="og:url" content="https://reviewbriefs.com/reports/sample-boutique-hotel">
@@ -16,6 +16,454 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script async src="https://tally.so/widgets/embed.js"></script>
+  <style>
+    /* ── Brief design layer ─────────────────────────────────── */
+    :root {
+      --brief-positive-bg: #EFF4EE;
+      --brief-positive: #304734;
+      --brief-opportunity-bg: #FEF9EC;
+      --brief-opportunity: #7A5C1E;
+      --brief-priority-bg: #FBF0EB;
+      --brief-priority: #7A3A1E;
+    }
+
+    /* ── Brief header (dark green) ── */
+    .brief-header {
+      background: var(--rb-moss-dark);
+      color: #fff;
+      padding: 2.75rem 0 2.25rem;
+    }
+    .brief-header__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rb-sage);
+      margin-bottom: 0.6rem;
+    }
+    .brief-header__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+    .brief-header__location {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .brief-header__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .brief-header__meta-item {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .brief-header__meta-item strong {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+    }
+
+    /* ── Layout ── */
+    .brief-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+
+    .brief-nav {
+      background: var(--rb-paper);
+      border-right: 1px solid var(--rb-line);
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .brief-nav__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      padding: 0 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .brief-nav__link {
+      display: block;
+      padding: 0.45rem 1.25rem;
+      font-size: 0.82rem;
+      color: var(--rb-ink-soft);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all var(--transition);
+    }
+    .brief-nav__link:hover {
+      color: var(--rb-ink);
+      background: var(--rb-cream);
+      border-left-color: var(--rb-sage);
+    }
+    .brief-nav__link.active {
+      color: var(--rb-moss);
+      border-left-color: var(--rb-moss);
+      font-weight: 600;
+    }
+
+    /* ── Content ── */
+    .brief-content {
+      padding: 2.75rem 2.75rem 5rem;
+      max-width: 820px;
+    }
+
+    .brief-section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 1.5rem;
+    }
+    .brief-section__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--rb-ink);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--rb-line);
+    }
+    .brief-section__subtitle {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--rb-ink-soft);
+      margin: 1.25rem 0 0.6rem;
+    }
+
+    /* ── Stats ── */
+    .brief-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .brief-stat {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+    }
+    .brief-stat__value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--rb-ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.03em;
+    }
+    .brief-stat__label {
+      font-size: 0.72rem;
+      color: var(--rb-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    /* ── Badges ── */
+    .brief-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+      line-height: 1;
+    }
+    .brief-badge--positive    { background: var(--brief-positive-bg);    color: var(--brief-positive); }
+    .brief-badge--opportunity { background: var(--brief-opportunity-bg); color: var(--brief-opportunity); }
+    .brief-badge--priority    { background: var(--brief-priority-bg);    color: var(--brief-priority); }
+    .brief-badge--area        { background: var(--rb-stone); color: var(--rb-ink-soft); }
+    .brief-badge--neutral     { background: var(--rb-stone); color: var(--rb-muted); }
+
+    /* ── Insight callouts ── */
+    .brief-insight {
+      background: var(--brief-positive-bg);
+      border-left: 3px solid var(--rb-moss);
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.1rem;
+      margin: 0.85rem 0;
+      font-size: 0.875rem;
+      color: var(--brief-positive);
+      line-height: 1.55;
+    }
+    .brief-insight--opportunity {
+      background: var(--brief-opportunity-bg);
+      border-left-color: var(--rb-gold);
+      color: var(--brief-opportunity);
+    }
+    .brief-insight--priority {
+      background: var(--brief-priority-bg);
+      border-left-color: var(--rb-clay);
+      color: var(--brief-priority);
+    }
+
+    /* ── Evidence quotes ── */
+    .brief-evidence {
+      border-left: 3px solid var(--rb-sage);
+      background: var(--rb-cream);
+      margin: 0.65rem 0;
+      padding: 0.65rem 1rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--rb-ink-soft);
+      line-height: 1.6;
+    }
+    .brief-evidence cite {
+      display: block;
+      font-style: normal;
+      font-size: 0.75rem;
+      color: var(--rb-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* ── Theme blocks ── */
+    .brief-theme {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .brief-theme__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .brief-theme__name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--rb-ink);
+    }
+    .brief-theme__freq {
+      font-size: 0.78rem;
+      color: var(--rb-muted);
+      margin-bottom: 0.6rem;
+    }
+    .brief-theme__bar {
+      height: 4px;
+      background: var(--rb-stone);
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    .brief-theme__bar-fill {
+      height: 100%;
+      background: var(--rb-moss);
+      border-radius: 2px;
+    }
+    .brief-theme__body {
+      font-size: 0.875rem;
+      color: var(--rb-ink-soft);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .brief-theme__usability {
+      font-size: 0.78rem;
+      color: var(--rb-moss);
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Gap blocks ── */
+    .brief-gap {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .brief-gap__label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      margin-bottom: 0.3rem;
+    }
+    .brief-gap__text {
+      font-size: 0.9rem;
+      color: var(--rb-ink);
+      line-height: 1.5;
+      margin-bottom: 0.7rem;
+      font-weight: 500;
+    }
+    .brief-gap__body {
+      font-size: 0.875rem;
+      color: var(--rb-ink-soft);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    .brief-gap__recommendation {
+      font-size: 0.82rem;
+      color: var(--rb-moss-dark);
+      background: var(--brief-positive-bg);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* ── Quick wins ── */
+    .brief-wins {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .brief-wins li {
+      display: flex;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rb-line);
+      align-items: flex-start;
+    }
+    .brief-wins li:last-child { border-bottom: none; }
+    .brief-wins__icon {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--brief-positive-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      color: var(--rb-moss);
+      font-weight: 800;
+      margin-top: 0.05rem;
+    }
+    .brief-wins__body { flex: 1; }
+    .brief-wins__action {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--rb-ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .brief-wins__detail {
+      font-size: 0.82rem;
+      color: var(--rb-muted);
+      line-height: 1.45;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── Strategic rec blocks ── */
+    .brief-rec {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .brief-rec__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .brief-rec__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--rb-ink);
+    }
+    .brief-rec__body {
+      font-size: 0.875rem;
+      color: var(--rb-ink-soft);
+      line-height: 1.6;
+    }
+    .brief-rec__timeframe {
+      font-size: 0.78rem;
+      color: var(--rb-muted);
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ── Language bank ── */
+    .brief-language-bank {
+      background: var(--rb-cream);
+      border: 1px solid var(--rb-stone);
+      border-radius: 14px;
+      padding: 1.5rem 1.5rem 1rem;
+      margin-top: 1.5rem;
+    }
+    .brief-language-bank__title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      margin-bottom: 1rem;
+    }
+    .phrase-chip {
+      display: inline-block;
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 6px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.82rem;
+      color: var(--rb-ink-soft);
+      margin: 0 0.4rem 0.5rem 0;
+      font-style: italic;
+    }
+
+    /* ── Divider ── */
+    .brief-divider {
+      border: none;
+      border-top: 1px solid var(--rb-line);
+      margin: 2rem 0;
+    }
+
+    /* ── Print ── */
+    @media print {
+      .no-print, .site-header, .site-footer { display: none !important; }
+      .brief-nav { display: none; }
+      .brief-layout { display: block; }
+      .brief-content { padding: 0; max-width: 100%; }
+      .brief-section { break-inside: avoid; }
+      .brief-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .brief-layout { grid-template-columns: 1fr; }
+      .brief-nav {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--rb-line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+      }
+      .brief-nav__label { display: none; }
+      .brief-nav__link {
+        border-left: none;
+        border-radius: 6px;
+        background: var(--rb-stone);
+        padding: 0.3rem 0.65rem;
+        font-size: 0.78rem;
+      }
+      .brief-content { padding: 1.5rem 1rem 3rem; }
+      .brief-header { padding: 2rem 0 1.75rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -54,962 +502,455 @@
 
 <main>
 
-  <div class="bg-cream" style="padding: 2.5rem 0 3rem; border-bottom:1px solid var(--rb-line);">
+  <!-- Page header bar -->
+  <div class="bg-cream no-print" style="padding:2rem 0 1.75rem; border-bottom:1px solid var(--rb-line);">
     <div class="container">
-      <div style="display:flex; align-items:center; gap:0.6em; margin-bottom:0.75rem;">
+      <div style="display:flex; align-items:center; gap:0.6em; margin-bottom:0.65rem;">
         <a href="../../" style="font-size:0.85rem; color:var(--rb-muted); text-decoration:none;">ReviewBriefs</a>
         <span style="color:var(--rb-line-strong);">/</span>
-        <span style="font-size:0.85rem; color:var(--rb-muted);">Sample Report</span>
+        <span style="font-size:0.85rem; color:var(--rb-muted);">Sample Client Brief</span>
       </div>
-      <div style="display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:1.5rem;">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.25rem;">
         <div>
-          <span class="badge badge-moss" style="margin-bottom:0.75rem;">Sample Report</span>
-          <h1 style="font-size:clamp(1.5rem,3vw,2rem); margin-bottom:0.35rem;">Guest Review Intelligence Brief</h1>
-          <p style="color:var(--rb-muted); font-size:0.9rem; max-width:none;">This is a complete sample report. Your brief will follow this same format.</p>
+          <span class="badge badge-moss" style="margin-bottom:0.6rem;">Sample Brief</span>
+          <h1 style="font-size:clamp(1.3rem, 2.5vw, 1.7rem); margin-bottom:0.2rem;">Guest Review Intelligence Brief</h1>
+          <p style="color:var(--rb-muted); font-size:0.875rem; max-width:none; margin:0;">This is a real brief format. Your brief will look exactly like this.</p>
         </div>
-        <!-- Report actions bar -->
-        <div class="report-actions no-print" style="margin-bottom:0; padding-top:0;">
-          <div></div>
-          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-            <button class="btn btn-secondary btn-sm" data-action="print">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-              Print / Save PDF
-            </button>
-            <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-sm">
-              Request yours
-            </button>
-          </div>
-          <p class="print-tip">For best results: in your browser's print dialog, set <strong>Headers and Footers</strong> to <strong>Off</strong> and <strong>Background graphics</strong> to <strong>On</strong>.</p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+          <button class="btn btn-secondary btn-sm" onclick="window.print()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print / Save PDF
+          </button>
+          <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-sm">Request yours</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- View mode indicator (static demo — shows concept) -->
-  <div style="background:var(--rb-paper); border-bottom:1px solid var(--rb-line);">
-    <div class="container" style="padding-top:0.875rem; padding-bottom:0.875rem;">
-      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:1rem; justify-content:space-between;">
-        <div style="display:flex; align-items:center; gap:0.6rem;">
-          <span style="font-size:0.78rem; color:var(--rb-muted); font-weight:500;">Report view:</span>
-          <div style="display:flex; background:var(--rb-cream); border:1px solid var(--rb-line); border-radius:8px; overflow:hidden;">
-            <span style="padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:700; background:var(--rb-ink); color:var(--rb-cream); cursor:default;">Full Report</span>
-            <span style="padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:500; color:var(--rb-muted); cursor:default;">Client View</span>
-            <span style="padding:0.35rem 0.9rem; font-size:0.78rem; font-weight:500; color:var(--rb-muted); cursor:default;">Internal Only</span>
-          </div>
-        </div>
-        <p style="font-size:0.78rem; color:var(--rb-muted); margin:0; max-width:none; font-style:italic;">Agency accounts can split this report into a client-facing brief and an internal strategy view. <a href="../../pricing.html" style="color:var(--rb-moss);">See agency plans →</a></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section bg-paper">
+  <!-- Brief: dark green header -->
+  <header class="brief-header">
     <div class="container">
-      <div class="report-doc">
-
-        <!-- Report Cover -->
-        <div class="report-doc__cover">
-          <div style="display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.5rem;">
-            <div>
-              <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; opacity:0.6; margin-bottom:0.75rem;">ReviewBriefs · Guest Review Intelligence</div>
-              <h1>Casa Mariposa<br>Boutique Hotel</h1>
-              <p style="color:rgba(247,243,234,0.75); font-size:1rem; margin-top:0.5rem; max-width:none;">Antigua Guatemala, Guatemala</p>
-            </div>
-            <div style="text-align:right; flex-shrink:0;">
-              <div style="background:rgba(247,243,234,0.12); border-radius:12px; padding:1rem 1.25rem; min-width:140px;">
-                <div style="font-size:2.25rem; font-weight:900; line-height:1; color:var(--rb-cream); letter-spacing:-0.04em;">4.7</div>
-                <div style="font-size:0.72rem; opacity:0.65; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.2rem;">Avg. rating</div>
-              </div>
-            </div>
-          </div>
-          <div class="report-doc__cover-meta">
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Report date: May 27, 2025
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-              68 reviews analyzed
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-              Google, Booking.com, TripAdvisor
-            </span>
-            <span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              Property type: Boutique hotel, 18 rooms
-            </span>
-          </div>
-        </div>
-
-        <!-- Report Index -->
-        <div class="report-index no-print-break">
-          <!-- Quick Stats Dashboard -->
-          <div class="report-index__dashboard">
-            <div style="margin-bottom:1.25rem;">
-              <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--rb-muted); margin-bottom:0.35rem;">Review period</div>
-              <div style="font-size:0.9rem; font-weight:600; color:var(--rb-ink);">April – May 2025</div>
-            </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; margin-bottom:1.5rem;">
-              <div class="report-index__stat">
-                <div class="report-index__stat-value">68</div>
-                <div class="report-index__stat-label">Reviews analyzed</div>
-              </div>
-              <div class="report-index__stat">
-                <div class="report-index__stat-value">4.7★</div>
-                <div class="report-index__stat-label">Avg. rating</div>
-              </div>
-              <div class="report-index__stat">
-                <div class="report-index__stat-value" style="color:var(--rb-moss);">87%</div>
-                <div class="report-index__stat-label">Positive sentiment</div>
-              </div>
-              <div class="report-index__stat">
-                <div class="report-index__stat-value" style="color:var(--rb-clay);">21%</div>
-                <div class="report-index__stat-label">Negative signals</div>
-              </div>
-            </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:1.5rem;">
-              <div class="report-index__signal report-index__signal--up">
-                <div class="report-index__signal-label">Top praise signal</div>
-                <div class="report-index__signal-value">Courtyard &amp; garden atmosphere — 72% of reviews</div>
-              </div>
-              <div class="report-index__signal report-index__signal--down">
-                <div class="report-index__signal-label">Top risk</div>
-                <div class="report-index__signal-value">Wi-Fi dead zones — 14 reviews, rising month-on-month</div>
-              </div>
-              <div class="report-index__signal report-index__signal--opp">
-                <div class="report-index__signal-label">Top marketing opportunity</div>
-                <div class="report-index__signal-value">Breakfast as a booking differentiator — underused in current listings</div>
-              </div>
-              <div class="report-index__signal report-index__signal--action">
-                <div class="report-index__signal-label">Top operational action</div>
-                <div class="report-index__signal-value">Install mesh extender, rooms 7–11. ~$200–400. High impact.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section Index -->
-          <div class="report-index__toc">
-            <div style="font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--rb-muted); margin-bottom:0.75rem;">Report sections</div>
-            <ol class="report-index__list">
-              <li><a href="#s1">Executive Summary</a></li>
-              <li><a href="#s2">What Changed This Month</a></li>
-              <li><a href="#s3">Top Praise Themes</a></li>
-              <li><a href="#s4">Reputation Risks</a></li>
-              <li><a href="#s5">Guest Language Worth Reusing</a></li>
-              <li><a href="#s6">Marketing Opportunities</a></li>
-              <li><a href="#s7">Guest-Informed Messaging Angles</a></li>
-              <li><a href="#s8">Suggested Review Responses</a></li>
-              <li>
-                <a href="#s9">30-Day Action Checklist</a>
-                <span class="report-index__sub">Hotel Operations · Marketing / Agency</span>
-              </li>
-              <li style="border-bottom:none;">
-                <a href="#s10" style="color:var(--rb-ink-soft);">Internal Agency Notes</a>
-                <span class="report-index__sub" style="display:flex; align-items:center; gap:0.3rem;">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                  Agency only
-                </span>
-              </li>
-            </ol>
-          </div>
-        </div>
-
-        <!-- Report Body -->
-        <div class="report-doc__body">
-
-          <!-- Section 1: Executive Summary -->
-          <div class="report-section" id="s1">
-            <div class="report-section__title">
-              <span class="report-section__num">1</span>
-              <h2>Executive Summary</h2>
-            </div>
-
-            <p style="font-size:1rem; max-width:none; margin-bottom:1.25rem;">Casa Mariposa holds a strong 4.7-star aggregate reputation across three platforms, built on a clear and differentiated guest value proposition: <strong>an immersive sense of place in colonial Antigua, delivered through personal service and exceptional attention to the physical environment.</strong></p>
-
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1rem; margin-bottom:1.5rem;">
-              <div style="text-align:center; padding:1.25rem; background:rgba(79,111,82,0.07); border-radius:12px; border:1px solid rgba(79,111,82,0.15);">
-                <div style="font-size:2rem; font-weight:900; color:var(--rb-moss); letter-spacing:-0.04em; line-height:1;">87%</div>
-                <div style="font-size:0.78rem; color:var(--rb-ink-soft); margin-top:0.35rem;">Positive sentiment</div>
-              </div>
-              <div style="text-align:center; padding:1.25rem; background:rgba(198,161,91,0.07); border-radius:12px; border:1px solid rgba(198,161,91,0.15);">
-                <div style="font-size:2rem; font-weight:900; color:var(--rb-gold); letter-spacing:-0.04em; line-height:1;">9%</div>
-                <div style="font-size:0.78rem; color:var(--rb-ink-soft); margin-top:0.35rem;">Neutral mentions</div>
-              </div>
-              <div style="text-align:center; padding:1.25rem; background:rgba(184,107,75,0.07); border-radius:12px; border:1px solid rgba(184,107,75,0.15);">
-                <div style="font-size:2rem; font-weight:900; color:var(--rb-clay); letter-spacing:-0.04em; line-height:1;">4%</div>
-                <div style="font-size:0.78rem; color:var(--rb-ink-soft); margin-top:0.35rem;">Negative signals</div>
-              </div>
-            </div>
-
-            <p style="max-width:none; margin-bottom:1rem;">Three themes account for the majority of positive mentions: the <strong>courtyard and garden atmosphere</strong>, the <strong>warmth and personalization of staff interactions</strong>, and the <strong>quality of the included breakfast</strong>. These are genuine differentiators that competitors in the Antigua market are not consistently delivering, and they represent Casa Mariposa's clearest marketing opportunity.</p>
-
-            <div class="callout">
-              <strong style="font-size:0.8rem; display:block; margin-bottom:0.3rem; color:var(--rb-moss);">One thing to fix first</strong>
-              <p style="max-width:none; font-size:0.9rem; margin:0;">Wi-Fi signal quality — specifically dead zones in courtyard-facing rooms — appears in 14 of 68 reviews. It is the single most common friction point and carries disproportionate weight in lower-rated reviews (3-star). Resolving this would likely shift 8–12 borderline reviews into 5-star territory.</p>
-            </div>
-          </div>
-
-          <!-- Section 2: What Changed This Month -->
-          <div class="report-section force-page" id="s2">
-            <div class="report-section__title">
-              <span class="report-section__num">2</span>
-              <h2>What Changed This Month</h2>
-            </div>
-
-            <!-- Trend summary bar -->
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1rem; margin-bottom:2rem;">
-              <div style="text-align:center; padding:1.1rem 0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:12px;">
-                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-moss); letter-spacing:-0.04em; line-height:1;">68</div>
-                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Reviews this month</div>
-                <div style="font-size:0.72rem; color:var(--rb-moss); margin-top:0.15rem;">↑ from 42 last month</div>
-              </div>
-              <div style="text-align:center; padding:1.1rem 0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:12px;">
-                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-moss); letter-spacing:-0.04em; line-height:1;">87%</div>
-                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Positive sentiment</div>
-                <div style="font-size:0.72rem; color:var(--rb-moss); margin-top:0.15rem;">↑ from 82% last month</div>
-              </div>
-              <div style="text-align:center; padding:1.1rem 0.75rem; background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:12px;">
-                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-gold); letter-spacing:-0.04em; line-height:1;">4.7</div>
-                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Avg. rating</div>
-                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.15rem;">— unchanged</div>
-              </div>
-              <div style="text-align:center; padding:1.1rem 0.75rem; background:rgba(184,107,75,0.06); border:1px solid rgba(184,107,75,0.18); border-radius:12px;">
-                <div style="font-size:1.6rem; font-weight:900; color:var(--rb-clay); letter-spacing:-0.04em; line-height:1;">14</div>
-                <div style="font-size:0.72rem; color:var(--rb-ink-soft); margin-top:0.3rem; font-weight:500;">Wi-Fi complaints</div>
-                <div style="font-size:0.72rem; color:var(--rb-clay); margin-top:0.15rem;">↑ from 11 last month</div>
-              </div>
-            </div>
-
-            <!-- Positive movement -->
-            <div class="trend-block trend-block--up">
-              <div class="trend-block__label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-                Positive movement
-              </div>
-              <h4>Breakfast mentions rose from 38% → 54%</h4>
-              <p>Breakfast is becoming a more central part of the guest memory — the most significant theme shift this period. This is now the third most mentioned theme overall and is trending toward second. It should be used more intentionally in booking page copy and pre-arrival communication. See Section 9 for the suggested social content series.</p>
-            </div>
-
-            <!-- Watch closely -->
-            <div class="trend-block trend-block--down">
-              <div class="trend-block__label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                Watch closely
-              </div>
-              <h4>Wi-Fi complaints increased from 11 → 14 mentions</h4>
-              <p>This is now the most persistent operational friction point in the dataset. It appeared in 11 reviews last period and has continued rising. This is no longer a random complaint — it is becoming a pattern. Treat it as a high-priority fix, not a one-off. See Section 4 for context on review score impact.</p>
-            </div>
-
-            <!-- New issue -->
-            <div class="trend-block trend-block--new">
-              <div class="trend-block__label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                New issue
-              </div>
-              <h4>Checkout experience appeared in 5 reviews after not appearing last month</h4>
-              <p>This is a new signal, not previously in the dataset. Five reviews describe the checkout process as rushed or impersonal. This may indicate a staffing or scheduling pattern rather than a property-wide issue. Worth investigating before it becomes a recurring theme. See Section 4 for a suggested process fix.</p>
-            </div>
-
-            <!-- Seasonal signal -->
-            <div class="trend-block trend-block--seasonal">
-              <div class="trend-block__label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                Seasonal signal
-              </div>
-              <h4>Courtyard praise increased as dry season arrived</h4>
-              <p>Courtyard and garden mentions rose from 61% to 72% this period. This correlates with Antigua's dry season, when outdoor seating is consistently usable. This pattern is likely to reverse during rainy season (May–October). If the courtyard experience is prominent in current booking page messaging, consider how it will read to guests arriving during wetter months — or whether covered seating options should be more visible in off-season communication.</p>
-            </div>
-
-            <!-- Action progress -->
-            <div class="trend-block trend-block--resolved" style="margin-bottom:0;">
-              <div class="trend-block__label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Action progress
-              </div>
-              <h4>Parking confusion mentions dropped from 4 → 1</h4>
-              <p>Last month's brief recommended adding parking instructions to the pre-arrival confirmation email. Parking confusion has fallen from 4 mentions to 1 this period. Likely improved — continue monitoring. This is a small signal but a clear one: one email paragraph resolved a recurring review complaint in 30 days.</p>
-            </div>
-
-          </div>
-
-          <!-- Section 3: Guest Sentiment Snapshot -->
-          <div class="report-section force-page" id="s3">
-            <div class="report-section__title">
-              <span class="report-section__num">3</span>
-              <h2>Top Praise Themes</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Ranked by frequency of unprompted mention across all 68 reviews. Percentages indicate the share of all reviews that reference the theme.</p>
-
-            <div class="theme-list">
-
-              <div class="theme-item">
-                <div class="theme-item__rank">01</div>
-                <div class="theme-item__content">
-                  <h4>Courtyard &amp; Garden Atmosphere</h4>
-                  <p>Guests consistently single out the central courtyard — specifically the fountain, the flowering vines, and the arrangement of seating — as the defining experience of the stay. Many describe it as the reason they chose to stay again or recommend the property. Several reviews compare it to "stepping into a different century."</p>
-                  <div class="theme-item__bar"><div class="theme-item__bar-fill" style="width:72%;"></div></div>
-                  <div style="font-size:0.78rem; color:var(--rb-muted); margin-top:0.35rem;">Mentioned in 49 of 68 reviews (72%)</div>
-                  <blockquote class="guest-quote" style="margin-top:0.75rem;">"The courtyard alone is worth the stay. I had my morning coffee there every day and genuinely didn't want to leave."<cite>— Google review, April 2025</cite></blockquote>
-                </div>
-              </div>
-
-              <div class="theme-item">
-                <div class="theme-item__rank">02</div>
-                <div class="theme-item__content">
-                  <h4>Staff Warmth &amp; Personalization</h4>
-                  <p>Staff are named individually in 21 reviews — unusual for an 18-room property and a strong signal of exceptional service culture. The front desk team is praised for remembering guest preferences, providing local recommendations that proved accurate, and going beyond the expected during problem resolution.</p>
-                  <div class="theme-item__bar"><div class="theme-item__bar-fill" style="width:63%;"></div></div>
-                  <div style="font-size:0.78rem; color:var(--rb-muted); margin-top:0.35rem;">Mentioned in 43 of 68 reviews (63%)</div>
-                  <blockquote class="guest-quote" style="margin-top:0.75rem;">"Marco at the front desk remembered that I mentioned wanting to see the jade market and had already printed me a map the next morning. That's the kind of detail that makes the difference."<cite>— TripAdvisor review, March 2025</cite></blockquote>
-                </div>
-              </div>
-
-              <div class="theme-item">
-                <div class="theme-item__rank">03</div>
-                <div class="theme-item__content">
-                  <h4>Breakfast Experience</h4>
-                  <p>The included breakfast receives specific praise for using local ingredients, for preparation quality, and for the setting (courtyard or covered terrace depending on weather). Guests frequently contrast it favorably with larger hotels in Antigua. The variety of Guatemalan staples alongside familiar options is repeatedly mentioned as a highlight.</p>
-                  <div class="theme-item__bar"><div class="theme-item__bar-fill" style="width:54%;"></div></div>
-                  <div style="font-size:0.78rem; color:var(--rb-muted); margin-top:0.35rem;">Mentioned in 37 of 68 reviews (54%)</div>
-                  <blockquote class="guest-quote" style="margin-top:0.75rem;">"The tamales at breakfast were the best I had in a week in Guatemala. And that's saying something."<cite>— Booking.com review, February 2025</cite></blockquote>
-                </div>
-              </div>
-
-              <div class="theme-item">
-                <div class="theme-item__rank">04</div>
-                <div class="theme-item__content">
-                  <h4>Location within Antigua</h4>
-                  <p>The property's walkability to the main square, the market, and key restaurants is noted as a practical advantage. Several guests explicitly mention that they chose Casa Mariposa for its location and were not disappointed. No negative location mentions appear in the review set.</p>
-                  <div class="theme-item__bar"><div class="theme-item__bar-fill" style="width:44%;"></div></div>
-                  <div style="font-size:0.78rem; color:var(--rb-muted); margin-top:0.35rem;">Mentioned in 30 of 68 reviews (44%)</div>
-                </div>
-              </div>
-
-              <div class="theme-item">
-                <div class="theme-item__rank">05</div>
-                <div class="theme-item__content">
-                  <h4>Room Comfort &amp; Colonial Aesthetic</h4>
-                  <p>Guests praise the room furnishings — the locally crafted textiles, the thick walls that keep rooms cool without air conditioning, and the attention to decorative detail. This theme correlates strongly with repeat booking intent and recommendation behavior.</p>
-                  <div class="theme-item__bar"><div class="theme-item__bar-fill" style="width:38%;"></div></div>
-                  <div style="font-size:0.78rem; color:var(--rb-muted); margin-top:0.35rem;">Mentioned in 26 of 68 reviews (38%)</div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Section 4: Reputation Risks -->
-          <div class="report-section force-page" id="s4">
-            <div class="report-section__title">
-              <span class="report-section__num">4</span>
-              <h2>Reputation Risks</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Recurring friction points identified across negative and mixed reviews. These are the patterns guests share publicly but rarely raise at checkout.</p>
-
-            <div class="risk-list">
-
-              <div class="risk-item">
-                <div class="risk-item__label">High Priority</div>
-                <h4>Wi-Fi Dead Zones in Courtyard-Adjacent Rooms</h4>
-                <p>Appears in 14 reviews (21% of total). Reviews mentioning Wi-Fi issues average 3.2 stars versus the 4.9-star average for reviews that do not. This is a disproportionate drag on overall score. Guests in rooms 7–11 (the east wing courtyard rooms) are most affected. A mesh network extender investment would be low cost relative to review score impact.</p>
-              </div>
-
-              <div class="risk-item">
-                <div class="risk-item__label">High Priority</div>
-                <h4>Inconsistent Hot Water in Three Rooms</h4>
-                <p>Appears in 8 reviews, all relating to the same wing (rooms 3, 4, and 6 by description). Guests who experienced the issue and received a response from management rated the property higher — suggesting the problem is known but not yet resolved at the infrastructure level. A permanent fix would eliminate a recurring 1 and 2-star mention source.</p>
-              </div>
-
-              <div class="risk-item risk-item--medium">
-                <div class="risk-item__label">Medium Priority</div>
-                <h4>Noise Bleed from Street-Facing Rooms on Weekend Evenings</h4>
-                <p>Seven reviews mention street noise from the Calle del Arco area, primarily on Friday and Saturday nights. This is partially uncontrollable, but guests would benefit from a proactive mention at check-in with the option to request an interior-facing room. Setting expectations reduces the surprise and therefore the review impact.</p>
-              </div>
-
-              <div class="risk-item risk-item--medium">
-                <div class="risk-item__label">Medium Priority</div>
-                <h4>Checkout Process Feels Rushed</h4>
-                <p>Five reviews describe the checkout experience as hurried or impersonal — a notable contrast to the warmth described throughout the stay. This appears to be a staffing pattern (single staff member on morning shifts). A minor process adjustment — a printed note, a prepared departure summary — could resolve this without additional headcount.</p>
-              </div>
-
-              <div class="risk-item risk-item--medium">
-                <div class="risk-item__label">Low Priority</div>
-                <h4>No Parking Guidance in Pre-Arrival Communication</h4>
-                <p>Four reviews mention confusion or stress about parking in Antigua, noting that the hotel's confirmation email does not address this. Adding one paragraph to the pre-arrival email would likely eliminate this category of complaint entirely.</p>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Section 5: Guest Language Worth Reusing -->
-          <div class="report-section" id="s5">
-            <div class="report-section__title">
-              <span class="report-section__num">5</span>
-              <h2>Guest Language Worth Reusing</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">These are phrases guests chose on their own — the most authentic marketing copy available. Using their language, not corporate language, builds credibility and resonates with prospective guests who read reviews before booking.</p>
-
-            <div class="phrase-grid" style="margin-bottom:1.75rem;">
-              <span class="phrase-chip">"stepping back in time"</span>
-              <span class="phrase-chip">"best breakfast in Antigua"</span>
-              <span class="phrase-chip">"felt like a private home"</span>
-              <span class="phrase-chip">"the courtyard is magical"</span>
-              <span class="phrase-chip">"staff remembered everything"</span>
-              <span class="phrase-chip">"authentically Guatemalan"</span>
-              <span class="phrase-chip">"a different century"</span>
-              <span class="phrase-chip">"hidden gem"</span>
-              <span class="phrase-chip">"woke up to birdsong"</span>
-              <span class="phrase-chip">"quiet and completely private"</span>
-              <span class="phrase-chip">"thick stone walls keep it cool"</span>
-              <span class="phrase-chip">"the kind of hotel you tell everyone about"</span>
-              <span class="phrase-chip">"two minutes from everything"</span>
-              <span class="phrase-chip">"the fountain was still running when I fell asleep"</span>
-            </div>
-
-            <div class="callout callout--gold">
-              <strong style="font-size:0.8rem; display:block; margin-bottom:0.4rem; color:var(--rb-gold);">Usage guidance</strong>
-              <p style="max-width:none; font-size:0.875rem; margin:0;">These phrases are most effective in: OTA listing descriptions (especially the "What's nearby" and "About the space" sections), Instagram captions, Google Business profile posts, and email subject lines targeting past guests. Avoid formal editing — the informal cadence is the point.</p>
-            </div>
-          </div>
-
-          <!-- Section 6: Marketing Opportunities -->
-          <div class="report-section force-page" id="s6">
-            <div class="report-section__title">
-              <span class="report-section__num">6</span>
-              <h2>Marketing Opportunities</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Review patterns reveal untapped positioning and channel opportunities. These are grounded in what guests are already saying — not aspirational brand claims.</p>
-
-            <div class="opp-list">
-
-              <div class="opp-item">
-                <div class="opp-item__channel">OTA Listings</div>
-                <h4>Lead with the Courtyard, Not the Rooms</h4>
-                <p>Current Booking.com listing leads with room specifications. Guest reviews show the courtyard is the primary decision driver. Reorder the photo sequence (courtyard first, interior second) and rewrite the opening description to anchor around the sense of place.</p>
-              </div>
-
-              <div class="opp-item">
-                <div class="opp-item__channel">Direct Booking</div>
-                <h4>"Book Direct for Courtyard Room Preference"</h4>
-                <p>14 reviews mention wanting a specific room type. Offering courtyard room preference as a direct-booking benefit costs nothing and gives guests a reason to bypass OTAs. Mention it in the email confirmation and on the website booking page.</p>
-              </div>
-
-              <div class="opp-item">
-                <div class="opp-item__channel">Social Media</div>
-                <h4>Breakfast-as-Content Series</h4>
-                <p>The breakfast is praised in 54% of reviews but appears in fewer than 10% of the property's Instagram posts. A weekly "morning table" post series would generate content that matches exactly what prospective guests are told is the highlight by people they trust.</p>
-              </div>
-
-              <div class="opp-item">
-                <div class="opp-item__channel">Email / CRM</div>
-                <h4>Repeat Guest Segment — "Return to the Courtyard"</h4>
-                <p>Several reviews explicitly mention a return visit or stated intent to return. A segmented email to past guests (12+ months since stay) centered on the courtyard experience and a modest loyalty offer could reactivate a highly valuable segment.</p>
-              </div>
-
-              <div class="opp-item">
-                <div class="opp-item__channel">TripAdvisor / Google</div>
-                <h4>Actively Solicit Reviews Post-Breakfast</h4>
-                <p>The breakfast is consistently the morning emotional peak. A staff-delivered, handwritten card at the breakfast table asking guests to share their experience on Google is likely to generate high-quality, specific reviews. Timing matters — mornings outperform checkout-time asks.</p>
-              </div>
-
-              <div class="opp-item">
-                <div class="opp-item__channel">PR / Earned Media</div>
-                <h4>Colonial Architecture + Local Food Angle</h4>
-                <p>The combination of restored colonial architecture and locally-sourced Guatemalan breakfast has clear editorial appeal for travel publications covering Central America authenticity travel. The guest language provides ready-made pull quotes for a pitch email to travel editors.</p>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Section 7: Guest-Informed Messaging Angles -->
-          <div class="report-section force-page" id="s7">
-            <div class="report-section__title">
-              <span class="report-section__num">7</span>
-              <h2>Guest-Informed Messaging Angles</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:0.75rem; font-size:0.9rem;">Draft language inspired by recurring guest review patterns. These are not final website recommendations — they are copy directions to test and adapt. Final website copy should be validated against the property's current homepage, brand voice, and booking flow.</p>
-            <div style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(79,111,82,0.08); border:1px solid rgba(79,111,82,0.2); border-radius:6px; padding:0.3rem 0.7rem; font-size:0.75rem; font-weight:600; color:var(--rb-moss); margin-bottom:1.5rem;">
-              Review-backed — based on 84 analyzed reviews
-            </div>
-
-            <div class="copy-block">
-              <div class="copy-block__context">Possible positioning line</div>
-              <div class="copy-block__text">"Antigua, as it was meant to be experienced."</div>
-              <div style="font-size:0.775rem; color:var(--rb-muted); margin-top:0.5rem; font-style:italic;">Based on: guests repeatedly describing the property as an authentic, unhurried version of Antigua. Confirm this aligns with current homepage positioning before adopting.</div>
-            </div>
-
-            <div class="copy-block">
-              <div class="copy-block__context">Supporting message to test</div>
-              <div class="copy-block__text">"Eighteen rooms around a colonial courtyard in the heart of Antigua. Where breakfast is Guatemalan, service is personal, and checkout feels too soon."</div>
-              <div style="font-size:0.775rem; color:var(--rb-muted); margin-top:0.5rem; font-style:italic;">Based on: high-frequency mentions of courtyard, breakfast quality, and staff warmth.</div>
-            </div>
-
-            <div class="copy-block">
-              <div class="copy-block__context">Property description direction</div>
-              <div class="copy-block__text">"Built in the 17th century and restored with care, Casa Mariposa is not a hotel that happens to be in Antigua — it is part of Antigua. The central courtyard, with its hand-carved fountain and flowering bougainvillea, is where guests begin and end their days. Our team knows the market vendors by name. Our breakfast tamales have their own following. Two minutes on foot from the central plaza; another world from the moment you arrive."</div>
-              <div style="font-size:0.775rem; color:var(--rb-muted); margin-top:0.5rem; font-style:italic;">Based on: guest language around sense of place, courtyard atmosphere, and proximity to Antigua's landmarks. Adapt for current OTA and booking page descriptions.</div>
-            </div>
-
-            <div class="copy-block">
-              <div class="copy-block__context">Email confirmation — opening line to consider</div>
-              <div class="copy-block__text">"Your stay at Casa Mariposa is confirmed. We've set aside a courtyard room for you and will have the fountain running when you arrive."</div>
-              <div style="font-size:0.775rem; color:var(--rb-muted); margin-top:0.5rem; font-style:italic;">Based on: guests describing arrival and courtyard as emotional highlights. Review against current confirmation email before replacing.</div>
-            </div>
-
-            <div class="copy-block">
-              <div class="copy-block__context">Direct-booking message to consider</div>
-              <div class="copy-block__text">"Guests who book direct choose their room. Book here and tell us whether you prefer the courtyard view or the quiet garden — we'll arrange the rest."</div>
-              <div style="font-size:0.775rem; color:var(--rb-muted); margin-top:0.5rem; font-style:italic;">Marketing hypothesis — not directly derived from reviews. Test only if direct-booking incentive is not already in place.</div>
-            </div>
-          </div>
-
-          <!-- Section 8: Suggested Review Responses -->
-          <div class="report-section force-page" id="s8">
-            <div class="report-section__title">
-              <span class="report-section__num">8</span>
-              <h2>Suggested Review Responses</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Drafted responses to representative positive and critical reviews. Responses are written in the voice of a property manager — warm, specific, not defensive. Adapt names and details before publishing.</p>
-
-            <div class="response-block">
-              <div class="response-block__original">
-                <strong>Guest review (5-star, Google)</strong>
-                "The courtyard at this place is something special. We had breakfast out there every morning and sat outside until the stars came out. Marco remembered that my partner doesn't eat eggs and had something ready for her each morning without us asking. Genuinely one of our favourite hotels anywhere."
-              </div>
-              <div class="response-block__response">
-                <strong>Suggested response</strong>
-                Thank you so much for this — it means a great deal to the whole team. Marco will be delighted to hear you mentioned him by name; he takes genuine pride in remembering what guests need before they ask. The courtyard mornings you describe are exactly what we built this place around, and it's the greatest compliment when guests find them as meaningful as we do. We hope to have you back in Antigua again soon. — The Casa Mariposa team
-              </div>
-            </div>
-
-            <div class="response-block">
-              <div class="response-block__original">
-                <strong>Guest review (3-star, Booking.com)</strong>
-                "Lovely hotel with a beautiful courtyard and great staff, but the Wi-Fi in our room was completely unusable. We were working remotely and had to go to a café every day. Shame because everything else was perfect."
-              </div>
-              <div class="response-block__response">
-                <strong>Suggested response</strong>
-                Thank you for staying with us, and for the kind words about the courtyard and the team — they are genuinely appreciated. We're sorry about the Wi-Fi. You're right to raise it: signal coverage in some of our east-wing rooms has been inconsistent, and we are in the middle of a network upgrade that will address this fully by June. If you find yourself back in Antigua, we'd be glad to welcome you again — in a room with a much more dependable connection. — The Casa Mariposa team
-              </div>
-            </div>
-
-            <div class="response-block">
-              <div class="response-block__original">
-                <strong>Guest review (4-star, TripAdvisor)</strong>
-                "Beautiful property and amazing location. Breakfast was incredible — best tamales I've ever had. Checkout was slightly rushed and felt a bit impersonal compared to the warmth of check-in, which was a small disappointment at the end of an otherwise wonderful stay."
-              </div>
-              <div class="response-block__response">
-                <strong>Suggested response</strong>
-                Thank you for sharing this so specifically — it is genuinely useful feedback. We're glad the location and breakfast hit the mark; the tamales come from a family supplier we've worked with since we opened. Your note about checkout is fair and something we're working on — our mornings can get busy with a single team member on shift, and we don't always give departures the care they deserve. We're grateful you took the time to tell us. Safe travels, and we hope to see you again. — The Casa Mariposa team
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 9: 30-Day Action Checklist -->
-          <div class="report-section force-page" id="s9">
-            <div class="report-section__title">
-              <span class="report-section__num">9</span>
-              <h2>30-Day Action Checklist</h2>
-            </div>
-            <p style="max-width:none; color:var(--rb-ink-soft); margin-bottom:1.5rem; font-size:0.9rem;">Actions split by audience: hotel operations team and marketing/agency team. Each action includes the source signal it came from, effort level, and expected impact. The killer future feature: check these off and next month's brief tracks what changed.</p>
-
-            <!-- Hotel Operations -->
-            <div style="margin-bottom:2rem;">
-              <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
-                <span style="background:var(--rb-ink); color:var(--rb-cream); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.25rem 0.65rem; border-radius:5px;">Hotel Operations</span>
-                <span style="font-size:0.825rem; color:var(--rb-muted);">For the property team</span>
-              </div>
-              <div class="data-table-wrap" style="overflow-x:auto; border-radius:12px; border:1px solid var(--rb-line); overflow:hidden;">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th style="width:80px;">Priority</th>
-                      <th>Action</th>
-                      <th style="width:130px;">Owner</th>
-                      <th style="width:70px;">Effort</th>
-                      <th style="width:70px;">Impact</th>
-                      <th style="width:160px;">Source Signal</th>
-                      <th style="width:100px;">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="priority-high">High</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Resolve Wi-Fi dead zones in east wing (rooms 7–11)</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Install mesh network extender. Estimated cost: $200–400.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Property Manager</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.825rem;">High</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">14 reviews mention Wi-Fi — 21% of all negative mentions</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-high">High</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Address hot water inconsistency in rooms 3, 4, and 6</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Commission plumber inspection. Resolve permanently — do not continue managing reactively.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Property Manager</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.825rem;">High</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Source of recurring 1–2 star reviews from specific rooms</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-medium">Medium</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Add parking guidance to pre-arrival email</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Include nearest paid lot, walking time, and Colonial Zone traffic tips.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Front Desk</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">4 reviews mention parking confusion on arrival</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-medium">Medium</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Redesign checkout for warmth — personalised departure note</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Simple printed note with guest name and one specific detail from their stay. No extra headcount needed.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Front Desk Manager</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">3 reviews describe checkout as impersonal vs. warm check-in</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-medium">Medium</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Add breakfast-time review request card with QR code</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Printed or handwritten card at breakfast table linking to Google review form. Capitalise on emotional peak.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">F&amp;B / Front Desk</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Review volume low relative to occupancy; breakfast is highest-rated moment</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="print-action-cards">
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--high">High Priority</div>
-                  <h4 class="action-card__title">Resolve Wi-Fi dead zones in east wing (rooms 7–11)</h4>
-                  <p class="action-card__detail">Install mesh network extender. Estimated cost: $200–400.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Property Manager</span>
-                    <span><strong>Effort:</strong> Medium</span>
-                    <span><strong>Impact:</strong> High</span>
-                    <span><strong>Source:</strong> 14 reviews mention Wi-Fi — 21% of all negative mentions</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--high">High Priority</div>
-                  <h4 class="action-card__title">Address hot water inconsistency in rooms 3, 4, and 6</h4>
-                  <p class="action-card__detail">Commission plumber inspection. Resolve permanently — do not continue managing reactively.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Property Manager</span>
-                    <span><strong>Effort:</strong> Medium</span>
-                    <span><strong>Impact:</strong> High</span>
-                    <span><strong>Source:</strong> Source of recurring 1–2 star reviews from specific rooms</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--medium">Medium Priority</div>
-                  <h4 class="action-card__title">Add parking guidance to pre-arrival email</h4>
-                  <p class="action-card__detail">Include nearest paid lot, walking time, and Colonial Zone traffic tips.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Front Desk</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> Medium</span>
-                    <span><strong>Source:</strong> 4 reviews mention parking confusion on arrival</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--medium">Medium Priority</div>
-                  <h4 class="action-card__title">Redesign checkout for warmth — personalised departure note</h4>
-                  <p class="action-card__detail">Simple printed note with guest name and one specific detail from their stay. No extra headcount needed.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Front Desk Manager</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> Medium</span>
-                    <span><strong>Source:</strong> 3 reviews describe checkout as impersonal vs. warm check-in</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--medium">Medium Priority</div>
-                  <h4 class="action-card__title">Add breakfast-time review request card with QR code</h4>
-                  <p class="action-card__detail">Printed or handwritten card at breakfast table linking to Google review form. Capitalise on emotional peak.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> F&amp;B / Front Desk</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> Medium</span>
-                    <span><strong>Source:</strong> Review volume low relative to occupancy; breakfast is highest-rated moment</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Marketing / Agency -->
-            <div>
-              <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
-                <span style="background:var(--rb-moss); color:var(--rb-cream); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.25rem 0.65rem; border-radius:5px;">Marketing / Agency</span>
-                <span style="font-size:0.825rem; color:var(--rb-muted);">For the marketing team or managing agency</span>
-              </div>
-              <div class="data-table-wrap" style="overflow-x:auto; border-radius:12px; border:1px solid var(--rb-line); overflow:hidden;">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th style="width:80px;">Priority</th>
-                      <th>Action</th>
-                      <th style="width:130px;">Owner</th>
-                      <th style="width:70px;">Effort</th>
-                      <th style="width:70px;">Impact</th>
-                      <th style="width:160px;">Source Signal</th>
-                      <th style="width:100px;">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="priority-high">High</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Move courtyard images to positions 1–3 in OTA listings</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">If OTA gallery currently leads with room interiors, test courtyard-first. Update Booking.com and Expedia this week. No cost.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Marketing / Agency</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">High</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Courtyard mentioned in 38% of all reviews — top conversion signal</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-high">High</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Test courtyard-first positioning in OTA and booking page description</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">If current description leads with room specs or location, test opening with courtyard and sense-of-place language. See Section 7 for draft angles.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Agency / Owner</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">High</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Guests describe courtyard as the emotional centre of stay in their own words</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-medium">Medium</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Build a "courtyard mornings" social content series (3–5 posts)</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">If breakfast and courtyard are underrepresented in current social posts, this is a strong candidate for recurring content. Guest language in Section 4 is ready to use.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Marketing / Agency</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Breakfast and courtyard are highest-rated guest experiences</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-medium">Medium</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Develop "Return to the Courtyard" re-engagement email</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">Segment past guests (12+ months). One email, one offer, one clear call to action using guest-informed language from Section 5.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Marketing / Agency</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Zero acquisition cost; highest-intent audience</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="priority-low">Low</span></td>
-                      <td>
-                        <strong style="display:block; color:var(--rb-ink); font-size:0.875rem;">Add "quiet room" option to booking flow for light sleepers</strong>
-                        <span style="font-size:0.8rem; color:var(--rb-muted);">If noise complaints are concentrated in specific rooms, surface a room preference option at booking. Expectation-setting reduces complaints without requiring physical changes.</span>
-                      </td>
-                      <td style="font-size:0.825rem;">Agency / Front Desk</td>
-                      <td style="font-size:0.825rem;">Low</td>
-                      <td style="font-size:0.825rem;">Medium</td>
-                      <td style="font-size:0.8rem; color:var(--rb-muted);">Noise mentioned in 5 reviews — manageable with expectation-setting</td>
-                      <td><span style="font-size:0.75rem; color:var(--rb-muted); font-style:italic;">Not started</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="print-action-cards">
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--high">High Priority</div>
-                  <h4 class="action-card__title">Move courtyard images to positions 1–3 in OTA listings</h4>
-                  <p class="action-card__detail">If OTA gallery currently leads with room interiors, test courtyard-first. Update Booking.com and Expedia this week. No cost.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Agency / Marketing</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> High</span>
-                    <span><strong>Source:</strong> 49 of 68 reviews cite courtyard as top experience</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--medium">Medium Priority</div>
-                  <h4 class="action-card__title">Test courtyard-and-sense-of-place language as primary positioning</h4>
-                  <p class="action-card__detail">If current description leads with room specs or location, test opening with courtyard and sense-of-place language. See Section 7 for draft angles.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Agency / Copywriter</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> High</span>
-                    <span><strong>Source:</strong> Courtyard = 72% of reviews, but rarely leads in OTA descriptions</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--medium">Medium Priority</div>
-                  <h4 class="action-card__title">Create 4-week social content series from guest language</h4>
-                  <p class="action-card__detail">If breakfast and courtyard are underrepresented in current social posts, this is a strong candidate for recurring content.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Social Media Manager</span>
-                    <span><strong>Effort:</strong> Medium</span>
-                    <span><strong>Impact:</strong> Medium</span>
-                    <span><strong>Source:</strong> Guest language in Section 5 ready to use</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--low">Low Priority</div>
-                  <h4 class="action-card__title">Draft re-engagement email for past guests</h4>
-                  <p class="action-card__detail">Segment past guests 12+ months. One email, one offer, one clear call to action using guest-informed language from Section 5.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Agency / Email</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> Medium</span>
-                    <span><strong>Source:</strong> Segment past guests 12+ months; breakfast and courtyard language from Section 5</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-                <div class="action-card">
-                  <div class="action-card__priority action-card__priority--low">Low Priority</div>
-                  <h4 class="action-card__title">Add quiet courtyard-facing room as a bookable option</h4>
-                  <p class="action-card__detail">If noise complaints are concentrated in specific rooms, surface a room preference option at booking. Expectation-setting reduces complaints without requiring physical changes.</p>
-                  <div class="action-card__meta">
-                    <span><strong>Owner:</strong> Agency / Revenue</span>
-                    <span><strong>Effort:</strong> Low</span>
-                    <span><strong>Impact:</strong> Medium</span>
-                    <span><strong>Source:</strong> Quiet and private mentions in 18 reviews</span>
-                    <span><strong>Status:</strong> Not started</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 10: Internal Agency Notes (example of internal-only view) -->
-          <div class="report-section force-page" id="s10" style="background:rgba(24,32,28,0.025); border:1.5px dashed rgba(24,32,28,0.18); border-radius:16px; padding:2rem 2.25rem;">
-            <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.5rem; flex-wrap:wrap;">
-              <div style="display:flex; align-items:center; gap:0.5rem; background:var(--rb-ink); color:var(--rb-cream); padding:0.35rem 0.875rem; border-radius:6px;">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                <span style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">Internal Agency View</span>
-              </div>
-              <span style="font-size:0.825rem; color:var(--rb-muted); font-style:italic;">This section is not included in the client-facing brief. Agency accounts only.</span>
-            </div>
-
-            <div class="report-section__title" style="border-bottom:1px solid rgba(24,32,28,0.12); padding-bottom:1rem; margin-bottom:1.5rem;">
-              <span class="report-section__num" style="background:var(--rb-ink);">10</span>
-              <h2>Internal Agency Notes</h2>
-            </div>
-
-            <!-- Upsell opportunities -->
-            <h3 style="font-size:1rem; font-weight:700; margin-bottom:1rem; color:var(--rb-ink);">Potential upsell opportunities</h3>
-
-            <div style="display:flex; flex-direction:column; gap:0.875rem; margin-bottom:2rem;">
-
-              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1.1rem 1.25rem;">
-                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                  <span style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--rb-moss); background:rgba(79,111,82,0.1); padding:0.2rem 0.6rem; border-radius:4px;">Revenue opportunity</span>
-                  <span style="font-size:0.78rem; color:var(--rb-muted);">Medium effort, high impact</span>
-                </div>
-                <h4 style="font-size:0.925rem; margin-bottom:0.35rem;">OTA listing refresh</h4>
-                <p style="font-size:0.85rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Guest reviews identify the courtyard as the strongest conversion asset, yet it is not leading in current OTA gallery ordering. A paid OTA photo-order and description audit would directly address what guests already respond to. Recommend positioning as a quick-win listing optimisation project.</p>
-              </div>
-
-              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1.1rem 1.25rem;">
-                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                  <span style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--rb-gold); background:rgba(198,161,91,0.1); padding:0.2rem 0.6rem; border-radius:4px;">Quick win</span>
-                  <span style="font-size:0.78rem; color:var(--rb-muted);">Low effort, medium impact</span>
-                </div>
-                <h4 style="font-size:0.925rem; margin-bottom:0.35rem;">Guest communication refresh</h4>
-                <p style="font-size:0.85rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Parking confusion and arrival friction are repeat signals that a simple pre-arrival email would resolve. This is a low-cost deliverable — one email rewrite — with measurable review score impact within 30 days. Easy upsell as part of ongoing retainer or standalone project.</p>
-              </div>
-
-              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1.1rem 1.25rem;">
-                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                  <span style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--rb-clay); background:rgba(184,107,75,0.1); padding:0.2rem 0.6rem; border-radius:4px;">Larger project</span>
-                  <span style="font-size:0.78rem; color:var(--rb-muted);">Medium effort, high impact</span>
-                </div>
-                <h4 style="font-size:0.925rem; margin-bottom:0.35rem;">Website and booking flow messaging review</h4>
-                <p style="font-size:0.85rem; color:var(--rb-ink-soft); max-width:none; margin:0;">Guest language consistently points to "quiet courtyard in central Antigua" as the property's core conversion asset. If current homepage or booking flow leads with room specs or location generics, this is a messaging gap worth surfacing as a paid project. Recommend a positioning review before any copy changes are made.</p>
-              </div>
-
-            </div>
-
-            <!-- Client call framing -->
-            <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.875rem; color:var(--rb-ink);">Suggested client conversation framing</h3>
-            <div style="background:var(--rb-paper); border-left:3px solid var(--rb-ink); padding:1rem 1.25rem; border-radius:0 8px 8px 0; margin-bottom:2rem;">
-              <p style="font-size:0.875rem; max-width:none; margin-bottom:0.75rem; color:var(--rb-ink-soft);">Lead with the <strong>Wi-Fi and parking fixes</strong> as guest experience wins — they're low cost, demonstrable, and the hotel can act on them this week. Frame them as what the data found, not what you found.</p>
-              <p style="font-size:0.875rem; max-width:none; margin-bottom:0.75rem; color:var(--rb-ink-soft);">Then introduce the <strong>courtyard-first marketing opportunity</strong> as a revenue improvement rather than a design critique. "Your strongest asset isn't leading in your listings" is an easier conversation than "your current copy isn't working."</p>
-              <p style="font-size:0.875rem; max-width:none; margin:0; color:var(--rb-ink-soft);">Hold the <strong>website and booking flow conversation</strong> for a follow-up call once trust is established. Lead with the quick wins first.</p>
-            </div>
-
-            <!-- Priority revenue opportunities -->
-            <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.875rem; color:var(--rb-ink);">Priority revenue opportunities for agency</h3>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.875rem;">
-              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1rem; text-align:center;">
-                <div style="font-size:1.25rem; font-weight:900; color:var(--rb-moss); margin-bottom:0.25rem;">$800–1,500</div>
-                <div style="font-size:0.78rem; color:var(--rb-ink-soft); font-weight:600;">OTA listing refresh</div>
-                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.2rem;">One-time project</div>
-              </div>
-              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1rem; text-align:center;">
-                <div style="font-size:1.25rem; font-weight:900; color:var(--rb-gold); margin-bottom:0.25rem;">$300–500</div>
-                <div style="font-size:0.78rem; color:var(--rb-ink-soft); font-weight:600;">Guest comms refresh</div>
-                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.2rem;">One-time project</div>
-              </div>
-              <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:1rem; text-align:center;">
-                <div style="font-size:1.25rem; font-weight:900; color:var(--rb-clay); margin-bottom:0.25rem;">$2,000–4,000</div>
-                <div style="font-size:0.78rem; color:var(--rb-ink-soft); font-weight:600;">Website messaging</div>
-                <div style="font-size:0.72rem; color:var(--rb-muted); margin-top:0.2rem;">Project or retainer add-on</div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Report Footer -->
-          <div style="padding: 2rem 3rem; background: var(--rb-cream); text-align:center;">
-            <div class="label" style="margin-bottom:0.5rem;">End of report</div>
-            <p style="font-size:0.825rem; color:var(--rb-muted); max-width:52ch; margin:0 auto;">This report was prepared by ReviewBriefs based on 68 guest reviews published between January and May 2025. All guest quotes are reproduced from public review platforms.</p>
-          </div>
-
-        </div>
-        <!-- end report body -->
-
+      <div class="brief-header__eyebrow">Guest Review Intelligence Brief · ReviewBriefs</div>
+      <h2 class="brief-header__title">Casa Mariposa Boutique Hotel</h2>
+      <p class="brief-header__location">Antigua Guatemala, Guatemala · Boutique hotel, 18 rooms</p>
+      <div class="brief-header__meta">
+        <div class="brief-header__meta-item"><strong>Analysis period:</strong> April – May 2025</div>
+        <div class="brief-header__meta-item"><strong>Sources:</strong> Google, Booking.com, TripAdvisor</div>
+        <div class="brief-header__meta-item"><strong>Prepared:</strong> 27 May 2025</div>
+        <div class="brief-header__meta-item"><strong>Avg. rating:</strong> 4.7 ★</div>
       </div>
-      <!-- end report-doc -->
+    </div>
+  </header>
 
-      <!-- CTA after report -->
-      <div class="text-center no-print" style="margin-top:3.5rem; padding:3rem 2rem; background:var(--rb-cream); border-radius:var(--radius-card); border:1px solid var(--rb-line);">
-        <div class="label mb-2">Start with a free baseline</div>
-        <h2 style="font-size:1.75rem; margin-bottom:0.75rem;">Ready for your property?</h2>
-        <p style="color:var(--rb-ink-soft); max-width:52ch; margin:0 auto 1.75rem;">Your free baseline brief creates the starting point. Monthly briefs track what changes — improving signals, persistent risks, seasonal patterns, and whether last month's actions worked.</p>
-        <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
-          <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-lg">Request free baseline</button>
-          <a href="../../pricing.html" class="btn btn-secondary">See all plans</a>
+  <!-- Brief: two-column layout -->
+  <div class="brief-layout" style="background:var(--rb-cream);">
+
+    <!-- Sidebar navigation -->
+    <nav class="brief-nav" aria-label="Brief sections">
+      <div class="brief-nav__label">Contents</div>
+      <a href="#executive-summary"         class="brief-nav__link active">Executive Summary</a>
+      <a href="#what-guests-love"          class="brief-nav__link">What Guests Love</a>
+      <a href="#friction-points"           class="brief-nav__link">Friction Points</a>
+      <a href="#website-alignment"         class="brief-nav__link">Website Alignment</a>
+      <a href="#experience-opportunities"  class="brief-nav__link">Opportunities</a>
+      <a href="#quick-wins"                class="brief-nav__link">Quick Wins</a>
+      <a href="#strategic-recommendations" class="brief-nav__link">Strategy</a>
+      <a href="#next-audit-areas"          class="brief-nav__link">Next Audit Areas</a>
+    </nav>
+
+    <!-- Main content -->
+    <div class="brief-content" style="background:var(--rb-cream);">
+
+      <!-- ─── 1. Executive Summary ─────────────────────────── -->
+      <section class="brief-section" id="executive-summary">
+        <h2 class="brief-section__title">Executive Summary</h2>
+
+        <p style="font-size:0.95rem; color:var(--rb-ink-soft); line-height:1.65; margin-bottom:1.25rem;">Casa Mariposa holds a strong 4.7-star reputation across three platforms, driven by an unusually clear guest value proposition: an immersive sense of colonial Antigua, personal service, and an exceptional physical environment. The property's differentiators — the courtyard, the staff warmth, the breakfast — are real and verified by consistent guest language across sources.</p>
+
+        <div class="brief-stats">
+          <div class="brief-stat">
+            <div class="brief-stat__value" style="color:var(--rb-moss);">87%</div>
+            <div class="brief-stat__label">Positive sentiment</div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-stat__value">4.7★</div>
+            <div class="brief-stat__label">Avg. rating</div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-stat__value">68</div>
+            <div class="brief-stat__label">Reviews analysed</div>
+          </div>
+          <div class="brief-stat">
+            <div class="brief-stat__value" style="color:var(--rb-clay);">4%</div>
+            <div class="brief-stat__label">Negative signals</div>
+          </div>
         </div>
-      </div>
 
+        <div class="brief-insight">
+          <strong>What's working:</strong> Three themes account for most positive mentions — the courtyard and garden atmosphere, staff warmth and personalization, and the quality of the included breakfast. These are genuine differentiators that competitors in the Antigua market are not consistently delivering.
+        </div>
+
+        <div class="brief-insight brief-insight--priority">
+          <strong>Top opportunity:</strong> Wi-Fi signal quality in courtyard-adjacent rooms appears in 14 of 68 reviews and is the single most common friction point. Reviews mentioning Wi-Fi average 3.2 stars versus 4.9 for those that do not. Resolving this would likely shift 8–12 reviews into 5-star territory — the highest-ROI single action available.
+        </div>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 2. What Guests Love Most ─────────────────────── -->
+      <section class="brief-section" id="what-guests-love">
+        <h2 class="brief-section__title">What Guests Love Most</h2>
+        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">Ranked by frequency of unprompted mention across all 68 reviews.</p>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Courtyard &amp; Garden Atmosphere</div>
+            <span class="brief-badge brief-badge--positive">Most mentioned</span>
+          </div>
+          <div class="brief-theme__bar"><div class="brief-theme__bar-fill" style="width:72%;"></div></div>
+          <div class="brief-theme__freq">Mentioned in 49 of 68 reviews (72%)</div>
+          <p class="brief-theme__body">Guests consistently single out the central courtyard — specifically the fountain, the flowering vines, and the arrangement of seating — as the defining experience of the stay. Many describe it as the reason they chose to stay again or recommend the property. Several reviews compare it to "stepping into a different century."</p>
+          <blockquote class="brief-evidence">"The courtyard alone is worth the stay. I had my morning coffee there every day and genuinely didn't want to leave."<cite>— Google, April 2025</cite></blockquote>
+          <p class="brief-theme__usability">↳ This language translates directly to website copy and OTA listing descriptions.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Staff Warmth &amp; Personalization</div>
+            <span class="brief-badge brief-badge--positive">Strong signal</span>
+          </div>
+          <div class="brief-theme__bar"><div class="brief-theme__bar-fill" style="width:63%;"></div></div>
+          <div class="brief-theme__freq">Mentioned in 43 of 68 reviews (63%)</div>
+          <p class="brief-theme__body">Staff are named individually in 21 reviews — unusual for an 18-room property and a strong signal of exceptional service culture. Guests praise the team for remembering preferences, providing local recommendations that proved accurate, and going beyond the expected during problem resolution.</p>
+          <blockquote class="brief-evidence">"Marco at the front desk remembered that I mentioned wanting to see the jade market and had already printed me a map the next morning. That's the kind of detail that makes the difference."<cite>— TripAdvisor, March 2025</cite></blockquote>
+          <p class="brief-theme__usability">↳ "Warm without being performative" — the guest-described quality here is a meaningful differentiator worth naming in positioning copy.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Breakfast Experience</div>
+            <span class="brief-badge brief-badge--positive">Rising trend</span>
+          </div>
+          <div class="brief-theme__bar"><div class="brief-theme__bar-fill" style="width:54%;"></div></div>
+          <div class="brief-theme__freq">Mentioned in 37 of 68 reviews (54%) — up from 38% last period</div>
+          <p class="brief-theme__body">The included breakfast receives specific praise for using local ingredients, for preparation quality, and for the setting. Guests frequently contrast it favorably with larger hotels in Antigua. The variety of Guatemalan staples alongside familiar options is a recurring highlight.</p>
+          <blockquote class="brief-evidence">"The tamales at breakfast were the best I had in a week in Guatemala. And that's saying something."<cite>— Booking.com, February 2025</cite></blockquote>
+          <p class="brief-theme__usability">↳ Breakfast appears in 54% of reviews but is underrepresented in current social posts and OTA listings — a direct marketing opportunity.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Location within Antigua</div>
+            <span class="brief-badge brief-badge--neutral">Consistent</span>
+          </div>
+          <div class="brief-theme__bar"><div class="brief-theme__bar-fill" style="width:44%; background:var(--rb-sage);"></div></div>
+          <div class="brief-theme__freq">Mentioned in 30 of 68 reviews (44%)</div>
+          <p class="brief-theme__body">Walkability to the main square, the market, and key restaurants is consistently noted as a practical advantage. Several guests explicitly mention location as a selection criterion. No negative location mentions appear in the review set.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Room Comfort &amp; Colonial Aesthetic</div>
+            <span class="brief-badge brief-badge--neutral">Consistent</span>
+          </div>
+          <div class="brief-theme__bar"><div class="brief-theme__bar-fill" style="width:38%; background:var(--rb-sage);"></div></div>
+          <div class="brief-theme__freq">Mentioned in 26 of 68 reviews (38%)</div>
+          <p class="brief-theme__body">Locally crafted textiles, thick walls that keep rooms cool without air conditioning, and attention to decorative detail all appear repeatedly. This theme correlates strongly with repeat booking intent and recommendation behavior.</p>
+        </div>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 3. Guest Friction Points ─────────────────────── -->
+      <section class="brief-section" id="friction-points">
+        <h2 class="brief-section__title">Guest Friction Points</h2>
+        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">Recurring themes from negative and mixed reviews — the patterns guests share publicly but rarely raise at checkout.</p>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Wi-Fi Connectivity in Courtyard-Adjacent Rooms</div>
+            <span class="brief-badge brief-badge--priority">Worth prioritising urgently</span>
+          </div>
+          <div class="brief-theme__freq">14 of 68 reviews (21%) — rising month-on-month</div>
+          <p class="brief-theme__body">Guests in courtyard-adjacent rooms — particularly the east wing — consistently note connectivity issues. Reviews that mention Wi-Fi average significantly lower star ratings than those that do not. This is the single largest driver of sub-5-star reviews and is trending upward.</p>
+          <blockquote class="brief-evidence">"Lovely hotel with a beautiful courtyard and great staff, but the Wi-Fi in our room was completely unusable. We were working remotely and had to go to a café every day. Shame because everything else was perfect."<cite>— Booking.com, 3-star</cite></blockquote>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Hot Water Inconsistency — Three Rooms</div>
+            <span class="brief-badge brief-badge--priority">Worth addressing</span>
+          </div>
+          <div class="brief-theme__freq">8 reviews, all referencing the same wing</div>
+          <p class="brief-theme__body">Several guests in the same room cluster describe intermittent hot water availability. Guests who received a proactive management response during their stay rated the property higher — suggesting the issue is recognized but not yet permanently resolved at the infrastructure level.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Street Noise in Weekend Evenings</div>
+            <span class="brief-badge brief-badge--opportunity">Manageable through communication</span>
+          </div>
+          <div class="brief-theme__freq">7 reviews, concentrated Friday–Saturday</div>
+          <p class="brief-theme__body">Some guests in street-facing rooms note noise from the Calle del Arco area on weekend evenings. Guests who received a proactive mention at check-in — or were offered an interior-facing room — describe this much less often. Setting expectations reduces the review impact significantly.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Checkout Experience</div>
+            <span class="brief-badge brief-badge--opportunity">New signal — monitor</span>
+          </div>
+          <div class="brief-theme__freq">5 reviews — new this period, not present previously</div>
+          <p class="brief-theme__body">Five guests describe checkout as rushed or impersonal — a notable contrast to the warmth described throughout the stay. This appears to be a morning staffing pattern rather than a property-wide issue. A minor process adjustment would resolve this without additional headcount.</p>
+          <blockquote class="brief-evidence">"Beautiful property and amazing location. Checkout was slightly rushed and felt a bit impersonal compared to the warmth of check-in, which was a small disappointment at the end of an otherwise wonderful stay."<cite>— TripAdvisor, 4-star</cite></blockquote>
+        </div>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 4. Website Messaging Alignment ───────────────── -->
+      <section class="brief-section" id="website-alignment">
+        <h2 class="brief-section__title">Website Messaging Alignment</h2>
+        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">Opportunities to better reflect the guest experience in your online presence — where what guests say and what your listings show are not yet aligned.</p>
+
+        <div class="brief-gap">
+          <div class="brief-gap__label">Significant opportunity</div>
+          <div class="brief-gap__text">Courtyard leads reviews — but not OTA listings</div>
+          <p class="brief-gap__body">The courtyard and garden appear in 72% of guest reviews and are the most-cited reason guests recommend the property. Current OTA gallery ordering and opening descriptions typically lead with room interiors. Guests are converting despite this mismatch — not because of it.</p>
+          <div class="brief-gap__recommendation">→ Move courtyard images to positions 1–3 in all OTA galleries. Rewrite opening descriptions to anchor around sense of place rather than room specifications.</div>
+        </div>
+
+        <div class="brief-gap">
+          <div class="brief-gap__label">Conversion opportunity</div>
+          <div class="brief-gap__text">Breakfast is a booking differentiator that isn't being used as one</div>
+          <p class="brief-gap__body">The included breakfast appears in 54% of reviews — up from 38% last period — and is frequently compared favorably to competing properties. It appears in fewer than 10% of the property's current social content and is not prominently featured in listing descriptions.</p>
+          <div class="brief-gap__recommendation">→ Feature breakfast specifically in OTA listings, the website, and social content. Guest language ("best tamales in Antigua," "local ingredients") is ready to use verbatim.</div>
+        </div>
+
+        <div class="brief-gap">
+          <div class="brief-gap__label">Quick fix</div>
+          <div class="brief-gap__text">Parking guidance is absent from pre-arrival communication</div>
+          <p class="brief-gap__body">Four reviews mention confusion or stress about parking in Antigua on arrival, noting that the hotel's confirmation email does not address this. This is a straightforward friction point with a simple solution.</p>
+          <div class="brief-gap__recommendation">→ Add one paragraph to the pre-arrival confirmation email covering the nearest paid lot, walking time, and Colonial Zone traffic guidance. This category of complaint would likely disappear within 30 days.</div>
+        </div>
+
+        <div class="brief-insight brief-insight--opportunity">
+          <strong>Direct booking opportunity:</strong> 14 reviews mention a preference for a specific room type. Offering courtyard room preference as a direct-booking benefit costs nothing and gives guests a tangible reason to book directly rather than through OTAs. Mention it on the booking page and in the confirmation email.
+        </div>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 5. Service & Experience Opportunities ─────────── -->
+      <section class="brief-section" id="experience-opportunities">
+        <h2 class="brief-section__title">Service &amp; Experience Opportunities</h2>
+
+        <h3 class="brief-section__subtitle">Operational</h3>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Wi-Fi infrastructure — east wing</div>
+            <span class="brief-badge brief-badge--priority">Highest-ROI action</span>
+          </div>
+          <p class="brief-theme__body">Installing a mesh network extender in the east wing (rooms 7–11) is estimated at $200–400 and would directly address the most review-impactful friction point in the dataset. The cost-per-review-point improvement ratio makes this the single best investment available.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Hot water — permanent resolution</div>
+            <span class="brief-badge brief-badge--opportunity">Eliminate a review risk</span>
+          </div>
+          <p class="brief-theme__body">Hot water inconsistency in the west wing (rooms 3, 4, 6) has been managed reactively. Guest feedback shows that responsive management handling reduces the review score impact, but a permanent infrastructure fix would eliminate this complaint category entirely.</p>
+        </div>
+
+        <div class="brief-theme">
+          <div class="brief-theme__header">
+            <div class="brief-theme__name">Checkout warmth</div>
+            <span class="brief-badge brief-badge--opportunity">Low effort, high impression</span>
+          </div>
+          <p class="brief-theme__body">The checkout experience is the final impression of a stay where the arrival and middle experience scored very well. A personalised departure note — guest name, one specific detail from their stay — would close the experience consistently without additional headcount.</p>
+        </div>
+
+        <h3 class="brief-section__subtitle">What We're Seeing Across the Industry</h3>
+
+        <div class="brief-insight">
+          <strong>Boutique guests increasingly value authentic local identity</strong> over standardised luxury signals. Casa Mariposa's colonial architecture and Guatemalan breakfast are authentic differentiators — guests are naming them unprompted. Marketing should lead with these rather than generic "boutique hotel" positioning.
+        </div>
+
+        <div class="brief-insight brief-insight--opportunity">
+          <strong>Breakfast is increasingly a primary reputation driver</strong> for boutique properties, not a secondary amenity. Guests compare breakfast experiences across properties and share them in reviews. The breakfast at Casa Mariposa is already over-delivering — it should be leveraged as aggressively in marketing as it performs in experience.
+        </div>
+
+        <div class="brief-insight brief-insight--opportunity">
+          <strong>Review response quality affects trust perception</strong> more than it did three years ago. Prospective guests read management responses before booking. The responses in this dataset are warm and personalised — a meaningful strength. Maintaining that quality across all reviews, including positive ones, compounds the effect.
+        </div>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 6. Quick Wins ─────────────────────────────────── -->
+      <section class="brief-section" id="quick-wins">
+        <h2 class="brief-section__title">Quick Wins</h2>
+        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.25rem;">High-impact changes actionable within 30 days.</p>
+
+        <ul class="brief-wins">
+          <li>
+            <div class="brief-wins__icon">1</div>
+            <div class="brief-wins__body">
+              <div class="brief-wins__action">Add parking guidance to the pre-arrival confirmation email</div>
+              <div class="brief-wins__detail">Nearest paid lot, walking time, Colonial Zone traffic tips. Four reviews cite arrival confusion — this single paragraph would likely eliminate the category.</div>
+              <span class="brief-badge brief-badge--area">Guest comms</span>
+              <span class="brief-badge brief-badge--positive" style="margin-left:0.35rem;">Low effort</span>
+            </div>
+          </li>
+          <li>
+            <div class="brief-wins__icon">2</div>
+            <div class="brief-wins__body">
+              <div class="brief-wins__action">Move courtyard images to positions 1–3 in all OTA galleries</div>
+              <div class="brief-wins__detail">Courtyard is cited in 72% of reviews as the primary experience driver. OTA gallery leads with room interiors. Reorder this week — no cost, no design work required.</div>
+              <span class="brief-badge brief-badge--area">Website / OTA</span>
+              <span class="brief-badge brief-badge--positive" style="margin-left:0.35rem;">Low effort</span>
+            </div>
+          </li>
+          <li>
+            <div class="brief-wins__icon">3</div>
+            <div class="brief-wins__body">
+              <div class="brief-wins__action">Place a review request card at the breakfast table</div>
+              <div class="brief-wins__detail">A printed or handwritten card with QR code linking to Google review form. Breakfast is the emotional peak of the stay — morning timing outperforms checkout-time asks significantly.</div>
+              <span class="brief-badge brief-badge--area">Review response</span>
+              <span class="brief-badge brief-badge--positive" style="margin-left:0.35rem;">Low effort</span>
+            </div>
+          </li>
+          <li>
+            <div class="brief-wins__icon">4</div>
+            <div class="brief-wins__body">
+              <div class="brief-wins__action">Mention street-facing room noise proactively at check-in</div>
+              <div class="brief-wins__detail">Offer interior-facing room preference to guests who mention light sleeping. Setting expectations eliminates the review impact of a structural issue that cannot otherwise be changed.</div>
+              <span class="brief-badge brief-badge--area">Operations</span>
+              <span class="brief-badge brief-badge--positive" style="margin-left:0.35rem;">Low effort</span>
+            </div>
+          </li>
+          <li>
+            <div class="brief-wins__icon">5</div>
+            <div class="brief-wins__body">
+              <div class="brief-wins__action">Introduce a personalised departure note at checkout</div>
+              <div class="brief-wins__detail">Guest name and one specific detail from their stay. Closes a warm stay experience consistently — five recent reviews describe checkout as impersonal by contrast with arrival.</div>
+              <span class="brief-badge brief-badge--area">Operations</span>
+              <span class="brief-badge brief-badge--positive" style="margin-left:0.35rem;">Low effort</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 7. Strategic Recommendations ────────────────── -->
+      <section class="brief-section" id="strategic-recommendations">
+        <h2 class="brief-section__title">Strategic Recommendations</h2>
+
+        <div class="brief-rec">
+          <div class="brief-rec__header">
+            <div class="brief-rec__title">Resolve Wi-Fi dead zones in the east wing</div>
+            <span class="brief-badge brief-badge--priority">Highest priority</span>
+          </div>
+          <p class="brief-rec__body">A mesh network extender in rooms 7–11 is the single highest-ROI investment identified in this analysis. Wi-Fi is the only technical issue that is directly suppressing review scores — reviews mentioning it average 1.7 stars lower than those that do not. Estimated cost: $200–400.</p>
+          <p class="brief-rec__timeframe">Recommended timeframe: within 30 days</p>
+        </div>
+
+        <div class="brief-rec">
+          <div class="brief-rec__header">
+            <div class="brief-rec__title">Reposition OTA listings and website copy around the courtyard experience</div>
+            <span class="brief-badge brief-badge--priority">High priority</span>
+          </div>
+          <p class="brief-rec__body">Guest reviews consistently name the courtyard as the decision driver — but current OTA gallery ordering and copy lead with rooms. This is a direct conversion gap. Reordering the gallery, rewriting the first 50 words of the OTA description, and adding courtyard-first copy to the website booking page would align what guests say with what prospective guests see first.</p>
+          <p class="brief-rec__timeframe">Recommended timeframe: within 30 days — low effort, no design cost</p>
+        </div>
+
+        <div class="brief-rec">
+          <div class="brief-rec__header">
+            <div class="brief-rec__title">Feature the breakfast as a primary booking asset across all channels</div>
+            <span class="brief-badge brief-badge--priority">High priority</span>
+          </div>
+          <p class="brief-rec__body">The breakfast is mentioned in 54% of reviews and trending upward. It is already a genuine differentiator — guests compare it favorably to competing properties. It is underrepresented in current social content and OTA listings. A weekly breakfast content series, updated OTA copy, and a direct website feature would bring marketing into alignment with the guest experience.</p>
+          <p class="brief-rec__timeframe">Recommended timeframe: within 45 days</p>
+        </div>
+
+        <div class="brief-rec">
+          <div class="brief-rec__header">
+            <div class="brief-rec__title">Build a "Return to the Courtyard" re-engagement campaign for past guests</div>
+            <span class="brief-badge brief-badge--opportunity">Medium priority</span>
+          </div>
+          <p class="brief-rec__body">Several reviews explicitly mention a return visit or a stated intention to return. A segmented email to guests from 12+ months ago, centered on the courtyard experience with a modest loyalty offer, targets the highest-intent audience at zero acquisition cost. Guest language from this brief — phrases like "the courtyard alone is worth the stay" — is ready to use in the subject line and body.</p>
+          <p class="brief-rec__timeframe">Recommended timeframe: 45–60 days</p>
+        </div>
+      </section>
+
+      <hr class="brief-divider">
+
+      <!-- ─── 8. Next Audit Areas ───────────────────────────── -->
+      <section class="brief-section" id="next-audit-areas">
+        <h2 class="brief-section__title">Suggested Next Audit Areas</h2>
+        <p style="font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:1.25rem;">As your review volume grows over the next 60–90 days, we recommend monitoring these areas specifically in the follow-up brief.</p>
+
+        <ul style="list-style:none; padding:0; margin:0 0 1.5rem;">
+          <li style="display:flex; gap:0.75rem; padding:0.75rem 0; border-bottom:1px solid var(--rb-line); font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.5;">
+            <span style="color:var(--rb-moss); font-weight:700; flex-shrink:0;">→</span>
+            <span><strong style="color:var(--rb-ink);">Checkout experience trend.</strong> Five reviews this period describe checkout as impersonal — a new signal not present in prior data. If it appears in more than 3 reviews next cycle, it has become a pattern requiring a process fix.</span>
+          </li>
+          <li style="display:flex; gap:0.75rem; padding:0.75rem 0; border-bottom:1px solid var(--rb-line); font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.5;">
+            <span style="color:var(--rb-moss); font-weight:700; flex-shrink:0;">→</span>
+            <span><strong style="color:var(--rb-ink);">Wi-Fi complaint trajectory.</strong> After the mesh extender is installed, the next brief will show whether connectivity mentions drop. This is a direct measure of whether the fix worked — a useful before/after signal.</span>
+          </li>
+          <li style="display:flex; gap:0.75rem; padding:0.75rem 0; border-bottom:1px solid var(--rb-line); font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.5;">
+            <span style="color:var(--rb-moss); font-weight:700; flex-shrink:0;">→</span>
+            <span><strong style="color:var(--rb-ink);">Seasonal messaging alignment.</strong> Courtyard praise rose as Antigua's dry season arrived. As the rainy season begins (May–October), monitor whether outdoor experience mentions shift — and consider how current OTA listing copy reads to guests arriving in wetter months.</span>
+          </li>
+          <li style="display:flex; gap:0.75rem; padding:0.75rem 0; font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.5;">
+            <span style="color:var(--rb-moss); font-weight:700; flex-shrink:0;">→</span>
+            <span><strong style="color:var(--rb-ink);">Review volume vs. occupancy.</strong> Current review volume suggests capture rate is low relative to occupancy. As the breakfast card and direct review ask are introduced, monitor whether volume increases — and whether the new reviews sustain the 4.7 average or improve it.</span>
+          </li>
+        </ul>
+
+        <!-- Guest language bank -->
+        <div class="brief-language-bank">
+          <div class="brief-language-bank__title">Guest Language Worth Reusing</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); margin-bottom:1rem; line-height:1.5;">These are phrases guests chose on their own — the most authentic marketing copy available. Most effective in OTA listings, Instagram captions, and email subject lines targeting past guests. Use the informal cadence — don't edit it out.</p>
+          <div>
+            <span class="phrase-chip">"stepping back in time"</span>
+            <span class="phrase-chip">"best breakfast in Antigua"</span>
+            <span class="phrase-chip">"felt like a private home"</span>
+            <span class="phrase-chip">"the courtyard is magical"</span>
+            <span class="phrase-chip">"staff remembered everything"</span>
+            <span class="phrase-chip">"authentically Guatemalan"</span>
+            <span class="phrase-chip">"a different century"</span>
+            <span class="phrase-chip">"woke up to birdsong"</span>
+            <span class="phrase-chip">"thick stone walls keep it cool"</span>
+            <span class="phrase-chip">"the kind of hotel you tell everyone about"</span>
+            <span class="phrase-chip">"two minutes from everything"</span>
+            <span class="phrase-chip">"the fountain was still running when I fell asleep"</span>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /brief-content -->
+  </div><!-- /brief-layout -->
+
+  <!-- Brief footer -->
+  <footer style="background:var(--rb-ink); color:rgba(255,255,255,0.4); text-align:center; padding:1.5rem; font-size:0.72rem; line-height:1.7;">
+    <div>Guest Review Intelligence Brief · Casa Mariposa Boutique Hotel · Antigua Guatemala</div>
+    <div>Prepared by <strong style="color:rgba(255,255,255,0.65);">ReviewBriefs</strong> · <a href="https://reviewbriefs.com" style="color:rgba(255,255,255,0.5);">reviewbriefs.com</a> · May 27, 2025</div>
+    <div style="margin-top:0.4rem; font-size:0.68rem;">This brief is prepared based on 68 guest reviews published between January and May 2025. All guest quotes reproduced from public review platforms.</div>
+  </footer>
+
+  <!-- CTA (marketing, hidden on print) -->
+  <div class="container no-print">
+    <div class="text-center" style="margin:3.5rem auto; padding:3rem 2rem; background:var(--rb-cream); border-radius:var(--radius-card); border:1px solid var(--rb-line);">
+      <div class="label mb-2">Start with a free baseline</div>
+      <h2 style="font-size:1.75rem; margin-bottom:0.75rem;">Ready for your property?</h2>
+      <p style="color:var(--rb-ink-soft); max-width:52ch; margin:0 auto 1.75rem;">Your free baseline brief creates the starting point. Monthly briefs track what changes — improving signals, persistent risks, seasonal patterns, and whether last month's actions worked.</p>
+      <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+        <button data-tally-open="gDkKaO" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="btn btn-primary btn-lg">Request free baseline</button>
+        <a href="../../pricing.html" class="btn btn-secondary">See all plans</a>
+      </div>
     </div>
   </div>
 
@@ -1050,5 +991,22 @@
 <!-- end component: site-footer -->
 
 <script src="../../assets/js/main.js"></script>
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('.brief-section[id]');
+  const navLinks = document.querySelectorAll('.brief-nav__link');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.brief-nav__link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
 </body>
 </html>

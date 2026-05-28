@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash([ -f \"$OUTPUT\" ])"
+      "Bash([ -f \"$OUTPUT\" ])",
+      "WebFetch(domain:reviewbriefs.com)"
     ]
   }
 }
