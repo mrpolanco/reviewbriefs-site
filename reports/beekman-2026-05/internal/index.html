@@ -40,7 +40,7 @@
       background: var(--rb-ink);
       color: #fff;
       text-align: center;
-      padding: 0.55rem 1rem;
+      padding: 0.42rem 1rem;
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -115,11 +115,11 @@
       border-right: 1px solid var(--rb-line);
       padding: 2rem 0;
       position: fixed;
-      top: 37px;
+      top: 32px;
       left: 0;
       width: 220px;
       align-self: start;
-      height: calc(100vh - 37px);
+      height: calc(100vh - 32px);
       overflow-y: auto;
       z-index: 20;
     }
@@ -171,6 +171,60 @@
       grid-column: 2;
       padding: 2.5rem 2.5rem 4rem;
       max-width: 860px;
+    }
+
+    .brief-data-risk {
+      background: #fff;
+      border: 1px solid var(--rb-line);
+      border-left: 4px solid var(--brief-risk-medium);
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.15rem;
+      margin: 1.1rem 0 1.25rem;
+    }
+
+    .brief-data-risk__title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brief-risk-medium);
+      margin-bottom: 0.45rem;
+    }
+
+    .brief-action-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .brief-action-card {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+
+    .brief-action-card__label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .brief-action-card__text {
+      font-size: 0.86rem;
+      color: var(--rb-ink-soft);
+      line-height: 1.5;
+    }
+
+    .brief-score-note {
+      font-size: 0.76rem;
+      color: var(--rb-muted);
+      line-height: 1.45;
+      margin-top: 0.55rem;
     }
 
     /* ── Sections ── */
@@ -735,8 +789,9 @@
       <div class="brief-header__meta-item"><strong>Job ID:</strong> beekman-2026-05</div>
       <div class="brief-header__meta-item"><strong>Analysis window:</strong> April – May 2026</div>
       <div class="brief-header__meta-item"><strong>Sources:</strong> Google, TripAdvisor, Booking.com, Expedia, Hotels.com, Agoda</div>
-      <div class="brief-header__meta-item"><strong>Reviews analysed:</strong> 49 of 220 captured</div>
-      <div class="brief-header__meta-item"><strong>Avg rating:</strong> 4.3 ★</div>
+      <div class="brief-header__meta-item"><strong>Reviewed sample:</strong> 49 eligible captures</div>
+      <div class="brief-header__meta-item"><strong>Post-dedup working set:</strong> 29 review records</div>
+      <div class="brief-header__meta-item"><strong>Average rating in reviewed sample:</strong> 4.3 ★</div>
     </div>
     <div class="brief-header__actions">
       <button class="btn btn-secondary btn-sm" onclick="window.print()">Print / Export PDF</button>
@@ -779,14 +834,15 @@
         <div class="brief-risk-score__detail">
           <div class="brief-risk-score__label">Reputation Score / 10 · Trajectory: Mixed</div>
           <div class="brief-risk-score__trajectory">Strong asset base, active vulnerability.</div>
-          <div class="brief-risk-score__summary">The Beekman's Victorian atrium and celebrity-chef dining are best-in-class reputation assets undermined by a recurring Amex FHR credit-handling pattern that drives disproportionate 1–2 star reviews from the hotel's highest-value guests.</div>
+          <div class="brief-risk-score__summary">The Beekman's Victorian atrium and celebrity-chef dining are best-in-class reputation assets undermined by a recurring premium booking benefit and checkout communication pattern that drives disproportionate low-star reviews from high-value guests.</div>
+          <div class="brief-score-note">Internal composite score based on recent review sentiment, severity of complaints, owner response visibility, website/listing alignment, and issue fixability. Not an official public rating.</div>
         </div>
       </div>
 
       <div class="brief-stats">
         <div class="brief-stat">
           <div class="brief-stat__value">4.3</div>
-          <div class="brief-stat__label">Avg rating</div>
+          <div class="brief-stat__label">Avg rating in sample</div>
         </div>
         <div class="brief-stat">
           <div class="brief-stat__value">29</div>
@@ -794,11 +850,37 @@
         </div>
         <div class="brief-stat">
           <div class="brief-stat__value">56</div>
-          <div class="brief-stat__label">Unanswered high-risk reviews</div>
+          <div class="brief-stat__label">Visible high-risk items flagged for audit</div>
         </div>
         <div class="brief-stat">
           <div class="brief-stat__value">5+</div>
-          <div class="brief-stat__label">Amex FHR complaint reviews</div>
+          <div class="brief-stat__label">Premium benefit / checkout complaints</div>
+        </div>
+      </div>
+
+      <div class="brief-data-risk">
+        <div class="brief-data-risk__title">Confidence &amp; Data Risk</div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.55rem;"><strong>Data confidence: Medium.</strong> Strongest confidence: Google, Expedia/Hotels.com visible reviews, website snapshots, and selected listing snapshots. Lower confidence: TripAdvisor review boundaries, owner response completeness, and duplicated Expedia Group review entries.</p>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.55; margin:0;"><strong>Use for:</strong> themes, risk detection, client-service opportunities. <strong>Do not use for:</strong> precise sentiment scoring, official rating calculation, or month-over-month trend claims.</p>
+      </div>
+
+      <h3 class="brief-section__subtitle">Agency Action Summary</h3>
+      <div class="brief-action-grid">
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Recommended client conversation</div>
+          <div class="brief-action-card__text">Lead with praise: architecture, service warmth, and Bar Room strength. Then introduce the risk: premium guest expectation gaps around breakfast credits, destination fees, room-service exclusions, and checkout communication.</div>
+        </div>
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Immediate fix</div>
+          <div class="brief-action-card__text">Pre-arrival and FAQ clarity around credits, fee language, breakfast scope, and checkout resolution path.</div>
+        </div>
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Upsell path</div>
+          <div class="brief-action-card__text">F&amp;B profile audit, review response backlog cleanup, OTA/listing refresh, and website FAQ/schema updates.</div>
+        </div>
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Most sellable services</div>
+          <div class="brief-action-card__text">Review response program, OTA listing copy refresh, F&amp;B listing/profile audit, policy clarity update, and AI-readiness/schema pass.</div>
         </div>
       </div>
 
@@ -860,14 +942,14 @@
 
       <h3 class="brief-section__subtitle">Key Risks</h3>
       <ul style="padding-left:1.2rem; line-height:1.7; font-size:0.88rem; color:var(--rb-ink-soft);">
-        <li><strong>Amex FHR credit handling</strong> — resort fee, breakfast credit cap, room-service exclusion, and checkout billing disputes form a clear recurring pattern from high-LTV guests</li>
+        <li><strong>Premium booking benefit and checkout communication</strong> — observed examples include Amex FHR breakfast credit expectations, destination fee questions, room-service exclusions, and late checkout/billing disputes</li>
         <li><strong>Service inconsistency</strong> — sanitation incident and adversarial checkout resolution both unanswered in public reviews</li>
-        <li><strong>56 unanswered high-risk reviews</strong> — more damaging to prospective guests than the original complaints</li>
+        <li><strong>Visible owner-response gaps</strong> — detailed low-star items were flagged for audit where no owner response was visible in the reviewed sample</li>
         <li>Standard room size at $600+/night creates expectation gap for first-time guests</li>
       </ul>
 
       <h3 class="brief-section__subtitle">Top Opportunity</h3>
-      <p style="font-size:0.88rem; color:var(--rb-ink-soft); line-height:1.6;">Resolve Amex FHR credit communication at every pre-arrival and arrival touchpoint. This single operational change addresses the most common source of 1–2 star reviews and protects the loyalty of the guest segment most likely to return and spend the most.</p>
+      <p style="font-size:0.88rem; color:var(--rb-ink-soft); line-height:1.6;">Resolve premium booking benefit and checkout communication at every pre-arrival and arrival touchpoint. This single operational change addresses the most common source of low-star reviews and protects loyalty among high-value booking segments.</p>
     </section>
 
     <hr class="brief-divider">
@@ -902,7 +984,7 @@
       </table>
 
       <div class="brief-flag">
-        F&amp;B signal in this brief reflects hotel guests' dining experience only. No dedicated F&amp;B sources (Yelp, OpenTable, Resy) were included in the packet. The Bar Room and Le Gratin likely have substantial standalone review volume on those platforms not captured here.
+        <strong>Needs dedicated F&amp;B pull before full F&amp;B strategy.</strong> Current F&amp;B signal reflects hotel guests' dining experience only. Do not present this as a complete F&amp;B audit yet. Recommended next capture: Google profiles for The Bar Room and Le Gratin, Yelp, OpenTable, Resy, and TripAdvisor restaurant pages where available.
       </div>
 
       <h3 class="brief-section__subtitle">F&amp;B Praise Themes</h3>
@@ -1255,7 +1337,7 @@
 
       <div class="brief-theme" style="border-color: var(--brief-risk-high);">
         <div class="brief-theme__header">
-          <div class="brief-theme__name">Review response — 56 unanswered high-risk reviews</div>
+          <div class="brief-theme__name">Review response — visible high-risk items flagged for audit</div>
           <div class="brief-theme__badges">
             <span class="brief-badge brief-badge--risk-high">High</span>
             <span class="brief-badge brief-badge--pattern">Strong pattern</span>
@@ -1379,14 +1461,43 @@
       <h3 class="brief-section__subtitle">F&amp;B visibility</h3>
       <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6;">Dining and bar experiences are part of the reputation story, not just an amenity. The Bar Room, breakfast, cocktails, and room service all appear in guest feedback. This supports a separate F&amp;B listing/profile audit, especially across Google, TripAdvisor, Yelp/OpenTable/Resy where applicable, and the hotel's own dining pages.</p>
 
+      <h3 class="brief-section__subtitle">Channel action matrix</h3>
+      <table class="brief-table">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th>What to check</th>
+            <th>Opportunity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Google Business Profile</strong></td><td>Hotel/F&amp;B profile separation, owner responses, GBP posts</td><td>Reputation + local discovery</td></tr>
+          <tr><td><strong>TripAdvisor</strong></td><td>Hotel listing copy, review response backlog, owner-response fragments</td><td>Trust repair</td></tr>
+          <tr><td><strong>Booking / Expedia / Hotels.com</strong></td><td>Breakfast/fee expectations, room category clarity, Expedia Group duplication</td><td>Conversion + complaint prevention</td></tr>
+          <tr><td><strong>Agoda</strong></td><td>International traveler language, amenities clarity, translated expectations</td><td>International guest fit</td></tr>
+          <tr><td><strong>Website</strong></td><td>FAQ, room page, dining page, restaurant schema, NAP markup</td><td>Direct booking + AI readiness</td></tr>
+        </tbody>
+      </table>
+
       <h3 class="brief-section__subtitle">Recommended agency services</h3>
-      <ul>
-        <li>OTA listing copy refresh using guest-backed language.</li>
-        <li>Google Business Profile optimization and profile consistency review.</li>
-        <li>F&amp;B listing audit for bar, restaurant, breakfast, room service, and private dining visibility.</li>
-        <li>FAQ / policy clarity improvements around breakfast credits, destination fees, parking, room size, and room service.</li>
-        <li>Monthly reputation + listing alignment monitoring.</li>
-      </ul>
+      <table class="brief-table">
+        <thead>
+          <tr>
+            <th>Opportunity</th>
+            <th>Client value</th>
+            <th>Agency value</th>
+            <th>Effort</th>
+            <th>Sellability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Review response backlog cleanup</strong></td><td>Protect conversion on high-intent review pages</td><td>Monthly recurring service</td><td>Medium</td><td>High</td></tr>
+          <tr><td><strong>OTA/listing copy refresh</strong></td><td>Use guest-backed strengths and reduce expectation gaps</td><td>Project + quarterly refresh</td><td>Medium</td><td>High</td></tr>
+          <tr><td><strong>F&amp;B listing/profile audit</strong></td><td>Clarify dining/bar visibility across public profiles</td><td>Potential separate F&amp;B scope</td><td>Medium</td><td>High</td></tr>
+          <tr><td><strong>FAQ / policy clarity update</strong></td><td>Reduce breakfast, fee, parking, room-size, and room-service confusion</td><td>Low-lift website/comms project</td><td>Low</td><td>High</td></tr>
+          <tr><td><strong>AI-readiness / schema pass</strong></td><td>Improve machine-readable property, restaurant, FAQ, and NAP signals</td><td>Technical optimization add-on</td><td>Low-Medium</td><td>Medium</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <hr class="brief-divider">
@@ -1413,8 +1524,8 @@
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Respond to all 56 unanswered negative/mixed reviews within 30 days — start with Jack Moldave (sanitation) and Logan O'Connor (checkout dispute)</div>
-          <div class="brief-win__evidence">56 unanswered high-risk reviews confirmed. Both Jack Moldave and Logan O'Connor are high-visibility, high-word-count, unanswered. Prospective guests reading reviews see this as management indifference.</div>
+          <div class="brief-win__action">Audit and respond to visible unanswered negative/mixed reviews within 30 days — start with the highest-detail, highest-risk items</div>
+          <div class="brief-win__evidence">Visible high-risk items were flagged in the reviewed sample. Prioritize detailed unresolved reviews because prospective guests read those as evidence of management attention or indifference.</div>
           <div class="brief-win__badges">
             <span class="brief-badge brief-badge--risk-high">High impact</span>
             <span class="brief-badge brief-badge--area-response">Review response</span>
@@ -1425,7 +1536,7 @@
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Brief front desk team on Amex FHR credit terms and empower them to resolve disputes under $200 without GM escalation</div>
+          <div class="brief-win__action">Brief front desk team on premium booking benefit terms and clarify authority to resolve small billing disputes without unnecessary escalation</div>
           <div class="brief-win__evidence">Current escalation path requires GM authorization. The Chris Watson response (resort fee refunded) shows what good resolution looks like — it should be front-line default, not an exception.</div>
           <div class="brief-win__badges">
             <span class="brief-badge brief-badge--risk-high">High impact</span>
@@ -1471,7 +1582,7 @@
 
       <div class="brief-theme" style="border-color: var(--brief-risk-critical);">
         <div class="brief-theme__header">
-          <div class="brief-theme__name">Fix the Amex FHR credit communication and resolution process end-to-end</div>
+          <div class="brief-theme__name">Fix premium booking benefit and checkout communication end-to-end</div>
           <div class="brief-theme__badges">
             <span class="brief-badge brief-badge--risk-critical">Critical priority</span>
             <span class="brief-badge">30 days</span>
@@ -1488,7 +1599,7 @@
             <span class="brief-badge">30–45 days to clear backlog</span>
           </div>
         </div>
-        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6;">56 unanswered high-risk reviews is the most visible reputation gap in this dataset. A named, personalized response to each one converts a negative signal into evidence of responsive management. Current positive responses ('Your 10/10 review made our day' appears 9 times) are template-heavy and add no credibility. The response program should be owned by a named individual, not distributed. Start with Jack Moldave and Logan O'Connor — both high-visibility, both unanswered, both recoverable.</p>
+        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6;">Visible unanswered high-risk items are one of the most important reputation gaps in this dataset. Because owner response visibility varies by platform, treat the count as an audit queue rather than a formal response-rate metric. A named, personalized response to priority items converts a negative signal into evidence of responsive management.</p>
       </div>
 
       <div class="brief-theme" style="border-color: var(--brief-risk-high);">
@@ -1536,13 +1647,13 @@
 
       <div class="brief-theme" style="border-color: var(--brief-risk-high);">
         <div class="brief-theme__header">
-          <div class="brief-theme__name">Amex FHR credit mishandling converts high-LTV guests into public detractors</div>
+          <div class="brief-theme__name">Premium booking benefit confusion converts high-LTV guests into public detractors</div>
           <div class="brief-theme__badges">
             <span class="brief-badge brief-badge--risk-high">High severity</span>
             <span class="brief-badge brief-badge--isolated">Trajectory: Stable</span>
           </div>
         </div>
-        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6;">5+ reviews in 30-day window; likely under-captured given missing Agoda/TripAdvisor reviews. Pattern: Amex FHR guest has excellent stay → discovers billing error or credit gap at checkout → staff cannot or will not resolve → guest posts 1–2 star review. All such reviewers explicitly note the stay itself was excellent. The damage is entirely in the resolution failure.</p>
+        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6;">5+ reviews in the reviewed window; likely under-captured given missing Agoda/TripAdvisor reviews. Pattern: premium-program guest has excellent stay → discovers billing error or credit gap at checkout → staff cannot or will not resolve → guest posts low-star review. Several such reviewers note the stay itself was excellent. The damage concentrates in expectation-setting and resolution.</p>
         <p style="font-size:0.8rem; color:var(--rb-muted); margin-top:0.35rem;"><strong>Mitigation:</strong> Pre-arrival communication, front-line empowerment, and FAQ clarity. See Strategic Recommendation 1.</p>
       </div>
 
@@ -1602,7 +1713,7 @@
       </div>
 
       <div class="brief-flag">
-        <strong>Info — Owner response capture is partial.</strong> The 10% visible response rate may not represent actual response rate. The 56 unanswered high-risk figure is from the packet's own analysis tool and should be treated as reliable. Affects: public_response_analysis.
+        <strong>Info — Owner response capture is partial.</strong> The visible response rate may not represent actual response rate. Treat unanswered high-risk items as an audit queue, not a formal platform-wide metric. Affects: public_response_analysis.
       </div>
 
       <div class="brief-flag">
