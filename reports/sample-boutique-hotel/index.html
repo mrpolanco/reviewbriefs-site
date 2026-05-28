@@ -153,6 +153,51 @@
       color: var(--rb-ink-soft);
       margin: 1.25rem 0 0.6rem;
     }
+    .brief-lede {
+      font-size: 0.95rem;
+      color: var(--rb-ink-soft);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .brief-muted {
+      font-size: 0.82rem;
+      color: var(--rb-muted);
+      line-height: 1.5;
+    }
+    .brief-scope {
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--rb-line);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.35rem;
+    }
+    .brief-at-glance {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+    .brief-at-glance__item {
+      background: var(--rb-paper);
+      border: 1px solid var(--rb-line);
+      border-radius: 10px;
+      padding: 0.95rem 1rem;
+    }
+    .brief-at-glance__label {
+      display: block;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rb-muted);
+      margin-bottom: 0.35rem;
+    }
+    .brief-at-glance__item strong {
+      display: block;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: var(--rb-ink);
+    }
 
     /* ── Stats ── */
     .brief-stats {
@@ -471,125 +516,18 @@
     #scroll-top.visible { opacity: 1; transform: translateY(0); }
     #scroll-top:hover { background: var(--rb-moss-dark); }
 
-    /* ── View switcher tab bar ── */
-    .brief-view-tabs {
-      background: var(--rb-paper);
-      border-bottom: 1px solid var(--rb-line);
-      padding: 0.6rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    .brief-view-tabs__inner {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-    .brief-view-tabs__label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--rb-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-right: 0.35rem;
-    }
-    .brief-view-tab {
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.35rem 0.85rem;
-      border-radius: 6px;
-      border: 1px solid var(--rb-line);
-      background: transparent;
-      color: var(--rb-ink-soft);
-      cursor: pointer;
-      transition: all var(--transition);
-      line-height: 1;
-    }
-    .brief-view-tab:hover {
-      background: var(--rb-cream);
-      color: var(--rb-ink);
-    }
-    .brief-view-tab.active {
-      background: var(--rb-moss);
-      border-color: var(--rb-moss);
-      color: #fff;
-    }
-    .brief-view-tab--agency.active {
+    /* ── Footer ── */
+    .brief-footer {
       background: var(--rb-ink);
-      border-color: var(--rb-ink);
-    }
-    .brief-view-tabs__hint {
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 1.5rem;
       font-size: 0.72rem;
-      color: var(--rb-muted);
-      margin-left: auto;
-      font-style: italic;
+      line-height: 1.7;
     }
-
-    /* ── Agency-only flag callouts ── */
-    .brief-flag {
-      background: #FFF8E7;
-      border-left: 3px solid var(--rb-gold);
-      border-radius: 0 8px 8px 0;
-      padding: 0.75rem 1rem;
-      margin: 0.75rem 0;
-      font-size: 0.82rem;
-      color: #5A4A1C;
-      line-height: 1.55;
+    .brief-footer a {
+      color: rgba(255,255,255,0.5);
     }
-    .brief-flag__label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--rb-gold);
-      margin-bottom: 0.3rem;
-    }
-    .brief-retainer {
-      background: var(--rb-ink);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin: 1.25rem 0;
-      color: rgba(255,255,255,0.9);
-    }
-    .brief-retainer__label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--rb-sage);
-      margin-bottom: 0.5rem;
-    }
-    .brief-retainer__header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .brief-retainer__rating {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.25em 0.65em;
-      border-radius: 4px;
-      background: var(--rb-moss);
-      color: #fff;
-    }
-    .brief-retainer__rating--medium { background: var(--rb-gold); color: var(--rb-ink); }
-    .brief-retainer__body {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-    }
-
-    /* ── Data-view visibility rules ── */
-    /* Agency-only: hidden in client view */
-    #brief-root[data-view="client"] [data-view-show="agency"] { display: none !important; }
-    /* Client-only: hidden in agency view */
-    #brief-root[data-view="agency"] [data-view-show="client"] { display: none !important; }
-    /* Complete view: shows everything (no rules needed) */
 
     /* ── Print ── */
     @media print {
@@ -627,6 +565,11 @@
       .brief-content { grid-column: auto; padding: 1.5rem 1rem 3rem; }
       .brief-header { padding: 2rem 0 1.75rem; }
       #scroll-top { bottom: 1.25rem; right: 1.25rem; }
+      .brief-at-glance { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .brief-at-glance { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -707,21 +650,8 @@
     </div>
   </header>
 
-  <!-- View switcher -->
-  <div class="brief-view-tabs no-print">
-    <div class="container">
-      <div class="brief-view-tabs__inner">
-        <span class="brief-view-tabs__label">View as:</span>
-        <button class="brief-view-tab active" data-view="complete">Complete</button>
-        <button class="brief-view-tab" data-view="client">Client Brief</button>
-        <button class="brief-view-tab brief-view-tab--agency" data-view="agency">Agency Brief</button>
-        <span class="brief-view-tabs__hint no-mobile">Language and visible sections change per audience</span>
-      </div>
-    </div>
-  </div>
-
   <!-- Brief: two-column layout -->
-  <div class="brief-layout" id="brief-root" data-view="complete" style="background:var(--rb-cream);">
+  <div class="brief-layout" id="brief-root" style="background:var(--rb-cream);">
 
     <!-- Sidebar navigation -->
     <nav class="brief-nav" aria-label="Brief sections">
@@ -745,60 +675,38 @@
       <section class="brief-section" id="executive-summary">
         <h2 class="brief-section__title">Executive Summary</h2>
 
-        <p style="font-size:0.95rem; color:var(--rb-ink-soft); line-height:1.65; margin-bottom:1.25rem;">Casa Mariposa holds a strong 4.7-star reputation across three platforms, driven by an unusually clear guest value proposition: an immersive sense of colonial Antigua, personal service, and an exceptional physical environment. The property's differentiators — the courtyard, the staff warmth, the breakfast — are real and verified by consistent guest language across sources.</p>
-
-        <div class="brief-stats">
-          <div class="brief-stat">
-            <div class="brief-stat__value" style="color:var(--rb-moss);">87%</div>
-            <div class="brief-stat__label">Positive sentiment</div>
+        <div class="brief-at-glance">
+          <div class="brief-at-glance__item">
+            <span class="brief-at-glance__label">Top Strength</span>
+            <strong>Courtyard atmosphere — the property's clearest emotional differentiator</strong>
           </div>
-          <div class="brief-stat">
-            <div class="brief-stat__value">4.7★</div>
-            <div class="brief-stat__label">Avg. rating</div>
+          <div class="brief-at-glance__item">
+            <span class="brief-at-glance__label">Top Risk</span>
+            <strong>Wi-Fi reliability in courtyard-adjacent rooms is suppressing otherwise positive stays</strong>
           </div>
-          <div class="brief-stat">
-            <div class="brief-stat__value">68</div>
-            <div class="brief-stat__label">Reviews analysed</div>
+          <div class="brief-at-glance__item">
+            <span class="brief-at-glance__label">Fastest Win</span>
+            <strong>Update OTA galleries and descriptions to lead with the courtyard and breakfast experience</strong>
           </div>
-          <div class="brief-stat">
-            <div class="brief-stat__value" style="color:var(--rb-clay);">4%</div>
-            <div class="brief-stat__label">Negative signals</div>
+          <div class="brief-at-glance__item">
+            <span class="brief-at-glance__label">Next Audit</span>
+            <strong>Track Wi-Fi mentions, checkout tone, and breakfast flexibility after changes are made</strong>
           </div>
         </div>
 
-        <h3 class="brief-section__subtitle" style="margin-top:1.5rem;">Review Signal by Experience Area</h3>
-        <p style="font-size:0.82rem; color:var(--rb-muted); margin-bottom:0.85rem;">Primary topic classification across 68 reviews. F&B signal is analysed separately — see <a href="#fnb-signals" style="color:var(--rb-moss);">Dining &amp; Bar section</a>.</p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:0.6rem; margin-bottom:1.25rem;">
-          <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:0.75rem 1rem;">
-            <div style="font-size:1.1rem; font-weight:800; color:var(--rb-ink); letter-spacing:-0.02em;">31</div>
-            <div style="font-size:0.7rem; color:var(--rb-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; margin-top:0.2rem;">Stay / rooms</div>
-          </div>
-          <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:0.75rem 1rem;">
-            <div style="font-size:1.1rem; font-weight:800; color:var(--rb-ink); letter-spacing:-0.02em;">21</div>
-            <div style="font-size:0.7rem; color:var(--rb-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; margin-top:0.2rem;">Service</div>
-          </div>
-          <div style="background:var(--rb-paper); border:2px solid var(--rb-moss); border-radius:10px; padding:0.75rem 1rem;">
-            <div style="font-size:1.1rem; font-weight:800; color:var(--rb-moss); letter-spacing:-0.02em;">19 <span style="font-size:0.7rem; font-weight:600;">28%</span></div>
-            <div style="font-size:0.7rem; color:var(--rb-moss); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-top:0.2rem;">F&amp;B ↗</div>
-          </div>
-          <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:0.75rem 1rem;">
-            <div style="font-size:1.1rem; font-weight:800; color:var(--rb-ink); letter-spacing:-0.02em;">9</div>
-            <div style="font-size:0.7rem; color:var(--rb-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; margin-top:0.2rem;">Location</div>
-          </div>
-          <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:0.75rem 1rem;">
-            <div style="font-size:1.1rem; font-weight:800; color:var(--rb-ink); letter-spacing:-0.02em;">6</div>
-            <div style="font-size:0.7rem; color:var(--rb-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; margin-top:0.2rem;">Arrival / checkout</div>
-          </div>
-          <div style="background:var(--rb-paper); border:1px solid var(--rb-line); border-radius:10px; padding:0.75rem 1rem;">
-            <div style="font-size:1.1rem; font-weight:800; color:var(--rb-ink); letter-spacing:-0.02em;">2</div>
-            <div style="font-size:0.7rem; color:var(--rb-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; margin-top:0.2rem;">Fees / policy</div>
-          </div>
+        <div class="brief-scope brief-muted">
+          <strong>Scope:</strong> This sample reviews 68 public guest reviews across Google, Booking.com, and TripAdvisor. It is designed to show the kind of guest perception patterns, messaging alignment gaps, and near-term action priorities a ReviewBriefs report surfaces.
         </div>
 
-        <div class="brief-flag" data-view-show="agency">
-          <div class="brief-flag__label">Internal · Data Quality</div>
-          Overall confidence: <strong>Medium–High.</strong> 68 reviews across 3 sources is a solid baseline for a property this size. Google dominates (41 reviews). TripAdvisor volume is lower than expected — possible review capture gap; recommend cross-checking. F&B signal trending up (19% → 28% share) — monitor next cycle.
-        </div>
+        <p class="brief-lede">Casa Mariposa holds a strong 4.7-star reputation across three platforms, driven by an unusually clear guest value proposition: an immersive sense of colonial Antigua, personal service, and an exceptional physical environment. Guests are not simply saying the property is pleasant. They are describing a specific stay experience — the courtyard, staff warmth, breakfast, birdsong, stone walls, and walkable location — in language that can be reused directly across booking channels.</p>
+
+        <h3 class="brief-section__subtitle">What guests are saying you do well</h3>
+        <ul style="font-size:0.9rem; color:var(--rb-ink-soft); line-height:1.7; padding-left:1.2rem; margin-bottom:1.25rem;">
+          <li>The courtyard and garden atmosphere lead the review narrative by a wide margin. Guests describe the space as memorable, calming, and central to why they would return.</li>
+          <li>Staff warmth is specific rather than generic. Reviews mention remembered preferences, accurate local recommendations, and personal touches that feel natural for a small boutique property.</li>
+          <li>Breakfast is acting as a real reputation asset. Guests name local ingredients and Guatemalan staples, then compare the meal favorably to other Antigua stays.</li>
+          <li>The property's colonial character and walkable location reinforce the booking promise, especially for guests seeking a quieter alternative to larger hotels.</li>
+        </ul>
 
         <div class="brief-insight">
           <strong>What's working:</strong> Three themes account for most positive mentions — the courtyard and garden atmosphere, staff warmth and personalization, and the quality of the included breakfast. These are genuine differentiators that competitors in the Antigua market are not consistently delivering.
@@ -814,7 +722,7 @@
       <!-- ─── 2. What Guests Love Most ─────────────────────── -->
       <section class="brief-section" id="what-guests-love">
         <h2 class="brief-section__title">What Guests Love Most</h2>
-        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">Ranked by frequency of unprompted mention across all 68 reviews.</p>
+        <p class="brief-muted" style="margin-bottom:1.5rem;">Ranked by frequency of unprompted mention across all 68 reviews.</p>
 
         <div class="brief-theme">
           <div class="brief-theme__header">
@@ -877,23 +785,9 @@
 
       <!-- ─── 3. Dining & Bar Experience Signals ──────────── -->
       <section class="brief-section" id="fnb-signals">
-        <h2 class="brief-section__title" id="fnb-title">Dining &amp; Bar Experience Signals</h2>
+        <h2 class="brief-section__title">Dining &amp; Bar Experience Signals</h2>
 
-        <!-- Client intro -->
-        <p data-view-show="client" style="font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.65; margin-bottom:1.5rem;">Guest feedback about food, drink, and the dining atmosphere at Casa Mariposa tells a consistent story: the breakfast is exceptional, the courtyard setting elevates the meal experience, and an informal evening drinks service is quietly becoming a standout touch. These signals are worth building on.</p>
-
-        <!-- Agency intro -->
-        <p data-view-show="agency" style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:0.75rem;">F&amp;B signal classified separately from hotel-stay signal. Sources: Google, Booking.com, TripAdvisor. 19 of 68 reviews contain meaningful F&amp;B content (28% share — trending up from 19% last period).</p>
-
-        <!-- Retainer opportunity (agency only) -->
-        <div class="brief-retainer" data-view-show="agency">
-          <div class="brief-retainer__label">Internal · Retainer Assessment</div>
-          <div class="brief-retainer__header">
-            <span style="font-size:0.95rem; font-weight:700; color:#fff;">F&amp;B Retainer Opportunity</span>
-            <span class="brief-retainer__rating brief-retainer__rating--medium">Medium</span>
-          </div>
-          <p class="brief-retainer__body">Breakfast is an under-leveraged asset with clear social and OTA content potential. The emerging evening drinks service is a product development and naming opportunity. Neither is currently on a retainer scope. Pitch angle: <em>"Your breakfast alone is worth a content retainer — we can turn 54% review share into a booking driver across every channel."</em> F&amp;B-specific social content, OTA copy updates, and a formalised evening offering are 3 distinct deliverables for a standalone F&amp;B brief or monthly retainer add-on.</p>
-        </div>
+        <p class="brief-lede">Guest feedback about food, drink, and the dining atmosphere at Casa Mariposa tells a consistent story: breakfast is exceptional, the courtyard setting elevates the meal experience, and an informal evening drinks service is quietly becoming a standout touch. These signals are worth building on because they are not generic amenity praise — guests are naming specific dishes, moments, and settings.</p>
 
         <!-- Sub-venues -->
         <h3 class="brief-section__subtitle">F&amp;B Venues Mentioned</h3>
@@ -1016,7 +910,7 @@
       <!-- ─── 4. Guest Friction Points ─────────────────────── -->
       <section class="brief-section" id="friction-points">
         <h2 class="brief-section__title">Guest Friction Points</h2>
-        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">Recurring themes from negative and mixed reviews — the patterns guests share publicly but rarely raise at checkout.</p>
+        <p class="brief-lede">The areas below represent recurring themes from negative and mixed reviews — the patterns guests share publicly but rarely raise at checkout. None undermine the property's overall reputation, but each one can be reduced with either a small operational fix or better expectation-setting before arrival.</p>
 
         <div class="brief-theme">
           <div class="brief-theme__header">
@@ -1026,10 +920,6 @@
           <div class="brief-theme__freq">14 of 68 reviews (21%) — rising month-on-month</div>
           <p class="brief-theme__body">Guests in courtyard-adjacent rooms — particularly the east wing — consistently note connectivity issues. Reviews that mention Wi-Fi average significantly lower star ratings than those that do not. This is the single largest driver of sub-5-star reviews and is trending upward.</p>
           <blockquote class="brief-evidence">"Lovely hotel with a beautiful courtyard and great staff, but the Wi-Fi in our room was completely unusable. We were working remotely and had to go to a café every day. Shame because everything else was perfect."<cite>— Booking.com, 3-star</cite></blockquote>
-          <div class="brief-flag" data-view-show="agency">
-            <div class="brief-flag__label">Internal · Agency Note</div>
-            This is the highest-priority infrastructure fix in the dataset — reviews mentioning Wi-Fi average 3.2★ vs 4.9★ for those that don't. If client hasn't addressed this after the first brief cycle, escalate. A $200–400 mesh extender is the ask. This pattern is also a retainer retention risk: if it persists unresolved, it caps the ceiling on review score improvement.
-          </div>
         </div>
 
         <div class="brief-theme">
@@ -1056,8 +946,7 @@
             <span class="brief-badge brief-badge--opportunity">New signal — monitor</span>
           </div>
           <div class="brief-theme__freq">5 reviews — new this period, not present previously</div>
-          <p data-view-show="client" class="brief-theme__body">Some guests have noted that the checkout experience felt slightly rushed compared to the warmth of arrival. This is a new signal this period and worth monitoring — a personalised departure note or a small adjustment to morning staffing would close this gap neatly.</p>
-          <p data-view-show="agency" class="brief-theme__body">Five guests describe checkout as rushed or impersonal — a notable contrast to the warmth described throughout the stay. This appears to be a morning staffing pattern rather than a property-wide issue. New signal this period; watch for recurrence next cycle. A minor process adjustment would resolve this without additional headcount.</p>
+          <p class="brief-theme__body">Some guests have noted that the checkout experience felt slightly rushed compared to the warmth of arrival. This is a new signal this period and worth monitoring — a personalised departure note or a small adjustment to morning staffing would close this gap neatly.</p>
           <blockquote class="brief-evidence">"Beautiful property and amazing location. Checkout was slightly rushed and felt a bit impersonal compared to the warmth of check-in, which was a small disappointment at the end of an otherwise wonderful stay."<cite>— TripAdvisor, 4-star</cite></blockquote>
         </div>
       </section>
@@ -1067,7 +956,7 @@
       <!-- ─── 5. Website Messaging Alignment ───────────────── -->
       <section class="brief-section" id="website-alignment">
         <h2 class="brief-section__title">Website Messaging Alignment</h2>
-        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">Opportunities to better reflect the guest experience in your online presence — where what guests say and what your listings show are not yet aligned.</p>
+        <p class="brief-lede">This section looks at where guest language and public positioning are not yet aligned. The property is already earning the right words from guests. The opportunity is to make sure prospective guests see those same strengths before they book.</p>
 
         <div class="brief-gap">
           <div class="brief-gap__label">Significant opportunity</div>
@@ -1100,7 +989,7 @@
       <!-- ─── 6. Listing & Website Alignment ───────────────── -->
       <section class="brief-section" id="listing-website-alignment">
         <h2 class="brief-section__title">Listing &amp; Website Alignment</h2>
-        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">A marketplace presence review comparing what guests praise, what the owned website emphasizes, and what public listings make visible.</p>
+        <p class="brief-lede">A marketplace presence review comparing what guests praise, what the owned website emphasizes, and what public listings make visible.</p>
 
         <div class="brief-insight">
           <strong>What is aligned:</strong> Guest reviews and public positioning both support Casa Mariposa's boutique scale, colonial character, walkable Antigua location, and breakfast experience. These are credible strengths because they appear in both guest language and marketplace copy.
@@ -1200,7 +1089,7 @@
       <!-- ─── 7. Quick Wins ─────────────────────────────────── -->
       <section class="brief-section" id="quick-wins">
         <h2 class="brief-section__title">Quick Wins</h2>
-        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.25rem;">High-impact changes actionable within 30 days.</p>
+        <p class="brief-lede">These are high-impact changes that can realistically be completed within 30 days. Each one addresses a visible review pattern without requiring a larger brand, website, or operations project.</p>
 
         <ul class="brief-wins">
           <li>
@@ -1345,9 +1234,9 @@
   </div><!-- /brief-layout -->
 
   <!-- Brief footer -->
-  <footer style="background:var(--rb-ink); color:rgba(255,255,255,0.4); text-align:center; padding:1.5rem; font-size:0.72rem; line-height:1.7;">
+  <footer class="brief-footer">
     <div>Guest Review Intelligence Brief · Casa Mariposa Boutique Hotel · Antigua Guatemala</div>
-    <div>Prepared by <strong style="color:rgba(255,255,255,0.65);">ReviewBriefs</strong> · <a href="https://reviewbriefs.com" style="color:rgba(255,255,255,0.5);">reviewbriefs.com</a> · May 27, 2025</div>
+    <div>Prepared by <strong style="color:rgba(255,255,255,0.65);">ReviewBriefs</strong> · <a href="https://reviewbriefs.com">reviewbriefs.com</a> · May 27, 2025</div>
     <div style="margin-top:0.4rem; font-size:0.68rem;">This brief is prepared based on 68 guest reviews published between January and May 2025. All guest quotes reproduced from public review platforms.</div>
   </footer>
 
@@ -1404,24 +1293,6 @@
 
 <script src="../../assets/js/main.js"></script>
 <script>
-  // View switcher
-  const briefRoot = document.getElementById('brief-root');
-  const fnbTitle  = document.getElementById('fnb-title');
-  const FNB_TITLES = {
-    complete: 'Dining & Bar Experience Signals',
-    client:   'Dining & Bar Experience Signals',
-    agency:   'F&B Marketing & Retainer Opportunities'
-  };
-  document.querySelectorAll('.brief-view-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.brief-view-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const view = btn.dataset.view;
-      briefRoot.dataset.view = view;
-      if (fnbTitle) fnbTitle.textContent = FNB_TITLES[view];
-    });
-  });
-
   // Active nav link on scroll
   const sections = document.querySelectorAll('.brief-section[id]');
   const navLinks = document.querySelectorAll('.brief-nav__link');
