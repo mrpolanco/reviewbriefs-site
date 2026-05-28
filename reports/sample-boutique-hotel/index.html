@@ -516,6 +516,123 @@
     #scroll-top.visible { opacity: 1; transform: translateY(0); }
     #scroll-top:hover { background: var(--rb-moss-dark); }
 
+    /* ── View switcher tab bar ── */
+    .brief-view-tabs {
+      background: var(--rb-paper);
+      border-bottom: 1px solid var(--rb-line);
+      padding: 0.6rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .brief-view-tabs__inner {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .brief-view-tabs__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--rb-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-right: 0.35rem;
+    }
+    .brief-view-tab {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--rb-line);
+      background: transparent;
+      color: var(--rb-ink-soft);
+      cursor: pointer;
+      transition: all var(--transition);
+      line-height: 1;
+    }
+    .brief-view-tab:hover {
+      background: var(--rb-cream);
+      color: var(--rb-ink);
+    }
+    .brief-view-tab.active {
+      background: var(--rb-moss);
+      border-color: var(--rb-moss);
+      color: #fff;
+    }
+    .brief-view-tab--agency.active {
+      background: var(--rb-ink);
+      border-color: var(--rb-ink);
+    }
+    .brief-view-tabs__hint {
+      font-size: 0.72rem;
+      color: var(--rb-muted);
+      margin-left: auto;
+      font-style: italic;
+    }
+
+    /* ── Internal sample callouts ── */
+    .brief-flag {
+      background: #FFF8E7;
+      border-left: 3px solid var(--rb-gold);
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.82rem;
+      color: #5A4A1C;
+      line-height: 1.55;
+    }
+    .brief-flag__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--rb-gold);
+      margin-bottom: 0.3rem;
+    }
+    .brief-retainer {
+      background: var(--rb-ink);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      color: rgba(255,255,255,0.9);
+    }
+    .brief-retainer__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rb-sage);
+      margin-bottom: 0.5rem;
+    }
+    .brief-retainer__header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .brief-retainer__rating {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25em 0.65em;
+      border-radius: 4px;
+      background: var(--rb-moss);
+      color: #fff;
+    }
+    .brief-retainer__rating--medium { background: var(--rb-gold); color: var(--rb-ink); }
+    .brief-retainer__body {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* ── Data-view visibility rules ── */
+    #brief-root[data-view="client"] [data-view-show="agency"] { display: none !important; }
+    #brief-root[data-view="agency"] [data-view-show="client"] { display: none !important; }
+
     /* ── Footer ── */
     .brief-footer {
       background: var(--rb-ink);
@@ -650,8 +767,20 @@
     </div>
   </header>
 
+  <!-- View switcher -->
+  <div class="brief-view-tabs no-print">
+    <div class="container">
+      <div class="brief-view-tabs__inner">
+        <span class="brief-view-tabs__label">View as:</span>
+        <button class="brief-view-tab active" data-view="client">Client Brief</button>
+        <button class="brief-view-tab brief-view-tab--agency" data-view="agency">Internal Brief</button>
+        <span class="brief-view-tabs__hint no-mobile">Switch between client-facing and internal sample notes</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Brief: two-column layout -->
-  <div class="brief-layout" id="brief-root" style="background:var(--rb-cream);">
+  <div class="brief-layout" id="brief-root" data-view="client" style="background:var(--rb-cream);">
 
     <!-- Sidebar navigation -->
     <nav class="brief-nav" aria-label="Brief sections">
@@ -696,6 +825,11 @@
 
         <div class="brief-scope brief-muted">
           <strong>Scope:</strong> This sample reviews 68 public guest reviews across Google, Booking.com, and TripAdvisor. It is designed to show the kind of guest perception patterns, messaging alignment gaps, and near-term action priorities a ReviewBriefs report surfaces.
+        </div>
+
+        <div class="brief-flag" data-view-show="agency">
+          <div class="brief-flag__label">Internal · Data Quality</div>
+          Overall confidence: <strong>Medium-High.</strong> 68 reviews across 3 sources is a solid baseline for a property this size. Google dominates the sample, while TripAdvisor volume is lower than expected. F&amp;B signal is trending up, which makes breakfast and evening drinks worth monitoring in the next cycle.
         </div>
 
         <p class="brief-lede">Casa Mariposa holds a strong 4.7-star reputation across three platforms, driven by an unusually clear guest value proposition: an immersive sense of colonial Antigua, personal service, and an exceptional physical environment. Guests are not simply saying the property is pleasant. They are describing a specific stay experience — the courtyard, staff warmth, breakfast, birdsong, stone walls, and walkable location — in language that can be reused directly across booking channels.</p>
@@ -788,6 +922,15 @@
         <h2 class="brief-section__title">Dining &amp; Bar Experience Signals</h2>
 
         <p class="brief-lede">Guest feedback about food, drink, and the dining atmosphere at Casa Mariposa tells a consistent story: breakfast is exceptional, the courtyard setting elevates the meal experience, and an informal evening drinks service is quietly becoming a standout touch. These signals are worth building on because they are not generic amenity praise — guests are naming specific dishes, moments, and settings.</p>
+
+        <div class="brief-retainer" data-view-show="agency">
+          <div class="brief-retainer__label">Internal · Retainer Assessment</div>
+          <div class="brief-retainer__header">
+            <span style="font-size:0.95rem; font-weight:700; color:#fff;">F&amp;B Retainer Opportunity</span>
+            <span class="brief-retainer__rating brief-retainer__rating--medium">Medium</span>
+          </div>
+          <p class="brief-retainer__body">Breakfast is an under-leveraged asset with clear social, OTA, and direct-booking content potential. The emerging evening drinks service is a naming and product-development opportunity. Pitch angle: "Your breakfast is already doing reputation work. We can turn that review signal into booking copy, social content, and a repeatable guest moment."</p>
+        </div>
 
         <!-- Sub-venues -->
         <h3 class="brief-section__subtitle">F&amp;B Venues Mentioned</h3>
@@ -920,6 +1063,10 @@
           <div class="brief-theme__freq">14 of 68 reviews (21%) — rising month-on-month</div>
           <p class="brief-theme__body">Guests in courtyard-adjacent rooms — particularly the east wing — consistently note connectivity issues. Reviews that mention Wi-Fi average significantly lower star ratings than those that do not. This is the single largest driver of sub-5-star reviews and is trending upward.</p>
           <blockquote class="brief-evidence">"Lovely hotel with a beautiful courtyard and great staff, but the Wi-Fi in our room was completely unusable. We were working remotely and had to go to a café every day. Shame because everything else was perfect."<cite>— Booking.com, 3-star</cite></blockquote>
+          <div class="brief-flag" data-view-show="agency">
+            <div class="brief-flag__label">Internal · Agency Note</div>
+            Highest-priority infrastructure fix in the dataset. If this remains unresolved after the first brief cycle, it will cap review-score improvement and weaken the perceived value of ongoing reporting. Recommended ask: a small mesh network investment and a follow-up measurement in the next brief.
+          </div>
         </div>
 
         <div class="brief-theme">
@@ -946,7 +1093,8 @@
             <span class="brief-badge brief-badge--opportunity">New signal — monitor</span>
           </div>
           <div class="brief-theme__freq">5 reviews — new this period, not present previously</div>
-          <p class="brief-theme__body">Some guests have noted that the checkout experience felt slightly rushed compared to the warmth of arrival. This is a new signal this period and worth monitoring — a personalised departure note or a small adjustment to morning staffing would close this gap neatly.</p>
+          <p data-view-show="client" class="brief-theme__body">Some guests have noted that the checkout experience felt slightly rushed compared to the warmth of arrival. This is a new signal this period and worth monitoring — a personalised departure note or a small adjustment to morning staffing would close this gap neatly.</p>
+          <p data-view-show="agency" class="brief-theme__body">Five guests describe checkout as rushed or impersonal — a notable contrast to the warmth described throughout the stay. This appears to be a morning staffing/process pattern rather than a property-wide service issue. Watch for recurrence next cycle before escalating beyond a lightweight process fix.</p>
           <blockquote class="brief-evidence">"Beautiful property and amazing location. Checkout was slightly rushed and felt a bit impersonal compared to the warmth of check-in, which was a small disappointment at the end of an otherwise wonderful stay."<cite>— TripAdvisor, 4-star</cite></blockquote>
         </div>
       </section>
@@ -1293,6 +1441,16 @@
 
 <script src="../../assets/js/main.js"></script>
 <script>
+  // View switcher
+  const briefRoot = document.getElementById('brief-root');
+  document.querySelectorAll('.brief-view-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.brief-view-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      briefRoot.dataset.view = btn.dataset.view;
+    });
+  });
+
   // Active nav link on scroll
   const sections = document.querySelectorAll('.brief-section[id]');
   const navLinks = document.querySelectorAll('.brief-nav__link');
