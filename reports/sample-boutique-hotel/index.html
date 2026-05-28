@@ -428,6 +428,126 @@
       margin: 2rem 0;
     }
 
+    /* ── View switcher tab bar ── */
+    .brief-view-tabs {
+      background: var(--rb-paper);
+      border-bottom: 1px solid var(--rb-line);
+      padding: 0.6rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .brief-view-tabs__inner {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .brief-view-tabs__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--rb-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-right: 0.35rem;
+    }
+    .brief-view-tab {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--rb-line);
+      background: transparent;
+      color: var(--rb-ink-soft);
+      cursor: pointer;
+      transition: all var(--transition);
+      line-height: 1;
+    }
+    .brief-view-tab:hover {
+      background: var(--rb-cream);
+      color: var(--rb-ink);
+    }
+    .brief-view-tab.active {
+      background: var(--rb-moss);
+      border-color: var(--rb-moss);
+      color: #fff;
+    }
+    .brief-view-tab--agency.active {
+      background: var(--rb-ink);
+      border-color: var(--rb-ink);
+    }
+    .brief-view-tabs__hint {
+      font-size: 0.72rem;
+      color: var(--rb-muted);
+      margin-left: auto;
+      font-style: italic;
+    }
+
+    /* ── Agency-only flag callouts ── */
+    .brief-flag {
+      background: #FFF8E7;
+      border-left: 3px solid var(--rb-gold);
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.82rem;
+      color: #5A4A1C;
+      line-height: 1.55;
+    }
+    .brief-flag__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--rb-gold);
+      margin-bottom: 0.3rem;
+    }
+    .brief-retainer {
+      background: var(--rb-ink);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      color: rgba(255,255,255,0.9);
+    }
+    .brief-retainer__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rb-sage);
+      margin-bottom: 0.5rem;
+    }
+    .brief-retainer__header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .brief-retainer__rating {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25em 0.65em;
+      border-radius: 4px;
+      background: var(--rb-moss);
+      color: #fff;
+    }
+    .brief-retainer__rating--medium { background: var(--rb-gold); color: var(--rb-ink); }
+    .brief-retainer__body {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* ── Data-view visibility rules ── */
+    /* Agency-only: hidden in client view */
+    #brief-root[data-view="client"] [data-view-show="agency"] { display: none !important; }
+    /* Client-only: hidden in agency view */
+    #brief-root[data-view="agency"] [data-view-show="client"] { display: none !important; }
+    /* Complete view: shows everything (no rules needed) */
+
     /* ── Print ── */
     @media print {
       .no-print, .site-header, .site-footer { display: none !important; }
@@ -542,8 +662,21 @@
     </div>
   </header>
 
+  <!-- View switcher -->
+  <div class="brief-view-tabs no-print">
+    <div class="container">
+      <div class="brief-view-tabs__inner">
+        <span class="brief-view-tabs__label">View as:</span>
+        <button class="brief-view-tab active" data-view="complete">Complete</button>
+        <button class="brief-view-tab" data-view="client">Client Brief</button>
+        <button class="brief-view-tab brief-view-tab--agency" data-view="agency">Agency Brief</button>
+        <span class="brief-view-tabs__hint no-mobile">Language and visible sections change per audience</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Brief: two-column layout -->
-  <div class="brief-layout" style="background:var(--rb-cream);">
+  <div class="brief-layout" id="brief-root" data-view="complete" style="background:var(--rb-cream);">
 
     <!-- Sidebar navigation -->
     <nav class="brief-nav" aria-label="Brief sections">
@@ -614,6 +747,11 @@
             <div style="font-size:1.1rem; font-weight:800; color:var(--rb-ink); letter-spacing:-0.02em;">2</div>
             <div style="font-size:0.7rem; color:var(--rb-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; margin-top:0.2rem;">Fees / policy</div>
           </div>
+        </div>
+
+        <div class="brief-flag" data-view-show="agency">
+          <div class="brief-flag__label">Internal · Data Quality</div>
+          Overall confidence: <strong>Medium–High.</strong> 68 reviews across 3 sources is a solid baseline for a property this size. Google dominates (41 reviews). TripAdvisor volume is lower than expected — possible review capture gap; recommend cross-checking. F&B signal trending up (19% → 28% share) — monitor next cycle.
         </div>
 
         <div class="brief-insight">
@@ -693,8 +831,23 @@
 
       <!-- ─── 3. Dining & Bar Experience Signals ──────────── -->
       <section class="brief-section" id="fnb-signals">
-        <h2 class="brief-section__title">Dining &amp; Bar Experience Signals</h2>
-        <p style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:1.5rem;">F&amp;B signal classified separately from hotel-stay signal. Sources: Google, Booking.com, TripAdvisor. 19 of 68 reviews contain meaningful F&amp;B content (28% share — trending up from 19% last period).</p>
+        <h2 class="brief-section__title" id="fnb-title">Dining &amp; Bar Experience Signals</h2>
+
+        <!-- Client intro -->
+        <p data-view-show="client" style="font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.65; margin-bottom:1.5rem;">Guest feedback about food, drink, and the dining atmosphere at Casa Mariposa tells a consistent story: the breakfast is exceptional, the courtyard setting elevates the meal experience, and an informal evening drinks service is quietly becoming a standout touch. These signals are worth building on.</p>
+
+        <!-- Agency intro -->
+        <p data-view-show="agency" style="font-size:0.85rem; color:var(--rb-muted); margin-bottom:0.75rem;">F&amp;B signal classified separately from hotel-stay signal. Sources: Google, Booking.com, TripAdvisor. 19 of 68 reviews contain meaningful F&amp;B content (28% share — trending up from 19% last period).</p>
+
+        <!-- Retainer opportunity (agency only) -->
+        <div class="brief-retainer" data-view-show="agency">
+          <div class="brief-retainer__label">Internal · Retainer Assessment</div>
+          <div class="brief-retainer__header">
+            <span style="font-size:0.95rem; font-weight:700; color:#fff;">F&amp;B Retainer Opportunity</span>
+            <span class="brief-retainer__rating brief-retainer__rating--medium">Medium</span>
+          </div>
+          <p class="brief-retainer__body">Breakfast is an under-leveraged asset with clear social and OTA content potential. The emerging evening drinks service is a product development and naming opportunity. Neither is currently on a retainer scope. Pitch angle: <em>"Your breakfast alone is worth a content retainer — we can turn 54% review share into a booking driver across every channel."</em> F&amp;B-specific social content, OTA copy updates, and a formalised evening offering are 3 distinct deliverables for a standalone F&amp;B brief or monthly retainer add-on.</p>
+        </div>
 
         <!-- Sub-venues -->
         <h3 class="brief-section__subtitle">F&amp;B Venues Mentioned</h3>
@@ -827,6 +980,10 @@
           <div class="brief-theme__freq">14 of 68 reviews (21%) — rising month-on-month</div>
           <p class="brief-theme__body">Guests in courtyard-adjacent rooms — particularly the east wing — consistently note connectivity issues. Reviews that mention Wi-Fi average significantly lower star ratings than those that do not. This is the single largest driver of sub-5-star reviews and is trending upward.</p>
           <blockquote class="brief-evidence">"Lovely hotel with a beautiful courtyard and great staff, but the Wi-Fi in our room was completely unusable. We were working remotely and had to go to a café every day. Shame because everything else was perfect."<cite>— Booking.com, 3-star</cite></blockquote>
+          <div class="brief-flag" data-view-show="agency">
+            <div class="brief-flag__label">Internal · Agency Note</div>
+            This is the highest-priority infrastructure fix in the dataset — reviews mentioning Wi-Fi average 3.2★ vs 4.9★ for those that don't. If client hasn't addressed this after the first brief cycle, escalate. A $200–400 mesh extender is the ask. This pattern is also a retainer retention risk: if it persists unresolved, it caps the ceiling on review score improvement.
+          </div>
         </div>
 
         <div class="brief-theme">
@@ -853,7 +1010,8 @@
             <span class="brief-badge brief-badge--opportunity">New signal — monitor</span>
           </div>
           <div class="brief-theme__freq">5 reviews — new this period, not present previously</div>
-          <p class="brief-theme__body">Five guests describe checkout as rushed or impersonal — a notable contrast to the warmth described throughout the stay. This appears to be a morning staffing pattern rather than a property-wide issue. A minor process adjustment would resolve this without additional headcount.</p>
+          <p data-view-show="client" class="brief-theme__body">Some guests have noted that the checkout experience felt slightly rushed compared to the warmth of arrival. This is a new signal this period and worth monitoring — a personalised departure note or a small adjustment to morning staffing would close this gap neatly.</p>
+          <p data-view-show="agency" class="brief-theme__body">Five guests describe checkout as rushed or impersonal — a notable contrast to the warmth described throughout the stay. This appears to be a morning staffing pattern rather than a property-wide issue. New signal this period; watch for recurrence next cycle. A minor process adjustment would resolve this without additional headcount.</p>
           <blockquote class="brief-evidence">"Beautiful property and amazing location. Checkout was slightly rushed and felt a bit impersonal compared to the warmth of check-in, which was a small disappointment at the end of an otherwise wonderful stay."<cite>— TripAdvisor, 4-star</cite></blockquote>
         </div>
       </section>
@@ -1145,6 +1303,24 @@
 
 <script src="../../assets/js/main.js"></script>
 <script>
+  // View switcher
+  const briefRoot = document.getElementById('brief-root');
+  const fnbTitle  = document.getElementById('fnb-title');
+  const FNB_TITLES = {
+    complete: 'Dining & Bar Experience Signals',
+    client:   'Dining & Bar Experience Signals',
+    agency:   'F&B Marketing & Retainer Opportunities'
+  };
+  document.querySelectorAll('.brief-view-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.brief-view-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = btn.dataset.view;
+      briefRoot.dataset.view = view;
+      if (fnbTitle) fnbTitle.textContent = FNB_TITLES[view];
+    });
+  });
+
   // Active nav link on scroll
   const sections = document.querySelectorAll('.brief-section[id]');
   const navLinks = document.querySelectorAll('.brief-nav__link');
