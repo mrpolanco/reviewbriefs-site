@@ -80,11 +80,14 @@
       background: var(--rb-paper);
       border-right: 1px solid var(--rb-line);
       padding: 2rem 0;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 200px;
       align-self: start;
       height: 100vh;
       overflow-y: auto;
+      z-index: 20;
     }
     .brief-nav__label {
       font-size: 0.65rem;
@@ -117,6 +120,7 @@
 
     /* ── Content ── */
     .brief-content {
+      grid-column: 2;
       padding: 2.75rem 2.75rem 5rem;
       max-width: 820px;
     }
@@ -430,6 +434,33 @@
       margin: 2rem 0;
     }
 
+    /* ── Scroll to top button ── */
+    #scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      background: var(--rb-moss);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.25s, transform 0.25s, background 0.15s;
+      z-index: 200;
+      box-shadow: 0 4px 16px rgba(24,32,28,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover { background: var(--rb-moss-dark); }
+
     /* ── View switcher tab bar ── */
     .brief-view-tabs {
       background: var(--rb-paper);
@@ -553,7 +584,7 @@
     /* ── Print ── */
     @media print {
       .no-print, .site-header, .site-footer { display: none !important; }
-      .brief-nav { display: none; }
+      .brief-nav, #scroll-top { display: none; }
       .brief-layout { display: block; }
       .brief-content { padding: 0; max-width: 100%; }
       .brief-section { break-inside: avoid; }
@@ -566,6 +597,7 @@
       .brief-layout { grid-template-columns: 1fr; }
       .brief-nav {
         position: static;
+        width: auto;
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--rb-line);
@@ -582,8 +614,9 @@
         padding: 0.3rem 0.65rem;
         font-size: 0.78rem;
       }
-      .brief-content { padding: 1.5rem 1rem 3rem; }
+      .brief-content { grid-column: auto; padding: 1.5rem 1rem 3rem; }
       .brief-header { padding: 2rem 0 1.75rem; }
+      #scroll-top { bottom: 1.25rem; right: 1.25rem; }
     }
   </style>
 </head>
@@ -1357,6 +1390,8 @@
 </footer>
 <!-- end component: site-footer -->
 
+<button id="scroll-top" aria-label="Back to top">↑</button>
+
 <script src="../../assets/js/main.js"></script>
 <script>
   // View switcher
@@ -1392,6 +1427,15 @@
   }, { rootMargin: '-15% 0px -70% 0px' });
 
   sections.forEach(s => observer.observe(s));
+
+  // Scroll to top
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 </script>
 </body>
 </html>

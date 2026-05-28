@@ -114,11 +114,14 @@
       background: var(--rb-paper);
       border-right: 1px solid var(--rb-line);
       padding: 2rem 0;
-      position: sticky;
+      position: fixed;
       top: 37px;
+      left: 0;
+      width: 220px;
       align-self: start;
       height: calc(100vh - 37px);
       overflow-y: auto;
+      z-index: 20;
     }
 
     .brief-nav__label {
@@ -165,6 +168,7 @@
 
     /* ── Main content ── */
     .brief-content {
+      grid-column: 2;
       padding: 2.5rem 2.5rem 4rem;
       max-width: 860px;
     }
@@ -552,10 +556,38 @@
       margin: 2rem 0;
     }
 
+    /* ── Scroll to top button ── */
+    #scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      background: var(--rb-moss);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.25s, transform 0.25s, background 0.15s;
+      z-index: 200;
+      box-shadow: 0 4px 16px rgba(24,32,28,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover { background: var(--rb-moss-dark); }
+
     /* ── Print ── */
     @media print {
       .internal-banner,
       .brief-nav,
+      #scroll-top,
       .brief-header__actions { display: none; }
       .brief-layout { display: block; }
       .brief-content { padding: 0; max-width: 100%; }
@@ -568,6 +600,7 @@
       .brief-layout { grid-template-columns: 1fr; }
       .brief-nav {
         position: static;
+        width: auto;
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--rb-line);
@@ -583,7 +616,8 @@
         background: var(--rb-stone);
         padding: 0.3rem 0.6rem;
       }
-      .brief-content { padding: 1.5rem 1rem 3rem; }
+      .brief-content { grid-column: auto; padding: 1.5rem 1rem 3rem; }
+      #scroll-top { bottom: 1.25rem; right: 1.25rem; }
     }
   /* ── Gate ── */
     #brief-gate {
@@ -1609,6 +1643,8 @@
   INTERNAL USE ONLY · ReviewBriefs · Job beekman-2026-05 · Generated May 27, 2026
 </footer>
 
+<button id="scroll-top" aria-label="Back to top">↑</button>
+
 <script>
   // Active nav link on scroll
   const sections = document.querySelectorAll('.brief-section[id]');
@@ -1625,6 +1661,15 @@
   }, { rootMargin: '-20% 0px -70% 0px' });
 
   sections.forEach(s => observer.observe(s));
+
+  // Scroll to top
+  const scrollTopBtn = document.getElementById('scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 </script>
 
 </div><!-- /#brief-body -->
