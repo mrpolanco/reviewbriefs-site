@@ -219,10 +219,14 @@
       background: var(--rb-paper);
       border-right: 1px solid var(--rb-line);
       padding: 2rem 0;
-      position: sticky;
-      top: 32px;
-      height: calc(100vh - 32px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      box-sizing: border-box;
       overflow-y: auto;
+      z-index: 20;
     }
 
     .brief-nav__label {
@@ -271,6 +275,7 @@
        Content
     ════════════════════════════ */
     .brief-content {
+      grid-column: 2;
       padding: 3rem 3rem 5rem;
       max-width: 900px;
     }
@@ -564,6 +569,7 @@
       .brief-layout { grid-template-columns: 1fr; }
       .brief-nav {
         position: static;
+        width: auto;
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--rb-line);
@@ -579,7 +585,7 @@
         background: var(--rb-stone);
         padding: 0.3rem 0.65rem;
       }
-      .brief-content { padding: 1.5rem 1rem 3rem; }
+      .brief-content { grid-column: auto; padding: 1.5rem 1rem 3rem; }
       .brief-header { padding: 2rem 0 1.75rem; }
       .brief-header__title { font-size: 1.5rem; }
       .brief-at-glance { grid-template-columns: 1fr 1fr; }
@@ -1289,8 +1295,28 @@
     document.getElementById('brief-gate').style.display = 'none';
     document.getElementById('brief-body').style.display = 'block';
     document.body.style.background = 'var(--rb-cream)';
+    updateBriefNavOffset();
     initScrollSpy();
   }
+
+  function updateBriefNavOffset() {
+    const briefLayout = document.querySelector('.brief-layout');
+    const briefNav = document.querySelector('.brief-nav');
+    if (!briefLayout || !briefNav || window.matchMedia('(max-width: 900px)').matches) {
+      if (briefNav) {
+        briefNav.style.top = '';
+        briefNav.style.height = '';
+      }
+      return;
+    }
+
+    const top = Math.max(0, briefLayout.getBoundingClientRect().top);
+    briefNav.style.top = `${top}px`;
+    briefNav.style.height = `calc(100vh - ${top}px)`;
+  }
+
+  window.addEventListener('scroll', updateBriefNavOffset, { passive: true });
+  window.addEventListener('resize', updateBriefNavOffset);
 
   // Active nav on scroll — initialized after brief is unlocked so sections are visible
   function initScrollSpy() {
