@@ -1,150 +1,416 @@
 # Prompt: Packet → Layer 2 Analysis Object
 
-**Use this prompt first.** It converts the raw evidence packet into a structured JSON analysis object.
-That object then feeds the internal and client brief prompts separately.
+**This is the first and most important step in the pipeline.**
+
+The goal is `packet → structured hospitality intelligence object` — not prose, not a report.
+
+The output feeds all downstream rendering: internal brief, client brief, dashboard, PDF, benchmarking.
+Do not let brief prompts re-analyze the packet from scratch. This JSON is the controlled middle layer.
 
 ---
 
 ## HOW TO USE
 
-1. Paste this prompt, then paste the full evidence packet below it.
-2. The output is a JSON object matching `data/brief-schema.json`.
-3. Save the output as `briefs/{job-id}/analysis.json`.
-4. Feed that JSON into `prompts/internal-brief.md` and `prompts/client-brief.md`.
+1. Open a Claude Code session
+2. Paste the prompt block below
+3. Paste the evidence packet markdown after the final instruction line
+4. Save the JSON output as `briefs/{job-id}/analysis.json`
+5. Run `prompts/internal-brief.md` and `prompts/client-brief.md` against that JSON
+
+To validate output shape, compare against `data/analysis-example.json` (The Beekman reference).
+Full field definitions are in `data/brief-schema.json`.
 
 ---
 
 ## PROMPT
 
 ```
-You are a hospitality intelligence analyst. Your job is to extract structured analysis from a raw guest review evidence packet and output a single JSON object.
+You are a hospitality intelligence analyst.
 
-You must output ONLY valid JSON. No prose. No markdown code fences. No explanation. Just the JSON object.
+Your task is to analyze a ReviewBriefs evidence packet and produce a structured hospitality analysis object.
 
-The output must conform to this schema shape:
+You are NOT generating a client report.
+
+You are generating a normalized internal analysis layer that will later be used to produce:
+- internal agency briefs
+- client-facing briefs
+- dashboards
+- trend tracking
+- portfolio benchmarking
+- future monthly comparisons
+
+You must be evidence-driven, skeptical, and operationally useful.
+
+-----------------------------------
+ANALYSIS RULES
+-----------------------------------
+
+Use ONLY:
+- analysis-eligible reviews
+- eligible website snapshots
+- eligible AI-readiness snapshots
+- public owner responses when relevant
+
+Do NOT:
+- invent trends unsupported by evidence
+- claim statistical certainty from limited review counts
+- use excluded/context captures for primary findings
+- treat owner responses as guest sentiment
+- overstate SEO or AI-readiness conclusions
+- fabricate operational details not present in the packet
+
+If evidence is weak, say so.
+
+Distinguish:
+- isolated incidents
+- repeated operational patterns
+- expectation mismatches
+- luxury/service failures
+- messaging inconsistencies
+- booking/conversion friction
+- OTA vs direct-booking positioning gaps
+
+-----------------------------------
+PRIMARY OBJECTIVES
+-----------------------------------
+
+Your analysis should identify:
+
+1. Strongest guest praise themes
+2. Highest-risk complaint themes
+3. Repeated operational friction
+4. Luxury expectation failures
+5. Website vs guest perception gaps
+6. Direct-booking opportunity gaps
+7. SEO / AI-readiness strengths and weaknesses
+8. Reputation management gaps
+9. Owner response quality
+10. High-impact quick wins
+11. Strategic recommendations
+12. Relevant hospitality trends based on:
+   - property type
+   - market positioning
+   - guest expectations
+   - luxury/boutique/upscale category
+   - business/leisure mix
+   - dining/event emphasis
+   - neighborhood/location signals
+
+-----------------------------------
+SEO + AI-READINESS ANALYSIS
+-----------------------------------
+
+Evaluate the website snapshot against modern best practices.
+
+Focus on:
+- clarity of positioning
+- structured data signals
+- crawlability
+- content hierarchy
+- conversion clarity
+- machine readability
+- FAQ discoverability
+- booking CTA clarity
+- review-to-site alignment
+- AI/search visibility readiness
+
+Evaluate:
+- title/meta clarity
+- canonical consistency
+- structured data presence
+- Hotel/LodgingBusiness schema
+- FAQ opportunities
+- semantic clarity
+- navigation clarity
+- booking funnel visibility
+- dining/room discoverability
+- local intent signals
+- entity clarity
+- crawlable content visibility
+- AI crawler policy visibility if present
+
+Do NOT claim:
+- exact rankings
+- indexing state
+- traffic estimates
+- search performance
+- technical SEO metrics not present in the packet
+
+Frame findings as:
+- strengths
+- opportunities
+- hypotheses
+- likely visibility/conversion impacts
+
+-----------------------------------
+HOSPITALITY TREND ANALYSIS
+-----------------------------------
+
+Infer relevant hospitality trends cautiously.
+
+Examples:
+- luxury travelers increasingly value personalization
+- boutique guests value local identity and atmosphere
+- direct-booking clarity matters more when OTA expectations differ
+- review response visibility affects trust perception
+- operational consistency matters more for premium positioning
+- dining/bar identity can strongly influence boutique hotel reputation
+- expectation management matters for room size/value perception
+- business/leisure hybrid travel affects amenity expectations
+
+Tie all trends back to evidence from:
+- reviews
+- website messaging
+- property positioning
+- public responses
+
+-----------------------------------
+OUTPUT REQUIREMENTS
+-----------------------------------
+
+Return VALID JSON ONLY.
+
+No markdown.
+No prose outside JSON.
+No explanations.
+
+Use concise but information-dense language.
+
+Every recommendation should include:
+- evidence summary
+- estimated impact
+- estimated effort
+- confidence
+
+Every risk should include:
+- severity
+- frequency estimate
+- evidence summary
+
+-----------------------------------
+OUTPUT SCHEMA
+-----------------------------------
+
+Return JSON matching this structure exactly:
 
 {
-  "job_id": "",
-  "property": {
+  "property_summary": {
+    "job_id": "",
     "name": "",
     "city_country": "",
     "property_type": "",
-    "primary_sources": []
+    "primary_sources": [],
+    "generated_at": "",
+    "analysis_window": {
+      "earliest_review": "",
+      "latest_review": "",
+      "months_covered": 0
+    },
+    "review_counts": {
+      "total_captured": 0,
+      "analysis_eligible": 0,
+      "excluded_low_confidence": 0,
+      "excluded_duplicate": 0,
+      "by_source": {},
+      "by_rating": { "5": 0, "4": 0, "3": 0, "2": 0, "1": 0 },
+      "average_rating": 0.0
+    }
   },
-  "generated_at": "",
-  "analysis_window": {
-    "earliest_review": "",
-    "latest_review": "",
-    "months_covered": 0
+  "executive_summary": {
+    "headline": "",
+    "key_strengths": [],
+    "key_risks": [],
+    "top_opportunity": "",
+    "reputation_score": 0,
+    "reputation_trajectory": ""
   },
-  "review_counts": {
-    "total_captured": 0,
-    "analysis_eligible": 0,
-    "excluded_low_confidence": 0,
-    "excluded_duplicate": 0,
-    "by_source": {},
-    "by_rating": { "5": 0, "4": 0, "3": 0, "2": 0, "1": 0 },
-    "average_rating": 0.0
-  },
-  "top_strengths": [
+  "guest_praise_themes": [
     {
       "theme": "",
       "mentions": 0,
-      "intensity": "high|medium|low",
+      "intensity": "",
+      "pattern_strength": "",
       "representative_quotes": [],
-      "marketing_usability": "high|medium|low"
+      "marketing_usability": "",
+      "notes": ""
     }
   ],
-  "top_complaints": [
+  "guest_complaint_themes": [
     {
       "theme": "",
       "mentions": 0,
-      "severity": "critical|high|medium|low",
-      "reputational_impact": "high|medium|low",
+      "severity": "",
+      "reputational_impact": "",
       "is_pattern": true,
       "representative_quotes": [],
       "internal_note": ""
+    }
+  ],
+  "operational_friction_points": [
+    {
+      "area": "",
+      "risk_level": "",
+      "pattern_strength": "",
+      "frequency_estimate": "",
+      "notes": ""
+    }
+  ],
+  "luxury_expectation_failures": [
+    {
+      "expectation": "",
+      "reality": "",
+      "likely_source": "",
+      "severity": "",
+      "guest_impact": ""
     }
   ],
   "website_alignment_gaps": [
     {
       "website_claim": "",
       "guest_reality": "",
-      "gap_severity": "critical|high|medium|low",
-      "conversion_risk": "high|medium|low",
+      "gap_severity": "",
+      "conversion_risk": "",
       "recommendation": ""
     }
   ],
-  "service_risk_areas": [
+  "seo_ai_readiness": {
+    "strengths": [
+      {
+        "finding": "",
+        "impact": ""
+      }
+    ],
+    "weaknesses": [
+      {
+        "finding": "",
+        "impact": "",
+        "confidence": ""
+      }
+    ],
+    "opportunities": [
+      {
+        "opportunity": "",
+        "estimated_impact": "",
+        "effort": "",
+        "confidence": ""
+      }
+    ],
+    "schema_findings": [
+      {
+        "type": "",
+        "present": true,
+        "notes": ""
+      }
+    ],
+    "crawlability_notes": [],
+    "content_clarity_notes": [],
+    "faq_opportunities": [],
+    "booking_conversion_observations": [],
+    "ai_visibility_observations": []
+  },
+  "public_response_analysis": {
+    "response_rate_estimate": "",
+    "tone_assessment": "",
+    "quality_rating": "",
+    "strengths": [],
+    "weaknesses": [],
+    "recommendations": [],
+    "notes": ""
+  },
+  "hospitality_trends": [
     {
-      "area": "",
-      "risk_level": "critical|high|medium|low",
-      "pattern_strength": "strong|moderate|weak",
-      "notes": ""
-    }
-  ],
-  "guest_expectation_mismatches": [
-    {
-      "expectation": "",
-      "reality": "",
-      "likely_source": "website-copy|ota-listing|price-tier|category-norms|word-of-mouth|unknown",
-      "severity": "high|medium|low"
+      "trend": "",
+      "relevance_to_property": "",
+      "evidence_basis": "",
+      "opportunity_or_risk": "",
+      "confidence": ""
     }
   ],
   "quick_wins": [
     {
       "action": "",
-      "expected_impact": "high|medium|low",
-      "effort": "low|medium",
-      "area": "operations|website|messaging|staff-training|guest-comms|review-response"
+      "evidence_summary": "",
+      "expected_impact": "",
+      "effort": "",
+      "area": "",
+      "confidence": ""
     }
   ],
   "strategic_recommendations": [
     {
       "recommendation": "",
       "rationale": "",
-      "priority": "critical|high|medium|low",
-      "timeframe": ""
+      "evidence_summary": "",
+      "priority": "",
+      "timeframe": "",
+      "estimated_impact": "",
+      "effort": "",
+      "confidence": ""
     }
   ],
-  "reputation_risk_score": {
-    "score": 0,
-    "trajectory": "improving|stable|declining|mixed|insufficient-data",
-    "summary": ""
-  },
-  "confidence_notes": [
+  "reputation_risks": [
     {
-      "note": "",
-      "severity": "warning|info",
-      "affects_section": ""
+      "risk": "",
+      "severity": "",
+      "frequency_estimate": "",
+      "evidence_summary": "",
+      "trajectory": "",
+      "mitigation": ""
     }
   ],
-  "guest_language_bank": [
+  "guest_language_examples": [
     {
       "quote": "",
       "theme": "",
       "source": "",
-      "usability": "direct-copy|paraphrase|inspiration-only"
+      "usability": ""
+    }
+  ],
+  "confidence_notes": {
+    "overall_confidence": "",
+    "data_quality_summary": "",
+    "flags": [
+      {
+        "note": "",
+        "severity": "",
+        "affects_section": ""
+      }
+    ]
+  },
+  "analysis_limitations": [
+    {
+      "limitation": "",
+      "impact_on_findings": ""
     }
   ]
 }
 
-RULES:
-- Use only analysis-eligible reviews (exclude low-confidence, flagged, and duplicate captures).
-- Do not invent trends not present in the evidence.
-- Distinguish isolated incidents (is_pattern: false) from repeated patterns (is_pattern: true).
-- internal_note fields are for operator use only — include extraction anomalies, contradiction flags, data quality concerns.
-- confidence_notes should flag anything that affects reliability of specific sections.
-- top_strengths: order by (mentions × intensity weight). Cap at 6.
-- top_complaints: order by (mentions × reputational_impact weight). Cap at 6.
-- quick_wins: only include changes achievable within 30 days with low-to-medium effort. Cap at 5.
-- strategic_recommendations: cap at 5. Must have rationale grounded in evidence.
-- reputation_risk_score.score: 1 = severe risk, 10 = strong reputation position.
-- guest_language_bank: include only verbatim or near-verbatim guest phrases worth reusing. Cap at 10.
-- All date fields: ISO 8601 (YYYY-MM-DD).
-- job_id: derive from property name + YYYY-MM (e.g., "casa-mariposa-2025-05").
+-----------------------------------
+PRIORITIZATION LOGIC
+-----------------------------------
+
+Prioritize findings based on:
+1. frequency
+2. reputational severity
+3. luxury expectation mismatch
+4. conversion impact
+5. operational feasibility
+6. repeatability across sources
+7. alignment with property positioning
+
+-----------------------------------
+FINAL INSTRUCTION
+-----------------------------------
+
+Be analytically rigorous.
+
+Do not produce generic hospitality advice.
+
+Anchor findings to the provided evidence packet.
+
+Return valid JSON only. No markdown fences. No prose outside the JSON object.
 
 EVIDENCE PACKET FOLLOWS:
 ```
 
-[PASTE EVIDENCE PACKET HERE]
+[PASTE EVIDENCE PACKET MARKDOWN HERE]

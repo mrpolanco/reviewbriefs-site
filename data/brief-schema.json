@@ -1,35 +1,39 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ReviewBriefs Analysis Object",
-  "description": "Layer 2 structured analysis output. Generated from a normalized evidence packet. Used to render both internal and client-facing HTML briefs.",
-  "version": "1.0",
+  "description": "Layer 2 structured analysis output. Generated from a normalized evidence packet by prompts/packet-to-analysis.md. Used to render internal briefs, client briefs, dashboards, and future benchmarking. Do not modify this schema without updating the prompt, example, and both brief prompts.",
+  "version": "2.0",
   "type": "object",
   "required": [
-    "job_id",
-    "property",
-    "generated_at",
-    "analysis_window",
-    "review_counts",
-    "top_strengths",
-    "top_complaints",
+    "property_summary",
+    "executive_summary",
+    "guest_praise_themes",
+    "guest_complaint_themes",
+    "operational_friction_points",
+    "luxury_expectation_failures",
     "website_alignment_gaps",
-    "service_risk_areas",
-    "guest_expectation_mismatches",
+    "seo_ai_readiness",
+    "public_response_analysis",
+    "hospitality_trends",
     "quick_wins",
     "strategic_recommendations",
-    "reputation_risk_score",
-    "confidence_notes"
+    "reputation_risks",
+    "guest_language_examples",
+    "confidence_notes",
+    "analysis_limitations"
   ],
   "properties": {
-    "job_id": {
-      "type": "string",
-      "description": "Unique identifier for this analysis job. Used in URLs: /briefs/internal/{job_id}/ and /briefs/client/{job_id}/",
-      "example": "casa-mariposa-2025-05"
-    },
-    "property": {
+
+    "property_summary": {
       "type": "object",
-      "required": ["name", "city_country", "property_type", "primary_sources"],
+      "description": "Property identification and review volume metadata.",
+      "required": ["job_id", "name", "city_country", "property_type", "primary_sources", "generated_at", "analysis_window", "review_counts"],
       "properties": {
+        "job_id": {
+          "type": "string",
+          "description": "Unique job identifier. Convention: {property-slug}-{YYYY-MM}. Used in /briefs/internal/{job_id}/ and /briefs/client/{job_id}/ URLs.",
+          "example": "beekman-thompson-2025-04"
+        },
         "name": { "type": "string" },
         "city_country": { "type": "string" },
         "property_type": {
@@ -39,142 +43,121 @@
         "primary_sources": {
           "type": "array",
           "items": { "type": "string" },
-          "description": "Review sources included in this packet",
           "example": ["Google", "TripAdvisor", "Booking.com"]
+        },
+        "generated_at": { "type": "string", "format": "date" },
+        "analysis_window": {
+          "type": "object",
+          "properties": {
+            "earliest_review": { "type": "string", "format": "date" },
+            "latest_review": { "type": "string", "format": "date" },
+            "months_covered": { "type": "number" }
+          }
+        },
+        "review_counts": {
+          "type": "object",
+          "properties": {
+            "total_captured": { "type": "integer" },
+            "analysis_eligible": { "type": "integer", "description": "Excludes low-confidence, duplicate, and flagged captures" },
+            "excluded_low_confidence": { "type": "integer" },
+            "excluded_duplicate": { "type": "integer" },
+            "by_source": { "type": "object", "additionalProperties": { "type": "integer" } },
+            "by_rating": {
+              "type": "object",
+              "properties": {
+                "5": { "type": "integer" },
+                "4": { "type": "integer" },
+                "3": { "type": "integer" },
+                "2": { "type": "integer" },
+                "1": { "type": "integer" }
+              }
+            },
+            "average_rating": { "type": "number" }
+          }
         }
       }
     },
-    "generated_at": {
-      "type": "string",
-      "format": "date",
-      "description": "ISO 8601 date this analysis was generated"
-    },
-    "analysis_window": {
+
+    "executive_summary": {
       "type": "object",
+      "description": "Top-line findings. Used as the opening section of both briefs.",
+      "required": ["headline", "key_strengths", "key_risks", "top_opportunity", "reputation_score", "reputation_trajectory"],
       "properties": {
-        "earliest_review": { "type": "string", "format": "date" },
-        "latest_review": { "type": "string", "format": "date" },
-        "months_covered": { "type": "number" }
+        "headline": { "type": "string", "description": "One sentence capturing the most important finding about this property." },
+        "key_strengths": { "type": "array", "items": { "type": "string" }, "maxItems": 4 },
+        "key_risks": { "type": "array", "items": { "type": "string" }, "maxItems": 4 },
+        "top_opportunity": { "type": "string", "description": "Single highest-impact opportunity identified." },
+        "reputation_score": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "1 = severe risk, 10 = strong reputation position"
+        },
+        "reputation_trajectory": {
+          "type": "string",
+          "enum": ["improving", "stable", "declining", "mixed", "insufficient-data"]
+        }
       }
     },
-    "review_counts": {
-      "type": "object",
-      "properties": {
-        "total_captured": { "type": "integer" },
-        "analysis_eligible": { "type": "integer", "description": "Excludes low-confidence, duplicate, and flagged captures" },
-        "excluded_low_confidence": { "type": "integer" },
-        "excluded_duplicate": { "type": "integer" },
-        "by_source": {
-          "type": "object",
-          "additionalProperties": { "type": "integer" }
-        },
-        "by_rating": {
-          "type": "object",
-          "description": "Count of reviews by star rating (1–5)",
-          "properties": {
-            "5": { "type": "integer" },
-            "4": { "type": "integer" },
-            "3": { "type": "integer" },
-            "2": { "type": "integer" },
-            "1": { "type": "integer" }
-          }
-        },
-        "average_rating": { "type": "number" }
-      }
-    },
-    "top_strengths": {
+
+    "guest_praise_themes": {
       "type": "array",
-      "description": "Repeatedly praised attributes. Ordered by frequency * intensity.",
+      "description": "Repeatedly praised attributes. Ordered by (mentions × intensity). Cap at 6.",
       "items": {
         "type": "object",
-        "required": ["theme", "mentions", "intensity", "representative_quotes"],
+        "required": ["theme", "mentions", "intensity", "pattern_strength", "representative_quotes", "marketing_usability"],
         "properties": {
-          "theme": { "type": "string", "example": "Staff warmth and attentiveness" },
+          "theme": { "type": "string" },
           "mentions": { "type": "integer" },
           "intensity": { "type": "string", "enum": ["high", "medium", "low"] },
-          "representative_quotes": {
-            "type": "array",
-            "items": { "type": "string" },
-            "maxItems": 3
-          },
-          "marketing_usability": {
-            "type": "string",
-            "enum": ["high", "medium", "low"],
-            "description": "How directly usable this theme is in marketing copy"
-          }
+          "pattern_strength": { "type": "string", "enum": ["strong", "moderate", "weak"] },
+          "representative_quotes": { "type": "array", "items": { "type": "string" }, "maxItems": 3 },
+          "marketing_usability": { "type": "string", "enum": ["high", "medium", "low"] },
+          "notes": { "type": "string" }
         }
       }
     },
-    "top_complaints": {
+
+    "guest_complaint_themes": {
       "type": "array",
-      "description": "Repeated friction points. Ordered by frequency * reputational impact.",
+      "description": "Repeated friction points. Ordered by (mentions × reputational_impact). Cap at 6.",
       "items": {
         "type": "object",
-        "required": ["theme", "mentions", "severity", "reputational_impact"],
+        "required": ["theme", "mentions", "severity", "reputational_impact", "is_pattern", "representative_quotes"],
         "properties": {
           "theme": { "type": "string" },
           "mentions": { "type": "integer" },
           "severity": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
           "reputational_impact": { "type": "string", "enum": ["high", "medium", "low"] },
-          "is_pattern": {
-            "type": "boolean",
-            "description": "true = repeated across multiple reviews; false = isolated incident"
-          },
-          "representative_quotes": {
-            "type": "array",
-            "items": { "type": "string" },
-            "maxItems": 3
-          },
-          "internal_note": {
-            "type": "string",
-            "description": "Internal-only context — NOT rendered in client brief"
-          }
+          "is_pattern": { "type": "boolean", "description": "true = 3+ mentions across sources; false = isolated" },
+          "representative_quotes": { "type": "array", "items": { "type": "string" }, "maxItems": 3 },
+          "internal_note": { "type": "string", "description": "Internal-only context — NOT rendered in client brief. Extraction anomalies, contradiction flags, operator caveats." }
         }
       }
     },
-    "website_alignment_gaps": {
+
+    "operational_friction_points": {
       "type": "array",
-      "description": "Places where website positioning contradicts or is unsupported by guest experience.",
+      "description": "Service or operational areas with evidence of inconsistency, failure, or repeated guest friction.",
       "items": {
         "type": "object",
-        "required": ["website_claim", "guest_reality", "gap_severity"],
+        "required": ["area", "risk_level", "pattern_strength", "frequency_estimate"],
         "properties": {
-          "website_claim": { "type": "string", "description": "What the website promises or implies" },
-          "guest_reality": { "type": "string", "description": "What guests actually report" },
-          "gap_severity": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
-          "conversion_risk": {
-            "type": "string",
-            "enum": ["high", "medium", "low"],
-            "description": "Likelihood this gap is costing direct bookings"
-          },
-          "recommendation": { "type": "string" }
-        }
-      }
-    },
-    "service_risk_areas": {
-      "type": "array",
-      "description": "Operational areas with evidence of inconsistency, failure, or guest friction.",
-      "items": {
-        "type": "object",
-        "required": ["area", "risk_level", "pattern_strength"],
-        "properties": {
-          "area": { "type": "string", "example": "Breakfast quality consistency" },
+          "area": { "type": "string" },
           "risk_level": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
-          "pattern_strength": {
-            "type": "string",
-            "enum": ["strong", "moderate", "weak"],
-            "description": "strong = 5+ mentions across sources; moderate = 3–4; weak = 1–2"
-          },
+          "pattern_strength": { "type": "string", "enum": ["strong", "moderate", "weak"] },
+          "frequency_estimate": { "type": "string", "description": "Human-readable estimate, e.g. '8–10 mentions across 6 months'" },
           "notes": { "type": "string" }
         }
       }
     },
-    "guest_expectation_mismatches": {
+
+    "luxury_expectation_failures": {
       "type": "array",
-      "description": "Cases where guest expectations (set by price, category, marketing) do not match delivered experience.",
+      "description": "Cases where guest expectations (set by price, category, or marketing) did not match delivered experience.",
       "items": {
         "type": "object",
-        "required": ["expectation", "reality", "likely_source"],
+        "required": ["expectation", "reality", "likely_source", "severity"],
         "properties": {
           "expectation": { "type": "string" },
           "reality": { "type": "string" },
@@ -182,77 +165,174 @@
             "type": "string",
             "enum": ["website-copy", "ota-listing", "price-tier", "category-norms", "word-of-mouth", "unknown"]
           },
-          "severity": { "type": "string", "enum": ["high", "medium", "low"] }
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "guest_impact": { "type": "string", "description": "How this mismatch affects perception, reviews, and repeat bookings." }
         }
       }
     },
+
+    "website_alignment_gaps": {
+      "type": "array",
+      "description": "Places where website positioning contradicts or is unsupported by guest experience.",
+      "items": {
+        "type": "object",
+        "required": ["website_claim", "guest_reality", "gap_severity", "conversion_risk", "recommendation"],
+        "properties": {
+          "website_claim": { "type": "string" },
+          "guest_reality": { "type": "string" },
+          "gap_severity": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
+          "conversion_risk": { "type": "string", "enum": ["high", "medium", "low"] },
+          "recommendation": { "type": "string" }
+        }
+      }
+    },
+
+    "seo_ai_readiness": {
+      "type": "object",
+      "description": "Website and content evaluation for search visibility and AI/LLM discoverability. Based only on packet snapshot — no traffic or ranking claims.",
+      "properties": {
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finding": { "type": "string" },
+              "impact": { "type": "string" }
+            }
+          }
+        },
+        "weaknesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finding": { "type": "string" },
+              "impact": { "type": "string" },
+              "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+            }
+          }
+        },
+        "opportunities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "opportunity": { "type": "string" },
+              "estimated_impact": { "type": "string", "enum": ["high", "medium", "low"] },
+              "effort": { "type": "string", "enum": ["low", "medium", "high"] },
+              "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+            }
+          }
+        },
+        "schema_findings": {
+          "type": "array",
+          "description": "Structured data presence or absence",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "example": "Hotel / LodgingBusiness" },
+              "present": { "type": "boolean" },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "crawlability_notes": { "type": "array", "items": { "type": "string" } },
+        "content_clarity_notes": { "type": "array", "items": { "type": "string" } },
+        "faq_opportunities": { "type": "array", "items": { "type": "string" } },
+        "booking_conversion_observations": { "type": "array", "items": { "type": "string" } },
+        "ai_visibility_observations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "public_response_analysis": {
+      "type": "object",
+      "description": "Evaluation of owner/management review response quality. Owner responses are not guest sentiment.",
+      "properties": {
+        "response_rate_estimate": { "type": "string" },
+        "tone_assessment": { "type": "string" },
+        "quality_rating": { "type": "string", "enum": ["strong", "adequate", "weak", "absent", "mixed"] },
+        "strengths": { "type": "array", "items": { "type": "string" } },
+        "weaknesses": { "type": "array", "items": { "type": "string" } },
+        "recommendations": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "hospitality_trends": {
+      "type": "array",
+      "description": "Relevant hospitality trends inferred from property type, positioning, and evidence. Tied to specific findings — not generic advice.",
+      "items": {
+        "type": "object",
+        "required": ["trend", "relevance_to_property", "evidence_basis", "opportunity_or_risk", "confidence"],
+        "properties": {
+          "trend": { "type": "string" },
+          "relevance_to_property": { "type": "string" },
+          "evidence_basis": { "type": "string" },
+          "opportunity_or_risk": { "type": "string", "enum": ["opportunity", "risk", "both"] },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    },
+
     "quick_wins": {
       "type": "array",
-      "description": "Changes estimated to have high impact with low effort or cost. Actionable within 30 days.",
+      "description": "High-impact, low-effort changes actionable within 30 days. Cap at 5. Each must trace to a finding.",
       "items": {
         "type": "object",
-        "required": ["action", "expected_impact", "effort"],
+        "required": ["action", "evidence_summary", "expected_impact", "effort", "area", "confidence"],
         "properties": {
           "action": { "type": "string" },
+          "evidence_summary": { "type": "string" },
           "expected_impact": { "type": "string", "enum": ["high", "medium", "low"] },
           "effort": { "type": "string", "enum": ["low", "medium"] },
-          "area": {
-            "type": "string",
-            "enum": ["operations", "website", "messaging", "staff-training", "guest-comms", "review-response"]
-          }
+          "area": { "type": "string", "enum": ["operations", "website", "messaging", "staff-training", "guest-comms", "review-response", "seo"] },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
         }
       }
     },
+
     "strategic_recommendations": {
       "type": "array",
-      "description": "Longer-horizon recommendations requiring planning, budget, or organizational change.",
+      "description": "Longer-horizon recommendations requiring planning, budget, or organizational change. Cap at 5.",
       "items": {
         "type": "object",
-        "required": ["recommendation", "rationale", "priority"],
+        "required": ["recommendation", "rationale", "evidence_summary", "priority", "timeframe", "estimated_impact", "effort", "confidence"],
         "properties": {
           "recommendation": { "type": "string" },
           "rationale": { "type": "string" },
+          "evidence_summary": { "type": "string" },
           "priority": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
-          "timeframe": { "type": "string", "example": "60–90 days" }
+          "timeframe": { "type": "string" },
+          "estimated_impact": { "type": "string", "enum": ["high", "medium", "low"] },
+          "effort": { "type": "string", "enum": ["low", "medium", "high"] },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
         }
       }
     },
-    "reputation_risk_score": {
-      "type": "object",
-      "description": "Overall assessment of current reputational trajectory.",
-      "required": ["score", "trajectory", "summary"],
-      "properties": {
-        "score": {
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 10,
-          "description": "1 = severe risk, 10 = strong position"
-        },
-        "trajectory": {
-          "type": "string",
-          "enum": ["improving", "stable", "declining", "mixed", "insufficient-data"]
-        },
-        "summary": { "type": "string" }
-      }
-    },
-    "confidence_notes": {
+
+    "reputation_risks": {
       "type": "array",
-      "description": "Internal-only. Flags data quality issues, low-confidence captures, extraction anomalies. NOT rendered in client brief.",
+      "description": "Active or emerging reputation threats. Each must have evidence basis.",
       "items": {
         "type": "object",
-        "required": ["note", "severity"],
+        "required": ["risk", "severity", "frequency_estimate", "evidence_summary", "trajectory", "mitigation"],
         "properties": {
-          "note": { "type": "string" },
-          "severity": { "type": "string", "enum": ["warning", "info"] },
-          "affects_section": { "type": "string", "description": "Which analysis section this note applies to" }
+          "risk": { "type": "string" },
+          "severity": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
+          "frequency_estimate": { "type": "string" },
+          "evidence_summary": { "type": "string" },
+          "trajectory": { "type": "string", "enum": ["worsening", "stable", "improving", "insufficient-data"] },
+          "mitigation": { "type": "string" }
         }
       }
     },
-    "guest_language_bank": {
+
+    "guest_language_examples": {
       "type": "array",
-      "description": "Verbatim guest phrases worth reusing in marketing copy. Client-facing.",
+      "description": "Verbatim guest phrases worth reusing in marketing copy. Cap at 10.",
       "items": {
         "type": "object",
+        "required": ["quote", "theme", "source", "usability"],
         "properties": {
           "quote": { "type": "string" },
           "theme": { "type": "string" },
@@ -260,6 +340,40 @@
           "usability": { "type": "string", "enum": ["direct-copy", "paraphrase", "inspiration-only"] }
         }
       }
+    },
+
+    "confidence_notes": {
+      "type": "object",
+      "description": "Internal-only data quality assessment. NOT rendered in client brief.",
+      "properties": {
+        "overall_confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "data_quality_summary": { "type": "string" },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "note": { "type": "string" },
+              "severity": { "type": "string", "enum": ["warning", "info"] },
+              "affects_section": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
+    "analysis_limitations": {
+      "type": "array",
+      "description": "Structural limitations of this analysis (e.g., short review window, single source dominance). Distinct from data quality flags.",
+      "items": {
+        "type": "object",
+        "required": ["limitation", "impact_on_findings"],
+        "properties": {
+          "limitation": { "type": "string" },
+          "impact_on_findings": { "type": "string" }
+        }
+      }
     }
+
   }
 }
