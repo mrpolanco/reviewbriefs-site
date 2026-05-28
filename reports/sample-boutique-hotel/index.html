@@ -1436,6 +1436,26 @@
     });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
+
+  // Keep fixed contents nav below the report header until the report body reaches the viewport.
+  const briefLayout = document.querySelector('.brief-layout');
+  const briefNav = document.querySelector('.brief-nav');
+  function updateBriefNavOffset() {
+    if (!briefLayout || !briefNav || window.matchMedia('(max-width: 900px)').matches) {
+      if (briefNav) {
+        briefNav.style.top = '';
+        briefNav.style.height = '';
+      }
+      return;
+    }
+
+    const top = Math.max(0, briefLayout.getBoundingClientRect().top);
+    briefNav.style.top = `${top}px`;
+    briefNav.style.height = `calc(100vh - ${top}px)`;
+  }
+  window.addEventListener('scroll', updateBriefNavOffset, { passive: true });
+  window.addEventListener('resize', updateBriefNavOffset);
+  updateBriefNavOffset();
 </script>
 </body>
 </html>
