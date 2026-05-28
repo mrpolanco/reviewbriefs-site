@@ -35,3 +35,21 @@ yarn-error.log
 scratch.*
 _notes/
 TODO.local.md
+
+# ── Proprietary methodology (lives in reviewbriefs-ops private repo) ──
+# Prompts are core IP — never expose in public repo
+prompts/
+
+# Analysis schema and worked examples reveal methodology
+data/brief-schema.json
+data/analysis-example.json
+
+# Internal brief template reveals operator-only workflow
+briefs/internal/
+briefs/README.md
+
+# Internal workflow documentation
+CLAUDE.md
+
+# Generated client briefs (never public — password-gated but still)
+briefs/client/*/index.html
