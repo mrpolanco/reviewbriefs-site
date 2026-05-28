@@ -175,6 +175,49 @@
       "description": "Clear editorial appeal for Central America authenticity travel publications."
     }
   ],
+  "listing_alignment": {
+    "summary": "Casa Mariposa's public listings generally reinforce its boutique scale, Antigua location, colonial character, and breakfast strength, but the courtyard and breakfast experience should work harder as marketplace conversion signals.",
+    "sources_analyzed": ["Google", "Booking.com", "TripAdvisor"],
+    "aligned_strengths": [
+      "Boutique hotel scale and personal service",
+      "Colonial Antigua atmosphere",
+      "Walkable location",
+      "Breakfast quality"
+    ],
+    "underused_review_backed_themes": [
+      "Courtyard as the primary emotional hook",
+      "Breakfast as a standout F&B experience",
+      "Staff personalization and remembered preferences",
+      "Courtyard room preference as a direct-booking benefit"
+    ],
+    "expectation_gaps": [
+      {
+        "theme": "Parking and arrival clarity",
+        "evidence": "A small but recurring set of reviews mentions parking or arrival confusion.",
+        "affected_channels": ["Google", "Booking.com", "TripAdvisor", "Pre-arrival email"],
+        "recommendation": "Add parking and arrival guidance to listing descriptions where possible, then reinforce it in confirmation emails.",
+        "impact": "medium",
+        "effort": "low",
+        "confidence": "medium"
+      }
+    ],
+    "fnb_listing_opportunities": [
+      {
+        "theme": "Breakfast visibility",
+        "evidence": "Breakfast appears in 54% of reviews and is frequently described with specific local-food language.",
+        "affected_channels": ["Booking.com", "TripAdvisor", "Google", "Website"],
+        "recommendation": "Treat breakfast as a conversion asset across listing descriptions, gallery order, and social content.",
+        "impact": "high",
+        "effort": "low",
+        "confidence": "high"
+      }
+    ],
+    "direct_booking_implications": [
+      "Courtyard room preference can become a direct-booking benefit.",
+      "Guest-backed breakfast language can improve conversion copy.",
+      "Parking guidance can reduce avoidable arrival friction."
+    ]
+  },
   "priority_actions": [
     {
       "priority": "high",
