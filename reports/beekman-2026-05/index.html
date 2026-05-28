@@ -211,6 +211,8 @@
       display: grid;
       grid-template-columns: 200px 1fr;
       align-items: start;
+      gap: 0;
+      min-height: calc(100vh - 4rem);
     }
 
     .brief-nav {
@@ -1277,6 +1279,23 @@
     document.getElementById('brief-gate').style.display = 'none';
     document.getElementById('brief-body').style.display = 'block';
     document.body.style.background = 'var(--rb-cream)';
+    initScrollSpy();
+  }
+
+  // Active nav on scroll — initialized after brief is unlocked so sections are visible
+  function initScrollSpy() {
+    const sections = document.querySelectorAll('.brief-section[id]');
+    const navLinks = document.querySelectorAll('.brief-nav__link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.brief-nav__link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
   }
 
   async function sha256(message) {
@@ -1286,22 +1305,6 @@
       .map(b => b.toString(16).padStart(2, '0'))
       .join('');
   }
-
-  // Active nav on scroll
-  const sections = document.querySelectorAll('.brief-section[id]');
-  const navLinks = document.querySelectorAll('.brief-nav__link');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector(`.brief-nav__link[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-15% 0px -70% 0px' });
-
-  sections.forEach(s => observer.observe(s));
 </script>
 
 </body>
