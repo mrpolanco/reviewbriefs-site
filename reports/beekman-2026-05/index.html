@@ -209,7 +209,7 @@
     ════════════════════════════ */
     .brief-layout {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 220px minmax(0, 1fr);
       align-items: start;
       gap: 0;
       min-height: calc(100vh - 4rem);
@@ -277,7 +277,9 @@
     .brief-content {
       grid-column: 2;
       padding: 3rem 3rem 5rem;
+      width: 100%;
       max-width: 900px;
+      min-width: 0;
     }
 
     .brief-section {
@@ -593,6 +595,12 @@
 
     @media (max-width: 560px) {
       .brief-at-glance { grid-template-columns: 1fr; }
+      .brief-section__title { align-items: flex-start; }
+      .brief-theme,
+      .brief-gap,
+      .brief-win,
+      .brief-insight,
+      .brief-scope { overflow-wrap: anywhere; }
     }
   </style>
 </head>
