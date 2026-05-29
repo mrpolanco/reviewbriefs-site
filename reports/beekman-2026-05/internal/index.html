@@ -1093,15 +1093,15 @@
 
       <p style="font-size:0.78rem; color:var(--rb-clay); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Confidence &amp; Data Risk Flags</p>
 
-      <div class="brief-flag">Hotels.com eligible reviews (5) are confirmed duplicates of Expedia Group reviews (Cathy, Stacey ×2, Jennifer, Meg). Theme frequency and rating averages use the deduplicated count of 36. Channel duplication is preserved in by_source counts for OTA coverage analysis. <em>Affects: guest_praise_themes, rating averages, experience_area_classification.</em></div>
+      <div class="brief-flag">Hotels.com eligible reviews (5) are confirmed duplicates of Expedia Group reviews (Cathy, Stacey ×2, Jennifer, Meg). Theme frequency and rating averages use the deduplicated count of 36. Channel duplication is preserved in source-level counts for OTA coverage analysis. <em>This mainly affects praise theme frequency, rating averages, and experience-area grouping.</em></div>
 
-      <div class="brief-flag">Booking.com eligible entry is an aggregate review page with 4+ quoted guest snippets — not a single review text. Individual quotes used as supporting evidence only, not counted as a standalone review in theme frequency analysis. <em>Affects: guest_praise_themes, review_counts.</em></div>
+      <div class="brief-flag">Booking.com eligible entry is an aggregate review page with 4+ quoted guest snippets — not a single review text. Individual quotes used as supporting evidence only, not counted as a standalone review in theme frequency analysis. <em>This mainly affects praise theme frequency and review counts.</em></div>
 
-      <div class="brief-flag brief-flag--warning">Owner response capture is partial per packet metadata. The 13 unanswered high-risk reviews figure and response rate estimates are limited to the visible captured set. Actual platform-wide rate may be higher or lower. <em>Affects: public_response_analysis, reputation_risks.</em></div>
+      <div class="brief-flag brief-flag--warning">Owner response capture is partial per packet metadata. The 13 unanswered high-risk reviews figure and response rate estimates are limited to the visible captured set. Actual platform-wide rate may be higher or lower. <em>This mainly affects public response analysis and reputation-risk estimates.</em></div>
 
-      <div class="brief-flag">Google Business Profile category ('Restaurant/bar') and pool amenity listing flagged as potentially incorrect. Both require live GBP verification before client reporting — packet snapshots may not perfectly reflect current live GBP state. <em>Affects: listing_alignment.</em></div>
+      <div class="brief-flag">Google Business Profile category ('Restaurant/bar') and pool amenity listing flagged as potentially incorrect. Both require live GBP verification before client reporting — packet snapshots may not perfectly reflect current live GBP state. <em>This mainly affects listing alignment findings.</em></div>
 
-      <div class="brief-flag">Review period requested was 'Last 60 days' but captured visible reviews include some older items. The 41 eligible reviews are those marked in_requested_period: true in the raw session data. <em>Affects: property_summary, analysis_window.</em></div>
+      <div class="brief-flag">Review period requested was 'Last 60 days' but captured visible reviews include some older items. The 41 eligible reviews are those marked in_requested_period: true in the raw session data. <em>This mainly affects the property summary and analysis window.</em></div>
 
       <p style="font-size:0.78rem; color:var(--rb-clay); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin: 1.25rem 0 0.5rem;">Analysis Limitations</p>
 
