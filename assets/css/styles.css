@@ -1,5 +1,5 @@
 /* ============================================================
-   ReviewBriefs — Global Styles
+   ReviewBriefs - Global Styles
    ============================================================ */
 
 /* ---- Design Tokens ---- */
@@ -167,7 +167,7 @@ p.wide { max-width: none; }
   transform: translateY(0);
 }
 
-/* Primary — moss */
+/* Primary - moss */
 .btn-primary {
   background-color: var(--rb-moss);
   color: var(--rb-cream);
@@ -181,7 +181,7 @@ p.wide { max-width: none; }
   box-shadow: 0 6px 24px rgba(79, 111, 82, 0.28);
 }
 
-/* Secondary — outline */
+/* Secondary - outline */
 .btn-secondary {
   background-color: transparent;
   color: var(--rb-ink);
@@ -1697,7 +1697,7 @@ blockquote.guest-quote cite {
 
 /* ---- Action cards (replaces cramped table on screen and in print) ---- */
 
-/* Hide the data tables everywhere — action cards are the canonical layout */
+/* Hide the data tables everywhere - action cards are the canonical layout */
 .data-table-wrap {
   display: none;
 }

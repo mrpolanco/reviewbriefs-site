@@ -1,4 +1,4 @@
-/* ReviewBriefs — main.js */
+/* ReviewBriefs - main.js */
 
 (function () {
   'use strict';

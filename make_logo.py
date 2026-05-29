@@ -2,12 +2,12 @@
 Generates ReviewBriefs logo and OG image using Gemini image generation.
 
 Outputs:
-  assets/images/logo-mark-raw.png     — Gemini-generated mark (raw)
-  assets/images/logo-mark.png         — mark composited (transparent bg)
-  assets/images/logo.svg              — horizontal wordmark SVG (uses PNG mark)
-  assets/images/logo-light.svg        — light variant for dark backgrounds
-  assets/images/logo@2x.png           — 496x104 full logo raster
-  assets/images/og-image.png          — 1200x630 OG card
+  assets/images/logo-mark-raw.png     - Gemini-generated mark (raw)
+  assets/images/logo-mark.png         - mark composited (transparent bg)
+  assets/images/logo.svg              - horizontal wordmark SVG (uses PNG mark)
+  assets/images/logo-light.svg        - light variant for dark backgrounds
+  assets/images/logo@2x.png           - 496x104 full logo raster
+  assets/images/og-image.png          - 1200x630 OG card
 """
 
 import json, os, io, time
@@ -84,17 +84,17 @@ def load_font(size, bold=False):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 1. LOGO MARK  — Gemini generates a refined monogram/seal
+# 1. LOGO MARK  - Gemini generates a refined monogram/seal
 # ══════════════════════════════════════════════════════════════════════════════
 
 MARK_PROMPT = (
-    "A modern, minimal logo mark for a B2B SaaS brand called ReviewBriefs — a guest review intelligence tool for hotels and hospitality agencies. "
+    "A modern, minimal logo mark for a B2B SaaS brand called ReviewBriefs - a guest review intelligence tool for hotels and hospitality agencies. "
     "The mark should feel like a clean, contemporary app icon: a simple document or brief shape combined with a subtle review or insight signal. "
-    "Design direction: a stylised document icon — clean rectangular shape with a folded top-right corner, "
+    "Design direction: a stylised document icon - clean rectangular shape with a folded top-right corner, "
     "with two or three short horizontal lines suggesting text/content inside. "
     "Optionally incorporate a very subtle upward trend line, checkmark, or small star to suggest insight or quality. "
     "Color: deep forest green (#4F6F52) icon on a warm cream (#F7F3EA) or white background. "
-    "Style: geometric, modern, flat — like a well-designed iOS or SaaS app icon. "
+    "Style: geometric, modern, flat - like a well-designed iOS or SaaS app icon. "
     "No serif fonts, no circular badges, no old-fashioned monogram rings. No gradients, no glow effects. "
     "Clean vector aesthetic. Square or slightly rounded-square format. No text, no letters."
 )
@@ -113,25 +113,25 @@ if mark_raw:
     mark.save(OUT / "logo-mark.png", "PNG")
     print(f"  logo-mark.png saved (200x200)")
 else:
-    print("  mark generation failed — using fallback")
+    print("  mark generation failed - using fallback")
     mark = None
 
 time.sleep(6)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 2. OG IMAGE BACKGROUND — Gemini generates editorial hospitality scene
+# 2. OG IMAGE BACKGROUND - Gemini generates editorial hospitality scene
 # ══════════════════════════════════════════════════════════════════════════════
 
 OG_BG_PROMPT = (
     "Wide editorial photograph-style image for a hospitality intelligence brand. "
     "A beautifully composed boutique hotel scene: warm interior light, a writing desk or "
     "reception area with a leather-bound notebook open, a pen resting on the page, "
-    "architectural details — stone walls, arched doorways, or courtyard garden visible. "
+    "architectural details - stone walls, arched doorways, or courtyard garden visible. "
     "Natural light, warm cream and sage green tones, earthy textures. "
     "Atmosphere: calm, professional, premium, tasteful. "
     "Think a boutique hotel in Antigua Guatemala, Tuscany, or Lisbon. "
-    "The left third of the image should be relatively open — softer tones, less busy — "
+    "The left third of the image should be relatively open - softer tones, less busy - "
     "to allow text overlay. "
     "No text, no people, no phones. No generic stock photo feel. "
     "Horizontal 16:9 format. Warm, editorial, grounded."
@@ -171,7 +171,7 @@ if og_bg_raw:
 draw = ImageDraw.Draw(og, "RGBA")
 
 # Solid cream panel on left, feathering into photo on the right
-# Solid from 0–460, then gradient fade to transparent at 660
+# Solid from 0-460, then gradient fade to transparent at 660
 for x in range(W):
     if x < 460:
         alpha = 230
@@ -286,7 +286,7 @@ print("  logo@2x.png saved")
 #   - 3 content lines
 #   - Small upward trend arrow bottom-right
 
-# Icon paths designed for a 48×48 viewBox, icon centered ~10–38 x / 6–42 y
+# Icon paths designed for a 48×48 viewBox, icon centered ~10-38 x / 6-42 y
 ICON_PATHS = """
   <!-- Mark container -->
   <rect x="0" y="0" width="48" height="48" rx="11" fill="#F7F3EA"/>

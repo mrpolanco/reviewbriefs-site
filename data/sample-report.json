@@ -35,7 +35,7 @@
       "Staff warmth and personalization",
       "Breakfast experience"
     ],
-    "top_fix": "Wi-Fi dead zones in east wing (rooms 7–11) — appears in 21% of reviews and drags down average score among affected guests."
+    "top_fix": "Wi-Fi dead zones in east wing (rooms 7-11) - appears in 21% of reviews and drags down average score among affected guests."
   },
   "praise_themes": [
     {
@@ -43,7 +43,7 @@
       "title": "Courtyard & Garden Atmosphere",
       "frequency_pct": 72,
       "review_count": 49,
-      "description": "Guests consistently single out the central courtyard — specifically the fountain, the flowering vines, and the arrangement of seating — as the defining experience of the stay.",
+      "description": "Guests consistently single out the central courtyard - specifically the fountain, the flowering vines, and the arrangement of seating - as the defining experience of the stay.",
       "sample_quotes": [
         "The courtyard alone is worth the stay. I had my morning coffee there every day and genuinely didn't want to leave.",
         "Something about that fountain running all day. I slept better than I have in years."
@@ -54,7 +54,7 @@
       "title": "Staff Warmth & Personalization",
       "frequency_pct": 63,
       "review_count": 43,
-      "description": "Staff are named individually in 21 reviews — unusual for an 18-room property and a strong signal of exceptional service culture.",
+      "description": "Staff are named individually in 21 reviews - unusual for an 18-room property and a strong signal of exceptional service culture.",
       "sample_quotes": [
         "Marco at the front desk remembered that I mentioned wanting to see the jade market and had already printed me a map the next morning."
       ]
@@ -103,7 +103,7 @@
       "affected_rooms": [3, 4, 6],
       "mention_count": 8,
       "mention_pct": 12,
-      "description": "Recurring source of 1–2 star reviews. Infrastructure fix needed."
+      "description": "Recurring source of 1-2 star reviews. Infrastructure fix needed."
     },
     {
       "priority": "medium",
@@ -147,7 +147,7 @@
     {
       "channel": "OTA Listings",
       "title": "Lead with the Courtyard, Not the Rooms",
-      "description": "Reorder photo sequence — courtyard first, interior second. Rewrite opening description."
+      "description": "Reorder photo sequence - courtyard first, interior second. Rewrite opening description."
     },
     {
       "channel": "Direct Booking",
@@ -161,7 +161,7 @@
     },
     {
       "channel": "Email / CRM",
-      "title": "Return to the Courtyard — Past Guest Reactivation",
+      "title": "Return to the Courtyard - Past Guest Reactivation",
       "description": "Segment guests 12+ months since stay. One email, one offer."
     },
     {
@@ -221,21 +221,21 @@
   "priority_actions": [
     {
       "priority": "high",
-      "action": "Resolve Wi-Fi dead zones in east wing (rooms 7–11)",
+      "action": "Resolve Wi-Fi dead zones in east wing (rooms 7-11)",
       "owner": "Property Manager",
-      "expected_impact": "+0.3–0.5 aggregate review score; eliminates 21% of negative mentions",
-      "estimated_cost": "$200–400"
+      "expected_impact": "+0.3-0.5 aggregate review score; eliminates 21% of negative mentions",
+      "estimated_cost": "$200-400"
     },
     {
       "priority": "high",
       "action": "Address hot water inconsistency in rooms 3, 4, and 6",
       "owner": "Property Manager",
-      "expected_impact": "Eliminates recurring 1–2 star reviews from those rooms",
-      "estimated_cost": "Variable — plumber assessment needed"
+      "expected_impact": "Eliminates recurring 1-2 star reviews from those rooms",
+      "estimated_cost": "Variable - plumber assessment needed"
     },
     {
       "priority": "high",
-      "action": "Reorder OTA photo sequence — courtyard images to positions 1–3",
+      "action": "Reorder OTA photo sequence - courtyard images to positions 1-3",
       "owner": "Marketing / Front Desk",
       "expected_impact": "Aligns first impression with top conversion driver",
       "estimated_cost": "$0"
@@ -252,7 +252,7 @@
       "action": "Introduce breakfast-time review request cards",
       "owner": "F&B / Front Desk",
       "expected_impact": "Increased review volume and specificity",
-      "estimated_cost": "$20–50 printing"
+      "estimated_cost": "$20-50 printing"
     },
     {
       "priority": "medium",
