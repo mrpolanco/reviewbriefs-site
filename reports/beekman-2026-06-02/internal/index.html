@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Internal Brief - The Beekman, A Thompson Hotel - ReviewBriefs</title>
+  <title>Internal Brief - The Beekman, A Thompson Hotel, by Hyatt - ReviewBriefs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
     body { background: var(--rb-cream); }
     .internal-banner { background: var(--rb-ink); color: #fff; text-align: center; padding: 0.55rem 1rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; position: sticky; top: 0; z-index: 100; }
     .internal-banner span { opacity: 0.5; margin: 0 1rem; }
-    .brief-header { background: var(--rb-paper); border-bottom: 1px solid var(--rb-line-strong); padding: 2.5rem 0 2rem; background-image: var(--brief-internal-stripe); }
+    .brief-header { background: var(--rb-paper); border-bottom: 1px solid var(--rb-line); padding: 2.5rem 0 2rem; background-image: var(--brief-internal-stripe); }
     .brief-header__eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rb-clay); margin-bottom: 0.5rem; }
     .brief-header__title { font-size: 1.75rem; font-weight: 700; color: var(--rb-ink); margin-bottom: 0.35rem; line-height: 1.25; }
     .brief-header__meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.82rem; color: var(--rb-muted); }
@@ -35,7 +35,7 @@
     .brief-layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; min-height: calc(100vh - 200px); }
     .brief-nav { background: var(--rb-paper); border-right: 1px solid var(--rb-line); padding: 2rem 0; position: sticky; top: 37px; height: calc(100vh - 37px); overflow-y: auto; }
     .brief-nav__label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rb-muted); padding: 0 1.25rem; margin-bottom: 0.5rem; }
-    .brief-nav__link { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1.25rem; font-size: 0.82rem; color: var(--rb-ink-soft); text-decoration: none; border-left: 2px solid transparent; transition: all var(--transition); line-height: 1.3; }
+    .brief-nav__link { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1.25rem; font-size: 0.82rem; color: var(--rb-ink-soft); text-decoration: none; border-left: 2px solid transparent; transition: all 0.15s; line-height: 1.3; }
     .brief-nav__link:hover { color: var(--rb-ink); background: var(--rb-cream); border-left-color: var(--rb-sage); }
     .brief-nav__link.active { color: var(--rb-moss); border-left-color: var(--rb-moss); font-weight: 600; }
     .brief-nav__num { font-size: 0.65rem; color: var(--rb-muted); font-weight: 400; min-width: 1.1em; }
@@ -64,12 +64,21 @@
     .brief-stat { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 10px; padding: 1rem 1.1rem; }
     .brief-stat__value { font-size: 1.6rem; font-weight: 700; color: var(--rb-ink); line-height: 1; margin-bottom: 0.3rem; }
     .brief-stat__label { font-size: 0.72rem; color: var(--rb-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
-    .brief-risk-score { display: flex; align-items: center; gap: 1.5rem; background: var(--rb-paper); border: 1px solid var(--rb-line-strong); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+    .brief-risk-score { display: flex; align-items: center; gap: 1.5rem; background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
     .brief-risk-score__number { font-size: 3rem; font-weight: 700; line-height: 1; color: var(--rb-ink); min-width: 3rem; }
     .brief-risk-score__detail { flex: 1; }
     .brief-risk-score__label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rb-muted); font-weight: 600; margin-bottom: 0.25rem; }
     .brief-risk-score__trajectory { font-size: 0.85rem; font-weight: 600; color: var(--rb-ink-soft); margin-bottom: 0.4rem; }
     .brief-risk-score__summary { font-size: 0.85rem; color: var(--rb-ink-soft); line-height: 1.5; }
+    .brief-score-note { font-size: 0.78rem; color: var(--rb-muted); line-height: 1.45; padding: 0.5rem 0.75rem; background: var(--rb-cream); border-radius: 6px; margin-top: 0.5rem; }
+    .brief-data-risk { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.83rem; }
+    .brief-data-risk__row { display: flex; gap: 0.75rem; margin-bottom: 0.4rem; line-height: 1.4; }
+    .brief-data-risk__label { font-weight: 600; color: var(--rb-ink-soft); min-width: 130px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .brief-data-risk__val { color: var(--rb-ink-soft); }
+    .brief-action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem; margin: 1rem 0; }
+    .brief-action-card { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 10px; padding: 0.9rem 1.1rem; }
+    .brief-action-card__label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rb-clay); margin-bottom: 0.35rem; }
+    .brief-action-card__body { font-size: 0.84rem; color: var(--rb-ink-soft); line-height: 1.45; }
     .brief-theme { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 0.85rem; }
     .brief-theme__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
     .brief-theme__name { font-size: 0.92rem; font-weight: 600; color: var(--rb-ink); }
@@ -80,7 +89,7 @@
     .brief-flag::before { content: "⚑"; flex-shrink: 0; font-style: normal; }
     .brief-flag--warning { background: var(--brief-risk-critical-bg); border-color: #E8A89A; color: var(--brief-risk-critical); }
     .brief-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 1rem 0; }
-    .brief-table th { text-align: left; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rb-muted); padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--rb-line-strong); background: var(--rb-cream); }
+    .brief-table th { text-align: left; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rb-muted); padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--rb-line); background: var(--rb-cream); }
     .brief-table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--rb-line); color: var(--rb-ink-soft); vertical-align: top; line-height: 1.45; }
     .brief-table tr:last-child td { border-bottom: none; }
     .brief-table tr:hover td { background: var(--rb-cream); }
@@ -93,44 +102,36 @@
     .brief-win:last-child { border-bottom: none; }
     .brief-win__body { flex: 1; }
     .brief-win__action { font-size: 0.9rem; font-weight: 600; color: var(--rb-ink); margin-bottom: 0.35rem; }
-    .brief-win__badges { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.35rem; }
+    .brief-win__badges { display: flex; gap: 0.35rem; flex-wrap: wrap; }
     .brief-divider { border: none; border-top: 1px solid var(--rb-line); margin: 2rem 0; }
-    @media print {
-      .internal-banner, .brief-nav, .brief-header__actions { display: none; }
-      .brief-layout { display: block; }
-      .brief-content { padding: 0; max-width: 100%; }
-      .brief-section { break-inside: avoid; }
-      body { background: #fff; }
-    }
-    @media (max-width: 900px) {
-      .brief-layout { grid-template-columns: 1fr; }
-      .brief-nav { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--rb-line); display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.75rem 1rem; }
-      .brief-nav__label { display: none; }
-      .brief-nav__link { border-left: none; border-radius: 6px; background: var(--rb-stone); padding: 0.3rem 0.6rem; }
-      .brief-content { padding: 1.5rem 1rem 3rem; }
-    }
+    .brief-list { padding-left: 1.2rem; margin: 0.5rem 0; }
+    .brief-list li { font-size: 0.85rem; color: var(--rb-ink-soft); line-height: 1.55; margin-bottom: 0.3rem; }
+    .brief-body-text { font-size: 0.875rem; color: var(--rb-ink-soft); line-height: 1.65; margin-bottom: 0.75rem; }
+    .brief-muted-text { font-size: 0.8rem; color: var(--rb-muted); line-height: 1.55; margin-bottom: 0.5rem; }
+    @media print { .internal-banner, .brief-nav, .brief-header__actions { display: none; } .brief-layout { display: block; } .brief-content { padding: 0; max-width: 100%; } .brief-section { break-inside: avoid; } body { background: #fff; } }
+    @media (max-width: 900px) { .brief-layout { grid-template-columns: 1fr; } .brief-nav { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--rb-line); display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.75rem 1rem; } .brief-nav__label { display: none; } .brief-nav__link { border-left: none; border-radius: 6px; background: var(--rb-stone); padding: 0.3rem 0.6rem; } .brief-content { padding: 1.5rem 1rem 3rem; } }
   </style>
 </head>
 <body>
 
 <div class="internal-banner">
-  ⚑ Internal Brief — Not for Client Distribution
+  &#9873; Internal Brief - Not for Client Distribution
   <span>|</span>
-  The Beekman, A Thompson Hotel
+  The Beekman, A Thompson Hotel, by Hyatt
   <span>|</span>
-  Generated June 2, 2026
+  Generated 2026-06-02
 </div>
 
 <div class="brief-header">
   <div class="container">
-    <div class="brief-header__eyebrow">Internal Intelligence Brief · ReviewBriefs</div>
-    <h1 class="brief-header__title">The Beekman, A Thompson Hotel</h1>
+    <div class="brief-header__eyebrow">Internal Intelligence Brief &middot; ReviewBriefs</div>
+    <h1 class="brief-header__title">The Beekman, A Thompson Hotel, by Hyatt</h1>
     <div class="brief-header__meta">
       <div class="brief-header__meta-item"><strong>Job ID:</strong> beekman-2026-06-02</div>
-      <div class="brief-header__meta-item"><strong>Analysis window:</strong> Last 60 days · ~April–May 2026</div>
-      <div class="brief-header__meta-item"><strong>Sources:</strong> Google · TripAdvisor · Booking · Expedia · Hotels.com · Yelp</div>
-      <div class="brief-header__meta-item"><strong>Reviews analysed:</strong> 30 confirmed unique in-period of 123 total captured</div>
-      <div class="brief-header__meta-item"><strong>Avg rating:</strong> 4.17 ★</div>
+      <div class="brief-header__meta-item"><strong>Analysis window:</strong> Last 60 days (Apr&ndash;May 2026)</div>
+      <div class="brief-header__meta-item"><strong>Sources:</strong> Google, TripAdvisor, Booking, Expedia, Hotels.com, Yelp</div>
+      <div class="brief-header__meta-item"><strong>Reviews analysed:</strong> 40 of 69 captured</div>
+      <div class="brief-header__meta-item"><strong>Avg rating:</strong> 4.3 &#9733;</div>
     </div>
     <div class="brief-header__actions">
       <button class="btn btn-secondary btn-sm" onclick="window.print()">Print / Export PDF</button>
@@ -141,16 +142,18 @@
 <div class="brief-layout">
   <nav class="brief-nav" aria-label="Brief sections">
     <div class="brief-nav__label">Sections</div>
-    <a href="#executive-summary"        class="brief-nav__link"><span class="brief-nav__num">01</span> Executive Summary</a>
-    <a href="#positive-themes"          class="brief-nav__link"><span class="brief-nav__num">02</span> Positive Themes</a>
-    <a href="#top-complaints"           class="brief-nav__link"><span class="brief-nav__num">03</span> Top Complaints</a>
-    <a href="#website-gaps"             class="brief-nav__link"><span class="brief-nav__num">04</span> Website Gaps</a>
-    <a href="#operational-friction"     class="brief-nav__link"><span class="brief-nav__num">05</span> Operational Friction</a>
-    <a href="#expectation-failures"     class="brief-nav__link"><span class="brief-nav__num">06</span> Expectation Failures</a>
-    <a href="#quick-wins"               class="brief-nav__link"><span class="brief-nav__num">07</span> Quick Wins</a>
-    <a href="#strategic-recommendations" class="brief-nav__link"><span class="brief-nav__num">08</span> Strategy</a>
-    <a href="#reputation-risk"          class="brief-nav__link"><span class="brief-nav__num">09</span> Reputation Risk</a>
-    <a href="#confidence-notes"         class="brief-nav__link"><span class="brief-nav__num">10</span> Confidence Notes</a>
+    <a href="#executive-summary"    class="brief-nav__link"><span class="brief-nav__num">01</span> Executive Summary</a>
+    <a href="#fnb-signals"          class="brief-nav__link"><span class="brief-nav__num">02</span> F&amp;B Signals</a>
+    <a href="#positive-themes"      class="brief-nav__link"><span class="brief-nav__num">03</span> Positive Themes</a>
+    <a href="#top-complaints"       class="brief-nav__link"><span class="brief-nav__num">04</span> Top Complaints</a>
+    <a href="#website-gaps"         class="brief-nav__link"><span class="brief-nav__num">05</span> Website Gaps</a>
+    <a href="#operational-friction" class="brief-nav__link"><span class="brief-nav__num">06</span> Operational Friction</a>
+    <a href="#expectation-failures" class="brief-nav__link"><span class="brief-nav__num">07</span> Expectation Failures</a>
+    <a href="#seo-ai-readiness"     class="brief-nav__link"><span class="brief-nav__num">08</span> SEO / AI Readiness</a>
+    <a href="#listing-optimization" class="brief-nav__link"><span class="brief-nav__num">09</span> OTA &amp; Ecosystem</a>
+    <a href="#response-analysis"    class="brief-nav__link"><span class="brief-nav__num">10</span> Response Analysis</a>
+    <a href="#quick-wins"           class="brief-nav__link"><span class="brief-nav__num">11</span> Wins &amp; Strategy</a>
+    <a href="#confidence-notes"     class="brief-nav__link"><span class="brief-nav__num">12</span> Confidence Notes</a>
   </nav>
 
   <main class="brief-content">
@@ -159,313 +162,410 @@
     <section class="brief-section" id="executive-summary">
       <h2 class="brief-section__title"><span class="brief-section__title-num">01</span> Executive Summary</h2>
 
+      <p class="brief-body-text"><strong>Business type:</strong> Boutique luxury hotel (Lodging) &middot; New York, NY &middot; Hyatt / Thompson Hotels</p>
+
       <div class="brief-stats">
-        <div class="brief-stat"><div class="brief-stat__value">123</div><div class="brief-stat__label">Total Captured</div></div>
-        <div class="brief-stat"><div class="brief-stat__value">30</div><div class="brief-stat__label">Unique In-Period</div></div>
-        <div class="brief-stat"><div class="brief-stat__value">4.17★</div><div class="brief-stat__label">Avg Rating</div></div>
-        <div class="brief-stat"><div class="brief-stat__value">2 mo</div><div class="brief-stat__label">Window</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">40</div><div class="brief-stat__label">Reviewed sample</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">69</div><div class="brief-stat__label">Total captured</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">4.3&#9733;</div><div class="brief-stat__label">Avg rating in sample</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">13</div><div class="brief-stat__label">Visible high-risk items flagged for response audit</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">22%</div><div class="brief-stat__label">F&amp;B share of reviews</div></div>
       </div>
 
       <div class="brief-risk-score">
-        <div class="brief-risk-score__number">68</div>
+        <div class="brief-risk-score__number">72</div>
         <div class="brief-risk-score__detail">
-          <div class="brief-risk-score__label">Reputation Score · 0–100</div>
-          <div class="brief-risk-score__trajectory">Stable with active risk cluster</div>
-          <div class="brief-risk-score__summary">Strong architectural identity and staff culture are earning genuine advocacy; a recurring billing and credit communication failure is the primary driver of lower-rated reviews and is addressable without product change.</div>
+          <div class="brief-risk-score__label">Reputation Score &middot; Internal Composite</div>
+          <div class="brief-risk-score__trajectory">Stable with downside risk</div>
+          <div class="brief-risk-score__summary">Strong architectural identity and staff warmth drive loyal, vocal advocates; a recurring fee-friction cluster and unanswered service failures create outsized reputational risk at the luxury price tier.</div>
+        </div>
+      </div>
+      <p class="brief-score-note">Score is an internal composite based on recent sentiment, severity, owner response visibility, website/listing alignment, and issue fixability. Not an official public rating.</p>
+
+      <div class="brief-data-risk">
+        <h3 class="brief-section__subtitle" style="margin-top:0; margin-bottom:0.75rem;">Confidence &amp; Data Risk</h3>
+        <div class="brief-data-risk__row"><span class="brief-data-risk__label">Overall confidence</span><span class="brief-data-risk__val">Medium-high</span></div>
+        <div class="brief-data-risk__row"><span class="brief-data-risk__label">Strongest areas</span><span class="brief-data-risk__val">Google (26 reviews, dated, detailed); Expedia Group (9 reviews, recent, verified)</span></div>
+        <div class="brief-data-risk__row"><span class="brief-data-risk__label">Lower confidence</span><span class="brief-data-risk__val">TripAdvisor, Yelp, Booking (period unknown; used as corroboration only)</span></div>
+        <div class="brief-data-risk__row"><span class="brief-data-risk__label">Response visibility</span><span class="brief-data-risk__val">Partial capture: 17 of 69 reviews have visible responses. Floor figure. Treat as audit queue, not a platform-wide response rate.</span></div>
+        <div class="brief-data-risk__row"><span class="brief-data-risk__label">Use for</span><span class="brief-data-risk__val">Theme identification, friction pattern analysis, listing gap analysis, outreach pitch preparation</span></div>
+        <div class="brief-data-risk__row"><span class="brief-data-risk__label">Do not use for</span><span class="brief-data-risk__val">Precise response rate claims, cross-period comparisons, statistical significance</span></div>
+      </div>
+
+      <h3 class="brief-section__subtitle">Agency Action Summary</h3>
+      <div class="brief-action-grid">
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Recommended Client Conversation</div>
+          <div class="brief-action-card__body">Lead with the fee-friction cluster as a low-cost, high-impact operational fix. Frame it as preventing good stays from becoming bad reviews. The sanitation review is the secondary conversation: it needs a public response within 24 hours.</div>
+        </div>
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Immediate Fix (This Week)</div>
+          <div class="brief-action-card__body">Public response to the sanitation review (photos attached, no current response). Google Business Profile primary category correction from Restaurant/bar to Hotel. Zero-cost actions.</div>
+        </div>
+        <div class="brief-action-card">
+          <div class="brief-action-card__label">Upsell Path</div>
+          <div class="brief-action-card__body">Bar Room and Le Gratin third-party discovery campaign targeting Conde Nast Traveler hotel bars and Eater NYC. Both venues have named-chef backing and existing editorial coverage. A sellable premium deliverable.</div>
         </div>
       </div>
 
+      <h3 class="brief-section__subtitle">Service Opportunity Table</h3>
+      <table class="brief-table">
+        <thead><tr><th>Service Opportunity</th><th>Why It Sells</th><th>Buyer Pain</th><th>Suggested First Offer</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Review Response Program</strong></td><td>13 visible unanswered high-risk reviews; sanitation review with photos has no response</td><td>GM/GR team not keeping up; broken callback promises generating secondary complaints</td><td>Response audit of top 13 items + 48-hr SLA protocol template</td></tr>
+          <tr><td><strong>OTA / Listing Refresh</strong></td><td>Google category wrong (Restaurant/bar); fee not disclosed; Boulud attribution missing</td><td>Fee-surprise complaints generating 1-star reviews on otherwise positive stays</td><td>GBP category correction + Mandatory Fees update across 3 OTAs</td></tr>
+          <tr><td><strong>F&amp;B Profile / Outreach</strong></td><td>Bar Room and Le Gratin have editorial traction (Coveteur, Imbibe); CNT and Eater gaps are pitchable</td><td>Named-chef venues not appearing in high-value roundups despite credentials</td><td>Ecosystem audit + CNT hotel bars and Eater NYC outreach pitch</td></tr>
+          <tr><td><strong>FAQ / Policy Clarity</strong></td><td>Destination fee, FHR credit, room service exclusion generate repeat disputes</td><td>Same billing complaint appearing 5 times; front-desk script does not exist</td><td>FHR check-in disclosure script + FAQ page schema + OTA policy field update</td></tr>
+          <tr><td><strong>Owned-Site AI-Readiness</strong></td><td>llms.txt present; Hotel schema strong; FAQPage and Restaurant schema are gaps</td><td>Le Gratin and Temple Court are entity-orphaned on the site</td><td>FAQPage schema + Restaurant schema for named venues</td></tr>
+          <tr><td><strong>Monthly Reputation Monitoring</strong></td><td>Recurring FHR guest segment; accumulating fee-friction pattern</td><td>No mechanism to catch fee complaints before they compound</td><td>Monthly capture cadence with 60-day rolling comparison</td></tr>
+        </tbody>
+      </table>
+
       <h3 class="brief-section__subtitle">Key Strengths</h3>
-      <ul style="font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.7; padding-left:1.2rem;">
-        <li>Victorian nine-story atrium generates the most emotionally specific and consistent praise across all sources — an uncontested differentiator</li>
-        <li>Named staff recognition (Gordon, George, Alan, housekeeping team) signals a genuine front-of-house culture that converts first stays into repeat visits</li>
-        <li>The Bar Room atmosphere and cocktail quality are described as a standalone destination — generating advocacy from guests and non-guests alike</li>
-        <li>Special occasion handling (anniversary wine, birthday cake, babymoon check-in) is generating outsized loyalty in a high-value leisure segment</li>
-        <li>Financial District location and walkability are framed as a positive differentiator versus Midtown, with specific landmark and subway references</li>
+      <ul class="brief-list">
+        <li>Nine-story Victorian atrium generates consistent, unprompted organic advocacy across Google, Booking, and Expedia</li>
+        <li>The Bar Room is an independently praised destination with editorial coverage in Coveteur and Imbibe Magazine</li>
+        <li>Staff warmth and personalization generate specific named-staff mentions and repeat-guest loyalty</li>
+        <li>Location in Lower Manhattan earns consistent praise for walkability, subway access, and proximity to Brooklyn Bridge and 9/11 Memorial</li>
+        <li>F&amp;B program (Le Gratin, Temple Court, Jazz Brunch) is a meaningful differentiator visible in review language and ecosystem sources</li>
       </ul>
 
       <h3 class="brief-section__subtitle">Key Risks</h3>
-      <ul style="font-size:0.875rem; color:var(--rb-ink-soft); line-height:1.7; padding-left:1.2rem;">
-        <li><strong>Billing and credit friction cluster:</strong> 5+ distinct reviews cite destination fee surprise, Amex FHR credit limits undisclosed, room service exclusion not communicated, late checkout fee without notice — a communication failure pattern, not a product failure</li>
-        <li><strong>Service inconsistency under pressure:</strong> in-stay issue resolution failures (sanitation, breakfast seating, turndown lapses) documented across 3 reviews with specific timelines and photos</li>
-        <li><strong>13 high-risk reviews unanswered publicly</strong> as of capture date, including a sanitation complaint with photos</li>
+      <ul class="brief-list">
+        <li>Destination fee, Amex FHR breakfast credit cap, and checkout billing disputes form a cluster appearing in 5 of 40 reviews, each escalating to public 1- or 2-star complaints</li>
+        <li>Sanitation incident (green and brown water, photos attached) has no visible owner response despite being a documented health concern</li>
+        <li>Service recovery is inconsistent: guests report unmet callback promises, accusatory interactions, and denials of small concessions that peer luxury properties routinely grant</li>
+        <li>13 high-risk reviews have no visible owner response in the captured set, creating a visible accountability gap on Google</li>
       </ul>
 
-      <div class="brief-flag">
-        <strong>Top opportunity:</strong> Deploy a pre-arrival communication protocol covering the destination fee and inclusions, Amex FHR breakfast credit cap and room service exclusion, and a floor preference option for noise-sensitive guests. This single action addresses the majority of recent lower-rated reviews without any product change.
-      </div>
+      <h3 class="brief-section__subtitle">Top Opportunity</h3>
+      <p class="brief-body-text">Address the fee-friction cluster with a proactive front-desk disclosure protocol and respond publicly to the sanitation review; these two actions close the property's largest visible vulnerability gap at near-zero cost.</p>
+
+      <h3 class="brief-section__subtitle">Experience Area Breakdown</h3>
+      <table class="brief-table">
+        <thead><tr><th>Area</th><th>Review Count</th></tr></thead>
+        <tbody>
+          <tr><td>Stay / overall hotel</td><td>12</td></tr>
+          <tr><td>F&amp;B (bar, dining, breakfast)</td><td>9</td></tr>
+          <tr><td>Service</td><td>7</td></tr>
+          <tr><td>Arrival / checkout</td><td>3</td></tr>
+          <tr><td>Fees / policy</td><td>3</td></tr>
+          <tr><td>Room</td><td>3</td></tr>
+          <tr><td>Location</td><td>2</td></tr>
+          <tr><td>Events</td><td>1</td></tr>
+        </tbody>
+      </table>
+      <p class="brief-muted-text">F&amp;B share: 22.5% of reviewed sample (9 of 40). Above the 10% threshold for a standalone F&amp;B signals section.</p>
     </section>
 
     <hr class="brief-divider">
 
-    <!-- 02 POSITIVE THEMES -->
-    <section class="brief-section" id="positive-themes">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">02</span> Strongest Positive Themes</h2>
+    <!-- 02 F&B SIGNALS -->
+    <section class="brief-section" id="fnb-signals">
+      <h2 class="brief-section__title"><span class="brief-section__title-num">02</span> F&amp;B Marketing &amp; Retainer Opportunities</h2>
 
+      <p class="brief-muted-text">F&amp;B signal is classified separately from hotel-stay signal. Do not merge into hotel reputation score. No dedicated F&amp;B review sources (Google restaurant profile, Yelp restaurant page, OpenTable, Resy, TripAdvisor restaurant page) were included in this capture. Findings below draw from hotel stay reviews mentioning F&amp;B venues. A full F&amp;B audit would require standalone restaurant source captures.</p>
+
+      <div class="brief-flag">Do not present this as a complete F&amp;B audit. Recommended next capture sources: Google Business Profile for The Bar Room and Le Gratin (as restaurant entities), Yelp restaurant pages, OpenTable, TripAdvisor restaurant pages.</div>
+
+      <h3 class="brief-section__subtitle">Sub-Venues</h3>
+      <table class="brief-table">
+        <thead><tr><th>Venue</th><th>Attribution</th><th>Mentions</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>The Bar Room</strong></td><td>Tom Colicchio / Crafted Hospitality</td><td>8</td><td>Most mentioned F&amp;B venue. Praised for atrium atmosphere, cocktails, staff energy. One reviewer notes it is loud at dinner. Featured in Coveteur and Imbibe Magazine with photos.</td></tr>
+          <tr><td><strong>Le Gratin</strong></td><td>Daniel Boulud</td><td>2</td><td>Praised for onion soup, potato gratin, ambiance. Price noted as high. Bread disappointing for a French restaurant (one reviewer).</td></tr>
+          <tr><td><strong>Temple Court</strong></td><td>Tom Colicchio</td><td>3</td><td>Mentioned in Booking aggregate and ecosystem sources. Jazz Brunch praised by two reviewers.</td></tr>
+          <tr><td><strong>Breakfast (Bar Room space)</strong></td><td>Property</td><td>6</td><td>Positive: eggs benedict, made to order, strong coffee. Negative: seating wait, server confusion on closing time, Amex $60 credit insufficient.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="brief-flag brief-flag--warning">Retainer opportunity: MEDIUM. The Bar Room and Le Gratin have independent name recognition and third-party media coverage. A standalone F&amp;B reputation management or content retainer is a plausible sell, particularly if Conde Nast or Eater NYC outreach is pitched as a deliverable.</div>
+
+      <h3 class="brief-section__subtitle">F&amp;B Praise Themes</h3>
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Victorian architecture and nine-story atrium</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-high">High intensity</span>
-            <span class="brief-badge brief-badge--pattern">Strong pattern</span>
-          </div>
+          <div class="brief-theme__name">Bar Room atmosphere and cocktail quality</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-high">High intensity</span></div>
         </div>
-        <div class="brief-theme__count">14 mentions · Marketing usability: <strong>High</strong></div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:0.5rem;">Most mentioned and most emotionally described element across all sources. Unprompted across Google, Expedia, Booking, and Yelp. Not present in any listing copy at the level guests describe it. Language is ready for website hero, press kit, OTA listing, and booking confirmation without editing.</p>
-        <blockquote class="brief-evidence">"The nine-story Victorian atrium in the lobby just stops you when you walk in. Wrought iron balustrades, a skylight overhead, the whole thing has this old-world drama that you rarely encounter anymore."</blockquote>
-        <blockquote class="brief-evidence">"Absolutely stunning, beautifully designed, incredibly picturesque, and full of old New York charm that makes you feel like you've stepped into another era."</blockquote>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Staff warmth and named individual recognition</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-high">High intensity</span>
-            <span class="brief-badge brief-badge--pattern">Strong pattern</span>
-          </div>
-        </div>
-        <div class="brief-theme__count">10 mentions · Marketing usability: <strong>Medium-high</strong></div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:0.5rem;">Named staff (Gordon, George, Alan, housekeeping team) across multiple sources is a rare high-credibility signal. Represents genuine front-of-house culture, not isolated excellence.</p>
-        <blockquote class="brief-evidence">"Service is next level. Alan checked us in and was incredibly nice and made the start of our babymoon extremely special."</blockquote>
-        <blockquote class="brief-evidence">"From milk and kettles for tea, to clean wonderful bedrooms, to looking after colleagues with cocktails — even closing my suitcase for me."</blockquote>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">The Bar Room atmosphere and cocktails</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-high">High intensity</span>
-            <span class="brief-badge brief-badge--pattern">Strong pattern</span>
-          </div>
-        </div>
-        <div class="brief-theme__count">8 mentions · Marketing usability: <strong>High — guest language is already a better OTA description than current copy</strong></div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:0.5rem;">Non-guests also review The Bar Room as a standalone destination. Multiple guests return on consecutive evenings. Jazz Brunch at Temple Court mentioned positively by 2 independent reviewers with specific food items cited.</p>
+        <div class="brief-theme__count">8 mentions &middot; Marketing usability: High</div>
         <blockquote class="brief-evidence">"It is the kind of bar you do not want to leave. The cocktails are very well executed and the atmosphere gets the balance right, dim and cozy but not too precious about it."</blockquote>
-        <blockquote class="brief-evidence">"The atmosphere is magical, and they serve dessert and coffee, which made for the perfect way to end the night."</blockquote>
+        <blockquote class="brief-evidence">"The Bar Room under that atrium never got old. Truly a spectacular setting."</blockquote>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Financial District location and walkability</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-medium">Medium intensity</span>
-            <span class="brief-badge brief-badge--pattern">Strong pattern</span>
-          </div>
+          <div class="brief-theme__name">Jazz Brunch as a destination event</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-medium">Medium intensity</span></div>
         </div>
-        <div class="brief-theme__count">9 mentions · Marketing usability: <strong>Medium</strong></div>
-        <blockquote class="brief-evidence">"Brooklyn Bridge is a 14-minute walk. The 9/11 Memorial and Museum, South Street Seaport, Pier 17, and Brookfield Place are all easily accessible on foot. The Fulton Street subway connects you to the rest of the city in minutes."</blockquote>
+        <div class="brief-theme__count">2-3 mentions &middot; Strong word-of-mouth language</div>
+        <blockquote class="brief-evidence">"Jazz brunch on Sunday morning at the Temple Court was fantastic. Punctuated a delightful quick weekend getaway where we just stayed at the hotel."</blockquote>
+      </div>
+
+      <h3 class="brief-section__subtitle">F&amp;B Complaint Themes</h3>
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Breakfast service gaps (timing, server inconsistency, family friction)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-medium">Medium severity</span><span class="brief-badge brief-badge--isolated">Isolated</span></div>
+        </div>
+        <blockquote class="brief-evidence">"One server told us we could only eat until 12:00 PM, while another told us we could eat until 12:15 PM. After ordering, the food didn't arrive until 11:55 AM. They gave us 20 minutes to eat."</blockquote>
+        <div class="brief-flag">Internal: Confirmed booking, two servers giving conflicting close times. Training-addressable gap. No kids menu is a separate family-segment friction point.</div>
+      </div>
+
+      <h3 class="brief-section__subtitle">Breakfast Friction</h3>
+      <ul class="brief-list">
+        <li>Amex FHR $60 daily credit covers approximately 1.5 entrees at current pricing; guests treating it as a full-breakfast benefit are disappointed at checkout</li>
+        <li>Seating availability on busy mornings creates waits despite confirmed reservations</li>
+        <li>Room service breakfast excluded from FHR credit; disclosed in welcome letter fine print only</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Room Service Signal</h3>
+      <p class="brief-body-text">24/7 room service is a genuine differentiator that drives loyalty among late-arriving travelers. Temperature consistency on delivery is a gap at $100+ price points.</p>
+
+      <h3 class="brief-section__subtitle">Menu and Service Notes</h3>
+      <ul class="brief-list">
+        <li>No kids menu at breakfast or restaurant dinner; a friction point for Amex FHR family travelers</li>
+        <li>Bar maitre-d initially refused to heat milk for a toddler despite breakfast kitchen capability</li>
+        <li>Room service temperature consistency is a gap at $100+ price points</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">F&amp;B Website Alignment Gaps</h3>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Website:</strong> Dining page positions the hotel as a culinary destination</div>
+        <div class="brief-gap__reality">Jazz Brunch has no dedicated CTA, day, time, or reservation link on the Offers or Dining page; not discoverable as a bookable product via the owned site</div>
+        <div class="brief-gap__recommendation">Add Jazz Brunch to the Offers page with day, time, and a direct reservation link</div>
+      </div>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>OTA listings:</strong> Le Gratin named in most listings</div>
+        <div class="brief-gap__reality">Daniel Boulud attribution absent from Google Business Profile description and several OTA fields; a recognized name-search signal currently underused</div>
+        <div class="brief-gap__recommendation">Add "Le Gratin by Chef Daniel Boulud" to Google Business Profile description and OTA listing copy</div>
+      </div>
+
+      <h3 class="brief-section__subtitle">F&amp;B Marketing Opportunities</h3>
+      <ul class="brief-list">
+        <li>Jazz Brunch: add a dedicated Offers page entry with day, time, and direct reservation link; reviews show word-of-mouth advocacy not yet capturing search intent</li>
+        <li>Bar Room third-party coverage in Coveteur and Imbibe Magazine not referenced on the owned Awards and Press page; linking to these placements would reinforce credibility and support outreach pitches</li>
+        <li>Le Gratin Daniel Boulud attribution is a recognizable name-search signal; one listing copy change adds immediate F&amp;B discovery value across OTAs</li>
+      </ul>
+    </section>
+
+    <hr class="brief-divider">
+
+    <!-- 03 POSITIVE THEMES -->
+    <section class="brief-section" id="positive-themes">
+      <h2 class="brief-section__title"><span class="brief-section__title-num">03</span> Strongest Positive Themes</h2>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Architecture and atrium experience</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-high">High intensity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
+        </div>
+        <div class="brief-theme__count">16 mentions &middot; Marketing usability: High</div>
+        <blockquote class="brief-evidence">"The nine-story Victorian atrium in the lobby just stops you when you walk in. Wrought iron balustrades, a skylight overhead, the whole thing has this old-world drama that you rarely encounter anymore."</blockquote>
+        <blockquote class="brief-evidence">"Hotel is absolutely stunning, beautifully designed, incredibly picturesque, and full of old New York charm that makes you feel like you've stepped into another era."</blockquote>
+        <p style="font-size:0.82rem; color:var(--rb-muted); margin-top:0.5rem;">The atrium is the property's single most mentioned asset. Used unprompted across Google, Booking snippets, and third-party editorial (Coveteur, Imbibe, gowanderly.com). Direct marketing use is strong.</p>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Room quality, design, and cleanliness</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-high">Medium-high intensity</span>
-            <span class="brief-badge brief-badge--pattern">Strong pattern</span>
-          </div>
+          <div class="brief-theme__name">Staff warmth and personalized service</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-high">High intensity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
         </div>
-        <div class="brief-theme__count">8 mentions · Marketing usability: <strong>High</strong></div>
-        <blockquote class="brief-evidence">"Design details throughout that felt considered rather than generic. A bathroom that was actually spacious by New York standards."</blockquote>
+        <div class="brief-theme__count">14 mentions &middot; Marketing usability: Medium (named-staff quotes need consent)</div>
+        <blockquote class="brief-evidence">"Gordon at the front door was always smiling and ready to help, my favorite staff member."</blockquote>
+        <blockquote class="brief-evidence">"Alan checked us in and was incredibly nice and made the start of our babymoon extremely special. Amex fine resorts and hotels brought us here, but the service and food will be bringing us back."</blockquote>
+        <p style="font-size:0.82rem; color:var(--rb-muted); margin-top:0.5rem;">Named-staff mentions signal genuine personalization (Gordon, Alan, George). Cannot be directly quoted in client marketing without consent.</p>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Breakfast and dining quality</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-medium">Medium intensity</span>
-            <span class="brief-badge brief-badge--pattern">Moderate pattern</span>
-          </div>
+          <div class="brief-theme__name">Location and Lower Manhattan walkability</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-high">High intensity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
         </div>
-        <div class="brief-theme__count">7 mentions · Marketing usability: <strong>Medium — 24/7 room service is underleveraged</strong></div>
-        <blockquote class="brief-evidence">"Nobody really talks about it but I do enjoy the room service. 24/7. Can't beat that. Got in late and was damn near starving. All within 20 mins."</blockquote>
+        <div class="brief-theme__count">12 mentions &middot; Marketing usability: High</div>
+        <blockquote class="brief-evidence">"The Brooklyn Bridge is a walkable distance, the 9/11 Memorial is close, the South Street Seaport is nearby, and the Fulton Street subway station is about three minutes away."</blockquote>
+        <blockquote class="brief-evidence">"Right next to a subway stop that goes to JFK."</blockquote>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Special occasion and personalization</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--intensity-high">High intensity</span>
-            <span class="brief-badge brief-badge--pattern">Moderate pattern</span>
-          </div>
+          <div class="brief-theme__name">Bar Room atmosphere and cocktail quality</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-high">High intensity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
         </div>
-        <div class="brief-theme__count">5 mentions · Marketing usability: <strong>High for occasion/romance segment</strong></div>
-        <blockquote class="brief-evidence">"Our room had wonderful sparkling wine, chocolates and a sweet note from the property to celebrate our anniversary. Very kind and thoughtful."</blockquote>
+        <div class="brief-theme__count">8 mentions &middot; Marketing usability: High</div>
+        <blockquote class="brief-evidence">"The atmosphere is magical and they serve dessert and coffee, which made for the perfect way to end the night."</blockquote>
+        <blockquote class="brief-evidence">"Fantastic drinks, as they should be for the price."</blockquote>
+        <p style="font-size:0.82rem; color:var(--rb-muted); margin-top:0.5rem;">Bar Room earns independent praise from non-hotel guests visiting just for drinks. This cross-audience reach is a standalone editorial asset.</p>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Historic New York identity and character</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-high">High intensity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
+        </div>
+        <div class="brief-theme__count">7 mentions &middot; Marketing usability: High</div>
+        <blockquote class="brief-evidence">"The hotel took us to another world, back to classic 20th-century New York. Everything was simply perfect."</blockquote>
+        <blockquote class="brief-evidence">"The whole hotel has a very specific energy that is hard to pin down exactly, not showy, not stiff, just genuinely beautiful and well-run."</blockquote>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Room quality and design</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--intensity-medium">Moderate</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
+        </div>
+        <div class="brief-theme__count">6 mentions &middot; Marketing usability: Medium</div>
+        <blockquote class="brief-evidence">"A king bed with comfortable linens, a bathroom that was actually spacious by New York standards, and design details throughout that felt considered rather than generic."</blockquote>
+        <p style="font-size:0.82rem; color:var(--rb-muted); margin-top:0.5rem;">Room praise is moderate and often comparative to NYC standards. Countered by 2 complaints about standard room size from premium-program guests.</p>
       </div>
     </section>
 
     <hr class="brief-divider">
 
-    <!-- 03 TOP COMPLAINTS -->
+    <!-- 04 TOP COMPLAINTS -->
     <section class="brief-section" id="top-complaints">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">03</span> Highest-Risk Guest Complaints</h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">04</span> Highest-Risk Guest Complaints</h2>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Billing and credit communication failures</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-high">High severity</span>
-            <span class="brief-badge brief-badge--pattern">Pattern</span>
-          </div>
+          <div class="brief-theme__name">Premium booking benefit and checkout communication</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High severity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
         </div>
-        <div class="brief-theme__count">5 mentions · Reputational impact: <strong>High</strong></div>
-        <blockquote class="brief-evidence">"The hotel added a resort fee (~$50 per night) above room cost. Feels silly to so aggressively nickel and dime at this price point."</blockquote>
-        <blockquote class="brief-evidence">"We were told for the first time that the daily breakfast credit didn't cover room service — something nobody mentioned at check-in."</blockquote>
-        <div class="brief-flag--warning brief-flag">Root cause is a communication failure, not a pricing or product failure. One manager response (destination fee refund) already demonstrates the right language — that model needs to become the pre-arrival standard. Three distinct billing touchpoints are generating complaints: (1) destination fee, (2) Amex FHR breakfast credit cap and room service exclusion, (3) late checkout fee. All are preventable with pre-arrival disclosure.</div>
+        <div class="brief-theme__count">5 mentions &middot; Reputational impact: High</div>
+        <blockquote class="brief-evidence">"The hotel added a resort fee (~$50 per night) above room cost. Also, Amex FHR breakfast credit was not enough to cover the cost of breakfast for 2. Fine hotel otherwise, but feels silly to so aggressively nickel and dime at this price point."</blockquote>
+        <blockquote class="brief-evidence">"I was charged an extra $200 for a late checkout fee while I was trying to close out at the bar. Before, during, or after my stay no staff had checked on me."</blockquote>
+        <div class="brief-flag">Internal: Five distinct reviews touch this cluster across the analysis window. Two involve post-checkout disputes where the property held firm on small sums, triggering public 1-star reviews. The ROI on resolving these at the front desk would dramatically exceed the dispute amounts in prevented reputation damage. A front-desk FHR disclosure script is the structural fix. This cluster will likely continue to compound without an operational change. Frame to client as a front-desk training opportunity, not a policy critique.</div>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Service inconsistency and issue resolution failures</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-high">High severity</span>
-            <span class="brief-badge brief-badge--pattern">Pattern</span>
-          </div>
+          <div class="brief-theme__name">Service recovery failures (unmet promises, inconsistent follow-through)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High severity</span><span class="brief-badge brief-badge--pattern">Pattern</span></div>
         </div>
-        <div class="brief-theme__count">3 mentions · Reputational impact: <strong>High</strong></div>
-        <blockquote class="brief-evidence">"Our shower had green water pooling on the floor and the sink ran brown. We called three times over 20 plus minutes before anyone responded, and no solution was offered while we waited."</blockquote>
-        <blockquote class="brief-evidence">"She promised to follow up. Two days went by, nothing. I called, spoke to someone else, was promised a same-day callback. That didn't come either."</blockquote>
-        <div class="brief-flag--warning brief-flag">Three distinct incidents: (1) sanitation failure with no viable resolution at 8 PM — highest severity, photos attached, no public response as of capture; (2) multi-night turndown failure despite explicit request; (3) post-checkout billing dispute with multiple failed callbacks and camera footage implication by manager. Each represents a different service layer failure. Together they suggest a QA gap in issue escalation and close-out protocols.</div>
+        <div class="brief-theme__count">4 mentions &middot; Reputational impact: High</div>
+        <blockquote class="brief-evidence">"She promised to follow up. Two days went by, nothing. I called, spoke to someone else, was promised a same-day callback. That didn't come either. When I finally got through on the third attempt, I was told that because I'd briefly glanced at the welcome letter on camera, I was considered informed."</blockquote>
+        <blockquote class="brief-evidence">"Turndown service only happened on our first night. Despite calling guest services and a promise, it didn't happen the second or third night."</blockquote>
+        <div class="brief-flag">Internal: Recovery failures are generating more reputational damage than the primary service incidents in at least two cases. The current resolution path appears too dependent on management escalation. This pattern spans front desk, housekeeping, and guest relations. May reflect a gap in case ownership and shift-handoff protocols.</div>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Amex FHR program friction and upgrade non-recognition</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-medium">Medium severity</span>
-            <span class="brief-badge brief-badge--pattern">Pattern</span>
-          </div>
+          <div class="brief-theme__name">Sanitation incident (water quality, health concern, photo documentation)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-critical">Critical severity</span><span class="brief-badge brief-badge--isolated">Isolated incident</span></div>
         </div>
-        <div class="brief-theme__count">3 mentions · Reputational impact: <strong>Medium</strong></div>
-        <blockquote class="brief-evidence">"I've never been offered an upgrade at this property. Yeah, it's based on 'availability' but genuinely curious what larger rooms are like."</blockquote>
-        <div class="brief-flag">FHR guests are among the most review-active and loyalty-sensitive travelers. Three separate guests in this sample had FHR friction — one multi-stay guest reports zero upgrade recognition across visits. Worth a specific guest journey audit for this segment.</div>
+        <div class="brief-theme__count">1 mention &middot; Reputational impact: Critical</div>
+        <blockquote class="brief-evidence">"On night two, our shower had green water pooling on the floor and the sink ran brown (photos attached). We called three times over 20 plus minutes before anyone responded, and no solution was offered while we waited."</blockquote>
+        <blockquote class="brief-evidence">"For resolution, the hotel offered 21,000 points, less than the cost of a single night. For what was a documented sanitation issue, that did not feel like a serious response."</blockquote>
+        <div class="brief-flag brief-flag--warning">Internal: Photos are attached to the public review. No owner response visible. At a luxury tier, a documented health concern, a 20-minute response gap, and a points-only resolution is the worst-case public outcome. A prompt, substantive public response is the immediate priority. Emergency plumbing escalation SLA should be reviewed internally.</div>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Standard room size and noise</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-low">Low severity</span>
-            <span class="brief-badge brief-badge--isolated">Isolated</span>
-          </div>
+          <div class="brief-theme__name">Room size and value perception (standard rooms)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-medium">Medium severity</span><span class="brief-badge brief-badge--isolated">Isolated</span></div>
         </div>
-        <div class="brief-theme__count">2 mentions · Reputational impact: <strong>Low</strong></div>
-        <div class="brief-flag">Physical constraint of 1880s building. Expectation management in booking copy is the lever — one reviewer solved it proactively by requesting a high floor; the other was not aware to ask.</div>
+        <div class="brief-theme__count">2 mentions &middot; Reputational impact: Medium</div>
+        <blockquote class="brief-evidence">"The standard room is depressingly small. Yeah, I realize this is NYC. The only redeeming quality of the hotel is the soap brands they chose to use and the food at the Temple Court Bar."</blockquote>
+        <div class="brief-flag">Internal: One reviewer is a repeat Amex FHR guest who has never been offered an upgrade across multiple stays. Upgrade protocol for FHR repeat guests may warrant a review.</div>
       </div>
 
       <div class="brief-theme">
         <div class="brief-theme__header">
-          <span class="brief-theme__name">Family/child experience gaps</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-medium">Medium severity</span>
-            <span class="brief-badge brief-badge--isolated">Isolated</span>
-          </div>
+          <div class="brief-theme__name">Breakfast service gaps (wait times, server inconsistency, family friction)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-medium">Medium severity</span><span class="brief-badge brief-badge--isolated">Isolated</span></div>
         </div>
-        <div class="brief-theme__count">1 mention · Reputational impact: <strong>Medium</strong></div>
-        <div class="brief-flag">Isolated incident but highly specific — 4 distinct child-accommodation failures in one stay. Kid-friendly Google listing flag sets an expectation the product does not currently meet.</div>
+        <div class="brief-theme__count">2 mentions &middot; Reputational impact: Medium</div>
+        <blockquote class="brief-evidence">"One server told us we could only eat until 12:00 PM, while another told us we could eat until 12:15 PM. After ordering, the food didn't arrive until 11:55 AM. They gave us 20 minutes to eat."</blockquote>
+        <div class="brief-flag">Internal: Confirmed booking, conflicting close times from two servers. Independently addressable. No kids menu is a separate family-segment gap.</div>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Room amenity quality gap (toilet paper, crib quality)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-low">Low severity</span><span class="brief-badge brief-badge--isolated">Isolated</span></div>
+        </div>
+        <div class="brief-theme__count">2 mentions &middot; Reputational impact: Medium</div>
+        <blockquote class="brief-evidence">"The toilet paper physically disintegrates as you use it because it is that cheap. During a 5 day stay, it reminds me quite a few times why I should never stay at another Hyatt."</blockquote>
+        <div class="brief-flag">Internal: Both complaints attribute the gap to Hyatt management cost-cutting. Addressable quality-assurance items. Toilet paper complaint was made mid-stay during a 5-night booking.</div>
       </div>
     </section>
 
     <hr class="brief-divider">
 
-    <!-- 04 WEBSITE GAPS -->
+    <!-- 05 WEBSITE GAPS -->
     <section class="brief-section" id="website-gaps">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">04</span> Website vs Guest Perception Gaps</h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">05</span> Website vs Guest Perception Gaps</h2>
 
       <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Website claims:</strong> FAQ page does not mention destination fee or inclusions <span class="brief-badge brief-badge--risk-high" style="margin-left:0.4rem;">High gap</span></div>
-        <div class="brief-gap__reality">Destination fee (~$50/night) is the most frequently raised billing surprise in in-period reviews. Guests find it at checkout, not on the FAQ.</div>
-        <div class="brief-gap__recommendation">Add a destination fee FAQ entry listing inclusions (lobby coffee, Wi-Fi, fitness center). Language already exists in a published management response.</div>
+        <div class="brief-gap__claim"><strong>Website claims:</strong> Offers page implies packages and special value</div>
+        <div class="brief-gap__reality">No F&amp;B packages, Jazz Brunch offer, or bar experience offer visible; Offers page observed keywords are "meetings, events" only</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium severity</span></p>
+        <div class="brief-gap__recommendation">Add a Jazz Brunch booking CTA and a Bar Room experience offer to the Offers page. Brunch is an independently praised product not currently discoverable via the owned site.</div>
       </div>
 
       <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Website claims:</strong> No direct-booking value proposition visible on any reviewed page <span class="brief-badge brief-badge--risk-medium" style="margin-left:0.4rem;">Medium gap</span></div>
-        <div class="brief-gap__reality">Multiple guests arrive via Amex FHR/OTA channels with misaligned program expectations — a problem direct booking could address through pre-arrival communication.</div>
-        <div class="brief-gap__recommendation">Add a 'book direct' advantage section to homepage or rooms page: preference capture, upgrade priority visibility, fee transparency.</div>
+        <div class="brief-gap__claim"><strong>Website claims:</strong> Dining page positions the hotel as a culinary destination with named-chef venues</div>
+        <div class="brief-gap__reality">Daniel Boulud's name is not in the Dining page meta description or title; Jazz Brunch has no dedicated CTA or scheduling information</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium severity</span></p>
+        <div class="brief-gap__recommendation">Add Daniel Boulud attribution to Le Gratin meta description and page title. Add Jazz Brunch to a prominent dining sub-section with a reservation link.</div>
       </div>
 
       <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Website claims:</strong> Dining page meta references Tom Colicchio only — Daniel Boulud/Le Gratin absent <span class="brief-badge brief-badge--risk-medium" style="margin-left:0.4rem;">Medium gap</span></div>
-        <div class="brief-gap__reality">Le Gratin (Daniel Boulud) generates positive review mentions; his name carries independent search value for NYC dining.</div>
-        <div class="brief-gap__recommendation">Update dining page title tag and meta description to include both chefs and all three named venues.</div>
+        <div class="brief-gap__claim"><strong>Website claims:</strong> Amenities page describes luxury amenity offerings</div>
+        <div class="brief-gap__reality">Meta description is abstract ("luxury for the modern day time-traveler") with no specific amenities named</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-low">Low severity</span></p>
+        <div class="brief-gap__recommendation">Rewrite amenities meta description to name the top 3-4 specific amenities guests praise: 24-hour fitness, pet-friendly, 24/7 room service, atrium lobby bar.</div>
       </div>
 
       <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Website claims:</strong> Offers page and navigation do not feature Jazz Brunch <span class="brief-badge brief-badge--risk-medium" style="margin-left:0.4rem;">Medium gap</span></div>
-        <div class="brief-gap__reality">Two independent in-period reviews praise the Saturday Jazz Brunch with specific food items — guests discovering it by chance only.</div>
-        <div class="brief-gap__recommendation">Add Jazz Brunch to Offers page with day, time, and reservation link.</div>
-      </div>
-
-      <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Website claims:</strong> Kid-friendly flag in Google Business Profile <span class="brief-badge brief-badge--risk-medium" style="margin-left:0.4rem;">Medium gap</span></div>
-        <div class="brief-gap__reality">No kids menu, substandard travel cot, bar staff unable to heat milk — documented in one detailed in-period review.</div>
-        <div class="brief-gap__recommendation">Either update the family experience or deprioritize the kid-friendly listing signal.</div>
-      </div>
-
-      <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Website claims:</strong> Amenities page and listings do not mention complimentary lobby coffee <span class="brief-badge brief-badge--risk-low" style="margin-left:0.4rem;">Low gap</span></div>
-        <div class="brief-gap__reality">Lobby coffee is praised by guests and included in the destination fee package, but invisible in all listings.</div>
-        <div class="brief-gap__recommendation">Add to amenities page and pre-arrival communication as a destination fee inclusion.</div>
+        <div class="brief-gap__claim"><strong>Website claims:</strong> Awards and Press page builds credibility</div>
+        <div class="brief-gap__reality">Bar Room's Coveteur and Imbibe Magazine placements not visible in the captured page snapshot; no award names in meta or H1 text</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-low">Low severity</span></p>
+        <div class="brief-gap__recommendation">Add Bar Room press placements (Coveteur, Imbibe) to the Awards and Press page with links.</div>
       </div>
     </section>
 
     <hr class="brief-divider">
 
-    <!-- 05 OPERATIONAL FRICTION -->
+    <!-- 06 OPERATIONAL FRICTION -->
     <section class="brief-section" id="operational-friction">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">05</span> Operational Friction Points</h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">06</span> Operational Friction Points</h2>
 
       <table class="brief-table">
-        <thead>
-          <tr>
-            <th>Area</th>
-            <th>Risk Level</th>
-            <th>Pattern</th>
-            <th>Frequency</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Area</th><th>Risk Level</th><th>Pattern Strength</th><th>Frequency Estimate</th><th>Notes</th></tr></thead>
         <tbody>
           <tr>
-            <td>Pre-arrival and check-in communication</td>
+            <td><strong>Billing and fee disclosure</strong></td>
             <td><span class="brief-badge brief-badge--risk-high">High</span></td>
             <td><span class="brief-badge brief-badge--pattern">Strong</span></td>
-            <td>5+ reviews affected</td>
-            <td>Destination fee, Amex FHR credit scope, room service exclusion, floor preference — none communicated before arrival</td>
+            <td>5 of 40 reviews</td>
+            <td>Resort fee, Amex FHR credit cap, room service exclusion, and late checkout billing each surface only at checkout. A proactive front-desk disclosure script would likely eliminate most disputes.</td>
           </tr>
           <tr>
-            <td>Post-checkout billing resolution and follow-through</td>
+            <td><strong>Service recovery and case ownership</strong></td>
             <td><span class="brief-badge brief-badge--risk-high">High</span></td>
-            <td><span class="brief-badge brief-badge--pattern">Moderate</span></td>
-            <td>2 reviews with documented follow-up failures</td>
-            <td>Multiple failed callbacks, camera footage implication, folio never received — front-line empowerment appears limited</td>
+            <td><span class="brief-badge brief-badge--pattern">Strong</span></td>
+            <td>4 of 40 reviews describe recovery failures</td>
+            <td>Broken callback promises in two separate reviews. Systemic gap in case handoff between staff shifts or departments.</td>
           </tr>
           <tr>
-            <td>In-stay issue escalation and close-out</td>
-            <td><span class="brief-badge brief-badge--risk-high">High</span></td>
-            <td><span class="brief-badge brief-badge--pattern">Moderate</span></td>
-            <td>3 reviews with specific documented failures</td>
-            <td>No standard close-out protocol visible: shower cleaned only after guest asked; no follow-up call after sanitation issue; no water replacement</td>
+            <td><strong>Emergency / maintenance response</strong></td>
+            <td><span class="brief-badge brief-badge--risk-critical">Critical</span></td>
+            <td><span class="brief-badge brief-badge--isolated">Weak (1 incident)</span></td>
+            <td>1 documented sanitation incident with photos</td>
+            <td>20+ minute response to a health-relevant maintenance call. Response protocol is the addressable gap.</td>
           </tr>
           <tr>
-            <td>Multi-night housekeeping consistency</td>
+            <td><strong>Turndown and housekeeping consistency</strong></td>
             <td><span class="brief-badge brief-badge--risk-medium">Medium</span></td>
-            <td><span class="brief-badge brief-badge--pattern">Moderate</span></td>
-            <td>2 reviews noting turndown/water gaps</td>
-            <td>Pattern specific to nights 2+ on multi-night stays — QA gap, not first-night delivery</td>
+            <td><span class="brief-badge brief-badge--isolated">Weak (1 guest)</span></td>
+            <td>1 complaint across 3 consecutive nights</td>
+            <td>Multi-night family stay; three consecutive turndown failures after a request to guest services.</td>
           </tr>
           <tr>
-            <td>Breakfast service operations under peak load</td>
+            <td><strong>Breakfast seating and service window</strong></td>
             <td><span class="brief-badge brief-badge--risk-medium">Medium</span></td>
-            <td><span class="brief-badge brief-badge--isolated">Weak</span></td>
-            <td>1 review</td>
-            <td>Conflicting cutoff times from two servers; food at 11:55 for table seated at 11:15 with noon cutoff stated — isolated but severe</td>
-          </tr>
-          <tr>
-            <td>Room service temperature on delivery</td>
-            <td><span class="brief-badge brief-badge--risk-low">Low</span></td>
-            <td><span class="brief-badge brief-badge--isolated">Weak</span></td>
-            <td>1 review</td>
-            <td>$100+ order arrived "only mildly warm" — isolated; compounding risk at this price tier</td>
+            <td><span class="brief-badge brief-badge--isolated">Weak (1 incident)</span></td>
+            <td>1 review with confirmed booking</td>
+            <td>Two servers gave conflicting close times. Training-addressable gap.</td>
           </tr>
         </tbody>
       </table>
@@ -473,233 +573,485 @@
 
     <hr class="brief-divider">
 
-    <!-- 06 EXPECTATION FAILURES -->
+    <!-- 07 EXPECTATION FAILURES -->
     <section class="brief-section" id="expectation-failures">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">06</span> Luxury &amp; Expectation Failures</h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">07</span> Luxury &amp; Expectation Failures</h2>
 
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Amex FHR 'daily breakfast for two' benefit covers a full breakfast experience</span>
-          <span class="brief-badge brief-badge--risk-high">High severity</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Reality:</strong> $60/day credit cap, does not cover room service, may not cover two full entrees at current menu prices.<br><strong>Likely source:</strong> Amex FHR program language interpreted as full breakfast coverage; property does not clarify scope at check-in.<br><strong>Guest impact:</strong> Post-checkout billing disputes, frustrated departure after otherwise positive stays, negative reviews from guests who are advocates of the property.</p>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Guest expectation:</strong> Premium program benefits (Amex FHR) delivered transparently and without friction</div>
+        <div class="brief-gap__reality">Breakfast credit cap ($60/day) and room-service exclusion disclosed only in welcome letter fine print; late checkout billing enforced without prior notice to at least one FHR guest</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-high">High severity</span></p>
+        <div class="brief-gap__recommendation">Front-desk FHR disclosure script. Multiple guests with high spend profiles left with a negative financial surprise that dominated their public review. A verbal disclosure at check-in is the structural fix.</div>
       </div>
 
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Destination fee disclosed and explained at booking or pre-arrival</span>
-          <span class="brief-badge brief-badge--risk-high">High severity</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Reality:</strong> Fee (~$50/night) encountered at checkout without prior verbal disclosure.<br><strong>Guest impact:</strong> Checkout friction, reduced likelihood of return, public negative reviews despite positive overall experience.</p>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Guest expectation:</strong> At $600/night+, complimentary bottled water is standard</div>
+        <div class="brief-gap__reality">Housekeeping does not automatically replenish bottled water; guests must ask at reception daily</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium severity</span></p>
+        <div class="brief-gap__recommendation">Noted by a return family guest as "bizarre for a hotel charging $600/night." Likely a Hyatt-managed cost control policy; worth flagging to property management.</div>
       </div>
 
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Service issue raised at 8 PM in a luxury hotel results in a viable resolution within the evening</span>
-          <span class="brief-badge brief-badge--risk-high">High severity</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Reality:</strong> Green/brown water issue: three calls over 20 minutes, no solution offered, guest had to cancel dinner plans.<br><strong>Guest impact:</strong> Dinner plans canceled, 2-star review, public complaint with photos — most damaging in-period incident in dataset.</p>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Guest expectation:</strong> Documented health or safety incidents receive immediate, substantive visible response</div>
+        <div class="brief-gap__reality">Sanitation incident (green/brown water, photos) received delayed maintenance response, points-only resolution under the cost of one night, and no public response to the review</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-critical">Critical severity</span></p>
+        <div class="brief-gap__recommendation">Guest stated the property failed to meet "the standard I would expect at a hotel of this caliber" and withdrew a prior endorsement. Emergency plumbing escalation SLA and GM resolution authority thresholds should be reviewed internally.</div>
       </div>
 
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Luxury multi-night stay includes consistent nightly turndown and water restocking</span>
-          <span class="brief-badge brief-badge--risk-medium">Medium severity</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Reality:</strong> Turndown skipped on nights 2 and 3; water not restocked without a request.<br><strong>Guest impact:</strong> Reduces perceived value at a price tier where consistent delivery is baseline.</p>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Guest expectation:</strong> Family amenities (crib quality, kids menu) meet a luxury standard</div>
+        <div class="brief-gap__reality">Travel cot with fabric-panel base; no kids menu at breakfast or dinner</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium severity</span></p>
+        <div class="brief-gap__recommendation">Detailed complaint from a multi-night family who are otherwise return guests. Hyatt FHR attracts families despite the property's positioning not foregrounding them.</div>
+      </div>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Guest expectation:</strong> Upgrade consideration extended proactively to repeat FHR guests</div>
+        <div class="brief-gap__reality">One guest reports no upgrade offer across multiple FHR stays</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium severity</span></p>
+        <div class="brief-gap__recommendation">Upgrade protocol may be reactive (guest-requested) rather than proactive (offered at check-in for recognized repeat guests). This guest ultimately left a 2-star review.</div>
       </div>
     </section>
 
     <hr class="brief-divider">
 
-    <!-- 07 QUICK WINS -->
+    <!-- 08 SEO / AI READINESS -->
+    <section class="brief-section" id="seo-ai-readiness">
+      <h2 class="brief-section__title"><span class="brief-section__title-num">08</span> Owned-Site Search &amp; AI Readiness</h2>
+
+      <p class="brief-muted-text">All findings are from website snapshot only. No traffic, ranking, indexing state, or AI citation data available. Findings are framed as strengths, opportunities, and hypotheses.</p>
+
+      <h3 class="brief-section__subtitle">Strengths</h3>
+      <ul class="brief-list">
+        <li>Hotel schema (Hotel, LodgingBusiness, Place, Organization) consistently implemented across all 10 captured pages; provides a stronger machine-readable foundation for AI and search discovery</li>
+        <li>llms.txt present at root domain; few NYC boutique hotel competitors are likely to have this in place</li>
+        <li>sitemap.xml and robots.txt confirmed; no crawl-blocking issues detected</li>
+        <li>BreadcrumbList schema on all interior pages</li>
+        <li>VideoObject schema on Meetings and Events page</li>
+        <li>Address visible on all pages; NAP consistency supported site-wide</li>
+        <li>Homepage meta title: "Downtown NYC Luxury Hotel" with brand name; keyword-anchored</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Weaknesses</h3>
+      <ul class="brief-list">
+        <li><span class="brief-badge brief-badge--risk-high">High confidence</span> Amenities page meta description is abstract; unlikely to rank for informational amenity queries (pet policy, fitness center, room service hours)</li>
+        <li><span class="brief-badge brief-badge--risk-high">High confidence</span> Offers page meta description focuses on "best available rates" rather than specific packages; does not capture leisure or experience-intent queries (jazz brunch, culinary package)</li>
+        <li><span class="brief-badge brief-badge--risk-medium">Medium confidence</span> Awards and Press page has no award or publication names in meta or H1 text; CNT, Coveteur, Imbibe, Forbes placements not surfaced to search or AI systems</li>
+        <li><span class="brief-badge brief-badge--risk-high">High confidence</span> Dining page meta mentions Tom Colicchio but not Daniel Boulud; Jazz Brunch not in page title or meta</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Opportunities</h3>
+      <ul class="brief-list">
+        <li><strong>Add Jazz Brunch and Le Gratin (Daniel Boulud) to Dining page title and meta:</strong> Captures F&amp;B-intent queries; Le Gratin has an independent name-search audience. Low effort.</li>
+        <li><strong>Rewrite Amenities page meta description:</strong> Name specific amenities guests praise (24/7 room service, pet-friendly, fitness center, lobby bar). Low effort.</li>
+        <li><strong>Add award and press names to Awards page:</strong> Reinforces entity authority; supports AI knowledge graph accuracy. Low effort.</li>
+        <li><strong>Add FAQPage schema markup to FAQ page:</strong> Positions page for AI-generated answer box responses on destination fee, FHR benefits, parking. Medium effort.</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Schema Findings</h3>
+      <table class="brief-table">
+        <thead><tr><th>Schema Type</th><th>Present</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Hotel / LodgingBusiness</td><td>Yes</td><td>All 10 captured pages. Core entity schema consistently implemented.</td></tr>
+          <tr><td>BreadcrumbList</td><td>Yes</td><td>All interior pages.</td></tr>
+          <tr><td>VideoObject</td><td>Yes</td><td>Meetings and Events page only.</td></tr>
+          <tr><td>WebSite</td><td>Yes</td><td>All captured pages.</td></tr>
+          <tr><td>FAQPage / Q&amp;A schema</td><td>No</td><td>FAQ page exists but structured data not confirmed. Opportunity to add.</td></tr>
+          <tr><td>Restaurant schema for named venues</td><td>No</td><td>The Bar Room, Le Gratin, and Temple Court are named on site but no Restaurant/FoodEstablishment schema detected. Gap for AI entity association with Colicchio and Boulud.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="brief-section__subtitle">FAQ Opportunities</h3>
+      <ul class="brief-list">
+        <li>What is the destination fee and what does it include?</li>
+        <li>Does the hotel accept Amex Fine Hotels and Resorts (FHR) benefits?</li>
+        <li>What is the Jazz Brunch schedule and how do I reserve?</li>
+        <li>Is The Beekman pet-friendly?</li>
+        <li>What are the dining options and do I need a reservation for Le Gratin?</li>
+        <li>What are the check-in and check-out times?</li>
+        <li>Is parking available near The Beekman?</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">AI Visibility Observations</h3>
+      <ul class="brief-list">
+        <li>llms.txt differentiates the property from most boutique NYC hotel competitors</li>
+        <li>Hotel schema coverage is strong; AI systems reading structured data will have accurate property entity information</li>
+        <li>The absence of Restaurant schema for named venues is a gap for AI systems trying to associate Colicchio and Boulud with this hotel as entities</li>
+        <li>FAQ page without FAQPage schema is a missed opportunity for AI-generated answer surfaces on high-volume hotel queries</li>
+      </ul>
+    </section>
+
+    <hr class="brief-divider">
+
+    <!-- 09 OTA / LISTING / ECOSYSTEM -->
+    <section class="brief-section" id="listing-optimization">
+      <h2 class="brief-section__title"><span class="brief-section__title-num">09</span> OTA, Listing &amp; Source Ecosystem Opportunities</h2>
+
+      <p class="brief-muted-text">Listing copy is marketplace positioning evidence, not guest sentiment. Internal-only section.</p>
+
+      <p class="brief-body-text">Seven OTA and profile listings show three structural gaps: Google Business Profile categorizes the property as Restaurant/bar rather than Hotel; several listings omit named-chef attribution for Le Gratin (Daniel Boulud); and fee-friction expectations are not pre-empted in any listing copy. Review-backed strengths (atrium, Jazz Brunch, pet-friendly policy) are underused across most listings.</p>
+
+      <h3 class="brief-section__subtitle">Critical Listing Gap</h3>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Gap:</strong> Google Business Profile primary category: Restaurant/bar instead of Hotel</div>
+        <div class="brief-gap__reality">The primary listing category determines which search queries surface the property. As Restaurant/bar, the property may be suppressed in hotel-intent search queries on Google Maps.</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-high">High impact</span> <span class="brief-badge brief-badge--risk-low">Low effort</span></p>
+        <div class="brief-gap__recommendation">Update primary category to Hotel via GBP dashboard. Retain Restaurant and Bar as secondary categories. Highest-priority single listing update.</div>
+        <div class="brief-flag">Agency note: GBP dashboard edit. Current categorization may suppress hotel-intent impressions across Google Search and Maps.</div>
+      </div>
+
+      <h3 class="brief-section__subtitle">High-Value Listing Gaps</h3>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Gap:</strong> Destination fee (~$50/night) not pre-disclosed in any OTA listing</div>
+        <div class="brief-gap__reality">5 reviews cite fee surprise at checkout. Fee not referenced in any listing description or policy note in captured snapshots.</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-high">High impact</span> <span class="brief-badge brief-badge--risk-low">Low effort</span></p>
+        <div class="brief-gap__recommendation">Add destination fee to Mandatory Fees/Important Information fields on Booking, Expedia, Hotels.com, and Google with amenity breakdown.</div>
+        <div class="brief-flag">Agency note: Booking.com, Expedia, and Hotels.com all have a Mandatory Fees and Taxes field. Pair with front-desk verbal disclosure script for Amex FHR guests.</div>
+      </div>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Gap:</strong> Named-chef attribution for Le Gratin (Daniel Boulud) absent from Google and several OTA listings</div>
+        <div class="brief-gap__reality">Present in Booking description but absent from Google Business Profile description and most OTA meta content</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium impact</span> <span class="brief-badge brief-badge--risk-low">Low effort</span></p>
+        <div class="brief-gap__recommendation">Add "Le Gratin by Chef Daniel Boulud" to Google, Expedia, Hotels.com listing descriptions. One-line change per platform.</div>
+      </div>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Gap:</strong> Jazz Brunch not referenced in any OTA listing</div>
+        <div class="brief-gap__reality">Jazz Brunch earns specific review praise and differentiates the hotel from chain competitors. No OTA listing references it.</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium impact</span> <span class="brief-badge brief-badge--risk-low">Low effort</span></p>
+        <div class="brief-gap__recommendation">Add Jazz Brunch to OTA listing highlights or Special Offers field where available. Template sentence can be drafted once and submitted across all portals.</div>
+      </div>
+
+      <h3 class="brief-section__subtitle">F&amp;B Listing Opportunity</h3>
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Opportunity:</strong> Standalone Google Business Profiles for The Bar Room and Le Gratin</div>
+        <div class="brief-gap__reality">Both venues have named-chef attribution and independent third-party coverage; standalone restaurant/bar GBP profiles would allow diners to find them directly in restaurant searches</div>
+        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-medium">Medium impact</span> <span class="brief-badge brief-badge--risk-medium">Medium effort</span></p>
+        <div class="brief-gap__recommendation">Verify whether separate GBP profiles exist and are claimed. The templecourtnyc.com domain provides a reservation pathway for The Bar Room. Standalone profiles are particularly valuable for non-hotel guests finding the Bar Room via word-of-mouth.</div>
+      </div>
+
+      <h3 class="brief-section__subtitle">Channel Action Matrix</h3>
+      <table class="brief-table">
+        <thead><tr><th>Channel</th><th>What to Check</th><th>Opportunity</th></tr></thead>
+        <tbody>
+          <tr><td>Google Business Profile</td><td>Primary category (currently Restaurant/bar); description for Boulud/Brunch attribution; Mandatory Fees field</td><td>Critical category correction + fee disclosure</td></tr>
+          <tr><td>Booking.com</td><td>Mandatory Fees field; Special Offers for Jazz Brunch</td><td>Fee disclosure + brunch highlight</td></tr>
+          <tr><td>Expedia</td><td>Description for Boulud attribution; Mandatory Fees; Special Offers</td><td>Fee disclosure + chef attribution + brunch</td></tr>
+          <tr><td>Hotels.com</td><td>Same as Expedia (Expedia Group parity)</td><td>Same as Expedia</td></tr>
+          <tr><td>TripAdvisor</td><td>Management Center for Jazz Brunch / Special Offers</td><td>Brunch listing</td></tr>
+          <tr><td>Agoda</td><td>Description for chef attribution and brunch</td><td>Low priority; description update</td></tr>
+          <tr><td>thebeekman.com</td><td>Dining page meta; Offers page; Awards page; FAQ page schema</td><td>Multiple SEO/conversion improvements</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="brief-section__subtitle">Direct-Booking Implications</h3>
+      <ul class="brief-list">
+        <li>Destination fee pre-emption in listing copy reduces a key OTA-vs.-direct friction point; guests who understand the fee before arrival are less likely to dispute it at checkout</li>
+        <li>Jazz Brunch exclusive offer could be positioned as a direct-booking benefit not available on OTAs</li>
+        <li>Le Gratin dinner package as a direct-booking add-on aligns with what Amex FHR guests want but cannot easily build on OTA platforms</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Recommended Agency Services</h3>
+      <table class="brief-table">
+        <thead><tr><th>Opportunity</th><th>Client Value</th><th>Agency Value</th><th>Effort</th><th>Sellability</th></tr></thead>
+        <tbody>
+          <tr><td>GBP category correction + Boulud/Brunch attribution</td><td>Hotel search visibility; F&amp;B discovery</td><td>Quick win proof-of-work</td><td>Low</td><td>High</td></tr>
+          <tr><td>OTA Mandatory Fees update (3 platforms)</td><td>Reduces primary source of 1-star reviews</td><td>High-ROI deliverable with measurable impact</td><td>Low</td><td>High</td></tr>
+          <tr><td>Front-desk FHR disclosure script</td><td>Eliminates billing complaint cluster trigger</td><td>Operational consulting deliverable</td><td>Low</td><td>Medium</td></tr>
+          <tr><td>Bar Room / Le Gratin outreach campaign</td><td>CNT or Eater placement would be a credential milestone</td><td>Premium deliverable; retainer anchor</td><td>Medium</td><td>High</td></tr>
+          <tr><td>FAQ/policy clarity + FAQPage schema</td><td>AI search readiness; reduces pre-booking friction</td><td>SEO deliverable with longtail upside</td><td>Medium</td><td>Medium</td></tr>
+          <tr><td>Monthly reputation monitoring</td><td>Catch fee complaints before they compound</td><td>Recurring retainer</td><td>Low (recurring)</td><td>Medium</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="brief-section__subtitle">Source Ecosystem / Outreach Opportunity</h3>
+      <div class="brief-flag">26 ecosystem captures analyzed; 15 used as primary evidence, 11 over-cap as background context only. This is a capped optional source check, not AI visibility tracking or a full SEO/PR audit. Normal premium pass: 3-5 queries, top 1-3 promising pages per query, 15 pages max.</div>
+
+      <p class="brief-body-text">The Beekman is featured in 7 of 15 primary ecosystem sources. The property's largest third-party gap is hotel bar and hotel restaurant roundups from high-authority publications. The Bar Room does not appear in Conde Nast Traveler's hotel bars gallery or the Lonely Planet hotel bars newsletter despite its atrium, named-chef backing, and Coveteur/Imbibe editorial traction. Le Gratin and Temple Court are absent from both hotel restaurant roundups captured (Eater NY, Coveteur).</p>
+
+      <h3 class="brief-section__subtitle">Third-Party Placements (In-Cap Sources)</h3>
+      <table class="brief-table">
+        <thead><tr><th>Source</th><th>Type</th><th>Placement</th><th>Atrium</th><th>F&amp;B</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>coveteur.com (lobby bars)</td><td>Bar roundup</td><td>Featured with section heading</td><td>Yes</td><td>Yes</td><td>Strongest existing bar placement. Link to Bar Room page.</td></tr>
+          <tr><td>imbibemagazine.com</td><td>Bar roundup</td><td>Featured with atrium photo credit</td><td>Yes</td><td>Yes</td><td>Specialist bar/spirits publication.</td></tr>
+          <tr><td>cntraveler.com (boutique hotels)</td><td>Best X listicle</td><td>Mentioned; dedicated CNT hotel page exists</td><td>No</td><td>Yes</td><td>CNT hotel page is a strong credibility signal not on Awards page.</td></tr>
+          <tr><td>gowanderly.com</td><td>Best X listicle</td><td>#12 of 15 boutique hotels</td><td>No</td><td>Yes</td><td>Thin copy; description enrichment could improve placement.</td></tr>
+          <tr><td>forbestravelguide.com</td><td>Travel guide</td><td>Listed in NYC luxury hotel directory</td><td>No</td><td>Yes</td><td>Description content not captured.</td></tr>
+          <tr><td>youshouldgohere.com</td><td>Best X listicle</td><td>Featured with 6 photos</td><td>Yes</td><td>Yes</td><td>Atrium and F&amp;B referenced. Direct link.</td></tr>
+          <tr><td>thevendry.com</td><td>Events/venues</td><td>Listed as boutique hotel venue</td><td>No</td><td>Yes</td><td>Reinforces events angle.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="brief-section__subtitle">Source Ecosystem / Outreach Opportunity Table</h3>
+      <table class="brief-table">
+        <thead><tr><th>Target</th><th>Venue</th><th>Why It Matters</th><th>Influence Level</th><th>Agency Action</th><th>Sellability</th></tr></thead>
+        <tbody>
+          <tr><td>Conde Nast Traveler hotel bars gallery</td><td>The Bar Room</td><td>CNT already has a dedicated Beekman hotel page; Bar Room has Coveteur and Imbibe as supporting credentials</td><td>Partially influenceable</td><td>Pitch with atrium photos and existing placements</td><td>High</td></tr>
+          <tr><td>Eater New York hotel restaurants</td><td>Temple Court and/or Le Gratin</td><td>Tom Colicchio and Daniel Boulud are Eater-tier names; "not just for tourists" angle is achievable</td><td>Partially influenceable</td><td>Outreach pitch with chef bios</td><td>High</td></tr>
+          <tr><td>Lonely Planet hotel bars newsletter</td><td>The Bar Room</td><td>Engaged specialist audience; Coveteur/Imbibe as supporting credentials</td><td>Partially influenceable</td><td>Direct newsletter contact</td><td>Medium</td></tr>
+          <tr><td>gowanderly.com description enrichment</td><td>The Beekman</td><td>Currently #12 of 15 with thin copy; atrium and chef dining not mentioned</td><td>Partially influenceable</td><td>Contact publisher with updated description</td><td>Medium</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="brief-section__subtitle">Owned Content Gaps</h3>
+      <ul class="brief-list">
+        <li>Awards and Press page does not reference Coveteur or Imbibe placements; credible third-party validations not currently leveraged on the owned site</li>
+        <li>No SEO-targeted owned content page for "best hotel bars NYC" or "hotel bar Financial District" to capture non-branded search intent</li>
+        <li>Le Gratin has no standalone SEO content page; Daniel Boulud name-search queries likely route to OpenTable and external sources rather than thebeekman.com</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Recommended Queries to Monitor (Premium Pass)</h3>
+      <ul class="brief-list">
+        <li>best hotel bars NYC</li>
+        <li>best boutique hotels Financial District NYC</li>
+        <li>best hotel restaurants NYC</li>
+        <li>best brunch Lower Manhattan</li>
+        <li>best hotels near Brooklyn Bridge</li>
+      </ul>
+    </section>
+
+    <hr class="brief-divider">
+
+    <!-- 10 RESPONSE ANALYSIS -->
+    <section class="brief-section" id="response-analysis">
+      <h2 class="brief-section__title"><span class="brief-section__title-num">10</span> Public Response Analysis</h2>
+
+      <div class="brief-flag brief-flag--warning">Owner response capture is partial. Only responses visible during the May 28, 2026 capture session were recorded. The 17 visible responses and 13 visible high-risk unanswered items are floor figures, not a platform-wide audit. Because owner response visibility varies by platform, treat these as an audit queue rather than a formal response-rate metric.</div>
+
+      <div class="brief-stats">
+        <div class="brief-stat"><div class="brief-stat__value">17</div><div class="brief-stat__label">Visible responses (of 69 captured)</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">10</div><div class="brief-stat__label">Neg/mixed with visible response</div></div>
+        <div class="brief-stat"><div class="brief-stat__value">13</div><div class="brief-stat__label">Visible high-risk items flagged for audit</div></div>
+      </div>
+
+      <p class="brief-body-text"><span class="brief-badge brief-badge--risk-medium">Mixed quality</span> Responses are split between substantive recoveries and formulaic acknowledgments. The destination-fee refund response (Matthew Meizinger, Director of Guest Relations) is a model: it names the included benefit, refunds the fee, and invites return. Expedia and Hotels.com responses to 5-star reviews are uniformly generic ("Thank you for your 10/10 rating") with no brand differentiation.</p>
+
+      <h3 class="brief-section__subtitle">Response Strengths</h3>
+      <ul class="brief-list">
+        <li>Destination-fee refund response demonstrates appropriate recovery authority and speed</li>
+        <li>Personalized recovery language in at least one visible negative-review response</li>
+        <li>Response presence on Expedia Group shows cross-platform monitoring is in place</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Response Weaknesses</h3>
+      <ul class="brief-list">
+        <li><strong>Sanitation review (photos, no response):</strong> Highest-urgency item in the visible dataset. Documented health concern with attached photos has no public owner response.</li>
+        <li>Expedia and Hotels.com responses to 5-star reviews are copy-pasted templates with no personalization or brand voice</li>
+        <li>13 visible high-risk reviews with no response create a visible accountability gap on Google at the luxury tier</li>
+        <li>One owner response was captured as truncated; full response quality unknown</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Response Recommendations</h3>
+      <ul class="brief-list">
+        <li>Respond publicly to the sanitation review (photos attached) within 24 hours; acknowledge the documented incident, describe what was corrected, provide a direct contact</li>
+        <li>Retire the copy-pasted Expedia and Hotels.com templates; positive-review responses should name the specific aspect of the stay the guest praised</li>
+        <li>Establish a 48-72 hour SLA for all 2-star and 1-star reviews; assign a named responder at Director of Guest Relations level</li>
+        <li>Prioritize the 13 visible unanswered items; top three: sanitation review, camera-footage/billing dispute, multiple-stays/no-upgrade/late-checkout-fee review</li>
+      </ul>
+
+      <h3 class="brief-section__subtitle">Hospitality Trends</h3>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Luxury travelers increasingly audit fee transparency before and after stays</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">Risk</span><span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;"><strong>Evidence basis:</strong> 5 of 40 captured reviews cite fee friction as the primary reason for a negative public review, including two guests who described otherwise excellent stays. One reviewer explicitly cites "every other Hyatt I've stayed at would have just handled it."</p>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Boutique hotel guests use atrium and design identity as primary social and word-of-mouth currency</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-low">Opportunity</span><span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;"><strong>Evidence basis:</strong> 16 review mentions of the atrium; 3 ecosystem sources use it as a primary visual anchor (Coveteur, Imbibe, gowanderly.com).</p>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Named-chef dining in boutique hotels is an independently marketable reputation asset</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-low">Opportunity</span><span class="brief-badge brief-badge--intensity-medium">Medium confidence</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;"><strong>Evidence basis:</strong> Two chef attributions with independent web presence; Eater NYC and Coveteur roundups feature comparable named-chef properties but not these venues.</p>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Review response quality is increasingly treated by guests as a proxy for service culture</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">Risk</span><span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;"><strong>Evidence basis:</strong> Two reviews describe post-complaint handling as the dominant driver of their negative rating, not the initial service failure. Review 23 explicitly references the camera-footage interaction as a response quality failure separate from the original billing dispute.</p>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Leisure travelers in the Amex FHR segment have elevated expectations shaped by program marketing</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">Risk</span><span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;"><strong>Evidence basis:</strong> Reviews 4, 17, 18, 23 all mention Amex FHR; the credit-cap and room-service-exclusion gaps are specific to this program's disclosure mechanics.</p>
+      </div>
+    </section>
+
+    <hr class="brief-divider">
+
+    <!-- 11 QUICK WINS + STRATEGY + REPUTATION RISK -->
     <section class="brief-section" id="quick-wins">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">07</span> Quick Wins <span class="brief-badge brief-badge--risk-low" style="margin-left:0.25rem;">Under 30 Days</span></h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">11</span> Quick Wins, Strategic Recommendations &amp; Reputation Risk</h2>
+
+      <h3 class="brief-section__subtitle">Quick Wins <span class="brief-badge brief-badge--risk-low" style="margin-left:0.25rem;">Under 30 Days</span></h3>
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Respond publicly to the unanswered sanitation review (green/brown water, photos, 2-star)</div>
-          <p style="font-size:0.8rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Evidence: guest documented 3 calls over 20+ minutes, no viable resolution, dinner plans canceled. Highest-urgency unanswered item.</p>
-          <div class="brief-win__badges">
-            <span class="brief-badge brief-badge--area-response">Response</span>
-            <span class="brief-badge brief-badge--risk-high">High impact</span>
-            <span class="brief-badge brief-badge--risk-low">Low effort</span>
-          </div>
+          <div class="brief-win__action">Respond publicly to the sanitation review (photos attached, no visible response)</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Green and brown water documented with photos; 20+ minute response wait; points-only resolution. No owner response visible. Highest-urgency item in the dataset.</p>
+          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-critical">Critical</span><span class="brief-badge brief-badge--area-response">Response</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
       </div>
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Add destination fee FAQ entry to website FAQ page</div>
-          <p style="font-size:0.8rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Language already exists in a published management response — needs a FAQ home only.</p>
-          <div class="brief-win__badges">
-            <span class="brief-badge brief-badge--area-website">Website</span>
-            <span class="brief-badge brief-badge--risk-high">High impact</span>
-            <span class="brief-badge brief-badge--risk-low">Low effort</span>
-          </div>
+          <div class="brief-win__action">Correct Google Business Profile primary category from Restaurant/bar to Hotel</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">GBP currently categorized as Restaurant/bar. Low-risk change with potential high upside for hotel-intent search visibility.</p>
+          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-high">High impact</span><span class="brief-badge brief-badge--area-website">Listing</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
       </div>
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Add Amex FHR credit scope disclosure to pre-arrival email and check-in welcome</div>
-          <p style="font-size:0.8rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Credit cap ($60/day) and room service exclusion undisclosed in 2 reviews; guests explicitly say they would not have objected had they been told.</p>
-          <div class="brief-win__badges">
-            <span class="brief-badge brief-badge--area-comms">Comms</span>
-            <span class="brief-badge brief-badge--risk-high">High impact</span>
-            <span class="brief-badge brief-badge--risk-low">Low effort</span>
-          </div>
+          <div class="brief-win__action">Add destination fee to OTA Mandatory Fees fields (Booking, Expedia, Hotels.com) with amenity breakdown</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">5 reviews cite fee surprise; fee not pre-disclosed in any captured listing. Reduces the primary single trigger for checkout billing complaints.</p>
+          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-high">High impact</span><span class="brief-badge brief-badge--area-ops">Fees / Policy</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
       </div>
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Correct Agoda listing: Le Gratin and Temple Court described as buffet — both are à la carte</div>
-          <div class="brief-win__badges">
-            <span class="brief-badge brief-badge--area-website">Listing</span>
-            <span class="brief-badge brief-badge--risk-medium">Medium impact</span>
-            <span class="brief-badge brief-badge--risk-low">Low effort</span>
-          </div>
+          <div class="brief-win__action">Add Jazz Brunch to Offers page with day, time, and direct reservation link</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Jazz Brunch praised in multiple reviews; no discoverable booking entry point on the owned site or OTAs. Converts word-of-mouth advocacy into a bookable product.</p>
+          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-medium">Medium impact</span><span class="brief-badge brief-badge--area-ops">F&amp;B</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
       </div>
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Add Jazz Brunch to website Offers page and OTA listings with reservation link</div>
-          <p style="font-size:0.8rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Two independent reviews praise it; not visible on any captured listing or offers page.</p>
-          <div class="brief-win__badges">
-            <span class="brief-badge brief-badge--area-messaging">Marketing</span>
-            <span class="brief-badge brief-badge--risk-high">High impact</span>
-            <span class="brief-badge brief-badge--risk-low">Low effort</span>
-          </div>
+          <div class="brief-win__action">Add Daniel Boulud attribution to Le Gratin in Google Business Profile and OTA listings</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Named-chef attribution absent from Google profile description and several OTA fields. Improves F&amp;B discoverability for dining-intent searches.</p>
+          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-medium">Medium impact</span><span class="brief-badge brief-badge--area-ops">F&amp;B</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
       </div>
 
       <div class="brief-win">
         <div class="brief-win__body">
-          <div class="brief-win__action">Update dining page title and meta description to include Daniel Boulud and Le Gratin</div>
-          <div class="brief-win__badges">
-            <span class="brief-badge brief-badge--area-website">SEO</span>
-            <span class="brief-badge brief-badge--risk-medium">Medium impact</span>
-            <span class="brief-badge brief-badge--risk-low">Low effort</span>
-          </div>
+          <div class="brief-win__action">Create a front-desk Amex FHR verbal disclosure script (breakfast credit cap, room-service exclusion, destination fee)</div>
+          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">3 reviews name the $60 breakfast credit cap and room-service exclusion as undisclosed at check-in; each became a billing dispute at checkout. Eliminates the primary trigger for the FHR complaint cluster at near-zero cost.</p>
+          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-high">High impact</span><span class="brief-badge brief-badge--area-staff">Service</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
+      </div>
+
+      <h3 class="brief-section__subtitle">Strategic Recommendations</h3>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Priority: High &middot; Timeframe: 30 days</strong></div>
+        <div class="brief-gap__reality"><strong>Implement a service-recovery case ownership protocol with a named follow-through owner and a 24-hour resolution commitment.</strong> Four reviews describe service failures compounded by unmet callback promises; the recovery failure is generating more reputational damage than the primary incident in at least two cases.</div>
+        <div class="brief-gap__recommendation">Evidence: Reviews 7, 18, 23 each describe a distinct primary incident followed by a more damaging recovery failure. Review 23 explicitly states the recovery interaction turned a good stay into a lasting negative. Addresses the pattern most likely to generate repeat negative reviews without capital investment.</div>
+      </div>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Priority: Medium &middot; Timeframe: 60-90 days</strong></div>
+        <div class="brief-gap__reality"><strong>Launch a Bar Room and Le Gratin third-party discovery campaign targeting Conde Nast Traveler hotel bars and Eater NYC hotel restaurants.</strong> Both venues have named-chef backing and existing editorial coverage; these are the next logical targets.</div>
+        <div class="brief-gap__recommendation">Evidence: Coveteur and Imbibe placements confirm Bar Room editorial traction. Competitor analysis shows similar venues in both CNT and Eater lists. A CNT hotel bars placement would be a credibility milestone; Eater NYC placement expands F&amp;B discovery reach to local diners.</div>
+      </div>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Priority: Medium &middot; Timeframe: 60 days</strong></div>
+        <div class="brief-gap__reality"><strong>Build a proactive upgrade and recognition protocol for repeat Amex FHR and high-value return guests.</strong> At least one repeat FHR guest has never received an upgrade offer across multiple stays.</div>
+        <div class="brief-gap__recommendation">Evidence: Review 4 (multi-stay FHR, no upgrade, 2-star). Review 17 (named staff recognition made babymoon "extremely special"). Converts a recurring complaint pattern into a loyalty driver for the highest-spend guest segment.</div>
+      </div>
+
+      <div class="brief-gap">
+        <div class="brief-gap__claim"><strong>Priority: Medium &middot; Timeframe: 30-60 days</strong></div>
+        <div class="brief-gap__reality"><strong>Align F&amp;B owned-site content and OTA listings with the volume of F&amp;B-driven guest advocacy.</strong> F&amp;B is 22.5% of experience area classifications; owned-site and listing content does not reflect this signal strength.</div>
+        <div class="brief-gap__recommendation">Evidence: Bar Room earns 8 independent praise mentions; Jazz Brunch generates specific repeat-recommendation language. Neither the Offers page nor most OTA listings surface these as booking motivators. Converting F&amp;B advocacy into discoverable products improves leisure segment conversion without new operational investment.</div>
+      </div>
+
+      <h3 class="brief-section__subtitle">Reputation Risk Assessment</h3>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Unaddressed sanitation review (photos, no owner response)</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-critical">Critical</span><span class="brief-badge brief-badge--isolated">1 incident</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;">Green water in shower and brown water in sink; 20+ minute response wait; dinner plans canceled; points-only resolution. No public owner response. Trajectory: <strong>worsening</strong> (each day without a response increases the no-response status visibility).</p>
+        <div class="brief-gap__recommendation" style="margin-top:0.5rem;">Respond publicly within 24 hours. Acknowledge the documented incident. Describe what was corrected. Provide direct contact. Review emergency maintenance escalation SLA internally.</div>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Fee-friction cluster accumulating into a recognizable pattern</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High</span><span class="brief-badge brief-badge--pattern">5 of 40 reviews</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;">Resort fee, Amex breakfast credit cap, room-service exclusion, and late checkout billing appear across five distinct reviews. Each guest describes the fee as discovered at checkout, not at check-in. Trajectory: <strong>stable but compounding</strong> without operational change.</p>
+        <div class="brief-gap__recommendation" style="margin-top:0.5rem;">Three-part fix: (1) verbal FHR disclosure script at check-in, (2) destination fee in OTA Mandatory Fees fields, (3) public responses to existing fee-related reviews with a statement about what the destination fee includes.</div>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">Service recovery pattern: broken promises and adversarial handling</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High</span><span class="brief-badge brief-badge--pattern">4 of 40 reviews</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;">Review 23: camera-footage interaction turned a billing dispute into a credibility accusation. Review 7: no follow-up after maintenance. Review 18: three consecutive turndown failures. Review 4: courtesy concession denied for repeat FHR guest. Trajectory: <strong>stable with risk of worsening</strong>.</p>
+        <div class="brief-gap__recommendation" style="margin-top:0.5rem;">Named case owner protocol with a 24-hour resolution SLA for escalated complaints; training on resolution authority thresholds.</div>
+      </div>
+
+      <div class="brief-theme">
+        <div class="brief-theme__header">
+          <div class="brief-theme__name">13 visible high-risk items without public owner responses</div>
+          <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High</span><span class="brief-badge brief-badge--pattern">13 of 24 neg/mixed</span></div>
+        </div>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.5; margin-top:0.4rem;">Based on responses visible in the May 28, 2026 capture session only. Floor figure. Unanswered items persist in public view indefinitely. Trajectory: <strong>stable</strong>.</p>
+        <div class="brief-gap__recommendation" style="margin-top:0.5rem;">Work through the 13 visible items in priority order. Top 3: sanitation review, camera footage/billing dispute, multiple stays/late checkout fee/no upgrade.</div>
       </div>
     </section>
 
     <hr class="brief-divider">
 
-    <!-- 08 STRATEGIC RECOMMENDATIONS -->
-    <section class="brief-section" id="strategic-recommendations">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">08</span> Strategic Recommendations</h2>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">1. Build and deploy a pre-arrival communication protocol for Amex FHR and all direct-booked guests</span>
-          <span class="brief-badge brief-badge--risk-high">Priority · 30 days</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:0.5rem;"><strong>Rationale:</strong> Five most damaging in-period reviews share one root cause: guests arriving without accurate expectations around fees and program benefits. Communication gap, not product gap.</p>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Evidence:</strong> 5 in-period Google reviews cite billing and credit friction; 3 reference Amex FHR specifically; guests in 2 reviews explicitly state they would not have objected had they been told upfront.</p>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">2. Develop an F&amp;B content and listing program around the atrium identity, Jazz Brunch, and chef-named venues</span>
-          <span class="brief-badge brief-badge--risk-high">Priority · 30–60 days</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:0.5rem;"><strong>Rationale:</strong> The Bar Room atrium is the most emotionally described asset in the dataset and nearly absent from listing copy. Jazz Brunch is generating word-of-mouth with no promotion. Le Gratin is earning occasion-dining reviews.</p>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Evidence:</strong> 8 in-period reviews mention The Bar Room unprompted; 2 mention Jazz Brunch independently; all current OTA listing descriptions of The Bar Room are generic.</p>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">3. Conduct a housekeeping and in-stay delivery consistency review for multi-night stays</span>
-          <span class="brief-badge brief-badge--risk-medium">Recommended · 30–60 days</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Evidence:</strong> Multiple guests at $600+/night note same cluster of small inconsistencies: turndown, water, follow-through. Each gap is minor; the pattern signals a QA process gap for nights 2+.</p>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">4. Build a direct-booking value proposition targeting Amex FHR repeat guests</span>
-          <span class="brief-badge brief-badge--risk-medium">Recommended · 60–90 days</span>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Evidence:</strong> No direct-booking CTA or advantage visible on any captured page; FHR guests cite upgrade non-recognition across multiple visits. Direct booking is the only channel that allows pre-arrival preference capture.</p>
-      </div>
-    </section>
-
-    <hr class="brief-divider">
-
-    <!-- 09 REPUTATION RISK -->
-    <section class="brief-section" id="reputation-risk">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">09</span> Reputation Risk Assessment</h2>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Billing and credit communication failure pattern becoming an established reputation signal</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-high">High severity</span>
-          </div>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Frequency:</strong> 5+ in-period reviews — high density for a single root-cause issue in a 60-day window.<br><strong>Trajectory:</strong> Worsening — pattern unresolved at root cause; each new FHR or high-spend guest who encounters it without disclosure is a prospective negative review.<br><strong>Mitigation:</strong> Pre-arrival communication protocol covering all three billing touchpoints; verbal disclosure at check-in; FAQ content on website.</p>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">13 unanswered high-severity public reviews creating visible accountability gap</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-high">High severity</span>
-          </div>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Frequency:</strong> 13 unanswered high-risk reviews in captured set.<br><strong>Trajectory:</strong> Stable — but each day without a response extends the accountability gap.<br><strong>Mitigation:</strong> Immediate responses to top 3 critical reviews; establish 48–72 hour SLA for negative review response.</p>
-      </div>
-
-      <div class="brief-theme">
-        <div class="brief-theme__header">
-          <span class="brief-theme__name">Hyatt chain management perception undermining boutique property identity</span>
-          <div class="brief-theme__badges">
-            <span class="brief-badge brief-badge--risk-low">Low severity</span>
-          </div>
-        </div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.6;"><strong>Frequency:</strong> 2 reviews — directional signal only.<br><strong>Trajectory:</strong> Stable.<br><strong>Mitigation:</strong> Front-line staff empowerment to resolve small disputes without chain-level escalation.</p>
-      </div>
-    </section>
-
-    <hr class="brief-divider">
-
-    <!-- 10 CONFIDENCE NOTES -->
+    <!-- 12 CONFIDENCE NOTES -->
     <section class="brief-section" id="confidence-notes">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">10</span> Confidence Notes</h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">12</span> Confidence Notes &amp; Limitations</h2>
 
-      <div class="brief-flag">Overall confidence: <strong>Medium.</strong> 26 Google in-period reviews with explicit ratings provide a solid foundation. 4 unique Expedia reviews add verified OTA signal. TripAdvisor, Yelp, and Booking captures have unknown dates and are used for theme context only. Expedia/Hotels.com deduplication reduces raw eligible count from 40 to 30 confirmed unique in-period reviews with ratings.</div>
+      <p class="brief-muted-text">Confidence notes and internal notes are internal-only. Do not include in client brief.</p>
 
-      <div class="brief-flag--warning brief-flag">Expedia and Hotels.com contain 4 identical reviews (same guest, date, text). Unique Expedia Group experiences = 4, not 9. Hotels.com count excluded from all statistics. Affects: review_counts, average_rating, source attribution.</div>
+      <p class="brief-body-text"><span class="brief-badge brief-badge--intensity-medium">Medium-high confidence</span> 40 analysis-eligible reviews from 6 sources. Google provides the highest volume and most detailed review text (26 reviews). TripAdvisor, Yelp, and Booking reviews are medium confidence with unknown dates. Expedia and Hotels.com contain cross-platform duplicates from the Expedia Group syndication network, treated as single guest voices for frequency analysis. Owner response capture is partial.</p>
 
-      <div class="brief-flag">3 TripAdvisor reviews have no visible date. All three appear positive — their exclusion from in-period statistics slightly underrepresents positive signal. Affects: average_rating, guest_praise_themes.</div>
+      <div class="brief-flag brief-flag--warning">Owner response capture is partial. 17 visible responses of 69 captured reviews. 13 visible high-risk items flagged for response audit. The actual property response rate on the full Google and TripAdvisor review history is unknown. Because owner response visibility varies by platform, treat these as an audit queue rather than a formal response-rate metric.</div>
 
-      <div class="brief-flag">Booking capture is an aggregate snippet panel, not individual reviews. Guest language cited from Booking is snippet-length and cannot be verified against full review text. Affects: guest_language_examples, guest_praise_themes.</div>
+      <div class="brief-flag">Expedia and Hotels.com contain identical review text for at least 4 guest identities (Cathy, Jennifer, Meg, Stacey). These are Expedia Group syndicated reviews. Frequency counts treat each unique guest voice once.</div>
 
-      <div class="brief-flag--warning brief-flag">Owner response capture is partial. 17 visible responses of 69 reviews. 13 unanswered high-risk reviews identified, but full property-side response history is unknown. Affects: public_response_analysis, reputation_risks.</div>
+      <div class="brief-flag">TripAdvisor (3 reviews), Booking aggregate (1), and Yelp (1) have period-unknown dating. Used as lower-weight corroborating evidence only, not for period-specific frequency or trend claims.</div>
 
-      <div class="brief-flag">26 ecosystem captures collected — 11 over the 15-page recommended cap. Over-cap sources (16–26) are background context only. Affects: seo_ai_readiness.</div>
-
-      <div class="brief-flag">Review 8 (1-star, 'heater outside still on at 7am') is ambiguous — may reference property or surroundings. Excluded from complaint theme analysis.</div>
+      <div class="brief-flag">26 ecosystem captures collected; 11 over the 15-page recommended cap. Over-cap sources (S16-S26) treated as background context only; did not contribute to primary ecosystem findings.</div>
 
       <h3 class="brief-section__subtitle">Analysis Limitations</h3>
-      <div class="brief-flag">Expedia/Hotels.com duplication reduces packet-claimed eligible total of 40 by 4 duplicate experiences. This analysis uses 30 confirmed unique in-period reviews for all statistics.</div>
-      <div class="brief-flag">TripAdvisor, Yelp, and Booking captures have no visible review date — excluded from in-period statistics; used for theme corroboration only.</div>
-      <div class="brief-flag">No prior comparable period available — all findings are current-state baselines. No trend claims relative to a prior period.</div>
-      <div class="brief-flag">Website recommendations are hypotheses derived from visible page content only — not a full UX, SEO, or conversion audit.</div>
-      <div class="brief-flag">F&amp;B-specific review sources (Google restaurant profile, Yelp restaurant reviews, OpenTable, Resy) were not included. The Bar Room, Le Gratin, and Temple Court may have independent review profiles with additional signal.</div>
 
-      <p style="font-size:0.75rem; color:var(--rb-muted); margin-top:1.5rem; line-height:1.5;">⚑ Confidence notes and internal notes are for internal agency use only — not for inclusion in any client-facing brief.</p>
+      <div class="brief-flag">Owner response capture is partial. Only responses visible during the May 28, 2026 capture session were recorded. The actual property response rate on the full Google and TripAdvisor review history is unknown. The 17 visible responses and 13 unanswered items are floor figures. Response quality assessment is based on the visible sample only.</div>
+
+      <div class="brief-flag">TripAdvisor, Booking, and Yelp reviews have unknown dates. 5 reviews cannot be confirmed within the Last 60 Days requested period. Included as corroboration for praise themes only, not for period-specific frequency or trend claims.</div>
+
+      <div class="brief-flag">Expedia Group review syndication creates apparent duplicates. At least 4 guest reviews appear in both Expedia and Hotels.com with identical text. Frequency analysis uses each unique guest voice once; raw source counts reflect captures as labeled in the packet.</div>
+
+      <div class="brief-flag">Ecosystem analysis capped at 15 primary source pages. 11 over-cap captures (S16-S26) collected but used as background context only. YouTube visibility not assessed (no video captures in the packet).</div>
+
+      <div class="brief-flag">Website analysis is a lightweight snapshot, not a full SEO or UX audit. Findings are framed as hypotheses and opportunities based on visible content, title/meta text, and schema detection. Traffic, ranking, and conversion data are not available.</div>
     </section>
 
   </main>
 </div>
 
 <footer style="background:var(--rb-ink); color:rgba(255,255,255,0.4); text-align:center; padding:1.25rem; font-size:0.72rem; letter-spacing:0.04em;">
-  INTERNAL USE ONLY · ReviewBriefs · Job beekman-2026-06-02 · Generated June 2, 2026
+  INTERNAL USE ONLY &middot; ReviewBriefs &middot; Job beekman-2026-06-02 &middot; Generated 2026-06-02
 </footer>
 
 <script>
