@@ -112,12 +112,96 @@
     .brief-win__badges { display: flex; gap: 0.35rem; flex-wrap: wrap; }
     .brief-divider { border: none; border-top: 1px solid var(--rb-line); margin: 2rem 0; }
     .brief-insight { background: var(--rb-paper); border: 1px solid var(--rb-line); border-left: 4px solid var(--rb-moss); border-radius: 0 10px 10px 0; padding: 0.85rem 1rem; margin: 0.75rem 0; font-size: 0.84rem; color: var(--rb-ink-soft); line-height: 1.5; }
+    .brief-print-warning { display: none; }
     @media print {
-      .internal-banner, .brief-nav, .brief-header__actions { display: none; }
+      @page { size: Letter; margin: 0.62in 0.62in 0.82in; }
+      html, body { width: auto; min-width: 0; }
+      .internal-banner, .brief-nav, .brief-header__actions { display: none !important; }
       .brief-layout { display: block; }
-      .brief-content { padding: 0; max-width: 100%; }
-      .brief-section { break-inside: avoid; }
-      body { background: #fff; }
+      .brief-content { padding: 0; max-width: none; width: 100%; }
+      .container { width: 100%; max-width: none; margin: 0; padding: 0; }
+      body {
+        background: #fff;
+        color: #18201C;
+        font-size: 9.5pt;
+        line-height: 1.42;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body::after {
+        content: "INTERNAL USE ONLY - NOT FOR CLIENT DISTRIBUTION";
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: -0.52in;
+        border-top: 1px solid #C6603A;
+        padding-top: 0.1in;
+        color: #7A3A1E;
+        font-size: 8pt;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-align: center;
+      }
+      .brief-header {
+        border: 2px solid #7A3A1E;
+        padding: 0.35in;
+        margin-bottom: 0.2in;
+        background: #FBF0EB !important;
+        background-image: none !important;
+      }
+      .brief-header__eyebrow {
+        color: #7A3A1E;
+      }
+      .brief-header__title {
+        font-size: 20pt;
+      }
+      .brief-header__title::after {
+        content: "INTERNAL USE ONLY - DO NOT SEND TO CLIENT";
+        display: block;
+        margin-top: 0.12in;
+        color: #7A3A1E;
+        font-size: 10pt;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+      .brief-header__meta {
+        gap: 0.08in 0.24in;
+        margin-top: 0.18in;
+      }
+      .brief-print-warning {
+        display: block;
+        border: 2px solid #C6603A;
+        background: #FBF0EB;
+        color: #7A3A1E;
+        padding: 0.16in 0.2in;
+        margin: 0 0 0.22in;
+        font-size: 10pt;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .brief-section { break-inside: auto; page-break-inside: auto; margin-bottom: 0.26in; }
+      .brief-theme,
+      .brief-gap,
+      .brief-flag,
+      .brief-insight,
+      .brief-action-card,
+      .brief-stat,
+      .brief-risk-score,
+      tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .brief-section__title {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      .brief-action-grid,
+      .brief-stats {
+        gap: 0.1in;
+      }
+      .brief-table { font-size: 8.2pt; }
+      a { color: inherit; text-decoration: none; }
     }
     @media (max-width: 900px) {
       .brief-layout { grid-template-columns: 1fr; }
@@ -145,7 +229,7 @@
     <h1 class="brief-header__title">The Beekman, A Thompson Hotel</h1>
     <div class="brief-header__meta">
       <div class="brief-header__meta-item"><strong>Job ID:</strong> beekman-2026-05</div>
-      <div class="brief-header__meta-item"><strong>Analysis window:</strong> April-May 2026 (~60 days)</div>
+      <div class="brief-header__meta-item"><strong>Analysis window:</strong> Requested recent-review window</div>
       <div class="brief-header__meta-item"><strong>Sources:</strong> Google · TripAdvisor · Booking.com · Expedia · Hotels.com · Yelp</div>
       <div class="brief-header__meta-item"><strong>Reviewed sample:</strong> 41 review items</div>
       <div class="brief-header__meta-item"><strong>Post-dedup working set:</strong> 36 review records</div>
@@ -176,6 +260,7 @@
   </nav>
 
   <main class="brief-content">
+    <div class="brief-print-warning">Internal use only. This report contains agency notes, sales opportunities, data-confidence caveats, and source limitations. Do not send this file to a client.</div>
 
     <!-- ═══════════════════════════════════════════ -->
     <!-- 01 EXECUTIVE SUMMARY                        -->
@@ -207,7 +292,7 @@
 
       <div class="brief-data-risk">
         <div class="brief-data-risk__title">Confidence &amp; Data Risk</div>
-        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.55rem;"><strong>Data confidence: medium-high.</strong> Use for theme identification, risk detection, and client-service opportunities. Do not use for official rating claims or month-over-month trend assertions - this is a single 60-day window.</p>
+        <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.55rem;"><strong>Data confidence: medium-high.</strong> Use for theme identification, risk detection, and client-service opportunities. Do not use for official rating claims or month-over-month trend assertions - this is a single requested review window.</p>
         <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.35rem;"><strong>Strongest confidence:</strong> Google review volume, theme frequency for atrium, staff, and billing patterns, plus website and AI readiness signals.</p>
         <p style="font-size:0.84rem; color:var(--rb-ink-soft); line-height:1.55;"><strong>Lower confidence:</strong> Owner response coverage is partial, TripAdvisor source text required manual verification, and the Booking.com item is an aggregate page rather than a single review.</p>
       </div>
@@ -216,7 +301,7 @@
       <div class="brief-action-grid">
         <div class="brief-action-card">
           <div class="brief-action-card__label">Recommended client conversation</div>
-          <div class="brief-action-card__text">Lead with the fee transparency pattern - four reviews in 60 days around Amex FHR credits and destination fee. Frame it as a communication gap, not a product problem, and show how one pre-arrival email sequence fixes it.</div>
+          <div class="brief-action-card__text">Lead with the fee transparency pattern - four reviews in the reviewed window around Amex FHR credits and destination fee. Frame it as a communication gap, not a product problem, and show how one pre-arrival email sequence fixes it.</div>
         </div>
         <div class="brief-action-card">
           <div class="brief-action-card__label">Immediate fix</div>
@@ -571,10 +656,10 @@
             <span class="brief-badge brief-badge--pattern">Confirmed pattern</span>
           </div>
         </div>
-        <div class="brief-theme__count">4 mentions in 60-day window · ~11% of post-dedup working set</div>
+        <div class="brief-theme__count">4 mentions in reviewed window · ~11% of post-dedup working set</div>
         <blockquote class="brief-evidence">"The hotel added a resort fee (~$50 per night) above room cost. Feels silly to so aggressively nickel and dime at this price point."</blockquote>
         <blockquote class="brief-evidence">"We were told for the first time that the daily breakfast credit didn't cover room service - something nobody mentioned at check-in."</blockquote>
-        <div class="brief-flag brief-flag--warning">Four reviews in 60 days on a single complaint source is an unusually high concentration. Two received no public response. Amex FHR guests are vocal, detailed, and influential reviewers. One response (Chris Watson) did result in a fee refund and positive framing - that model should be the default, not the exception. This is a communication gap, not a product problem.</div>
+        <div class="brief-flag brief-flag--warning">Four reviews in the reviewed window on a single complaint source is an unusually high concentration. Two received no public response. Amex FHR guests are vocal, detailed, and influential reviewers. One response (Chris Watson) did result in a fee refund and positive framing - that model should be the default, not the exception. This is a communication gap, not a product problem.</div>
       </div>
 
       <div class="brief-theme" style="border-left:4px solid var(--brief-risk-critical);">
@@ -655,7 +740,7 @@
 
       <div class="brief-gap">
         <div class="brief-gap__claim"><strong>Website:</strong> Offers page and FAQ do not reference destination fee or its inclusions &nbsp;<span class="brief-badge brief-badge--risk-high">High gap severity</span> &nbsp;<span class="brief-badge brief-badge--risk-high">High conversion risk</span></div>
-        <div class="brief-gap__reality">Destination fee (~$50/night) is the single most complained-about item in the 60-day window. Guests describe it as an undisclosed surprise at checkout.</div>
+        <div class="brief-gap__reality">Destination fee (~$50/night) is the single most complained-about item in the reviewed window. Guests describe it as an undisclosed surprise at checkout.</div>
         <div class="brief-gap__recommendation">Add a destination fee FAQ entry listing inclusions (lobby coffee, Wi-Fi, fitness center). The manager's own response to Chris Watson already contains the right language - lift it directly.</div>
       </div>
 
@@ -796,9 +881,9 @@
     <!-- 08 LISTING + SOURCE ECOSYSTEM                -->
     <!-- ═══════════════════════════════════════════ -->
     <section class="brief-section" id="listing-optimization">
-      <h2 class="brief-section__title"><span class="brief-section__title-num">08</span> OTA, Listing &amp; Source Ecosystem Opportunities</h2>
+      <h2 class="brief-section__title"><span class="brief-section__title-num">08</span> OTA, Listing &amp; Source Ecosystem / Outreach Opportunities</h2>
 
-      <p style="font-size:0.82rem; color:var(--rb-muted); font-style:italic; margin-bottom:1rem;">Listing copy and source ecosystem checks are marketplace positioning evidence, not guest sentiment. Treat the source ecosystem pass as an optional capped premium module, not automated crawling, ranking proof, or AI visibility tracking.</p>
+      <p style="font-size:0.82rem; color:var(--rb-muted); font-style:italic; margin-bottom:1rem;">Listing copy and source ecosystem checks are marketplace positioning evidence, not guest sentiment. Treat the source ecosystem pass as an optional capped premium module: 3-5 queries, top 1-3 promising pages per query, 15 pages max. Skip OTAs, ads, map packs, thin affiliate spam, and irrelevant pages.</p>
 
       <p style="font-size:0.88rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:1.25rem;">OTA listings broadly support the property's architectural and location strengths. The biggest misalignment is fee and policy transparency - no listing discloses the destination fee or Amex FHR credit limitations, which is the primary driver of negative reviews. Agoda has a material error (restaurant menu type listed as 'Buffet'). Google Business Profile primary category is listed as 'Restaurant/bar'. F&amp;B listings underperform given the property's chef-named venue assets.</p>
 
@@ -817,7 +902,7 @@
 
       <div class="brief-gap">
         <div class="brief-gap__claim"><strong>Destination fee not disclosed in any OTA listing</strong> &nbsp;<span class="brief-badge brief-badge--risk-high">High impact</span> &nbsp;<span class="brief-badge brief-badge--risk-low">Low effort</span> &nbsp;<span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
-        <div class="brief-gap__reality">Four reviews in 60-day window cite destination fee surprise (~$50/night). Manager response to Chris Watson already contains the right language describing inclusions. No listing uses this language.</div>
+        <div class="brief-gap__reality">Four reviews in the reviewed window cite destination fee surprise (~$50/night). Manager response to Chris Watson already contains the right language describing inclusions. No listing uses this language.</div>
         <div class="brief-gap__recommendation">Add to each OTA's Policies / Important information field: "A destination fee of $[X] per night applies. Inclusions: complimentary lobby coffee, Wi-Fi, bi-level fitness center access." Affected channels: all six OTAs.</div>
         <div class="brief-flag">Priority 1 listing update. Should be completed before any other listing work. This is a 10-minute edit with a direct line to eliminating the most common complaint category in the reviewed sample.</div>
       </div>
@@ -884,7 +969,7 @@
         </tbody>
       </table>
 
-      <h3 class="brief-section__subtitle">Source Ecosystem Opportunities</h3>
+      <h3 class="brief-section__subtitle">Source Ecosystem / Outreach Opportunities</h3>
       <p class="brief-section-lede">This is the premium add-on: a capped 3-5 source check that looks for whether guest-backed strengths appear in high-value third-party discovery sources. It should not become broad internet research.</p>
       <table class="brief-table">
         <thead><tr><th>Opportunity</th><th>Why It Matters</th><th>Influence Level</th><th>Agency Action</th><th>Sellability</th></tr></thead>
@@ -1064,7 +1149,7 @@
           <div class="brief-theme__name">1. Build and deploy an Amex FHR pre-arrival communication protocol</div>
           <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High priority</span><span class="brief-badge brief-badge--risk-low">Immediate (30 days)</span></div>
         </div>
-        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.5rem;"><strong>Rationale:</strong> The most damaging reviews in the 60-day window are from Amex FHR guests who arrived without knowing the destination fee, breakfast credit cap, and room service exclusion. This is a communication gap, not a product gap.</p>
+        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.5rem;"><strong>Rationale:</strong> The most damaging reviews in the reviewed window are from Amex FHR guests who arrived without knowing the destination fee, breakfast credit cap, and room service exclusion. This is a communication gap, not a product gap.</p>
         <p style="font-size:0.82rem; color:var(--rb-muted);">Evidence: Four reviews (Kevin Zita, Chris Watson, Carl Holloway, Logan O'Connor). Impact: High - addresses the majority of negative reviews with no product change required. Effort: Medium. Confidence: High.</p>
       </div>
 
@@ -1082,7 +1167,7 @@
           <div class="brief-theme__name">3. Housekeeping and in-stay delivery consistency audit</div>
           <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-medium">Medium priority</span><span class="brief-badge brief-badge--risk-medium">30-60 days</span></div>
         </div>
-        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.5rem;"><strong>Rationale:</strong> Three separate complaints in the 60-day window highlight the same gap: guests paying $600+/night expect consistent standard delivery, not just peak-moment excellence.</p>
+        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55; margin-bottom:0.5rem;"><strong>Rationale:</strong> Three separate complaints in the reviewed window highlight the same gap: guests paying $600+/night expect consistent standard delivery, not just peak-moment excellence.</p>
         <p style="font-size:0.82rem; color:var(--rb-muted);">Focus areas: turndown consistency, complimentary water replenishment, post-incident follow-up protocol. Impact: Medium. Effort: Medium. Confidence: High.</p>
       </div>
 
@@ -1127,7 +1212,7 @@
           <div class="brief-theme__name">Premium booking benefit and checkout communication becoming an identifiable reputation pattern</div>
           <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-high">High severity</span><span class="brief-badge brief-badge--pattern">Escalating</span></div>
         </div>
-        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55;">4 of 36 unique reviews (~11%) raise this issue in 60 days. Pattern is concentrated enough to appear in AI-generated review summaries. Two are in the visible response audit queue.</p>
+        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55;">4 of 36 unique reviews (~11%) raise this issue in the reviewed window. Pattern is concentrated enough to appear in AI-generated review summaries. Two are in the visible response audit queue.</p>
         <p style="font-size:0.82rem; color:var(--rb-muted);"><strong>Mitigation:</strong> Pre-arrival communication protocol, OTA policy text update, consistent refund gesture for FHR credit mismatches as a standard practice (not an exception).</p>
       </div>
 
@@ -1145,7 +1230,7 @@
           <div class="brief-theme__name">Management inflexibility narrative gaining momentum</div>
           <div class="brief-theme__badges"><span class="brief-badge brief-badge--risk-medium">Medium-high severity</span><span class="brief-badge brief-badge--pattern">Pattern emerging</span></div>
         </div>
-        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55;">Three independent accounts in one 60-day period describe resolution paths that appear too dependent on management escalation. Kevin Zita (charge denied, staff described as "similarly rude"), Logan O'Connor (promised callbacks not delivered, told "considered informed" via camera footage), Jack Moldave (GM said it was "the most he could authorize").</p>
+        <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.55;">Three independent accounts in the reviewed period describe resolution paths that appear too dependent on management escalation. Kevin Zita (charge denied, staff described as "similarly rude"), Logan O'Connor (promised callbacks not delivered, told "considered informed" via camera footage), Jack Moldave (GM said it was "the most he could authorize").</p>
         <p style="font-size:0.82rem; color:var(--rb-muted);"><strong>Mitigation:</strong> Service recovery empowerment training. Establish clear escalation authority for common billing disputes without requiring senior management approval.</p>
       </div>
 
@@ -1174,7 +1259,7 @@
     <section class="brief-section" id="confidence-notes">
       <h2 class="brief-section__title"><span class="brief-section__title-num">12</span> Confidence Notes &amp; Limitations</h2>
 
-      <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:1rem;"><strong>Overall confidence: medium-high.</strong> The reviewed sample includes 41 review items from 6 sources over an approximately 60-day window. Hotels.com entries overlap with Expedia Group reviews, so theme frequency and rating calculations use 36 unique guest experiences. Booking.com is represented by an aggregate page with multiple quoted guest snippets, not a single guest review. Owner response visibility is partial. TripAdvisor source text was manually verified where the initial text view was incomplete.</p>
+      <p style="font-size:0.85rem; color:var(--rb-ink-soft); line-height:1.6; margin-bottom:1rem;"><strong>Overall confidence: medium-high.</strong> The reviewed sample includes 41 review items from 6 sources over the requested recent-review window. Hotels.com entries overlap with Expedia Group reviews, so theme frequency and rating calculations use 36 unique guest experiences. Booking.com is represented by an aggregate page with multiple quoted guest snippets, not a single guest review. Owner response visibility is partial. TripAdvisor source text was manually verified where the initial text view was incomplete.</p>
 
       <p style="font-size:0.78rem; color:var(--rb-clay); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.5rem;">Confidence &amp; Data Risk Flags</p>
 
@@ -1186,7 +1271,7 @@
 
       <div class="brief-flag">Google Business Profile category ('Restaurant/bar') and pool amenity listing appear potentially incorrect. Both require live GBP verification before client reporting.</div>
 
-      <div class="brief-flag">The requested review period was 'Last 60 days.' Some visible source material includes older items, so the reviewed sample is limited to items that fit the requested period.</div>
+      <div class="brief-flag">The requested review period should be carried through from the capture tool. Some visible source material may include older items, so the reviewed sample is limited to items that fit the requested period.</div>
 
       <p style="font-size:0.78rem; color:var(--rb-clay); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin: 1.25rem 0 0.5rem;">Analysis Limitations</p>
 
@@ -1196,7 +1281,7 @@
 
       <div class="brief-flag">Some TripAdvisor text required manual verification because the initial source view was incomplete. Verified source text should be used for any final client-facing quote selection.</div>
 
-      <div class="brief-flag">Review dataset represents a 60-day window only. Trend claims (e.g., 'Amex FHR complaints escalating') are directional hypotheses. Future brief cycles will enable trend validation.</div>
+      <div class="brief-flag">Review dataset represents a single requested review window only. Trend claims (e.g., 'Amex FHR complaints escalating') are directional hypotheses. Future brief cycles will enable trend validation.</div>
 
       <div class="brief-flag">Website review is lightweight and should not be presented as a full UX, SEO, or conversion audit. Structured-data findings are based on visible page signals, not a full technical crawl. All SEO and AI readiness findings are hypotheses and opportunities, not confirmed performance issues.</div>
 
