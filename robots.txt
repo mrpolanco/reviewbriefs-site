@@ -1,4 +1,51 @@
+# ReviewBriefs — robots.txt
+
+# ── Search engines ────────────────────────────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /reports/
 
 Sitemap: https://reviewbriefs.com/sitemap.xml
+
+# ── AI training crawlers ──────────────────────────────────────────────────────
+# These crawlers collect content for LLM training datasets.
+# Client reports are confidential deliverables and must not be used as training data.
+
+User-agent: GPTBot
+Disallow: /reports/
+
+User-agent: ChatGPT-User
+Disallow: /reports/
+
+User-agent: anthropic-ai
+Disallow: /reports/
+
+User-agent: ClaudeBot
+Disallow: /reports/
+
+User-agent: PerplexityBot
+Disallow: /reports/
+
+User-agent: CCBot
+Disallow: /reports/
+
+User-agent: Google-Extended
+Disallow: /reports/
+
+User-agent: Bytespider
+Disallow: /reports/
+
+User-agent: Diffbot
+Disallow: /reports/
+
+User-agent: cohere-ai
+Disallow: /reports/
+
+User-agent: YouBot
+Disallow: /reports/
+
+User-agent: omgili
+Disallow: /reports/
+
+User-agent: FacebookBot
+Disallow: /reports/
