@@ -218,6 +218,31 @@
       "Parking guidance can reduce avoidable arrival friction."
     ]
   },
+  "source_ecosystem": {
+    "summary": "Optional paid module. A capped 3-5 source check would focus on whether Casa Mariposa appears in relevant boutique hotel, breakfast, and romantic stay discovery sources.",
+    "recommended_queries": [
+      "best boutique hotels in Antigua",
+      "best hotels near Antigua center",
+      "best hotel breakfast Antigua",
+      "romantic boutique hotels Antigua",
+      "Antigua hotels with courtyard"
+    ],
+    "opportunities": [
+      {
+        "theme": "Best boutique hotels in Antigua",
+        "why_it_matters": "Courtyard and colonial character are already review-backed.",
+        "influence_level": "medium",
+        "recommended_action": "Identify relevant list sources and prepare a concise outreach/photo pitch."
+      },
+      {
+        "theme": "Best hotel breakfast Antigua",
+        "why_it_matters": "Breakfast appears in 54% of reviews and has specific local-food language.",
+        "influence_level": "medium",
+        "recommended_action": "Strengthen owned breakfast and listing language before outreach."
+      }
+    ],
+    "scope_note": "Not automated crawling or AI visibility tracking."
+  },
   "priority_actions": [
     {
       "priority": "high",
