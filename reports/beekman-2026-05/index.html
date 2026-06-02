@@ -565,10 +565,14 @@
         print-color-adjust: exact;
       }
       .brief-header {
-        padding: 0.38in 0.4in;
+        padding: 0.38in 0;
         margin-bottom: 0.24in;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+      }
+      .brief-header .container {
+        box-sizing: border-box;
+        padding: 0 0.4in !important;
       }
       .brief-section {
         break-inside: auto;
