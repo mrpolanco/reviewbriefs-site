@@ -108,6 +108,52 @@
     .brief-list li { font-size: 0.85rem; color: var(--rb-ink-soft); line-height: 1.55; margin-bottom: 0.3rem; }
     .brief-body-text { font-size: 0.875rem; color: var(--rb-ink-soft); line-height: 1.65; margin-bottom: 0.75rem; }
     .brief-muted-text { font-size: 0.8rem; color: var(--rb-muted); line-height: 1.55; margin-bottom: 0.5rem; }
+
+    /* ── SEO / AI Readiness section ── */
+    .seo-scope-note { font-size: 0.78rem; color: var(--rb-muted); line-height: 1.5; font-style: italic; padding: 0.6rem 0.85rem; background: var(--rb-cream); border-radius: 6px; margin-bottom: 1.25rem; border-left: 3px solid var(--rb-stone); }
+
+    .seo-strength-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 0.75rem 0 1.5rem; }
+    .seo-strength-card { background: var(--brief-risk-low-bg); border: 1px solid rgba(79,111,82,0.2); border-radius: 10px; padding: 0.75rem 0.9rem; display: flex; gap: 0.65rem; align-items: flex-start; }
+    .seo-strength-card__icon { flex-shrink: 0; width: 1.2rem; height: 1.2rem; background: var(--rb-moss); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.6rem; font-weight: 700; margin-top: 0.1rem; }
+    .seo-strength-card__text { font-size: 0.82rem; color: var(--brief-risk-low); line-height: 1.45; }
+    .seo-strength-card__text strong { display: block; font-weight: 600; margin-bottom: 0.15rem; color: #304734; }
+
+    .seo-weakness-card { background: var(--rb-paper); border: 1px solid var(--rb-line); border-left: 3px solid var(--brief-risk-high); border-radius: 0 10px 10px 0; padding: 0.8rem 1rem; margin-bottom: 0.6rem; display: flex; gap: 0.85rem; align-items: flex-start; }
+    .seo-weakness-card--medium { border-left-color: var(--brief-risk-medium); }
+    .seo-weakness-card__badge { flex-shrink: 0; margin-top: 0.05rem; }
+    .seo-weakness-card__body { flex: 1; font-size: 0.84rem; color: var(--rb-ink-soft); line-height: 1.5; }
+    .seo-weakness-card__page { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--rb-muted); margin-bottom: 0.2rem; }
+
+    .seo-opp-list { list-style: none; padding: 0; margin: 0.75rem 0 1.5rem; }
+    .seo-opp-list li { display: flex; gap: 0.85rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rb-line); align-items: flex-start; }
+    .seo-opp-list li:last-child { border-bottom: none; }
+    .seo-opp-list__num { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: var(--brief-risk-low-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: var(--rb-moss); font-weight: 700; margin-top: 0.1rem; }
+    .seo-opp-list__body { flex: 1; font-size: 0.85rem; color: var(--rb-ink-soft); line-height: 1.5; }
+    .seo-opp-list__body strong { color: var(--rb-ink); }
+    .seo-opp-list__meta { display: flex; gap: 0.35rem; margin-top: 0.35rem; flex-wrap: wrap; }
+
+    .seo-schema-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0.75rem 0 1.5rem; }
+    .seo-schema-card { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 10px; padding: 0.7rem 0.9rem; display: flex; gap: 0.75rem; align-items: flex-start; }
+    .seo-schema-card__dot { flex-shrink: 0; width: 0.65rem; height: 0.65rem; border-radius: 50%; margin-top: 0.3rem; }
+    .seo-schema-card__dot--yes { background: var(--rb-moss); }
+    .seo-schema-card__dot--no  { background: #C0392B; }
+    .seo-schema-card__body { flex: 1; min-width: 0; }
+    .seo-schema-card__name { font-size: 0.84rem; font-weight: 600; color: var(--rb-ink); line-height: 1.3; margin-bottom: 0.2rem; }
+    .seo-schema-card__note { font-size: 0.76rem; color: var(--rb-muted); line-height: 1.4; }
+    .seo-schema-card__status { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .seo-schema-card__status--yes { color: var(--rb-moss); }
+    .seo-schema-card__status--no  { color: #C0392B; }
+
+    .seo-faq-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 1.5rem; }
+    .seo-faq-chip { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 20px; padding: 0.4rem 0.85rem; font-size: 0.8rem; color: var(--rb-ink-soft); line-height: 1.3; }
+    .seo-faq-chip:hover { background: var(--rb-cream); border-color: var(--rb-sage); }
+
+    .seo-obs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 0.75rem 0; }
+    .seo-obs-card { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 10px; padding: 0.8rem 1rem; }
+    .seo-obs-card--gap { border-left: 3px solid #C0392B; border-radius: 0 10px 10px 0; }
+    .seo-obs-card--strength { border-left: 3px solid var(--rb-moss); border-radius: 0 10px 10px 0; }
+    .seo-obs-card__label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--rb-muted); margin-bottom: 0.3rem; }
+    .seo-obs-card__text { font-size: 0.83rem; color: var(--rb-ink-soft); line-height: 1.5; }
     @media print { .internal-banner, .brief-nav, .brief-header__actions { display: none; } .brief-layout { display: block; } .brief-content { padding: 0; max-width: 100%; } .brief-section { break-inside: avoid; } body { background: #fff; } }
     @media (max-width: 900px) { .brief-layout { grid-template-columns: 1fr; } .brief-nav { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--rb-line); display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.75rem 1rem; } .brief-nav__label { display: none; } .brief-nav__link { border-left: none; border-radius: 6px; background: var(--rb-stone); padding: 0.3rem 0.6rem; } .brief-content { padding: 1.5rem 1rem 3rem; } }
   </style>
@@ -619,66 +665,188 @@
     <section class="brief-section" id="seo-ai-readiness">
       <h2 class="brief-section__title"><span class="brief-section__title-num">08</span> Owned-Site Search &amp; AI Readiness</h2>
 
-      <p class="brief-muted-text">All findings are from website snapshot only. No traffic, ranking, indexing state, or AI citation data available. Findings are framed as strengths, opportunities, and hypotheses.</p>
+      <p class="seo-scope-note">Website snapshot only. No traffic, ranking, indexing state, or AI citation data available. All findings are strengths, opportunities, or hypotheses based on visible content and detected schema.</p>
 
       <h3 class="brief-section__subtitle">Strengths</h3>
-      <ul class="brief-list">
-        <li>Hotel schema (Hotel, LodgingBusiness, Place, Organization) consistently implemented across all 10 captured pages; provides a stronger machine-readable foundation for AI and search discovery</li>
-        <li>llms.txt present at root domain; few NYC boutique hotel competitors are likely to have this in place</li>
-        <li>sitemap.xml and robots.txt confirmed; no crawl-blocking issues detected</li>
-        <li>BreadcrumbList schema on all interior pages</li>
-        <li>VideoObject schema on Meetings and Events page</li>
-        <li>Address visible on all pages; NAP consistency supported site-wide</li>
-        <li>Homepage meta title: "Downtown NYC Luxury Hotel" with brand name; keyword-anchored</li>
-      </ul>
+      <div class="seo-strength-grid">
+        <div class="seo-strength-card">
+          <div class="seo-strength-card__icon">&#10003;</div>
+          <div class="seo-strength-card__text"><strong>Hotel schema</strong>Hotel, LodgingBusiness, Place, Organization on all 10 pages; strong machine-readable foundation.</div>
+        </div>
+        <div class="seo-strength-card">
+          <div class="seo-strength-card__icon">&#10003;</div>
+          <div class="seo-strength-card__text"><strong>llms.txt present</strong>AI crawler guidance at root domain; few NYC boutique hotel competitors have this.</div>
+        </div>
+        <div class="seo-strength-card">
+          <div class="seo-strength-card__icon">&#10003;</div>
+          <div class="seo-strength-card__text"><strong>Crawlability</strong>sitemap.xml and robots.txt confirmed; no crawl-blocking issues detected.</div>
+        </div>
+        <div class="seo-strength-card">
+          <div class="seo-strength-card__icon">&#10003;</div>
+          <div class="seo-strength-card__text"><strong>BreadcrumbList</strong>Present on all interior pages; supports sitelink structure and AI hierarchy.</div>
+        </div>
+        <div class="seo-strength-card">
+          <div class="seo-strength-card__icon">&#10003;</div>
+          <div class="seo-strength-card__text"><strong>Address / NAP</strong>Visible on all pages; local entity clarity for Google Maps and AI local queries.</div>
+        </div>
+        <div class="seo-strength-card">
+          <div class="seo-strength-card__icon">&#10003;</div>
+          <div class="seo-strength-card__text"><strong>Homepage title</strong>"Downtown NYC Luxury Hotel" with brand name; keyword-anchored.</div>
+        </div>
+      </div>
 
-      <h3 class="brief-section__subtitle">Weaknesses</h3>
-      <ul class="brief-list">
-        <li><span class="brief-badge brief-badge--risk-high">High confidence</span> Amenities page meta description is abstract; unlikely to rank for informational amenity queries (pet policy, fitness center, room service hours)</li>
-        <li><span class="brief-badge brief-badge--risk-high">High confidence</span> Offers page meta description focuses on "best available rates" rather than specific packages; does not capture leisure or experience-intent queries (jazz brunch, culinary package)</li>
-        <li><span class="brief-badge brief-badge--risk-medium">Medium confidence</span> Awards and Press page has no award or publication names in meta or H1 text; CNT, Coveteur, Imbibe, Forbes placements not surfaced to search or AI systems</li>
-        <li><span class="brief-badge brief-badge--risk-high">High confidence</span> Dining page meta mentions Tom Colicchio but not Daniel Boulud; Jazz Brunch not in page title or meta</li>
-      </ul>
+      <h3 class="brief-section__subtitle">Gaps to Address</h3>
+
+      <div class="seo-weakness-card">
+        <div class="seo-weakness-card__badge"><span class="brief-badge brief-badge--risk-high">High</span></div>
+        <div class="seo-weakness-card__body">
+          <div class="seo-weakness-card__page">Dining page</div>
+          Meta mentions Tom Colicchio but not Daniel Boulud. Jazz Brunch absent from page title and meta. Both are independently searchable assets with name-search audiences.
+        </div>
+      </div>
+
+      <div class="seo-weakness-card">
+        <div class="seo-weakness-card__badge"><span class="brief-badge brief-badge--risk-high">High</span></div>
+        <div class="seo-weakness-card__body">
+          <div class="seo-weakness-card__page">Amenities page</div>
+          Meta description is abstract ("luxury for the modern day time-traveler"); no specific amenities named. Unlikely to surface for informational amenity queries (pet policy, 24/7 room service, fitness).
+        </div>
+      </div>
+
+      <div class="seo-weakness-card">
+        <div class="seo-weakness-card__badge"><span class="brief-badge brief-badge--risk-high">High</span></div>
+        <div class="seo-weakness-card__body">
+          <div class="seo-weakness-card__page">Offers page</div>
+          Meta focuses on "best available rates" with no specific packages or experiences; misses leisure and experience-intent queries (jazz brunch, culinary package, couples weekend).
+        </div>
+      </div>
+
+      <div class="seo-weakness-card seo-weakness-card--medium">
+        <div class="seo-weakness-card__badge"><span class="brief-badge brief-badge--risk-medium">Medium</span></div>
+        <div class="seo-weakness-card__body">
+          <div class="seo-weakness-card__page">Awards &amp; Press page</div>
+          No award names or publication names in visible meta or H1 text. CNT, Coveteur, Imbibe, Forbes placements not surfaced to search or AI systems.
+        </div>
+      </div>
 
       <h3 class="brief-section__subtitle">Opportunities</h3>
-      <ul class="brief-list">
-        <li><strong>Add Jazz Brunch and Le Gratin (Daniel Boulud) to Dining page title and meta:</strong> Captures F&amp;B-intent queries; Le Gratin has an independent name-search audience. Low effort.</li>
-        <li><strong>Rewrite Amenities page meta description:</strong> Name specific amenities guests praise (24/7 room service, pet-friendly, fitness center, lobby bar). Low effort.</li>
-        <li><strong>Add award and press names to Awards page:</strong> Reinforces entity authority; supports AI knowledge graph accuracy. Low effort.</li>
-        <li><strong>Add FAQPage schema markup to FAQ page:</strong> Positions page for AI-generated answer box responses on destination fee, FHR benefits, parking. Medium effort.</li>
+      <ul class="seo-opp-list">
+        <li>
+          <div class="seo-opp-list__num">1</div>
+          <div class="seo-opp-list__body">
+            <strong>Add Daniel Boulud + Jazz Brunch to Dining page title and meta</strong><br>
+            Le Gratin has an independent name-search audience; Jazz Brunch captures leisure intent not currently reachable via the site.
+            <div class="seo-opp-list__meta"><span class="brief-badge brief-badge--risk-low">Low effort</span><span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="seo-opp-list__num">2</div>
+          <div class="seo-opp-list__body">
+            <strong>Rewrite Amenities meta description with named amenities</strong><br>
+            24/7 room service, pet-friendly, fitness center, atrium lobby bar. Captures informational queries from guests comparing hotels pre-booking.
+            <div class="seo-opp-list__meta"><span class="brief-badge brief-badge--risk-low">Low effort</span><span class="brief-badge brief-badge--intensity-high">High confidence</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="seo-opp-list__num">3</div>
+          <div class="seo-opp-list__body">
+            <strong>Add publication names to Awards page meta and content</strong><br>
+            CNT, Coveteur, Imbibe, Forbes. Reinforces entity authority; supports AI knowledge graph accuracy.
+            <div class="seo-opp-list__meta"><span class="brief-badge brief-badge--risk-low">Low effort</span><span class="brief-badge brief-badge--intensity-medium">Medium confidence</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="seo-opp-list__num">4</div>
+          <div class="seo-opp-list__body">
+            <strong>Add FAQPage schema to FAQ page</strong><br>
+            Positions the page for AI-generated answer box responses on common hotel queries (destination fee, FHR benefits, parking).
+            <div class="seo-opp-list__meta"><span class="brief-badge brief-badge--risk-medium">Medium effort</span><span class="brief-badge brief-badge--intensity-medium">Medium confidence</span></div>
+          </div>
+        </li>
       </ul>
 
-      <h3 class="brief-section__subtitle">Schema Findings</h3>
-      <table class="brief-table">
-        <thead><tr><th>Schema Type</th><th>Present</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>Hotel / LodgingBusiness</td><td>Yes</td><td>All 10 captured pages. Core entity schema consistently implemented.</td></tr>
-          <tr><td>BreadcrumbList</td><td>Yes</td><td>All interior pages.</td></tr>
-          <tr><td>VideoObject</td><td>Yes</td><td>Meetings and Events page only.</td></tr>
-          <tr><td>WebSite</td><td>Yes</td><td>All captured pages.</td></tr>
-          <tr><td>FAQPage / Q&amp;A schema</td><td>No</td><td>FAQ page exists but structured data not confirmed. Opportunity to add.</td></tr>
-          <tr><td>Restaurant schema for named venues</td><td>No</td><td>The Bar Room, Le Gratin, and Temple Court are named on site but no Restaurant/FoodEstablishment schema detected. Gap for AI entity association with Colicchio and Boulud.</td></tr>
-        </tbody>
-      </table>
+      <h3 class="brief-section__subtitle">Schema Status</h3>
+      <div class="seo-schema-grid">
+        <div class="seo-schema-card">
+          <div class="seo-schema-card__dot seo-schema-card__dot--yes"></div>
+          <div class="seo-schema-card__body">
+            <div class="seo-schema-card__name">Hotel / LodgingBusiness</div>
+            <div class="seo-schema-card__status seo-schema-card__status--yes">Present</div>
+            <div class="seo-schema-card__note">All 10 captured pages. Core entity schema consistently implemented.</div>
+          </div>
+        </div>
+        <div class="seo-schema-card">
+          <div class="seo-schema-card__dot seo-schema-card__dot--yes"></div>
+          <div class="seo-schema-card__body">
+            <div class="seo-schema-card__name">BreadcrumbList</div>
+            <div class="seo-schema-card__status seo-schema-card__status--yes">Present</div>
+            <div class="seo-schema-card__note">All interior pages.</div>
+          </div>
+        </div>
+        <div class="seo-schema-card">
+          <div class="seo-schema-card__dot seo-schema-card__dot--yes"></div>
+          <div class="seo-schema-card__body">
+            <div class="seo-schema-card__name">WebSite</div>
+            <div class="seo-schema-card__status seo-schema-card__status--yes">Present</div>
+            <div class="seo-schema-card__note">All captured pages.</div>
+          </div>
+        </div>
+        <div class="seo-schema-card">
+          <div class="seo-schema-card__dot seo-schema-card__dot--yes"></div>
+          <div class="seo-schema-card__body">
+            <div class="seo-schema-card__name">VideoObject</div>
+            <div class="seo-schema-card__status seo-schema-card__status--yes">Present</div>
+            <div class="seo-schema-card__note">Meetings &amp; Events page only.</div>
+          </div>
+        </div>
+        <div class="seo-schema-card">
+          <div class="seo-schema-card__dot seo-schema-card__dot--no"></div>
+          <div class="seo-schema-card__body">
+            <div class="seo-schema-card__name">FAQPage schema</div>
+            <div class="seo-schema-card__status seo-schema-card__status--no">Not detected</div>
+            <div class="seo-schema-card__note">FAQ page exists. Opportunity to add for AI answer surfaces.</div>
+          </div>
+        </div>
+        <div class="seo-schema-card">
+          <div class="seo-schema-card__dot seo-schema-card__dot--no"></div>
+          <div class="seo-schema-card__body">
+            <div class="seo-schema-card__name">Restaurant / FoodEstablishment</div>
+            <div class="seo-schema-card__status seo-schema-card__status--no">Not detected</div>
+            <div class="seo-schema-card__note">The Bar Room, Le Gratin, Temple Court are named but entity-orphaned. Gap for Colicchio and Boulud AI association.</div>
+          </div>
+        </div>
+      </div>
 
       <h3 class="brief-section__subtitle">FAQ Opportunities</h3>
-      <ul class="brief-list">
-        <li>What is the destination fee and what does it include?</li>
-        <li>Does the hotel accept Amex Fine Hotels and Resorts (FHR) benefits?</li>
-        <li>What is the Jazz Brunch schedule and how do I reserve?</li>
-        <li>Is The Beekman pet-friendly?</li>
-        <li>What are the dining options and do I need a reservation for Le Gratin?</li>
-        <li>What are the check-in and check-out times?</li>
-        <li>Is parking available near The Beekman?</li>
-      </ul>
+      <div class="seo-faq-chips">
+        <span class="seo-faq-chip">What is the destination fee?</span>
+        <span class="seo-faq-chip">Amex FHR benefits at The Beekman</span>
+        <span class="seo-faq-chip">Jazz Brunch schedule and reservations</span>
+        <span class="seo-faq-chip">Is The Beekman pet-friendly?</span>
+        <span class="seo-faq-chip">Do I need a reservation for Le Gratin?</span>
+        <span class="seo-faq-chip">Check-in and check-out times</span>
+        <span class="seo-faq-chip">Parking near The Beekman</span>
+      </div>
 
       <h3 class="brief-section__subtitle">AI Visibility Observations</h3>
-      <ul class="brief-list">
-        <li>llms.txt differentiates the property from most boutique NYC hotel competitors</li>
-        <li>Hotel schema coverage is strong; AI systems reading structured data will have accurate property entity information</li>
-        <li>The absence of Restaurant schema for named venues is a gap for AI systems trying to associate Colicchio and Boulud with this hotel as entities</li>
-        <li>FAQ page without FAQPage schema is a missed opportunity for AI-generated answer surfaces on high-volume hotel queries</li>
-      </ul>
+      <div class="seo-obs-grid">
+        <div class="seo-obs-card seo-obs-card--strength">
+          <div class="seo-obs-card__label">Differentiator</div>
+          <div class="seo-obs-card__text">llms.txt at root domain signals proactive AI crawler awareness; few boutique NYC hotel competitors are likely to have this.</div>
+        </div>
+        <div class="seo-obs-card seo-obs-card--strength">
+          <div class="seo-obs-card__label">Strong foundation</div>
+          <div class="seo-obs-card__text">Hotel schema coverage is comprehensive; AI systems reading structured data will have accurate property entity information.</div>
+        </div>
+        <div class="seo-obs-card seo-obs-card--gap">
+          <div class="seo-obs-card__label">Entity gap</div>
+          <div class="seo-obs-card__text">No Restaurant schema for named venues means AI systems cannot cleanly associate Tom Colicchio or Daniel Boulud with this hotel as structured entities.</div>
+        </div>
+        <div class="seo-obs-card seo-obs-card--gap">
+          <div class="seo-obs-card__label">Answer surface gap</div>
+          <div class="seo-obs-card__text">FAQ page without FAQPage schema is a missed opportunity for AI-generated answer box responses on high-volume hotel queries (fees, FHR, parking).</div>
+        </div>
+      </div>
     </section>
 
     <hr class="brief-divider">
