@@ -109,6 +109,14 @@
     .brief-body-text { font-size: 0.875rem; color: var(--rb-ink-soft); line-height: 1.65; margin-bottom: 0.75rem; }
     .brief-muted-text { font-size: 0.8rem; color: var(--rb-muted); line-height: 1.55; margin-bottom: 0.5rem; }
 
+    /* ── Suggested owner responses ── */
+    .brief-response-card { background: var(--rb-paper); border: 1px solid var(--rb-line); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem; }
+    .brief-response-card__meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+    .brief-response-card__issue { font-size: 0.82rem; color: var(--rb-ink-soft); line-height: 1.45; margin-bottom: 0.75rem; }
+    .brief-response-card__label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rb-muted); margin-bottom: 0.4rem; }
+    .brief-response-card__text { font-size: 0.875rem; color: var(--rb-ink); line-height: 1.65; background: var(--rb-cream); border-radius: 8px; padding: 0.85rem 1rem; border-left: 3px solid var(--rb-sage); font-style: italic; }
+    .brief-response-card__copy-hint { font-size: 0.72rem; color: var(--rb-muted); margin-top: 0.5rem; }
+
     /* ── SEO / AI Readiness section ── */
     .seo-scope-note { font-size: 0.78rem; color: var(--rb-muted); line-height: 1.5; font-style: italic; padding: 0.6rem 0.85rem; background: var(--rb-cream); border-radius: 6px; margin-bottom: 1.25rem; border-left: 3px solid var(--rb-stone); }
 
@@ -198,6 +206,7 @@
     <a href="#seo-ai-readiness"     class="brief-nav__link"><span class="brief-nav__num">08</span> SEO / AI Readiness</a>
     <a href="#listing-optimization" class="brief-nav__link"><span class="brief-nav__num">09</span> OTA &amp; Ecosystem</a>
     <a href="#response-analysis"    class="brief-nav__link"><span class="brief-nav__num">10</span> Response Analysis</a>
+    <a href="#sample-responses"     class="brief-nav__link"><span class="brief-nav__num">10b</span> Sample Responses</a>
     <a href="#quick-wins"           class="brief-nav__link"><span class="brief-nav__num">11</span> Wins &amp; Strategy</a>
     <a href="#confidence-notes"     class="brief-nav__link"><span class="brief-nav__num">12</span> Confidence Notes</a>
   </nav>
@@ -246,7 +255,7 @@
         </div>
         <div class="brief-action-card">
           <div class="brief-action-card__label">Immediate Fix (This Week)</div>
-          <div class="brief-action-card__body">Public response to the sanitation review (photos attached, no current response). Google Business Profile primary category correction from Restaurant/bar to Hotel. Zero-cost actions.</div>
+          <div class="brief-action-card__body">Public response to the sanitation review (photos attached, no current response). Zero-cost action with the highest urgency in the dataset.</div>
         </div>
         <div class="brief-action-card">
           <div class="brief-action-card__label">Upsell Path</div>
@@ -259,7 +268,7 @@
         <thead><tr><th>Service Opportunity</th><th>Why It Sells</th><th>Buyer Pain</th><th>Suggested First Offer</th></tr></thead>
         <tbody>
           <tr><td><strong>Review Response Program</strong></td><td>13 visible unanswered high-risk reviews; sanitation review with photos has no response</td><td>GM/GR team not keeping up; broken callback promises generating secondary complaints</td><td>Response audit of top 13 items + 48-hr SLA protocol template</td></tr>
-          <tr><td><strong>OTA / Listing Refresh</strong></td><td>Google category wrong (Restaurant/bar); fee not disclosed; Boulud attribution missing</td><td>Fee-surprise complaints generating 1-star reviews on otherwise positive stays</td><td>GBP category correction + Mandatory Fees update across 3 OTAs</td></tr>
+          <tr><td><strong>OTA / Listing Refresh</strong></td><td>Destination fee not disclosed; Boulud attribution missing; Jazz Brunch absent from listings</td><td>Fee-surprise complaints generating 1-star reviews on otherwise positive stays</td><td>Mandatory Fees update across 3 OTAs + chef attribution + brunch listing</td></tr>
           <tr><td><strong>F&amp;B Profile / Outreach</strong></td><td>Bar Room and Le Gratin have editorial traction (Coveteur, Imbibe); CNT and Eater gaps are pitchable</td><td>Named-chef venues not appearing in high-value roundups despite credentials</td><td>Ecosystem audit + CNT hotel bars and Eater NYC outreach pitch</td></tr>
           <tr><td><strong>FAQ / Policy Clarity</strong></td><td>Destination fee, FHR credit, room service exclusion generate repeat disputes</td><td>Same billing complaint appearing 5 times; front-desk script does not exist</td><td>FHR check-in disclosure script + FAQ page schema + OTA policy field update</td></tr>
           <tr><td><strong>Owned-Site AI-Readiness</strong></td><td>llms.txt present; Hotel schema strong; FAQPage and Restaurant schema are gaps</td><td>Le Gratin and Temple Court are entity-orphaned on the site</td><td>FAQPage schema + Restaurant schema for named venues</td></tr>
@@ -857,16 +866,7 @@
 
       <p class="brief-muted-text">Listing copy is marketplace positioning evidence, not guest sentiment. Internal-only section.</p>
 
-      <p class="brief-body-text">Seven OTA and profile listings show three structural gaps: Google Business Profile categorizes the property as Restaurant/bar rather than Hotel; several listings omit named-chef attribution for Le Gratin (Daniel Boulud); and fee-friction expectations are not pre-empted in any listing copy. Review-backed strengths (atrium, Jazz Brunch, pet-friendly policy) are underused across most listings.</p>
-
-      <h3 class="brief-section__subtitle">Critical Listing Gap</h3>
-      <div class="brief-gap">
-        <div class="brief-gap__claim"><strong>Gap:</strong> Google Business Profile primary category: Restaurant/bar instead of Hotel</div>
-        <div class="brief-gap__reality">The primary listing category determines which search queries surface the property. As Restaurant/bar, the property may be suppressed in hotel-intent search queries on Google Maps.</div>
-        <p style="margin:0.3rem 0 0.5rem; font-size:0.82rem;"><span class="brief-badge brief-badge--risk-high">High impact</span> <span class="brief-badge brief-badge--risk-low">Low effort</span></p>
-        <div class="brief-gap__recommendation">Update primary category to Hotel via GBP dashboard. Retain Restaurant and Bar as secondary categories. Highest-priority single listing update.</div>
-        <div class="brief-flag">Agency note: GBP dashboard edit. Current categorization may suppress hotel-intent impressions across Google Search and Maps.</div>
-      </div>
+      <p class="brief-body-text">Seven OTA and profile listings show two structural gaps: several listings omit named-chef attribution for Le Gratin (Daniel Boulud), and fee-friction expectations (destination fee, breakfast credit cap) are not pre-empted in any listing copy. Review-backed strengths (atrium, Jazz Brunch, pet-friendly policy) are underused across most listings.</p>
 
       <h3 class="brief-section__subtitle">High-Value Listing Gaps</h3>
 
@@ -904,7 +904,7 @@
       <table class="brief-table">
         <thead><tr><th>Channel</th><th>What to Check</th><th>Opportunity</th></tr></thead>
         <tbody>
-          <tr><td>Google Business Profile</td><td>Primary category (currently Restaurant/bar); description for Boulud/Brunch attribution; Mandatory Fees field</td><td>Critical category correction + fee disclosure</td></tr>
+          <tr><td>Google Business Profile</td><td>Description for Boulud/Brunch attribution; Mandatory Fees field</td><td>Chef attribution + fee disclosure</td></tr>
           <tr><td>Booking.com</td><td>Mandatory Fees field; Special Offers for Jazz Brunch</td><td>Fee disclosure + brunch highlight</td></tr>
           <tr><td>Expedia</td><td>Description for Boulud attribution; Mandatory Fees; Special Offers</td><td>Fee disclosure + chef attribution + brunch</td></tr>
           <tr><td>Hotels.com</td><td>Same as Expedia (Expedia Group parity)</td><td>Same as Expedia</td></tr>
@@ -925,7 +925,7 @@
       <table class="brief-table">
         <thead><tr><th>Opportunity</th><th>Client Value</th><th>Agency Value</th><th>Effort</th><th>Sellability</th></tr></thead>
         <tbody>
-          <tr><td>GBP category correction + Boulud/Brunch attribution</td><td>Hotel search visibility; F&amp;B discovery</td><td>Quick win proof-of-work</td><td>Low</td><td>High</td></tr>
+          <tr><td>Boulud/Brunch attribution in GBP + OTAs</td><td>F&amp;B discovery for chef name and brunch intent searches</td><td>Quick win proof-of-work</td><td>Low</td><td>High</td></tr>
           <tr><td>OTA Mandatory Fees update (3 platforms)</td><td>Reduces primary source of 1-star reviews</td><td>High-ROI deliverable with measurable impact</td><td>Low</td><td>High</td></tr>
           <tr><td>Front-desk FHR disclosure script</td><td>Eliminates billing complaint cluster trigger</td><td>Operational consulting deliverable</td><td>Low</td><td>Medium</td></tr>
           <tr><td>Bar Room / Le Gratin outreach campaign</td><td>CNT or Eater placement would be a credential milestone</td><td>Premium deliverable; retainer anchor</td><td>Medium</td><td>High</td></tr>
@@ -1065,6 +1065,83 @@
 
     <hr class="brief-divider">
 
+    <!-- 10b SAMPLE OWNER RESPONSES -->
+    <section class="brief-section" id="sample-responses">
+      <h2 class="brief-section__title"><span class="brief-section__title-num">10b</span> Sample Owner Responses</h2>
+      <p class="brief-muted-text">Ready-to-send draft responses for the key unanswered reviews. Replace [Name] and [email] before posting. Ordered by urgency.</p>
+
+      <div class="brief-response-card">
+        <div class="brief-response-card__meta">
+          <span class="brief-badge brief-badge--risk-critical">Critical</span>
+          <span class="brief-badge brief-badge--isolated">Review 7</span>
+          <span class="brief-badge" style="background:var(--rb-stone);color:var(--rb-muted);">Google &middot; 2&#9733;</span>
+        </div>
+        <div class="brief-response-card__issue">Sanitation (green and brown water, photos attached), 20+ minute response wait, dinner plans canceled, points-only resolution. No current response.</div>
+        <div class="brief-response-card__label">Suggested response</div>
+        <div class="brief-response-card__text">Dear Jack, thank you for sharing this, and I am genuinely sorry for what you experienced on your second night. Discolored water with no timely response from our team is not something that should happen at The Beekman, and the way it was handled did not meet the standard we hold ourselves to. We have reviewed the incident with our engineering and facilities teams and addressed the underlying plumbing issue. I would also like to speak with you directly about making this right in a way that better reflects the stay you deserved. Please reach out to me personally at [email]. I hope we have the chance to restore your confidence in the property. Warm regards, [Name], Director of Guest Relations, The Beekman</div>
+        <p class="brief-response-card__copy-hint">Respond on Google within 24 hours. Do not wait for an internal review before posting.</p>
+      </div>
+
+      <div class="brief-response-card">
+        <div class="brief-response-card__meta">
+          <span class="brief-badge brief-badge--risk-high">High</span>
+          <span class="brief-badge brief-badge--isolated">Review 23</span>
+          <span class="brief-badge" style="background:var(--rb-stone);color:var(--rb-muted);">Google &middot; 2&#9733;</span>
+        </div>
+        <div class="brief-response-card__issue">Outstanding Amex FHR credits not applied, breakfast restriction not disclosed at check-in, camera footage interaction, multiple failed callbacks despite a genuinely positive stay.</div>
+        <div class="brief-response-card__label">Suggested response</div>
+        <div class="brief-response-card__text">Dear Logan, thank you for sharing this so thoughtfully. It is clear the stay itself reflected what The Beekman can be at its best, and the checkout experience did not. I am sorry for the way the breakfast credit question was handled, and more so for the follow-up process, which fell well short of what you should have been able to expect. I would like to address the outstanding credit directly and speak with you about the experience as a whole. Please reach out to me at [email]. Thank you again for the generosity you showed in describing what worked well. Warm regards, [Name], Director of Guest Relations, The Beekman</div>
+        <p class="brief-response-card__copy-hint">Lead with appreciation for the positive framing. Do not reference the camera footage incident in the public response.</p>
+      </div>
+
+      <div class="brief-response-card">
+        <div class="brief-response-card__meta">
+          <span class="brief-badge brief-badge--risk-high">High</span>
+          <span class="brief-badge brief-badge--isolated">Review 4</span>
+          <span class="brief-badge" style="background:var(--rb-stone);color:var(--rb-muted);">Google &middot; 2&#9733;</span>
+        </div>
+        <div class="brief-response-card__issue">Late checkout fee charged without notice, no upgrade offered across multiple FHR stays, breakfast credits unusable, front desk service described as rude.</div>
+        <div class="brief-response-card__label">Suggested response</div>
+        <div class="brief-response-card__text">Dear Kevin, thank you for your candid feedback, and I am sorry this stay did not reflect the experience a returning Amex FHR guest deserves. The late checkout billing should have been communicated clearly in advance, and your experience with our team fell short of the warmth and responsiveness you are right to expect. I would like to resolve the outstanding billing concern and speak with you about how we can better recognize your loyalty going forward. Please reach out to me directly at [email] and I will be glad to make this right. Sincerely, [Name], Director of Guest Relations, The Beekman</div>
+        <p class="brief-response-card__copy-hint">Do not name Ana publicly. Focus on the systemic billing issue and the offer to resolve directly.</p>
+      </div>
+
+      <div class="brief-response-card">
+        <div class="brief-response-card__meta">
+          <span class="brief-badge brief-badge--risk-medium">Medium</span>
+          <span class="brief-badge brief-badge--isolated">Review 18</span>
+          <span class="brief-badge" style="background:var(--rb-stone);color:var(--rb-muted);">Google &middot; 3&#9733;</span>
+        </div>
+        <div class="brief-response-card__issue">Turndown failed three consecutive nights despite request, lukewarm room service, inadequate crib, no kids menu, FHR breakfast credit cap felt misleading. Return family guest.</div>
+        <div class="brief-response-card__label">Suggested response</div>
+        <div class="brief-response-card__text">Dear Carl, thank you for returning to us and for taking the time to share such detailed and constructive feedback. I am glad the elements you enjoy about The Beekman continued to come through, and I am sorry the housekeeping consistency and family amenities let the stay down. The turndown request should have been honored without you having to follow up across three nights. I have shared your observations with our housekeeping team and we are reviewing our family amenity standards. We hope to welcome you and your family back and to give you the stay you have every right to expect from us. Warm regards, [Name], The Beekman Team</div>
+      </div>
+
+      <div class="brief-response-card">
+        <div class="brief-response-card__meta">
+          <span class="brief-badge brief-badge--risk-low">Low</span>
+          <span class="brief-badge brief-badge--isolated">Review 22</span>
+          <span class="brief-badge" style="background:var(--rb-stone);color:var(--rb-muted);">Google &middot; 3&#9733;</span>
+        </div>
+        <div class="brief-response-card__issue">Five-night return guest; toilet paper quality poor, attributed to Hyatt cost-cutting.</div>
+        <div class="brief-response-card__label">Suggested response</div>
+        <div class="brief-response-card__text">Dear Ray, thank you for five nights with us and for raising this honestly rather than simply not returning. Your point about the amenity quality is fair, and we have passed it directly to our management team. We want every element of the stay to reflect the standard you come to The Beekman expecting. We look forward to welcoming you back. Warm regards, [Name], The Beekman Team</div>
+      </div>
+
+      <div class="brief-response-card">
+        <div class="brief-response-card__meta">
+          <span class="brief-badge brief-badge--risk-low">Low</span>
+          <span class="brief-badge brief-badge--isolated">Review 8</span>
+          <span class="brief-badge" style="background:var(--rb-stone);color:var(--rb-muted);">Google &middot; 1&#9733;</span>
+        </div>
+        <div class="brief-response-card__issue">Outdoor heater running in warm weather (over 70°F).</div>
+        <div class="brief-response-card__label">Suggested response</div>
+        <div class="brief-response-card__text">Dear Kathi, thank you for flagging this. You are right that our outdoor heating should not be running when temperatures are already comfortable, and I have passed this directly to our facilities team to ensure we are monitoring and adjusting more responsively. We appreciate guests taking the time to point out details like this. We hope to welcome you back soon. Warm regards, [Name], The Beekman Team</div>
+      </div>
+    </section>
+
+    <hr class="brief-divider">
+
     <!-- 11 QUICK WINS + STRATEGY + REPUTATION RISK -->
     <section class="brief-section" id="quick-wins">
       <h2 class="brief-section__title"><span class="brief-section__title-num">11</span> Quick Wins, Strategic Recommendations &amp; Reputation Risk</h2>
@@ -1076,14 +1153,6 @@
           <div class="brief-win__action">Respond publicly to the sanitation review (photos attached, no visible response)</div>
           <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">Green and brown water documented with photos; 20+ minute response wait; points-only resolution. No owner response visible. Highest-urgency item in the dataset.</p>
           <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-critical">Critical</span><span class="brief-badge brief-badge--area-response">Response</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
-        </div>
-      </div>
-
-      <div class="brief-win">
-        <div class="brief-win__body">
-          <div class="brief-win__action">Correct Google Business Profile primary category from Restaurant/bar to Hotel</div>
-          <p style="font-size:0.82rem; color:var(--rb-muted); line-height:1.45; margin-top:0.25rem;">GBP currently categorized as Restaurant/bar. Low-risk change with potential high upside for hotel-intent search visibility.</p>
-          <div class="brief-win__badges"><span class="brief-badge brief-badge--risk-high">High impact</span><span class="brief-badge brief-badge--area-website">Listing</span><span class="brief-badge brief-badge--risk-low">Low effort</span></div>
         </div>
       </div>
 
