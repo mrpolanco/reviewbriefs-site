@@ -20,7 +20,9 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 reviewbriefs-site/
   index.html
   sample-report.html
-  request-report.html
+  request-baseline.html
+  order-report.html
+  request-report.html     ← legacy redirect to request-baseline.html
   pricing.html
   thank-you.html
   404.html
@@ -52,7 +54,9 @@ reviewbriefs-site/
 | `index.html` | Homepage - explain offer, push to sample report or request form |
 | `sample-report.html` | Teaser page - abbreviated report, CTA to full report |
 | `reports/sample-boutique-hotel/index.html` | Full sample report - the most important asset |
-| `request-report.html` | Lead capture form (Tally/Fillout embed) |
+| `request-baseline.html` | Free baseline snapshot lead capture form |
+| `order-report.html` | Paid full ReviewBrief order form |
+| `request-report.html` | Legacy redirect to `request-baseline.html` |
 | `pricing.html` | Private beta pricing ($0 sample / $99 one-time / $499/mo agency) |
 | `thank-you.html` | Post-form confirmation |
 
@@ -177,7 +181,7 @@ Report print styles hide header, footer, CTAs and remove shadows. The print butt
 
 ## Form workflow
 
-No backend. Use **Tally** or **Fillout** embed on `request-report.html`.
+No backend. Use **Tally** or **Fillout** embeds on `request-baseline.html` and `order-report.html`.
 
 Form fields map to future DB columns: `name`, `email`, `company`, `property_name`, `property_website`, `city_country`, `property_type`, `main_goal`, `review_links`, `pasted_reviews`.
 
@@ -225,7 +229,9 @@ URL structure is intentionally close to future Laravel routes:
 |---|---|
 | `index.html` | `Route::view('/', 'marketing.home')` |
 | `sample-report.html` | `Route::view('/sample-report', ...)` |
-| `request-report.html` | `Route::view('/request-report', ...)` |
+| `request-baseline.html` | `Route::view('/request-baseline', ...)` |
+| `order-report.html` | `Route::view('/order-report', ...)` |
+| `request-report.html` | legacy redirect to `/request-baseline` |
 | `pricing.html` | `Route::view('/pricing', ...)` |
 | `reports/sample-boutique-hotel/` | `Route::get('/reports/{report:slug}', ...)` |
 | _(future)_ `/app` | Authenticated dashboard |
