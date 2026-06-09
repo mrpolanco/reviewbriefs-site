@@ -163,6 +163,28 @@
       padding: 1rem 1.1rem;
     }
 
+    .snapshot-inline-cta {
+      align-items: flex-start;
+      background: #fff;
+      border: 1px solid var(--snapshot-line);
+      border-radius: 10px;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+
+    .snapshot-inline-cta p {
+      margin: 0;
+    }
+
+    .snapshot-inline-cta .btn,
+    .snapshot-cta .btn {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
     .snapshot-cta {
       background: var(--rb-moss-dark);
       border-radius: 14px;
@@ -177,6 +199,14 @@
 
     .snapshot-cta strong {
       color: #fff;
+    }
+
+    .snapshot-cta .brief-section__title {
+      color: #fff;
+    }
+
+    .snapshot-cta__actions {
+      margin-top: 1rem;
     }
 
     .snapshot-footer {
@@ -196,6 +226,17 @@
 
       .brief-section {
         padding: 1.1rem;
+      }
+
+      .snapshot-inline-cta {
+        display: block;
+      }
+
+      .snapshot-inline-cta .btn,
+      .snapshot-cta .btn {
+        justify-content: center;
+        margin-top: 0.9rem;
+        width: 100%;
       }
     }
   </style>
@@ -223,7 +264,10 @@
       <h2 class="brief-section__title">Snapshot Summary</h2>
       <p class="snapshot-lede">This free baseline snapshot reviews 68 recent public reviews across Google, Booking.com, and TripAdvisor. Casa Mariposa shows a strong visible reputation, with an average rating in reviewed sample of <strong>4.7</strong> and positive sentiment concentrated around courtyard atmosphere, personal service, and breakfast.</p>
       <p class="snapshot-lede">The main improvement signals are practical rather than brand-breaking: Wi-Fi reliability, hot water consistency, and arrival or room-expectation clarity. The reviewed sample suggests the property has a highly marketable guest experience, with a few fixable friction points that could protect review quality.</p>
-      <p class="snapshot-lede"><strong>Want the full source-backed version?</strong> Order the full ReviewBrief for evidence, priorities, owner-response opportunities, and client-ready recommendations.</p>
+      <div class="snapshot-inline-cta">
+        <p class="snapshot-lede"><strong>Want the full source-backed version?</strong><br>Get prioritized recommendations, review evidence, owner-response opportunities, and marketing language your team can act on.</p>
+        <a class="btn btn-secondary" href="../../../request-report.html">Get the full ReviewBrief</a>
+      </div>
     </section>
 
     <section class="brief-section" id="top-praise-signals">
@@ -289,14 +333,11 @@
     </section>
 
     <section class="snapshot-cta" id="next-step">
-      <h2 class="brief-section__title">Next Step</h2>
-      <p><strong>Order the full ReviewBrief</strong> for source-level evidence, action priorities, owner-response opportunities, marketing language, and a client-ready PDF/web report.</p>
-      <ul class="snapshot-list">
-        <li>Guest language worth reusing in direct booking copy</li>
-        <li>Marketing opportunities and perception gaps</li>
-        <li>Owner-response opportunities for visible reputation risk</li>
-        <li>Prioritized recommendations with evidence behind each action</li>
-      </ul>
+      <h2 class="brief-section__title">Turn this snapshot into an action plan.</h2>
+      <p>The full ReviewBrief includes source-level evidence, priority recommendations, response opportunities, and a client-ready PDF/web report.</p>
+      <div class="snapshot-cta__actions">
+        <a class="btn btn-primary" href="../../../request-report.html">Order the full ReviewBrief - $199</a>
+      </div>
     </section>
   </main>
 
