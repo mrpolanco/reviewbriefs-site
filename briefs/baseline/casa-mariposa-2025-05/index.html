@@ -135,6 +135,26 @@
       margin-top: 0.65rem;
     }
 
+    .snapshot-top-note {
+      background: #fff;
+      border: 1px solid var(--snapshot-line);
+      border-left: 4px solid var(--snapshot-moss);
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 1rem;
+      padding: 1rem 1.1rem;
+    }
+
+    .snapshot-top-note p {
+      color: var(--rb-ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .snapshot-top-note p + p {
+      margin-top: 0.55rem;
+    }
+
     .brief-insight {
       background: var(--snapshot-gold-bg);
       border: 1px solid rgba(198, 161, 91, 0.28);
@@ -195,6 +215,11 @@
   </header>
 
   <main class="snapshot-shell">
+    <div class="snapshot-top-note">
+      <p>This is a limited free snapshot designed to identify visible review signals, not a full operational or marketing audit.</p>
+      <p><strong>Want the full source-backed version?</strong> Order the full ReviewBrief for evidence, priorities, owner-response opportunities, and a client-ready PDF/web report.</p>
+    </div>
+
     <section class="brief-section" id="snapshot-summary">
       <h2 class="brief-section__title">Snapshot Summary</h2>
       <p class="snapshot-lede">This free baseline snapshot reviews 68 recent public reviews across Google, Booking.com, and TripAdvisor. Casa Mariposa shows a strong visible reputation, with an average rating in reviewed sample of <strong>4.7</strong> and positive sentiment concentrated around courtyard atmosphere, personal service, and breakfast.</p>
@@ -231,7 +256,7 @@
         <div class="snapshot-card">
           <span class="snapshot-card__label">Risk Signal</span>
           <div class="snapshot-card__title">Wi-Fi dead zones in east-wing rooms</div>
-          <p class="snapshot-card__text">Wi-Fi issues appear in 21% of the reviewed sample and are tied to rooms 7-11. This looks like the highest-impact fixable operational friction.</p>
+          <p class="snapshot-card__text">In the sample report data, Wi-Fi issues appear as a recurring east-wing signal tied to rooms 7-11. This looks like the highest-impact fixable operational friction to validate.</p>
         </div>
         <div class="snapshot-card">
           <span class="snapshot-card__label">Risk Signal</span>
@@ -246,8 +271,8 @@
       </div>
     </section>
 
-    <section class="brief-section" id="initial-action-ideas">
-      <h2 class="brief-section__title">Initial Action Ideas</h2>
+    <section class="brief-section" id="quick-wins-to-investigate">
+      <h2 class="brief-section__title">Quick Wins to Investigate</h2>
       <ul class="snapshot-list">
         <li><strong>Check Wi-Fi coverage in rooms 7-11.</strong> The reviewed sample suggests this issue has a disproportionate effect on lower ratings from otherwise interested guests.</li>
         <li><strong>Audit hot water reliability in rooms 3, 4, and 6.</strong> A focused maintenance check could remove one of the clearest sources of low-review risk.</li>
